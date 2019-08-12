@@ -31,12 +31,18 @@ If you want to show tweets with videos, please check the [video_player installat
 
 ## Supported media types:
 
-- 1 photo
-- 2 photos
-- 3 photos
-- 4 photos
-- 1 video
-- 1 gif
+| variant                        | screenshot standard                                                               | screenshot compact                                                               |
+|:------------------------------:|:----------------------------------------------------------------------------------|:---------------------------------------------------------------------------------|
+| 1 photo                        | <img src="screenshots/standard_1_photo.png" width="200" height="400" />           | <img src="screenshots/compact_1_photo.png" width="200" height="400" />           |
+| 2 photos                       | <img src="screenshots/standard_2_photos.png" width="200" height="400" />          | <img src="screenshots/compact_2_photos.png" width="200" height="400" />          |
+| 3 photos                       | <img src="screenshots/standard_3_photos.png" width="200" height="400" />          | <img src="screenshots/compact_3_photos.png" width="200" height="400" />          |
+| 4 photos                       | <img src="screenshots/standard_4_photos.png" width="200" height="400" />          | <img src="screenshots/compact_4_photos.png" width="200" height="400" />          |
+| video                          | <img src="screenshots/standard_video.png" width="200" height="400" />             | <img src="screenshots/compact_video.png" width="200" height="400" />             |
+| video <br>with <br>placeholder | <img src="screenshots/standard_video_placeholder.png" width="200" height="400" /> | <img src="screenshots/compact_video_placeholder.png" width="200" height="400" /> |
+| gif                            | <img src="screenshots/standard_gif.png" width="200" height="400" />               | <img src="screenshots/compact_gif.png" width="200" height="400" />               |
+| gif <br>with <br>placeholder   | <img src="screenshots/standard_gif_placeholder.png" width="200" height="400" />   | <img src="screenshots/compact_gif_placeholder.png" width="200" height="400" />   |
+| quote <br>with <br>4 images    | <img src="screenshots/standard_quote.png" width="200" height="400" />             | <img src="screenshots/compact_quote.png" width="200" height="400" />             |
+| quote <br>with <br>video       | <img src="screenshots/standard_quote_video.png" width="200" height="400" />       | <img src="screenshots/compact_quote_video.png" width="200" height="400" />       |
 
 ## Tweet view types
 
@@ -49,6 +55,7 @@ Video are
 
 ## Styling Tweets
 
+All texts are customizable. You can use the `default...` styles like in the example below.
 By default the `chewie`/`video_player` package is used to show a gif (which is actually a .mp4 in the Twitter API) , but you can set the `useVideoPlayer` flag to `false` if you want to show a image placeholder provided by the Twitter API and open a video in a new page.
 
 ```
@@ -80,7 +87,9 @@ Card(
     ),
   );
 ```
-
+|    variant    | screenshot standard                                                          | screenshot compact                                                          |
+|:-------------:|:-----------------------------------------------------------------------------|:----------------------------------------------------------------------------|
+| Custom styles | <img src="screenshots/standard_quote_custom.png" width="200" height="400" /> | <img src="screenshots/compact_quote_custom.png" width="200" height="400" /> |
 
 
 ## TODO
