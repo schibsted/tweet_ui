@@ -42,9 +42,17 @@ If you want to show tweets with videos, please check the [video_player installat
 
 ## Styling Tweets
 
-All texts are customizable. You can use the `default...` styles like in the example below.
+By default the `chewie`/`video_player` package is used to show a gif/video, but you can set the `useVideoPlayer` flag to `false` if you want to show a image placeholder provided by the Twitter API and open a video in a new page.
 
-By default the `chewie`/`video_player` package is used to show a gif (which is actually a .mp4 in the Twitter API) , but you can set the `useVideoPlayer` flag to `false` if you want to show a image placeholder provided by the Twitter API and open a video in a new page.
+|    Variant    | With video_player/chewie                                                               | With placeholder                                                         |
+|:-------------:|:-----------------------------------------------------------------------------|:----------------------------------------------------------------------------|
+| Standard Video | <img src="screenshots/standard_video.png" width="200" height="400" /> | <img src="screenshots/standard_video_placeholder.png" width="200" height="400" /> |
+| Compact Video | <img src="screenshots/compact_video.png" width="200" height="400" /> | <img src="screenshots/compact_video_placeholder.png" width="200" height="400" /> |
+| Standard Gif | <img src="screenshots/standard_gif.png" width="200" height="400" /> | <img src="screenshots/standard_gif_placeholder.png" width="200" height="400" /> |
+| Compact Gif | <img src="screenshots/compact_gif.png" width="200" height="400" /> | <img src="screenshots/compact_gif_placeholder.png" width="200" height="400" /> |
+
+
+All texts are customizable. You can copy from the `defaultxxx` styles like in the example below.
 
 ```
 Card(
@@ -75,9 +83,12 @@ Card(
     ),
   );
 ```
+
 |    Variant    | Standard tweet                                                               | Compact tweet                                                               |
 |:-------------:|:-----------------------------------------------------------------------------|:----------------------------------------------------------------------------|
 | Custom styles | <img src="screenshots/standard_quote_custom.png" width="200" height="400" /> | <img src="screenshots/compact_quote_custom.png" width="200" height="400" /> |
+
+<img src="screenshots/diagram.jpg"/>
 
 
 ## TODO
