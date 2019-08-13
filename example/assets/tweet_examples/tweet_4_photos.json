@@ -1,0 +1,360 @@
+{
+  "created_at": "Mon May 08 17:02:53 +0000 2017",
+  "id": 861627479294746624,
+  "id_str": "861627479294746624",
+  "text": "Test Tweet with @mentionThis $twtr https://t.co/RzmrQ6wAzD #hashtag https://t.co/9r69akA484",
+  "truncated": false,
+  "entities": {
+    "hashtags": [
+      {
+        "text": "hashtag",
+        "indices": [
+          59,
+          67
+        ]
+      }
+    ],
+    "symbols": [
+      {
+        "text": "twtr",
+        "indices": [
+          29,
+          34
+        ]
+      }
+    ],
+    "user_mentions": [
+      {
+        "screen_name": "MentionThis",
+        "name": "Just Me",
+        "id": 50247739,
+        "id_str": "50247739",
+        "indices": [
+          16,
+          28
+        ]
+      }
+    ],
+    "urls": [
+      {
+        "url": "https://t.co/RzmrQ6wAzD",
+        "expanded_url": "http://bit.ly/2pUk4be",
+        "display_url": "bit.ly/2pUk4be",
+        "indices": [
+          35,
+          58
+        ]
+      }
+    ],
+    "media": [
+      {
+        "id": 861627472244162561,
+        "id_str": "861627472244162561",
+        "indices": [
+          68,
+          91
+        ],
+        "media_url": "http://pbs.twimg.com/media/C_UdnvPUwAE3Dnn.jpg",
+        "media_url_https": "https://pbs.twimg.com/media/C_UdnvPUwAE3Dnn.jpg",
+        "url": "https://t.co/9r69akA484",
+        "display_url": "pic.twitter.com/9r69akA484",
+        "expanded_url": "https://twitter.com/FloodSocial/status/861627479294746624/photo/1",
+        "type": "photo",
+        "sizes": {
+          "thumb": {
+            "w": 150,
+            "h": 150,
+            "resize": "crop"
+          },
+          "large": {
+            "w": 2048,
+            "h": 1536,
+            "resize": "fit"
+          },
+          "small": {
+            "w": 680,
+            "h": 510,
+            "resize": "fit"
+          },
+          "medium": {
+            "w": 1200,
+            "h": 900,
+            "resize": "fit"
+          }
+        }
+      }
+    ]
+  },
+  "extended_entities": {
+    "media": [
+      {
+        "id": 861627472244162561,
+        "id_str": "861627472244162561",
+        "indices": [
+          68,
+          91
+        ],
+        "media_url": "http://pbs.twimg.com/media/C_UdnvPUwAE3Dnn.jpg",
+        "media_url_https": "https://pbs.twimg.com/media/C_UdnvPUwAE3Dnn.jpg",
+        "url": "https://t.co/9r69akA484",
+        "display_url": "pic.twitter.com/9r69akA484",
+        "expanded_url": "https://twitter.com/FloodSocial/status/861627479294746624/photo/1",
+        "type": "photo",
+        "sizes": {
+          "thumb": {
+            "w": 150,
+            "h": 150,
+            "resize": "crop"
+          },
+          "large": {
+            "w": 2048,
+            "h": 1536,
+            "resize": "fit"
+          },
+          "small": {
+            "w": 680,
+            "h": 510,
+            "resize": "fit"
+          },
+          "medium": {
+            "w": 1200,
+            "h": 900,
+            "resize": "fit"
+          }
+        }
+      },
+      {
+        "id": 861627472244203520,
+        "id_str": "861627472244203520",
+        "indices": [
+          68,
+          91
+        ],
+        "media_url": "http://pbs.twimg.com/media/C_UdnvPVYAAZbEs.jpg",
+        "media_url_https": "https://pbs.twimg.com/media/C_UdnvPVYAAZbEs.jpg",
+        "url": "https://t.co/9r69akA484",
+        "display_url": "pic.twitter.com/9r69akA484",
+        "expanded_url": "https://twitter.com/FloodSocial/status/861627479294746624/photo/1",
+        "type": "photo",
+        "sizes": {
+          "large": {
+            "w": 2048,
+            "h": 2048,
+            "resize": "fit"
+          },
+          "thumb": {
+            "w": 150,
+            "h": 150,
+            "resize": "crop"
+          },
+          "medium": {
+            "w": 1200,
+            "h": 1200,
+            "resize": "fit"
+          },
+          "small": {
+            "w": 680,
+            "h": 680,
+            "resize": "fit"
+          }
+        }
+      },
+      {
+        "id": 861627474144149504,
+        "id_str": "861627474144149504",
+        "indices": [
+          68,
+          91
+        ],
+        "media_url": "http://pbs.twimg.com/media/C_Udn2UUQAADZIS.jpg",
+        "media_url_https": "https://pbs.twimg.com/media/C_Udn2UUQAADZIS.jpg",
+        "url": "https://t.co/9r69akA484",
+        "display_url": "pic.twitter.com/9r69akA484",
+        "expanded_url": "https://twitter.com/FloodSocial/status/861627479294746624/photo/1",
+        "type": "photo",
+        "sizes": {
+          "thumb": {
+            "w": 150,
+            "h": 150,
+            "resize": "crop"
+          },
+          "large": {
+            "w": 2048,
+            "h": 1536,
+            "resize": "fit"
+          },
+          "small": {
+            "w": 680,
+            "h": 510,
+            "resize": "fit"
+          },
+          "medium": {
+            "w": 1200,
+            "h": 900,
+            "resize": "fit"
+          }
+        }
+      },
+      {
+        "id": 861627474760708096,
+        "id_str": "861627474760708096",
+        "indices": [
+          68,
+          91
+        ],
+        "media_url": "http://pbs.twimg.com/media/C_Udn4nUMAAgcIa.jpg",
+        "media_url_https": "https://pbs.twimg.com/media/C_Udn4nUMAAgcIa.jpg",
+        "url": "https://t.co/9r69akA484",
+        "display_url": "pic.twitter.com/9r69akA484",
+        "expanded_url": "https://twitter.com/FloodSocial/status/861627479294746624/photo/1",
+        "type": "photo",
+        "sizes": {
+          "large": {
+            "w": 2048,
+            "h": 2048,
+            "resize": "fit"
+          },
+          "thumb": {
+            "w": 150,
+            "h": 150,
+            "resize": "crop"
+          },
+          "medium": {
+            "w": 1200,
+            "h": 1200,
+            "resize": "fit"
+          },
+          "small": {
+            "w": 680,
+            "h": 680,
+            "resize": "fit"
+          }
+        }
+      }
+    ]
+  },
+  "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+  "in_reply_to_status_id": null,
+  "in_reply_to_status_id_str": null,
+  "in_reply_to_user_id": null,
+  "in_reply_to_user_id_str": null,
+  "in_reply_to_screen_name": null,
+  "user": {
+    "id": 944480690,
+    "id_str": "944480690",
+    "name": "API demos",
+    "screen_name": "FloodSocial",
+    "location": "Boulder, CO",
+    "description": "Exploring @TwitterDev, one demo or test at a time. \n🌍💧❄️🌧️☀️ \n@FloodSocial notification sign-up bot was the precursor to @SnowBotDev",
+    "url": "https://t.co/rzmuONbWMR",
+    "entities": {
+      "url": {
+        "urls": [
+          {
+            "url": "https://t.co/rzmuONbWMR",
+            "expanded_url": "https://github.com/jimmoffitt/FloodSocial",
+            "display_url": "github.com/jimmoffitt/Flo…",
+            "indices": [
+              0,
+              23
+            ]
+          }
+        ]
+      },
+      "description": {
+        "urls": []
+      }
+    },
+    "protected": false,
+    "followers_count": 73,
+    "friends_count": 19,
+    "listed_count": 5,
+    "created_at": "Mon Nov 12 19:59:55 +0000 2012",
+    "favourites_count": 36,
+    "utc_offset": null,
+    "time_zone": null,
+    "geo_enabled": true,
+    "verified": false,
+    "statuses_count": 187,
+    "lang": null,
+    "contributors_enabled": false,
+    "is_translator": false,
+    "is_translation_enabled": false,
+    "profile_background_color": "000000",
+    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+    "profile_background_tile": false,
+    "profile_image_url": "http://pbs.twimg.com/profile_images/2880307445/a6de07ce4053d93d9dd8db5f56f210ec_normal.png",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/2880307445/a6de07ce4053d93d9dd8db5f56f210ec_normal.png",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/944480690/1412809012",
+    "profile_link_color": "7FDBB6",
+    "profile_sidebar_border_color": "000000",
+    "profile_sidebar_fill_color": "000000",
+    "profile_text_color": "000000",
+    "profile_use_background_image": false,
+    "has_extended_profile": false,
+    "default_profile": false,
+    "default_profile_image": false,
+    "following": null,
+    "follow_request_sent": null,
+    "notifications": null,
+    "translator_type": "none"
+  },
+  "geo": {
+    "type": "Point",
+    "coordinates": [
+      40.200895,
+      -105.14292217
+    ]
+  },
+  "coordinates": {
+    "type": "Point",
+    "coordinates": [
+      -105.14292217,
+      40.200895
+    ]
+  },
+  "place": {
+    "id": "2736a5db074e8201",
+    "url": "https://api.twitter.com/1.1/geo/id/2736a5db074e8201.json",
+    "place_type": "city",
+    "name": "Longmont",
+    "full_name": "Longmont, CO",
+    "country_code": "US",
+    "country": "United States",
+    "contained_within": [],
+    "bounding_box": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -105.178564,
+            40.125504
+          ],
+          [
+            -105.045869,
+            40.125504
+          ],
+          [
+            -105.045869,
+            40.206357
+          ],
+          [
+            -105.178564,
+            40.206357
+          ]
+        ]
+      ]
+    },
+    "attributes": {}
+  },
+  "contributors": null,
+  "is_quote_status": false,
+  "retweet_count": 6,
+  "favorite_count": 6,
+  "favorited": false,
+  "retweeted": false,
+  "possibly_sensitive": false,
+  "possibly_sensitive_appealable": false,
+  "lang": "en"
+}
