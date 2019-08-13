@@ -4,8 +4,6 @@ Flutter Tweet UI - Flutter package that is inspired from [twitter-kit-android](h
 
 Works on iOS and Android.
 
-Note: Sample tweets may be different from original tweets, so don't be surprised when you click and it will differ from the one at twitter.com.
-
 ## Getting Started
 
 To use this package add it to the pubspec.yaml file:
@@ -30,6 +28,8 @@ TweetView.fromTweet(
 If you want to show tweets with videos, please check the [video_player installation](https://pub.dev/packages/video_player#installation).
 
 ## Example of supported view and media types:
+
+> Sample tweets use real life tweet ids but for example purposes their content was changed.
 
 | Variant  | Standard tweet                                                           | Compact tweet                                                           | Standard Quote tweet                                                           | Compact Quote tweet                                                           |
 |:--------:|:-------------------------------------------------------------------------|:------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:------------------------------------------------------------------------------|
