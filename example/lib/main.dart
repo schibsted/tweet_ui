@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(home: TweetUiExample()));
 
+/// Main page of the example app
 class TweetUiExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -53,6 +54,7 @@ class TweetUiExample extends StatelessWidget {
     );
   }
 
+  /// Builds a button that opens a [TweetPage]
   Widget buildButton(String title, String tweetPath, String quoteTweetPath, BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 4.0),

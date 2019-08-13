@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Standard Tweet
+/// Standard TweetView text styles
 const defaultUserNameStyle = const TextStyle(
   fontSize: 16.0,
   fontFamily: 'Roboto',
@@ -30,7 +30,7 @@ const defaultClickableTextStyle = const TextStyle(
   color: Colors.blue,
 );
 
-/// Compact Tweet
+/// CompactTweetView text styles
 const defaultCompactUserNameStyle = const TextStyle(
   fontSize: 15.0,
   fontFamily: 'Roboto',
@@ -59,7 +59,7 @@ const defaultCompactClickableTextStyle = const TextStyle(
   color: Colors.blue,
 );
 
-/// Quote Tweet
+/// QuoteTweetView text styles
 const defaultQuoteUserNameStyle = const TextStyle(
   fontSize: 14.0,
   fontFamily: 'Roboto',

@@ -12,22 +12,36 @@ import 'package:tweet_ui/src/url_launcher.dart';
 import 'package:tweet_ui/src/view_mode.dart';
 
 class TweetView extends StatelessWidget {
-  final TweetVM tweetVM;
+  /// Business logic class created from [TweetVM.fromApiModel]
+  final TweetVM _tweetVM;
+  /// Style of the user name
   final TextStyle userNameStyle;
+  /// Style of the '@' user name and the date of the Tweet
   final TextStyle userScreenNameStyle;
+  /// Style of the Tweet text
   final TextStyle textStyle;
+  /// Style of the clickable elements in the Tweet text (URLs, mentions, hashtags, symbols)
   final TextStyle clickableTextStyle;
+  /// Style of the user name in a embedded quote Tweet
   final TextStyle quoteUserNameStyle;
+  /// Style of the '@' user name and the date of the Tweet in a embedded quote Tweet
   final TextStyle quoteUserScreenNameStyle;
+  /// Style of the Tweet text in a embedded quote Tweet
   final TextStyle quoteTextStyle;
+  /// Style of the clickable elements in the Tweet text (URLs, mentions, hashtags, symbols) in a embedded quote Tweet
   final TextStyle quoteClickableTextStyle;
+  /// Color of the border around embedded quote Tweet
   final Color quoteBorderColor;
+  /// Color of the embedded quote Tweet background
   final Color quoteBackgroundColor;
+  /// Color of the Tweet background
   final Color backgroundColor;
+  /// If set to true a chewie/video_player will be used in a Tweet containing a video.
+  /// If set to false a image placeholder will he shown and a video will be played in a new page.
   final bool useVideoPlayer;
 
   TweetView(
-    this.tweetVM, {
+    this._tweetVM, {
     this.userNameStyle,
     this.userScreenNameStyle,
     this.textStyle,
@@ -56,7 +70,7 @@ class TweetView extends StatelessWidget {
     this.quoteBackgroundColor = Colors.white,
     this.backgroundColor = Colors.white,
     this.useVideoPlayer = true,
-  }) : tweetVM = TweetVM.fromApiModel(tweet);
+  }) : _tweetVM = TweetVM.fromApiModel(tweet);
 
   @override
   Widget build(BuildContext context) {
@@ -65,13 +79,13 @@ class TweetView extends StatelessWidget {
       child: Column(
         children: <Widget>[
           MediaContainer(
-            tweetVM,
+            _tweetVM,
             ViewMode.standard,
             useVideoPlayer: useVideoPlayer,
           ),
           GestureDetector(
             onTap: () {
-              openUrl(tweetVM.tweetLink);
+              openUrl(_tweetVM.tweetLink);
             },
             child: Column(
               children: <Widget>[
@@ -80,18 +94,18 @@ class TweetView extends StatelessWidget {
                   child: GestureDetector(
                     behavior: HitTestBehavior.translucent,
                     onTap: () {
-                      openUrl(tweetVM.userLink);
+                      openUrl(_tweetVM.userLink);
                     },
                     child: Stack(
                       children: <Widget>[
                         IntrinsicHeight(
                           child: Row(
                             children: <Widget>[
-                              ProfileImage(tweetVM: tweetVM),
+                              ProfileImage(tweetVM: _tweetVM),
                               Padding(
                                 padding: const EdgeInsets.only(left: 8.0),
                                 child: Byline(
-                                  tweetVM,
+                                  _tweetVM,
                                   ViewMode.standard,
                                   userNameStyle: userNameStyle,
                                   userScreenNameStyle: userScreenNameStyle,
@@ -110,22 +124,22 @@ class TweetView extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    openUrl(tweetVM.tweetLink);
+                    openUrl(_tweetVM.tweetLink);
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: TweetText(
-                      tweetVM,
+                      _tweetVM,
                       textStyle: textStyle,
                       clickableTextStyle: clickableTextStyle,
                     ),
                   ),
                 ),
-                (tweetVM.quotedTweet != null)
+                (_tweetVM.quotedTweet != null)
                     ? Padding(
                         padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
                         child: QuoteTweetView.fromTweet(
-                          tweetVM.quotedTweet,
+                          _tweetVM.quotedTweet,
                           textStyle: quoteTextStyle,
                           clickableTextStyle: quoteClickableTextStyle,
                           userNameStyle: quoteUserNameStyle,

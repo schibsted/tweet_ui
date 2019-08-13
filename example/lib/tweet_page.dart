@@ -3,18 +3,21 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:tweet_ui/models/api/tweet.dart';
 import 'package:tweet_ui/tweet_ui.dart';
 
+/// Widget containing 4 Tweet types:
+/// TweetView, CompactTweetView, TweetView with a quoted Tweet, CompactTweetView with a quoted Tweet
 class TweetPage extends StatelessWidget {
+  /// The AppBar title and prefix for the header title
   final String mediaType;
+  /// The path to a Tweet JSON file
   final String tweetPath;
+  /// The path to a Tweet with a embedded quote JSON file
   final String quoteTweetPath;
-  final bool useVideoPlayer;
 
   const TweetPage(
     this.mediaType,
     this.tweetPath,
     this.quoteTweetPath, {
     Key key,
-    this.useVideoPlayer = true,
   }) : super(key: key);
 
   @override
@@ -38,6 +41,7 @@ class TweetPage extends StatelessWidget {
     );
   }
 
+  /// Builds a header for a TweetView
   Widget buildHeader(String headerTitle) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -48,6 +52,7 @@ class TweetPage extends StatelessWidget {
     );
   }
 
+  /// Builds a TweetView from a JSON file
   Widget buildTweet(String jsonFile) {
     return FutureBuilder(
       future: rootBundle.loadString(jsonFile),
@@ -57,7 +62,6 @@ class TweetPage extends StatelessWidget {
             Tweet.fromRawJson(
               snapshot.data,
             ),
-            useVideoPlayer: useVideoPlayer,
           );
         }
         if (snapshot.hasError) {
@@ -73,6 +77,7 @@ class TweetPage extends StatelessWidget {
     );
   }
 
+  /// Builds a CompactTweetView from a JSON file
   Widget buildCompactTweetView(String jsonFile) {
     return FutureBuilder(
       future: rootBundle.loadString(jsonFile),
@@ -82,7 +87,6 @@ class TweetPage extends StatelessWidget {
             Tweet.fromRawJson(
               snapshot.data,
             ),
-            useVideoPlayer: useVideoPlayer,
           );
         }
         if (snapshot.hasError) {
