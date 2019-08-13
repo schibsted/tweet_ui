@@ -1,7 +1,7 @@
 name: tweet_ui
 description: Flutter Tweet UI
 version: 0.1.0
-author: OmniNext team @ Schibsted
+author: OmniNext team @ Schibsted <michal.kawalko@schibsted.com>
 homepage: https://github.com/schibsted/tweet_ui
 
 environment:
