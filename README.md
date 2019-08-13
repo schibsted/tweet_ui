@@ -18,7 +18,7 @@ import it:
 
 and create a `TweetView` from a JSON:
 
-```
+```dart
 TweetView.fromTweet(
     Tweet.fromRawJson(
         jsonFromTwitterAPI
@@ -54,7 +54,7 @@ By default the `chewie`/`video_player` package is used to show a gif/video, but 
 
 All texts are customizable. You can copy from the `defaultxxx`, `defaultCompactxxx` and `defaultQuotexxx`styles like in the example below.
 
-```
+```dart
 Card(
     color: Colors.grey,
     child: Padding(
