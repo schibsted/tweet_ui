@@ -38,7 +38,7 @@ If you want to show tweets with videos, please check the [video_player installat
 | 3 photos | <img src="screenshots/standard_3_photos.png" width="200" height="400" /> | <img src="screenshots/compact_3_photos.png" width="200" height="400" /> | <img src="screenshots/standard_quote_3_photos.png" width="200" height="400" /> | <img src="screenshots/compact_quote_3_photos.png" width="200" height="400" /> |
 | 4 photos | <img src="screenshots/standard_4_photos.png" width="200" height="400" /> | <img src="screenshots/compact_4_photos.png" width="200" height="400" /> | <img src="screenshots/standard_quote_4_photos.png" width="200" height="400" /> | <img src="screenshots/compact_quote_4_photos.png" width="200" height="400" /> |
 |  video   | <img src="screenshots/standard_video.png" width="200" height="400" />    | <img src="screenshots/compact_video.png" width="200" height="400" />    | <img src="screenshots/standard_quote_video.png" width="200" height="400" />    | <img src="screenshots/compact_quote_video.png" width="200" height="400" />    |
-|   gif    | <img src="screenshots/standard_gif.png" width="200" height="400" />      | <img src="screenshots/compact_gif.png" width="200" height="400" />      | <img src="screenshots/standard_quote_gif.png" width="200" height="400" />      | <img src="screenshots/compact_quote_gif.png" width="200" height="400" />      |
+|   GIF    | <img src="screenshots/standard_gif.png" width="200" height="400" />      | <img src="screenshots/compact_gif.png" width="200" height="400" />      | <img src="screenshots/standard_quote_gif.png" width="200" height="400" />      | <img src="screenshots/compact_quote_gif.png" width="200" height="400" />      |
 
 ## Styling Tweets
 
@@ -48,11 +48,11 @@ By default the `chewie`/`video_player` package is used to show a gif/video, but 
 |:-------------:|:-----------------------------------------------------------------------------|:----------------------------------------------------------------------------|
 | Standard Video | <img src="screenshots/standard_video.png" width="200" height="400" /> | <img src="screenshots/standard_video_placeholder.png" width="200" height="400" /> |
 | Compact Video | <img src="screenshots/compact_video.png" width="200" height="400" /> | <img src="screenshots/compact_video_placeholder.png" width="200" height="400" /> |
-| Standard Gif | <img src="screenshots/standard_gif.png" width="200" height="400" /> | <img src="screenshots/standard_gif_placeholder.png" width="200" height="400" /> |
-| Compact Gif | <img src="screenshots/compact_gif.png" width="200" height="400" /> | <img src="screenshots/compact_gif_placeholder.png" width="200" height="400" /> |
+| Standard GIF | <img src="screenshots/standard_gif.png" width="200" height="400" /> | <img src="screenshots/standard_gif_placeholder.png" width="200" height="400" /> |
+| Compact GIF | <img src="screenshots/compact_gif.png" width="200" height="400" /> | <img src="screenshots/compact_gif_placeholder.png" width="200" height="400" /> |
 
 
-All texts are customizable. You can copy from the `defaultxxx` styles like in the example below.
+All texts are customizable. You can copy from the `defaultxxx`, `defaultCompactxxx` and `defaultQuotexxx`styles like in the example below.
 
 ```
 Card(
