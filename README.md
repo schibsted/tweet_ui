@@ -4,7 +4,7 @@ Flutter Tweet UI - Flutter package that is inspired from [twitter-kit-android](h
 
 Works on iOS and Android.
 
-Note: Sample tweets may be different from original tweets.
+Note: Sample tweets may be different from original tweets, so don't be surprised when you click and it will differ from the one at twitter.com.
 
 ## Getting Started
 
@@ -21,7 +21,7 @@ and create a `TweetView` from a JSON:
 ```
 TweetView.fromTweet(
     Tweet.fromRawJson(
-        jsonFromTweetAPI
+        jsonFromTwitterAPI
         // {"created_at": "Mon Nov 12 13:00:38 +0000 2018", "id": 1061967001177018368, ...
     )
 );
@@ -29,33 +29,21 @@ TweetView.fromTweet(
 
 If you want to show tweets with videos, please check the [video_player installation](https://pub.dev/packages/video_player#installation).
 
-## Supported media types:
+## Example of supported view and media types:
 
-| variant                        | screenshot standard                                                               | screenshot compact                                                               |
-|:------------------------------:|:----------------------------------------------------------------------------------|:---------------------------------------------------------------------------------|
-| 1 photo                        | <img src="screenshots/standard_1_photo.png" width="200" height="400" />           | <img src="screenshots/compact_1_photo.png" width="200" height="400" />           |
-| 2 photos                       | <img src="screenshots/standard_2_photos.png" width="200" height="400" />          | <img src="screenshots/compact_2_photos.png" width="200" height="400" />          |
-| 3 photos                       | <img src="screenshots/standard_3_photos.png" width="200" height="400" />          | <img src="screenshots/compact_3_photos.png" width="200" height="400" />          |
-| 4 photos                       | <img src="screenshots/standard_4_photos.png" width="200" height="400" />          | <img src="screenshots/compact_4_photos.png" width="200" height="400" />          |
-| video                          | <img src="screenshots/standard_video.png" width="200" height="400" />             | <img src="screenshots/compact_video.png" width="200" height="400" />             |
-| video <br>with <br>placeholder | <img src="screenshots/standard_video_placeholder.png" width="200" height="400" /> | <img src="screenshots/compact_video_placeholder.png" width="200" height="400" /> |
-| gif                            | <img src="screenshots/standard_gif.png" width="200" height="400" />               | <img src="screenshots/compact_gif.png" width="200" height="400" />               |
-| gif <br>with <br>placeholder   | <img src="screenshots/standard_gif_placeholder.png" width="200" height="400" />   | <img src="screenshots/compact_gif_placeholder.png" width="200" height="400" />   |
-| quote <br>with <br>4 images    | <img src="screenshots/standard_quote.png" width="200" height="400" />             | <img src="screenshots/compact_quote.png" width="200" height="400" />             |
-| quote <br>with <br>video       | <img src="screenshots/standard_quote_video.png" width="200" height="400" />       | <img src="screenshots/compact_quote_video.png" width="200" height="400" />       |
-
-## Tweet view types
-
-1. Standard Tweet View
-
-2. Compact Tweet View
-
-3. Quote Tweet View (should not be used
-Video are
+| Variant  | Standard tweet                                                           | Compact tweet                                                           | Standard Quote tweet                                                           | Compact Quote tweet                                                           |
+|:--------:|:-------------------------------------------------------------------------|:------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:------------------------------------------------------------------------------|
+| 1 photo  | <img src="screenshots/standard_1_photo.png" width="200" height="400" />  | <img src="screenshots/compact_1_photo.png" width="200" height="400" />  | <img src="screenshots/standard_quote_1_photo.png" width="200" height="400" />  | <img src="screenshots/compact_quote_1_photo.png" width="200" height="400" />  |
+| 2 photos | <img src="screenshots/standard_2_photos.png" width="200" height="400" /> | <img src="screenshots/compact_2_photos.png" width="200" height="400" /> | <img src="screenshots/standard_quote_2_photos.png" width="200" height="400" /> | <img src="screenshots/compact_quote_2_photos.png" width="200" height="400" /> |
+| 3 photos | <img src="screenshots/standard_3_photos.png" width="200" height="400" /> | <img src="screenshots/compact_3_photos.png" width="200" height="400" /> | <img src="screenshots/standard_quote_3_photos.png" width="200" height="400" /> | <img src="screenshots/compact_quote_3_photos.png" width="200" height="400" /> |
+| 4 photos | <img src="screenshots/standard_4_photos.png" width="200" height="400" /> | <img src="screenshots/compact_4_photos.png" width="200" height="400" /> | <img src="screenshots/standard_quote_4_photos.png" width="200" height="400" /> | <img src="screenshots/compact_quote_4_photos.png" width="200" height="400" /> |
+|  video   | <img src="screenshots/standard_video.png" width="200" height="400" />    | <img src="screenshots/compact_video.png" width="200" height="400" />    | <img src="screenshots/standard_quote_video.png" width="200" height="400" />    | <img src="screenshots/compact_quote_video.png" width="200" height="400" />    |
+|   gif    | <img src="screenshots/standard_gif.png" width="200" height="400" />      | <img src="screenshots/compact_gif.png" width="200" height="400" />      | <img src="screenshots/standard_quote_gif.png" width="200" height="400" />      | <img src="screenshots/compact_quote_gif.png" width="200" height="400" />      |
 
 ## Styling Tweets
 
 All texts are customizable. You can use the `default...` styles like in the example below.
+
 By default the `chewie`/`video_player` package is used to show a gif (which is actually a .mp4 in the Twitter API) , but you can set the `useVideoPlayer` flag to `false` if you want to show a image placeholder provided by the Twitter API and open a video in a new page.
 
 ```
@@ -87,7 +75,7 @@ Card(
     ),
   );
 ```
-|    variant    | screenshot standard                                                          | screenshot compact                                                          |
+|    Variant    | Standard tweet                                                               | Compact tweet                                                               |
 |:-------------:|:-----------------------------------------------------------------------------|:----------------------------------------------------------------------------|
 | Custom styles | <img src="screenshots/standard_quote_custom.png" width="200" height="400" /> | <img src="screenshots/compact_quote_custom.png" width="200" height="400" /> |
 
