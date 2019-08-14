@@ -97,6 +97,9 @@ class Byline extends StatelessWidget {
             TwitterLogo(),
           ],
         );
+      default:
+        /// should never happen
+        return Container();
     }
   }
 }
