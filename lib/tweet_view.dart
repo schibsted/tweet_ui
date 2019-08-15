@@ -72,6 +72,7 @@ class TweetView extends StatelessWidget {
     this.quoteBackgroundColor = Colors.white,
     this.backgroundColor = Colors.white,
     this.useVideoPlayer = true,
+    this.onTapImage
   }) : _tweetVM = TweetVM.fromApiModel(tweet);
 
   @override
