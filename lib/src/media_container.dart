@@ -11,7 +11,7 @@ class MediaContainer extends StatefulWidget {
   static const double SQUARE_ASPECT_RATIO = 1.0;
   static const double DEFAULT_ASPECT_RATIO_MEDIA_CONTAINER = 3.0 / 2.0;
   final Function onTapImage;
-  
+
   const MediaContainer(
     this.tweetVM,
     this.viewMode, {
@@ -201,7 +201,7 @@ class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAlive
       ));
     });
     return GestureDetector(
-      onTap: onTapImage != null ? () {
+      onTap: this.widget.onTapImage == null ? () {
         Navigator.push(context, MaterialPageRoute(
           builder: (_) {
             return PhotoViewGallery(
@@ -210,7 +210,7 @@ class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAlive
             );
           },
         ));
-      } : () => onTapImage(List<String> allPhotos, int photoIndex, String hashcode),
+      } : () => this.widget.onTapImage(allPhotos, photoIndex, hashcode),
       child: Hero(
         child: Image(
           image: CachedNetworkImageProvider(allPhotos[photoIndex]),
