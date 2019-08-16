@@ -8,6 +8,8 @@ import 'package:tweet_ui/src/tweet_text.dart';
 import 'package:tweet_ui/src/url_launcher.dart';
 import 'package:tweet_ui/src/view_mode.dart';
 
+typedef onTapImage = void Function(List<String> allPhotos, int photoIndex, String hashcode);
+
 class QuoteTweetView extends StatelessWidget {
   final TweetVM tweetVM;
   final TextStyle userNameStyle;
@@ -16,6 +18,7 @@ class QuoteTweetView extends StatelessWidget {
   final TextStyle clickableTextStyle;
   final Color borderColor;
   final Color backgroundColor;
+  final Function onTapImage;
 
   QuoteTweetView(
     this.tweetVM, {
@@ -35,6 +38,7 @@ class QuoteTweetView extends StatelessWidget {
     this.clickableTextStyle,
     this.borderColor,
     this.backgroundColor,
+    this.onTapImage,
   });
 
   @override
@@ -83,6 +87,7 @@ class QuoteTweetView extends StatelessWidget {
                 tweetVM,
                 ViewMode.quote,
                 useVideoPlayer: false,
+                onTapImage: onTapImage,
               ),
             ],
           ),
