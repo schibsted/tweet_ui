@@ -55,6 +55,7 @@ There is also a special `QuoteTweetView` that is embedded in a `TweetView` or a 
 
 ## Styling Tweets
 
+#### Video player 
 By default the `chewie`/`video_player` package is used to show a gif/video, but you can set the `useVideoPlayer` flag to `false` if you want to show a image placeholder provided by the Twitter API and open a video in a new page.
 
 |    Variant     |                                      With video_player/chewie                                      |                                                With placeholder                                                |
@@ -65,6 +66,7 @@ By default the `chewie`/`video_player` package is used to show a gif/video, but 
 |  Compact GIF   |  ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_gif.png)   |  ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_gif_placeholder.png)   |
 
 
+#### Text & colors 
 All texts are customizable. You can copy from the `defaultxxx`, `defaultCompactxxx` and `defaultQuotexxx`styles like in the example below.
 
 ```dart
@@ -104,7 +106,25 @@ Card(
 
 ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/diagram.jpg)
 
+#### Custom callbacks
 
+onTapImage - function called when user clicks on a image in a TweetView, CompactTweetView or QuoteTweetView.
+`typedef OnTapImage = void Function(List<String> allPhotos, int photoIndex, String hashcode);`
+
+```dart
+
+TweetView.fromTweet(
+  Tweet.fromRawJson(
+    snapshot.data,
+  ),
+  onTapImage: openImage,
+);
+
+  void openImage(List<String> allPhotos, int photoIndex, String hashcode) {
+    print("Opened ${allPhotos[photoIndex]}");
+  }
+```
+  
 ## TODO
 
 1. Get Tweets from Twitter API

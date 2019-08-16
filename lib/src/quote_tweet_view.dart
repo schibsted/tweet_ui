@@ -2,6 +2,7 @@ library tweet_ui;
 
 import 'package:flutter/material.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
+import 'package:tweet_ui/on_tap_image.dart';
 import 'package:tweet_ui/src/byline.dart';
 import 'package:tweet_ui/src/media_container.dart';
 import 'package:tweet_ui/src/tweet_text.dart';
@@ -18,7 +19,7 @@ class QuoteTweetView extends StatelessWidget {
   final TextStyle clickableTextStyle;
   final Color borderColor;
   final Color backgroundColor;
-  final Function onTapImage;
+  final OnTapImage onTapImage;
 
   QuoteTweetView(
     this.tweetVM, {
@@ -28,6 +29,7 @@ class QuoteTweetView extends StatelessWidget {
     this.clickableTextStyle,
     this.borderColor,
     this.backgroundColor,
+    this.onTapImage,
   }); //  TweetView(this.tweetVM);
 
   QuoteTweetView.fromTweet(

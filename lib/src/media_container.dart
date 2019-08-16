@@ -2,17 +2,16 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
+import 'package:tweet_ui/on_tap_image.dart';
 import 'package:tweet_ui/src/animated_play_button.dart';
 import 'package:tweet_ui/src/tweet_video.dart';
 import 'package:tweet_ui/src/view_mode.dart';
-
-typedef onTapImage = void Function(List<String> allPhotos, int photoIndex, String hashcode);
 
 /// Widget that displays media resources from a Tweet
 class MediaContainer extends StatefulWidget {
   static const double SQUARE_ASPECT_RATIO = 1.0;
   static const double DEFAULT_ASPECT_RATIO_MEDIA_CONTAINER = 3.0 / 2.0;
-  final Function onTapImage;
+  final OnTapImage onTapImage;
 
   const MediaContainer(
     this.tweetVM,
