@@ -152,6 +152,7 @@ class TweetView extends StatelessWidget {
                           userScreenNameStyle: quoteUserScreenNameStyle,
                           backgroundColor: quoteBackgroundColor,
                           borderColor: quoteBorderColor,
+                          onTapImage: onTapImage,
                         ),
                       )
                     : Container(),
