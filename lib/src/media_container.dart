@@ -6,16 +6,20 @@ import 'package:tweet_ui/src/animated_play_button.dart';
 import 'package:tweet_ui/src/tweet_video.dart';
 import 'package:tweet_ui/src/view_mode.dart';
 
+typedef onTapImage = void Function(List<String> allPhotos, int photoIndex, String hashcode);
+
 /// Widget that displays media resources from a Tweet
 class MediaContainer extends StatefulWidget {
   static const double SQUARE_ASPECT_RATIO = 1.0;
   static const double DEFAULT_ASPECT_RATIO_MEDIA_CONTAINER = 3.0 / 2.0;
+  final Function onTapImage;
 
   const MediaContainer(
     this.tweetVM,
     this.viewMode, {
     Key key,
     this.useVideoPlayer = true,
+    this.onTapImage,
   }) : super(key: key);
 
   final TweetVM tweetVM;
@@ -199,7 +203,7 @@ class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAlive
       ));
     });
     return GestureDetector(
-      onTap: () {
+      onTap: this.widget.onTapImage == null ? () {
         Navigator.push(context, MaterialPageRoute(
           builder: (_) {
             return PhotoViewGallery(
@@ -208,7 +212,7 @@ class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAlive
             );
           },
         ));
-      },
+      } : () => this.widget.onTapImage(allPhotos, photoIndex, hashcode),
       child: Hero(
         child: Image(
           image: CachedNetworkImageProvider(allPhotos[photoIndex]),

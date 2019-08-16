@@ -11,6 +11,8 @@ import 'package:tweet_ui/src/twitter_logo.dart';
 import 'package:tweet_ui/src/url_launcher.dart';
 import 'package:tweet_ui/src/view_mode.dart';
 
+typedef onTapImage = void Function(List<String> allPhotos, int photoIndex, String hashcode);
+
 class TweetView extends StatelessWidget {
   /// Business logic class created from [TweetVM.fromApiModel]
   final TweetVM _tweetVM;
@@ -39,6 +41,7 @@ class TweetView extends StatelessWidget {
   /// If set to true a chewie/video_player will be used in a Tweet containing a video.
   /// If set to false a image placeholder will he shown and a video will be played in a new page.
   final bool useVideoPlayer;
+  final Function onTapImage;
 
   TweetView(
     this._tweetVM, {
@@ -54,6 +57,7 @@ class TweetView extends StatelessWidget {
     this.quoteBackgroundColor,
     this.backgroundColor,
     this.useVideoPlayer,
+    this.onTapImage,
   }); //  TweetView(this.tweetVM);
 
   TweetView.fromTweet(
@@ -70,6 +74,7 @@ class TweetView extends StatelessWidget {
     this.quoteBackgroundColor = Colors.white,
     this.backgroundColor = Colors.white,
     this.useVideoPlayer = true,
+    this.onTapImage
   }) : _tweetVM = TweetVM.fromApiModel(tweet);
 
   @override
@@ -82,6 +87,7 @@ class TweetView extends StatelessWidget {
             _tweetVM,
             ViewMode.standard,
             useVideoPlayer: useVideoPlayer,
+            onTapImage: onTapImage
           ),
           GestureDetector(
             onTap: () {
@@ -146,6 +152,7 @@ class TweetView extends StatelessWidget {
                           userScreenNameStyle: quoteUserScreenNameStyle,
                           backgroundColor: quoteBackgroundColor,
                           borderColor: quoteBorderColor,
+                          onTapImage: onTapImage,
                         ),
                       )
                     : Container(),
