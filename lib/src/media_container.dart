@@ -6,6 +6,8 @@ import 'package:tweet_ui/src/animated_play_button.dart';
 import 'package:tweet_ui/src/tweet_video.dart';
 import 'package:tweet_ui/src/view_mode.dart';
 
+typedef onTapImage = void Function(List<String> allPhotos, int photoIndex, String hashcode);
+
 /// Widget that displays media resources from a Tweet
 class MediaContainer extends StatefulWidget {
   static const double SQUARE_ASPECT_RATIO = 1.0;
