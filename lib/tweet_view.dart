@@ -11,6 +11,8 @@ import 'package:tweet_ui/src/twitter_logo.dart';
 import 'package:tweet_ui/src/url_launcher.dart';
 import 'package:tweet_ui/src/view_mode.dart';
 
+typedef onTapImage = void Function(List<String> allPhotos, int photoIndex, String hashcode);
+
 class TweetView extends StatelessWidget {
   /// Business logic class created from [TweetVM.fromApiModel]
   final TweetVM _tweetVM;
