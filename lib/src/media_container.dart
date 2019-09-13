@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
 import 'package:tweet_ui/on_tap_image.dart';
@@ -198,20 +199,24 @@ class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAlive
       galleryPageOptions.add(PhotoViewGalleryPageOptions(
         // TODO add option to choose image size (Twitter supports ":medium" ":large" at the end of photoUrl.
         imageProvider: CachedNetworkImageProvider(photoUrl),
-        heroTag: photoUrl + hashcode,
+        heroAttributes: PhotoViewHeroAttributes(
+          tag: photoUrl + hashcode,
+        ),
       ));
     });
     return GestureDetector(
-      onTap: this.widget.onTapImage == null ? () {
-        Navigator.push(context, MaterialPageRoute(
-          builder: (_) {
-            return PhotoViewGallery(
-              pageOptions: galleryPageOptions,
-              pageController: PageController(initialPage: photoIndex),
-            );
-          },
-        ));
-      } : () => this.widget.onTapImage(allPhotos, photoIndex, hashcode),
+      onTap: this.widget.onTapImage == null
+          ? () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (_) {
+                  return PhotoViewGallery(
+                    pageOptions: galleryPageOptions,
+                    pageController: PageController(initialPage: photoIndex),
+                  );
+                },
+              ));
+            }
+          : () => this.widget.onTapImage(allPhotos, photoIndex, hashcode),
       child: Hero(
         child: Image(
           image: CachedNetworkImageProvider(allPhotos[photoIndex]),
