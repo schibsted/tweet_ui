@@ -13,9 +13,9 @@ dependencies:
     sdk: flutter
   cached_network_image: ^1.1.1
   intl: ^0.16.0
-  video_player: ^0.10.2
-  chewie: ^0.9.7
-  photo_view: ^0.4.2
+  video_player: ^0.10.2+1
+  chewie: ^0.9.8
+  photo_view: ^0.5.0
   url_launcher: ^5.1.2
   html_unescape: ^1.0.1+3
 
