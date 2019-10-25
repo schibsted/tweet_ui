@@ -11,11 +11,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cached_network_image: 2.0.0-rc
+  cached_network_image: ^2.0.0-rc
   intl: ^0.16.0
   video_player: ^0.10.2+5
   chewie: ^0.9.8+1
-  photo_view: 0.7.0-next
+  photo_view: ^0.7.0-next
   url_launcher: ^5.2.4
   html_unescape: ^1.0.1+3
 
