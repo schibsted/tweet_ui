@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.1.1+5] - 25.10.2019
+### Changed
+- Fix cached_network_image and photo_view dependency version range
+
 ## [0.1.1+4] - 25.10.2019
 ### Changed
 - Updated cached_network_image, photo_view, url_launcher packages
