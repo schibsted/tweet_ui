@@ -1,0 +1,1 @@
+{"dependencyGraph":[{"name":"path_provider","dependencies":[]},{"name":"screen","dependencies":[]},{"name":"sqflite","dependencies":[]},{"name":"url_launcher","dependencies":[]},{"name":"video_player","dependencies":[]}]}

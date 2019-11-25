@@ -6,6 +6,9 @@ Works on iOS and Android.
 
 ## Getting Started
 
+#### If you are using not the stable flutter release - please use the [0.2.0-rc](https://pub.dev/packages/tweet_ui/versions/0.2.0-rc)
+
+
 To use this package add it to the pubspec.yaml file:
 
 `tweet_ui: <latest_version>`
@@ -130,3 +133,5 @@ TweetView.fromTweet(
 1. Get Tweets from Twitter API
 2. Write tests
 3. Add option to set image quality
+
+## Thanks for contributing: [dasmikko](https://github.com/dasmikko), [jamesblasco](https://github.com/jamesblasco)
