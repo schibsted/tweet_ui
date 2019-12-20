@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.1.1+2] - 20.12.2019
+### Changed
+- Updated video_player, photo_view, url_launcher, cached_network_image and chewie packages
+- Updated examples with new profile image URLs
+
 ## [0.1.1+1] - 28.08.2019
 ### Changed
 - Updated video_player and intl packages
