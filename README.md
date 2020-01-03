@@ -6,9 +6,6 @@ Works on iOS and Android.
 
 ## Getting Started
 
-#### If you are using not the stable flutter release - please use the [0.2.0-rc.1](https://pub.dev/packages/tweet_ui/versions/0.2.0-rc.1)
-
-
 To use this package add it to the pubspec.yaml file:
 
 `tweet_ui: <latest_version>`
