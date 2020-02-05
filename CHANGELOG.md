@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Fixed default tweet text color when entities array was empty
 
 ## [1.0.0] - 03.01.2020 
 - Updated cached_network_image, video_player and url_launcher
