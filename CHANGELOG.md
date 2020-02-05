@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Changed
 - Added displaying time when tweet was created. For now only 24H format
+- Updated intl, video_player, photo_view
 ### Fixed
 - Fixed default tweet text color when entities array was empty
 
