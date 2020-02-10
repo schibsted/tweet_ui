@@ -73,8 +73,8 @@ class TweetVM {
       );
 
   static String _createdAt(Tweet tweet) {
-    DateFormat twitterFormat = new DateFormat("EEE MMM dd HH:mm:ss '+0000' yyyy");
-    DateFormat displayFormat = new DateFormat("HH:mm • MM.dd.yyyy");
+    DateFormat twitterFormat = new DateFormat("EEE MMM dd HH:mm:ss '+0000' yyyy", 'en_US');
+    DateFormat displayFormat = new DateFormat("HH:mm • MM.dd.yyyy", 'en_US');
     final dateTime = twitterFormat.parseUTC(tweet.createdAt);
     return displayFormat.format(dateTime);
   }
