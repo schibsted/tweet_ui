@@ -125,10 +125,30 @@ TweetView.fromTweet(
   }
 ```
   
+  
+#### Custom date display format
+
+From version 1.2.0 you can pass a `createdDateDisplayFormat` parameter that is a DateFormat class. If you don't set it it will default to DateFormat("HH:mm • MM.dd.yyyy", 'en_US'). 
+For more information on how to create a Date format please check this [DateFormat documentation](https://pub.dev/documentation/intl/latest/intl/DateFormat-class.html)
+
+```dart
+
+TweetView.fromTweet(
+  Tweet.fromRawJson(
+    snapshot.data,
+  ),
+  createdDateDisplayFormat: DateFormat("EEE, MMM d, ''yy"),
+);
+```
+
+| Custom date tweet                                                               |
+|:-----------------------------------------------------------------------------:|
+| ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/custom_date_example.jpg) |
+
 ## TODO
 
 1. Get Tweets from Twitter API
 2. Write tests
 3. Add option to set image quality
 
-## Thanks for contributing: [dasmikko](https://github.com/dasmikko), [jamesblasco](https://github.com/jamesblasco)
+## Thanks for contributing: [dasmikko](https://github.com/dasmikko), [jamesblasco](https://github.com/jamesblasco), [tristan-vrt](https://github.com/tristan-vrt), [daver123](https://github.com/daver123)

@@ -51,8 +51,8 @@ class TweetVM {
     this.videoAspectRatio,
   });
 
-  factory TweetVM.fromApiModel(Tweet tweet) => new TweetVM(
-        createdAt: _createdAt(tweet),
+  factory TweetVM.fromApiModel(Tweet tweet, DateFormat createdDateDisplayFormat) => new TweetVM(
+        createdAt: _createdAt(tweet, createdDateDisplayFormat),
         hasSupportedVideo: _hasSupportedVideo(tweet),
         allEntities: _allEntities(tweet),
         hasPhoto: _hasPhoto(tweet),
@@ -65,18 +65,17 @@ class TweetVM {
         allPhotos: _allPhotos(tweet),
         userName: _userName(tweet),
         userScreenName: _userScreenName(tweet),
-        quotedTweet: _quotedTweet(tweet.quotedStatus),
+        quotedTweet: _quotedTweet(tweet.quotedStatus, createdDateDisplayFormat),
         userVerified: _userVerified(tweet),
         videoPlaceholderUrl: _videoPlaceholderUrl(tweet),
         videoUrl: _videoUrl(tweet),
         videoAspectRatio: _videoAspectRatio(tweet),
       );
 
-  static String _createdAt(Tweet tweet) {
+  static String _createdAt(Tweet tweet, DateFormat displayFormat ) {
     DateFormat twitterFormat = new DateFormat("EEE MMM dd HH:mm:ss '+0000' yyyy", 'en_US');
-    DateFormat displayFormat = new DateFormat("HH:mm • MM.dd.yyyy", 'en_US');
-    final dateTime = twitterFormat.parseUTC(tweet.createdAt);
-    return displayFormat.format(dateTime);
+    final dateTime = twitterFormat.parseUTC(tweet.createdAt).toLocal();
+    return (displayFormat ?? new DateFormat("HH:mm • MM.dd.yyyy", 'en_US')).format(dateTime);
   }
 
   static bool _isPhotoType(MediaEntity mediaEntity) {
@@ -225,9 +224,9 @@ class TweetVM {
     return tweet.user.screenName;
   }
 
-  static TweetVM _quotedTweet(Tweet tweet) {
+  static TweetVM _quotedTweet(Tweet tweet, DateFormat createdDateDisplayFormat) {
     if (tweet != null) {
-      return TweetVM.fromApiModel(tweet);
+      return TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
     } else {
       return null;
     }

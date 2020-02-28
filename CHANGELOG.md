@@ -5,7 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-
+### Added
+- Added possibility to change the created timestamp date format.
+### Changed
+- Converting time when tweet was created to local time.
 ## [1.1.0] - 05.02.2020 
 ### Changed
 - Added displaying time when tweet was created. For now only 24H format

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:intl/intl.dart';
 import 'package:tweet_ui/models/api/tweet.dart';
 import 'package:tweet_ui/tweet_ui.dart';
 
@@ -8,8 +9,10 @@ import 'package:tweet_ui/tweet_ui.dart';
 class TweetPage extends StatelessWidget {
   /// The AppBar title and prefix for the header title
   final String mediaType;
+
   /// The path to a Tweet JSON file
   final String tweetPath;
+
   /// The path to a Tweet with a embedded quote JSON file
   final String quoteTweetPath;
 
@@ -62,6 +65,7 @@ class TweetPage extends StatelessWidget {
             Tweet.fromRawJson(
               snapshot.data,
             ),
+            createdDateDisplayFormat: DateFormat("EEE, MMM d, ''yy"),
           );
         }
         if (snapshot.hasError) {
