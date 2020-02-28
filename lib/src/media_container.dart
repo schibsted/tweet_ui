@@ -205,16 +205,18 @@ class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAlive
       ));
     });
     return GestureDetector(
-      onTap: this.widget.onTapImage == null ? () {
-        Navigator.push(context, MaterialPageRoute(
-          builder: (_) {
-            return PhotoViewGallery(
-              pageOptions: galleryPageOptions,
-              pageController: PageController(initialPage: photoIndex),
-            );
-          },
-        ));
-      } : () => this.widget.onTapImage(allPhotos, photoIndex, hashcode),
+      onTap: this.widget.onTapImage == null
+          ? () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (_) {
+                  return PhotoViewGallery(
+                    pageOptions: galleryPageOptions,
+                    pageController: PageController(initialPage: photoIndex),
+                  );
+                },
+              ));
+            }
+          : () => this.widget.onTapImage(allPhotos, photoIndex, hashcode),
       child: Hero(
         child: Image(
           image: CachedNetworkImageProvider(allPhotos[photoIndex]),

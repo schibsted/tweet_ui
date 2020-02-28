@@ -41,6 +41,7 @@ class TweetText extends StatelessWidget {
     if (tweetVM.allEntities.isEmpty) {
       spans.add(TextSpan(
         text: unescape.convert(tweetVM.text),
+        style: textStyle,
       ));
     } else {
       if (tweetVM.allEntities.length > 1) {

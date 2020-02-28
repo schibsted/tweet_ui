@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:tweet_ui/default_text_styles.dart';
 import 'package:tweet_ui/models/api/tweet.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
@@ -56,6 +57,9 @@ class TweetView extends StatelessWidget {
   /// Function used when you want a custom image tapped callback
   final OnTapImage onTapImage;
 
+  /// Date format when the tweet was created. When null it defaults to DateFormat("HH:mm • MM.dd.yyyy", 'en_US')
+  final DateFormat createdDateDisplayFormat;
+
   TweetView(
     this._tweetVM, {
     this.userNameStyle,
@@ -71,6 +75,7 @@ class TweetView extends StatelessWidget {
     this.backgroundColor,
     this.useVideoPlayer,
     this.onTapImage,
+    this.createdDateDisplayFormat,
   }); //  TweetView(this.tweetVM);
 
   TweetView.fromTweet(Tweet tweet,
@@ -86,8 +91,10 @@ class TweetView extends StatelessWidget {
       this.quoteBackgroundColor = Colors.white,
       this.backgroundColor = Colors.white,
       this.useVideoPlayer = true,
-      this.onTapImage})
-      : _tweetVM = TweetVM.fromApiModel(tweet);
+      this.onTapImage,
+      this.createdDateDisplayFormat
+      })
+      : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
 
   @override
   Widget build(BuildContext context) {
