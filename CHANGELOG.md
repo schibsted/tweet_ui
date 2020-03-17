@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Updated video_player, photo_view, url_launcher, chewie
+- Updates JSON examples
 
 ## [1.2.0] - 28.02.2020 
 ### Added
