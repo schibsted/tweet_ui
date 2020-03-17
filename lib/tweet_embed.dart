@@ -16,10 +16,12 @@ import 'package:tweet_ui/src/view_mode.dart';
 class TweetEmbed extends StatelessWidget {
   /// Business logic class created from [TweetVM.fromApiModel]
   final TweetVM _tweetVM;
-
-  
+  // Background color for the container
   final Color backgroundColor;
+
+  // If set to true the the text and icons will be light
   final bool darkMode;
+  
   /// If set to true a chewie/video_player will be used in a Tweet containing a video.
   /// If set to false a image placeholder will he shown and a video will be played in a new page.
   final bool useVideoPlayer;
