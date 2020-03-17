@@ -26,11 +26,18 @@ class TweetPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[900],
       appBar: AppBar(
         title: Text(mediaType),
       ),
       body: ListView(
         children: <Widget>[
+          buildHeader("$mediaType TweetEmbed"),
+          buildTweetEmbed(tweetPath),
+          Divider(height: 80,),
+          buildHeader("$mediaType Quote TweetEmbed"),
+          buildTweetEmbed(quoteTweetPath),
+          Divider(height: 80,),
           buildHeader("$mediaType TweetView"),
           buildTweet(tweetPath),
           buildHeader("$mediaType CompactTweetView"),
@@ -55,6 +62,39 @@ class TweetPage extends StatelessWidget {
     );
   }
 
+
+  /// Builds a TweetView from a JSON file
+  Widget buildTweetEmbed(String jsonFile) {
+    return FutureBuilder(
+      future: rootBundle.loadString(jsonFile),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (snapshot.hasData) {
+          return Container(
+            margin: EdgeInsets.only(left: 15, right: 15),
+            child: TweetEmbed.fromTweet(
+              
+              Tweet.fromRawJson(
+                snapshot.data,
+              ),
+              backgroundColor: Colors.grey[800],
+              darkMode: true,
+              createdDateDisplayFormat: DateFormat("EEE, MMM d, ''yy"),
+            ),
+            
+          );
+        }
+        if (snapshot.hasError) {
+          return Container(
+            child: Text(
+              snapshot.error.toString(),
+            ),
+          );
+        } else {
+          return Container();
+        }
+      },
+    );
+  }
   /// Builds a TweetView from a JSON file
   Widget buildTweet(String jsonFile) {
     return FutureBuilder(
