@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.2.1] - 17.03.2020
+### Changed
+- Updated video_player, photo_view, url_launcher, chewie
+- Updates JSON examples
+
 ## [1.2.0] - 28.02.2020 
 ### Added
 - Added possibility to change the created timestamp date format.
