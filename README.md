@@ -151,4 +151,4 @@ TweetView.fromTweet(
 2. Write tests
 3. Add option to set image quality
 
-## Thanks for contributing: [dasmikko](https://github.com/dasmikko), [jamesblasco](https://github.com/jamesblasco), [tristan-vrt](https://github.com/tristan-vrt), [daver123](https://github.com/daver123)
+## Thanks for contributing: [dasmikko](https://github.com/dasmikko), [jamesblasco](https://github.com/jamesblasco), [tristan-vrt](https://github.com/tristan-vrt), [daver123](https://github.com/daver123), [ercadev](https://github.com/ercadev)
