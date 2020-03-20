@@ -37,6 +37,8 @@ build/
 **/android/gradlew.bat
 **/android/local.properties
 **/android/**/GeneratedPluginRegistrant.java
+**/example/ios/Flutter/Flutter.podspec
+**/example/ios/Flutter/flutter_export_environment.sh
 
 # iOS/XCode related
 **/ios/**/*.mode1v3
