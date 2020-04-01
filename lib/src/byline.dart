@@ -10,11 +10,13 @@ class Byline extends StatelessWidget {
     this.tweetVM,
     this.viewMode, {
     Key key,
+    this.showDate,
     this.userNameStyle,
     this.userScreenNameStyle,
   }) : super(key: key);
 
   final TweetVM tweetVM;
+  final bool showDate;
   final TextStyle userNameStyle;
   final TextStyle userScreenNameStyle;
   final ViewMode viewMode;
@@ -41,11 +43,17 @@ class Byline extends StatelessWidget {
                 ),
               ],
             ),
-            Text(
-              "@" + tweetVM.userScreenName + " • " + tweetVM.createdAt,
-              textAlign: TextAlign.left,
-              style: userScreenNameStyle,
-            ),
+            (showDate == null || showDate == true)
+                ? Text(
+                    "@" + tweetVM.userScreenName + " • " + tweetVM.createdAt,
+                    textAlign: TextAlign.left,
+                    style: userScreenNameStyle,
+                  )
+                : Text(
+                    "@" + tweetVM.userScreenName,
+                    textAlign: TextAlign.left,
+                    style: userScreenNameStyle,
+                  ),
           ],
         );
         break;
@@ -98,6 +106,7 @@ class Byline extends StatelessWidget {
           ],
         );
       default:
+
         /// should never happen
         return Container();
     }
