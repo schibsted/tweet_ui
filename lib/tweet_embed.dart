@@ -9,7 +9,7 @@ import 'package:tweet_ui/src/media_container.dart';
 import 'package:tweet_ui/src/profile_image_embedded.dart';
 import 'package:tweet_ui/src/quote_tweet_view_embedded.dart';
 import 'package:tweet_ui/src/tweet_text.dart';
-import 'package:tweet_ui/src/twitter_logo_embedded.dart';
+import 'package:tweet_ui/src/twitter_logo.dart';
 import 'package:tweet_ui/src/url_launcher.dart';
 import 'package:tweet_ui/src/view_mode.dart';
 

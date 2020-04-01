@@ -13,16 +13,9 @@ class ProfileImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: 5),
-      child: CircleAvatar(backgroundImage: CachedNetworkImageProvider(tweetVM.profileUrl),));
-    /*
-    return CachedNetworkImage(
-      height: 40,
-      width: 40,
-      imageUrl: tweetVM.profileUrl,
-      placeholder: (context, url) => Container(height: 40, width: 40),
-      errorWidget: (context, url, error) => Icon(Icons.error),
-    );
-    */
+        margin: EdgeInsets.only(right: 5),
+        child: CircleAvatar(
+          backgroundImage: CachedNetworkImageProvider(tweetVM.profileUrl),
+        ));
   }
 }
