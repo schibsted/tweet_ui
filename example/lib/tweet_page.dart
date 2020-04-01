@@ -26,7 +26,7 @@ class TweetPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900],
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(mediaType),
       ),
@@ -34,10 +34,8 @@ class TweetPage extends StatelessWidget {
         children: <Widget>[
           buildHeader("$mediaType TweetEmbed"),
           buildTweetEmbed(tweetPath),
-          Divider(height: 80,),
           buildHeader("$mediaType Quote TweetEmbed"),
           buildTweetEmbed(quoteTweetPath),
-          Divider(height: 80,),
           buildHeader("$mediaType TweetView"),
           buildTweet(tweetPath),
           buildHeader("$mediaType CompactTweetView"),
@@ -54,14 +52,14 @@ class TweetPage extends StatelessWidget {
   /// Builds a header for a TweetView
   Widget buildHeader(String headerTitle) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
       child: Text(
         headerTitle,
         textAlign: TextAlign.start,
+        style: TextStyle(fontWeight: FontWeight.w700),
       ),
     );
   }
-
 
   /// Builds a TweetView from a JSON file
   Widget buildTweetEmbed(String jsonFile) {
@@ -70,17 +68,14 @@ class TweetPage extends StatelessWidget {
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.hasData) {
           return Container(
-            margin: EdgeInsets.only(left: 15, right: 15),
+            margin: EdgeInsets.all(15),
             child: TweetEmbed.fromTweet(
-              
               Tweet.fromRawJson(
                 snapshot.data,
               ),
-              backgroundColor: Colors.grey[800],
-              darkMode: true,
+              darkMode: false,
               createdDateDisplayFormat: DateFormat("EEE, MMM d, ''yy"),
             ),
-            
           );
         }
         if (snapshot.hasError) {
@@ -95,6 +90,7 @@ class TweetPage extends StatelessWidget {
       },
     );
   }
+
   /// Builds a TweetView from a JSON file
   Widget buildTweet(String jsonFile) {
     return FutureBuilder(
