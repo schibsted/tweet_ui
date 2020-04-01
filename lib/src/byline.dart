@@ -90,15 +90,17 @@ class Byline extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                    child: Text(
-                      "• " + tweetVM.createdAt,
-                      style: userScreenNameStyle,
-                      textAlign: TextAlign.start,
-                      softWrap: false,
-                    ),
-                  ),
+                  (showDate == null || showDate == true)
+                      ? Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                          child: Text(
+                            "• " + tweetVM.createdAt,
+                            style: userScreenNameStyle,
+                            textAlign: TextAlign.start,
+                            softWrap: false,
+                          ),
+                        )
+                      : Container(),
                 ],
               ),
             ),
