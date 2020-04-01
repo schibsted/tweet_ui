@@ -1,11 +1,11 @@
 library tweet_ui;
 
 import 'package:flutter/material.dart';
-import 'package:tweet_ui/src/byline_quote_embedded.dart';
+import 'package:tweet_ui/src/byline.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
 import 'package:tweet_ui/on_tap_image.dart';
 import 'package:tweet_ui/src/media_container.dart';
-import 'package:tweet_ui/src/tweet_text_embedded.dart';
+import 'package:tweet_ui/src/tweet_text.dart';
 import 'package:tweet_ui/src/url_launcher.dart';
 import 'package:tweet_ui/src/view_mode.dart';
 
@@ -69,14 +69,15 @@ class QuoteTweetViewEmbed extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: <Widget>[
-                    BylineQuote(
+                    Byline(
                       tweetVM,
                       ViewMode.quote,
                       userNameStyle: userNameStyle,
                       userScreenNameStyle: userScreenNameStyle,
+                      showDate: false,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 0.0),
+                      padding: const EdgeInsets.symmetric(vertical: 15.0),
                       child: TweetText(
                         tweetVM,
                         textStyle: textStyle,
