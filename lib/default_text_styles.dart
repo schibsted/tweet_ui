@@ -91,3 +91,46 @@ const defaultQuoteClickableTextStyle = const TextStyle(
   letterSpacing: 0.1,
   color: Colors.blue,
 );
+
+/// EmbeddedTweetView text styles
+const defaultEmbeddedUserNameStyle = const TextStyle(
+  fontSize: 14,
+  color: Color(0xFF697882),
+  fontWeight: FontWeight.w400,
+  fontFamily: 'Roboto',
+);
+
+const defaultEmbeddedTextStyle = const TextStyle(
+  fontSize: 18.0,
+  fontFamily: 'Roboto',
+  fontWeight: FontWeight.w400,
+  height: 1.25,
+  letterSpacing: 0,
+  color: Colors.black,
+);
+
+const defaultEmbeddedDarkTextStyle = const TextStyle(
+  fontSize: 18.0,
+  fontFamily: 'Roboto',
+  fontWeight: FontWeight.w400,
+  height: 1.25,
+  letterSpacing: 0,
+  color: Colors.white,
+);
+
+const defaultEmbeddedClickableTextStyle = const TextStyle(
+  fontSize: 18.0,
+  fontFamily: 'Roboto',
+  fontWeight: FontWeight.w300,
+  height: 1.25,
+  wordSpacing: 4,
+  letterSpacing: 0,
+  color: Colors.blue,
+);
+
+const defaultEmbeddedDarkQuoteUserNameStyle = const TextStyle(
+  fontSize: 14.0,
+  fontFamily: 'Roboto',
+  fontWeight: FontWeight.w700,
+  color: Colors.white,
+);

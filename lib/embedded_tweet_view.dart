@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:tweet_ui/default_text_styles_embedded.dart';
+import 'package:tweet_ui/default_text_styles.dart';
 import 'package:tweet_ui/models/api/tweet.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
 import 'package:tweet_ui/on_tap_image.dart';
@@ -13,13 +13,14 @@ import 'package:tweet_ui/src/twitter_logo.dart';
 import 'package:tweet_ui/src/url_launcher.dart';
 import 'package:tweet_ui/src/view_mode.dart';
 
-class TweetEmbed extends StatelessWidget {
+class EmbeddedTweetView extends StatelessWidget {
   /// Business logic class created from [TweetVM.fromApiModel]
   final TweetVM _tweetVM;
-  // Background color for the container
+
+  /// Background color for the container
   final Color backgroundColor;
 
-  // If set to true the the text and icons will be light
+  /// If set to true the the text and icons will be light
   final bool darkMode;
 
   /// If set to true a chewie/video_player will be used in a Tweet containing a video.
@@ -32,7 +33,7 @@ class TweetEmbed extends StatelessWidget {
   /// Date format when the tweet was created. When null it defaults to DateFormat("HH:mm • MM.dd.yyyy", 'en_US')
   final DateFormat createdDateDisplayFormat;
 
-  TweetEmbed(
+  EmbeddedTweetView(
     this._tweetVM, {
     this.backgroundColor,
     this.darkMode,
@@ -41,7 +42,7 @@ class TweetEmbed extends StatelessWidget {
     this.createdDateDisplayFormat,
   }); //  TweetView(this.tweetVM);
 
-  TweetEmbed.fromTweet(Tweet tweet,
+  EmbeddedTweetView.fromTweet(Tweet tweet,
       {this.backgroundColor = Colors.white,
       this.darkMode = false,
       this.useVideoPlayer = true,
@@ -92,7 +93,7 @@ class TweetEmbed extends StatelessWidget {
                                       fontWeight: FontWeight.w700,
                                     ),
                                     showDate: false,
-                                    userScreenNameStyle: defaultUserScreenNameStyle,
+                                    userScreenNameStyle: defaultEmbeddedUserNameStyle,
                                   ),
                                 ),
                               ],
@@ -114,8 +115,8 @@ class TweetEmbed extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 15.0),
                       child: TweetText(
                         _tweetVM,
-                        textStyle: (darkMode) ? defaultDarkTextStyle : defaultTextStyle,
-                        clickableTextStyle: defaultClickableTextStyle,
+                        textStyle: (darkMode) ? defaultEmbeddedDarkTextStyle : defaultEmbeddedTextStyle,
+                        clickableTextStyle: defaultEmbeddedClickableTextStyle,
                       ),
                     ),
                   ),
@@ -127,7 +128,7 @@ class TweetEmbed extends StatelessWidget {
                             textStyle: TextStyle(color: (darkMode) ? Colors.white : Colors.black),
                             clickableTextStyle: defaultQuoteClickableTextStyle,
                             userNameStyle: (darkMode)
-                                ? defaultDarkQuoteUserNameStyle
+                                ? defaultEmbeddedDarkQuoteUserNameStyle
                                 : defaultQuoteUserNameStyle,
                             userScreenNameStyle: defaultQuoteUserScreenNameStyle,
                             backgroundColor: null,

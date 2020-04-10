@@ -32,10 +32,10 @@ class TweetPage extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          buildHeader("$mediaType TweetEmbed"),
-          buildTweetEmbed(tweetPath),
-          buildHeader("$mediaType Quote TweetEmbed"),
-          buildTweetEmbed(quoteTweetPath),
+          buildHeader("$mediaType EmbeddedTweetView"),
+          buildEmbeddedTweetView(tweetPath),
+          buildHeader("$mediaType Quote EmbeddedTweetView"),
+          buildEmbeddedTweetView(quoteTweetPath),
           buildHeader("$mediaType TweetView"),
           buildTweet(tweetPath),
           buildHeader("$mediaType CompactTweetView"),
@@ -62,14 +62,14 @@ class TweetPage extends StatelessWidget {
   }
 
   /// Builds a TweetView from a JSON file
-  Widget buildTweetEmbed(String jsonFile) {
+  Widget buildEmbeddedTweetView(String jsonFile) {
     return FutureBuilder(
       future: rootBundle.loadString(jsonFile),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.hasData) {
           return Container(
             margin: EdgeInsets.all(15),
-            child: TweetEmbed.fromTweet(
+            child: EmbeddedTweetView.fromTweet(
               Tweet.fromRawJson(
                 snapshot.data,
               ),
