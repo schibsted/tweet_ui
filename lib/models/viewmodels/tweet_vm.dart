@@ -29,9 +29,9 @@ class TweetVM {
   final String videoPlaceholderUrl;
   final String videoUrl;
   final double videoAspectRatio;
+  final int favoriteCount;
   final int startDisplayText;
   final int endDisplayText;
-
 
   TweetVM({
     this.createdAt,
@@ -52,6 +52,7 @@ class TweetVM {
     this.videoPlaceholderUrl,
     this.videoUrl,
     this.videoAspectRatio,
+    this.favoriteCount,
     this.startDisplayText,
     this.endDisplayText,
   });
@@ -75,6 +76,7 @@ class TweetVM {
         videoPlaceholderUrl: _videoPlaceholderUrl(tweet),
         videoUrl: _videoUrl(tweet),
         videoAspectRatio: _videoAspectRatio(tweet),
+        favoriteCount: _favoriteCount(tweet),
         startDisplayText: _startDisplayText(tweet),
         endDisplayText: _endDisplayText(tweet),
       );
@@ -260,6 +262,10 @@ class TweetVM {
     }
   }
 
+  static int _favoriteCount(Tweet tweet) {
+    return tweet.favoriteCount;
+  }
+
   static int _startDisplayText(Tweet tweet) {
     return tweet.displayTextRange != null ? tweet.displayTextRange[0] : 0;
   }
@@ -267,4 +273,5 @@ class TweetVM {
   static int _endDisplayText(Tweet tweet) {
     return tweet.displayTextRange != null ? tweet.displayTextRange[1] : _runes(tweet).length;
   }
+
 }

@@ -1,3 +1,4 @@
+import 'package:example/embedded_tweet_page.dart';
 import 'package:example/tweet_page.dart';
 import 'package:flutter/material.dart';
 
@@ -55,6 +56,7 @@ class TweetUiExample extends StatelessWidget {
             'assets/tweet_examples/tweet_quote_bug_gh14.json',
             context,
           ),
+          buildEmbeddedButton("Embedded", context),
           buildButton(
             "Bug Github #24",
             'assets/tweet_examples/tweet_bug_gh24.json',
@@ -86,6 +88,21 @@ class TweetUiExample extends StatelessWidget {
               ),
             ),
           );
+        },
+      ),
+    );
+  }
+
+  Widget buildEmbeddedButton(String title, BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 4.0),
+      child: RaisedButton(
+        child: Text(
+          title,
+          textAlign: TextAlign.start,
+        ),
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => EmbeddedTweetPage()));
         },
       ),
     );

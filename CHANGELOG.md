@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ommited the last Entity which was usualy URL. This was a bad approach. Now we respect the `display_text_range` field in a tweet JSON which indicates what
 substring of the tweet text should be diplayed. More info can be found [here](https://developer.twitter.com/en/docs/tweets/tweet-updates)
 TLDR; If you see an unwanted URL at the end of a tweet text, provide a tweet JSON wirth a `display_text_range` field.
+### Added
+- Added new and modern looking tweet type: embedded tweets
 ### Fixed
 - Fixed tweet text formatting with one mention (or other entity) schibsted/tweet_ui#24
 
