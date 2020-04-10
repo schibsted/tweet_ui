@@ -55,17 +55,17 @@ There is also a special `QuoteTweetView` that is embedded in a `TweetView` or a 
 
 ## What tweet view should I create?
 
-`TweetView` and `CompactTweetView` are more customisable, but `EmbeddedTweetView` looks more modern. Check the screenshots [below](https://github.com/schibsted/tweet_ui##example-of-supported-view-and-media-types).
+`TweetView` and `CompactTweetView` are more customisable, but `EmbeddedTweetView` looks more modern. Check the screenshots [below](https://github.com/schibsted/tweet_ui#example-of-supported-view-and-media-types).
 
 ## Need more information? Check our wiki pages!
 
 [Colors & styling](https://github.com/schibsted/tweet_ui/wiki/Colors-&-styling)
 
-[Custom callbacks](https://github.com/schibsted/tweet_ui/wiki/https://github.com/schibsted/tweet_ui/wiki/Custom-callbacks)
+[Custom callbacks](https://github.com/schibsted/tweet_ui/wiki/Custom-callbacks)
 
-[Custom date format](https://github.com/schibsted/tweet_ui/wiki/https://github.com/schibsted/tweet_ui/wiki/Custom-date-format)
+[Custom date format](https://github.com/schibsted/tweet_ui/wiki/Custom-date-format)
 
-[Video player options](https://github.com/schibsted/tweet_ui/wiki/https://github.com/schibsted/tweet_ui/wiki/Video-player-options)
+[Video player options](https://github.com/schibsted/tweet_ui/wiki/Video-player-options)
 
 ## Example of supported view and media types:
 
