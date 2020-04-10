@@ -57,8 +57,11 @@ class Tweet {
   /// user.
   bool favorited;
 
-  // The number of favorites(hearts)
+  /// The number of favorites(hearts)
   int favoriteCount;
+
+  /// Nullable. List of two unicode code point indices, identifying the inclusive start and exclusive end of the displayable content of the Tweet.
+  List<int> displayTextRange;
 
   Tweet({
     this.createdAt,
@@ -72,7 +75,8 @@ class Tweet {
     this.user,
     this.isQuoteStatus,
     this.favorited,
-    this.favoriteCount
+    this.favoriteCount,
+    this.displayTextRange,
   });
 
   factory Tweet.fromRawJson(String str) => Tweet.fromJson(json.decode(str));
@@ -89,6 +93,7 @@ class Tweet {
         user: json["user"] == null ? null : User.fromJson(json["user"]),
         isQuoteStatus: json["is_quote_status"] == null ? null : json["is_quote_status"],
         favorited: json["favorited"] == null ? null : json["favorited"],
-        favoriteCount: json['favorite_count'] == null ? null : json["favorite_count"]
+        favoriteCount: json['favorite_count'] == null ? null : json["favorite_count"],
+        displayTextRange: json["display_text_range"] == null ? null : (json["display_text_range"]).cast<int>(),
       );
 }

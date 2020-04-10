@@ -34,4 +34,6 @@ flutter:
     - assets/tweet_examples/tweet_quote_video.json
     - assets/tweet_examples/tweet_bug_gh14.json
     - assets/tweet_examples/tweet_quote_bug_gh14.json
+    - assets/tweet_examples/tweet_bug_gh24.json
+    - assets/tweet_examples/tweet_quote_bug_gh24.json
   uses-material-design: true

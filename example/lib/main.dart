@@ -56,7 +56,13 @@ class TweetUiExample extends StatelessWidget {
             'assets/tweet_examples/tweet_quote_bug_gh14.json',
             context,
           ),
-          buildEmbeddedButton("Embedded", context)
+          buildEmbeddedButton("Embedded", context),
+          buildButton(
+            "Bug Github #24",
+            'assets/tweet_examples/tweet_bug_gh24.json',
+            'assets/tweet_examples/tweet_quote_bug_gh24.json',
+            context,
+          ),
         ],
       ),
     );
