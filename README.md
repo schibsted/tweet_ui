@@ -1,8 +1,7 @@
 # tweet_ui
 
-Flutter Tweet UI - Flutter package that is inspired from [twitter-kit-android](https://github.com/twitter-archive/twitter-kit-android). 
-
-Works on iOS and Android.
+Flutter Tweet UI - Flutter package that is inspired by
+[twitter-kit-android](https://github.com/twitter-archive/twitter-kit-android). Works on iOS and Android.
 
 ## Getting Started
 
@@ -11,10 +10,13 @@ To use this package add it to the pubspec.yaml file:
 `tweet_ui: <latest_version>`
 
 import it:
- 
+
 `import 'package:tweet_ui/tweet_ui.dart';`
 
-and create a `TweetView` from a JSON:
+If you want to show tweets with videos: check the
+[video_player installation](https://pub.dev/packages/video_player#installation) site.
+
+finally, create a `TweetView` from a JSON:
 
 ```dart
 TweetView.fromTweet(
@@ -25,7 +27,7 @@ TweetView.fromTweet(
 );
 ```
 
-or a `CompactTweetView`
+or a `CompactTweetView`,
 
 ```dart
 CompactTweetView.fromTweet(
@@ -36,119 +38,62 @@ CompactTweetView.fromTweet(
 );
 ```
 
-There is also a special `QuoteTweetView` that is embedded in a `TweetView` or a `CompactTweetView`. This depends if a Tweet has a `quoted_status` value in the JSON.
+or a `EmbeddedTweetView`.
+
+```dart
+EmbeddedTweetView.fromTweet(
+    Tweet.fromRawJson(
+        jsonFromTwitterAPI
+        // {"created_at": "Mon Nov 12 13:00:38 +0000 2018", "id": 1061967001177018368, ...
+    )
+  darkMode: true,
+)
+```
+
+There is also a special `QuoteTweetView` that is embedded in a `TweetView` or a `CompactTweetView` or a
+`EmbeddedTweetView`. This depends if a Tweet has a `quoted_status` value in the JSON.
+
+## What tweet view should I create?
+
+`TweetView` and `CompactTweetView` are more customisable, but `EmbeddedTweetView` looks more modern. Check the screenshots [below](https://github.com/schibsted/tweet_ui##example-of-supported-view-and-media-types).
+
+## Need more information? Check our wiki pages!
+
+[Colors & styling](https://github.com/schibsted/tweet_ui/wiki/Colors-&-styling)
+
+[Custom callbacks](https://github.com/schibsted/tweet_ui/wiki/https://github.com/schibsted/tweet_ui/wiki/Custom-callbacks)
+
+[Custom date format](https://github.com/schibsted/tweet_ui/wiki/https://github.com/schibsted/tweet_ui/wiki/Custom-date-format)
+
+[Video player options](https://github.com/schibsted/tweet_ui/wiki/https://github.com/schibsted/tweet_ui/wiki/Video-player-options)
 
 ## Example of supported view and media types:
 
-> Sample tweets use real life tweet ids but for example purposes their content was changed.
+### Standard tweet views
 
-| Variant  |                                            Standard tweet                                             |                                            Compact tweet                                             | Standard Quote tweet                                                                                        | Compact Quote tweet                                                                                        |
-|:--------:|:-----------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------|
-| 1 photo  | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_1_photo.png)  | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_1_photo.png)  | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_quote_1_photo.png)  | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_quote_1_photo.png)  |
-| 2 photos | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_2_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_2_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_quote_2_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_quote_2_photos.png) |
-| 3 photos | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_3_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_3_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_quote_3_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_quote_3_photos.png) |
-| 4 photos | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_4_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_4_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_quote_4_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_quote_4_photos.png) |
-|  video*  |  ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_video.png)   |  ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_video.png)   | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_quote_video.png)    | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_quote_video.png)    |
-|   GIF    |   ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_gif.png)    |   ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_gif.png)    | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_quote_gif.png)      | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_quote_gif.png)      |
+| Media type |                                               TweetView                                               |                                           CompactTweetView                                           | EmbeddedTweetView                                                                                     |
+|:----------:|:-----------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------|
+|  1 photo   | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_1_photo.png)  | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_1_photo.png)  | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/embedded_1_photo.png)  |
+|  2 photos  | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_2_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_2_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/embedded_2_photos.png) |
+|  3 photos  | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_3_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_3_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/embedded_3_photos.png) |
+|  4 photos  | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_4_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_4_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/embedded_4_photos.png) |
+|   video    |  ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_video.png)   |  ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_video.png)   | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/embedded_video.png)    |
+|    GIF     |   ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_gif.png)    |   ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_gif.png)    | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/embedded_gif.png)      |
 
-> *If you want to show tweets with videos, please check the [video_player installation](https://pub.dev/packages/video_player#installation).
+### Quoted tweet views
 
-## Styling Tweets
+| Media type |                                                  TweetView                                                  |                                              CompactTweetView                                              | EmbeddedTweetView                                                                                           |
+|:----------:|:-----------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------|
+|  1 photo   | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_quote_1_photo.png)  | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_quote_1_photo.png)  | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/embedded_quote_1_photo.png)  |
+|  2 photos  | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_quote_2_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_quote_2_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/embedded_quote_2_photos.png) |
+|  3 photos  | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_quote_3_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_quote_3_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/embedded_quote_3_photos.png) |
+|  4 photos  | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_quote_4_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_quote_4_photos.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/embedded_quote_4_photos.png) |
+|   video    |  ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_quote_video.png)   |  ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_quote_video.png)   | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/embedded_quote_video.png)    |
+|    GIF     |   ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_quote_gif.png)    |   ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_quote_gif.png)    | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/embedded_quote_gif.png)      |
 
-#### Video player 
-By default the `chewie`/`video_player` package is used to show a gif/video, but you can set the `useVideoPlayer` flag to `false` if you want to show a image placeholder provided by the Twitter API and open a video in a new page.
+> Sample tweets use real-life tweet ids but for example purposes, their content was changed.
 
-|    Variant     |                                      With video_player/chewie                                      |                                                With placeholder                                                |
-|:--------------:|:--------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------:|
-| Standard Video | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_video.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_video_placeholder.png) |
-| Compact Video  | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_video.png)  | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_video_placeholder.png)  |
-|  Standard GIF  |  ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_gif.png)  |  ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_gif_placeholder.png)  |
-|  Compact GIF   |  ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_gif.png)   |  ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_gif_placeholder.png)   |
+***
 
+#### Thanks for contributing: [dasmikko](https://github.com/dasmikko), [jamesblasco](https://github.com/jamesblasco), [tristan-vrt](https://github.com/tristan-vrt), [daver123](https://github.com/daver123), [ercadev](https://github.com/ercadev), [ivanjpg](https://github.com/ivanjpg)
 
-#### Text & colors 
-All texts are customizable. You can copy from the `defaultxxx`, `defaultCompactxxx` and `defaultQuotexxx`styles like in the example below.
-
-```dart
-Card(
-    color: Colors.grey,
-    child: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: CompactTweetView.fromTweet(
-        Tweet.fromRawJson(
-          snapshot.data,
-        ),
-        useVideoPlayer: false,
-        userNameStyle: defaultUserNameStyle.copyWith(fontWeight: FontWeight.w200),
-        userScreenNameStyle: defaultUserScreenNameStyle.copyWith(fontWeight: FontWeight.w600),
-        textStyle: defaultTextStyle.copyWith(
-          fontWeight: FontWeight.w200,
-          fontStyle: FontStyle.italic,
-          shadows: [Shadow(color: Colors.white30)],
-        ),
-        clickableTextStyle: defaultClickableTextStyle.copyWith(color: Colors.white),
-        backgroundColor: Colors.grey,
-        quoteUserNameStyle: defaultQuoteUserNameStyle.copyWith(fontWeight: FontWeight.w800),
-        quoteUserScreenNameStyle: defaultQuoteUserScreenNameStyle.copyWith(fontWeight: FontWeight.w100),
-        quoteTextStyle: defaultQuoteTextStyle.copyWith(fontStyle: FontStyle.italic),
-        quoteClickableTextStyle: defaultQuoteClickableTextStyle.copyWith(color: Colors.cyanAccent),
-        quoteBorderColor: Colors.blueAccent,
-        quoteBackgroundColor: Colors.blueGrey,
-      ),
-    ),
-  );
-```
-
-|    Variant    | Standard tweet                                                               | Compact tweet                                                               |
-|:-------------:|:-----------------------------------------------------------------------------:|:----------------------------------------------------------------------------:|
-| Custom styles | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/standard_quote_custom.png) | ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/compact_quote_custom.png) |
-
-
-![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/diagram.jpg)
-
-#### Custom callbacks
-
-onTapImage - function called when user clicks on a image in a TweetView, CompactTweetView or QuoteTweetView.
-`typedef OnTapImage = void Function(List<String> allPhotos, int photoIndex, String hashcode);`
-
-```dart
-
-TweetView.fromTweet(
-  Tweet.fromRawJson(
-    snapshot.data,
-  ),
-  onTapImage: openImage,
-);
-
-  void openImage(List<String> allPhotos, int photoIndex, String hashcode) {
-    print("Opened ${allPhotos[photoIndex]}");
-  }
-```
-  
-  
-#### Custom date display format
-
-From version 1.2.0 you can pass a `createdDateDisplayFormat` parameter that is a DateFormat class. If you don't set it it will default to DateFormat("HH:mm • MM.dd.yyyy", 'en_US'). 
-For more information on how to create a Date format please check this [DateFormat documentation](https://pub.dev/documentation/intl/latest/intl/DateFormat-class.html)
-
-```dart
-
-TweetView.fromTweet(
-  Tweet.fromRawJson(
-    snapshot.data,
-  ),
-  createdDateDisplayFormat: DateFormat("EEE, MMM d, ''yy"),
-);
-```
-
-| Custom date tweet                                                               |
-|:-----------------------------------------------------------------------------:|
-| ![img](https://raw.githubusercontent.com/schibsted/tweet_ui/master/screenshots/custom_date_example.jpg) |
-
-## TODO
-
-1. Get Tweets from Twitter API
-2. Write tests
-3. Add option to set image quality
-
-## Thanks for contributing: [dasmikko](https://github.com/dasmikko), [jamesblasco](https://github.com/jamesblasco), [tristan-vrt](https://github.com/tristan-vrt), [daver123](https://github.com/daver123), [ercadev](https://github.com/ercadev), [ivanjpg](https://github.com/ivanjpg)

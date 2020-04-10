@@ -40,18 +40,18 @@ class _EmbeddedTweetPageState extends State<EmbeddedTweetPage> {
           });
         }),),
       ),
-      buildTweetEmbed("assets/tweet_examples/tweet_1_photo.json", darkMode),
-      buildTweetEmbed("assets/tweet_examples/tweet_quote_1_photo.json", darkMode),
-      buildTweetEmbed("assets/tweet_examples/tweet_2_photos.json", darkMode),
-      buildTweetEmbed("assets/tweet_examples/tweet_quote_2_photos.json", darkMode),
-      buildTweetEmbed("assets/tweet_examples/tweet_3_photos.json", darkMode),
-      buildTweetEmbed("assets/tweet_examples/tweet_quote_3_photos.json", darkMode),
-      buildTweetEmbed("assets/tweet_examples/tweet_4_photos.json", darkMode),
-      buildTweetEmbed("assets/tweet_examples/tweet_quote_4_photos.json", darkMode),
-      buildTweetEmbed("assets/tweet_examples/tweet_video.json", darkMode),
-      buildTweetEmbed("assets/tweet_examples/tweet_quote_video.json", darkMode),
-      buildTweetEmbed("assets/tweet_examples/tweet_gif.json", darkMode),
-      buildTweetEmbed("assets/tweet_examples/tweet_quote_gif.json", darkMode),
+            buildEmbeddedTweetView("assets/tweet_examples/tweet_1_photo.json", darkMode),
+            buildEmbeddedTweetView("assets/tweet_examples/tweet_quote_1_photo.json", darkMode),
+            buildEmbeddedTweetView("assets/tweet_examples/tweet_2_photos.json", darkMode),
+            buildEmbeddedTweetView("assets/tweet_examples/tweet_quote_2_photos.json", darkMode),
+            buildEmbeddedTweetView("assets/tweet_examples/tweet_3_photos.json", darkMode),
+            buildEmbeddedTweetView("assets/tweet_examples/tweet_quote_3_photos.json", darkMode),
+            buildEmbeddedTweetView("assets/tweet_examples/tweet_4_photos.json", darkMode),
+            buildEmbeddedTweetView("assets/tweet_examples/tweet_quote_4_photos.json", darkMode),
+            buildEmbeddedTweetView("assets/tweet_examples/tweet_video.json", darkMode),
+            buildEmbeddedTweetView("assets/tweet_examples/tweet_quote_video.json", darkMode),
+            buildEmbeddedTweetView("assets/tweet_examples/tweet_gif.json", darkMode),
+            buildEmbeddedTweetView("assets/tweet_examples/tweet_quote_gif.json", darkMode),
           ],
         ),
       ),
@@ -70,15 +70,14 @@ class _EmbeddedTweetPageState extends State<EmbeddedTweetPage> {
   }
 
   /// Builds a TweetView from a JSON file
-  Widget buildTweetEmbed(String jsonFile, bool darkMode) {
+  Widget buildEmbeddedTweetView(String jsonFile, bool darkMode) {
     return FutureBuilder(
       future: rootBundle.loadString(jsonFile),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.hasData) {
           return Container(
             margin: EdgeInsets.only(left: 15, right: 15,top: 20),
-            child: TweetEmbed.fromTweet(
-              
+            child: EmbeddedTweetView.fromTweet(
               Tweet.fromRawJson(
                 snapshot.data,
               ),
