@@ -29,6 +29,7 @@ class TweetVM {
   final String videoPlaceholderUrl;
   final String videoUrl;
   final double videoAspectRatio;
+  final int favoriteCount;
 
   TweetVM({
     this.createdAt,
@@ -49,6 +50,7 @@ class TweetVM {
     this.videoPlaceholderUrl,
     this.videoUrl,
     this.videoAspectRatio,
+    this.favoriteCount
   });
 
   factory TweetVM.fromApiModel(Tweet tweet, DateFormat createdDateDisplayFormat) => new TweetVM(
@@ -70,6 +72,8 @@ class TweetVM {
         videoPlaceholderUrl: _videoPlaceholderUrl(tweet),
         videoUrl: _videoUrl(tweet),
         videoAspectRatio: _videoAspectRatio(tweet),
+        favoriteCount: _favoriteCount(tweet)
+
       );
 
   static String _createdAt(Tweet tweet, DateFormat displayFormat ) {
@@ -251,5 +255,9 @@ class TweetVM {
     } else {
       return null;
     }
+  }
+
+  static int _favoriteCount(Tweet tweet) {
+    return tweet.favoriteCount;
   }
 }
