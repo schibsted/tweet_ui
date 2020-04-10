@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- **BREAKING!!!** Changed the logic for formatting tweet texts. Often tweets have a link at the end in the JSON response. As a quick solution previously we
+ommited the last Entity which was usualy URL. This was a bad approach. Now we respect the `display_text_range` field in a tweet JSON which indicates what
+substring of the tweet text should be diplayed. More info can be found [here](https://developer.twitter.com/en/docs/tweets/tweet-updates)
+TLDR; If you see an unwanted URL at the end of a tweet text, provide a tweet JSON wirth a `display_text_range` field.
+### Fixed
+- Fixed tweet text formatting with one mention (or other entity) schibsted/tweet_ui#24
 
 ## [1.2.1] - 17.03.2020
 ### Changed

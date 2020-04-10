@@ -29,6 +29,9 @@ class TweetVM {
   final String videoPlaceholderUrl;
   final String videoUrl;
   final double videoAspectRatio;
+  final int startDisplayText;
+  final int endDisplayText;
+
 
   TweetVM({
     this.createdAt,
@@ -49,6 +52,8 @@ class TweetVM {
     this.videoPlaceholderUrl,
     this.videoUrl,
     this.videoAspectRatio,
+    this.startDisplayText,
+    this.endDisplayText,
   });
 
   factory TweetVM.fromApiModel(Tweet tweet, DateFormat createdDateDisplayFormat) => new TweetVM(
@@ -70,6 +75,8 @@ class TweetVM {
         videoPlaceholderUrl: _videoPlaceholderUrl(tweet),
         videoUrl: _videoUrl(tweet),
         videoAspectRatio: _videoAspectRatio(tweet),
+        startDisplayText: _startDisplayText(tweet),
+        endDisplayText: _endDisplayText(tweet),
       );
 
   static String _createdAt(Tweet tweet, DateFormat displayFormat ) {
@@ -251,5 +258,13 @@ class TweetVM {
     } else {
       return null;
     }
+  }
+
+  static int _startDisplayText(Tweet tweet) {
+    return tweet.displayTextRange != null ? tweet.displayTextRange[0] : 0;
+  }
+
+  static int _endDisplayText(Tweet tweet) {
+    return tweet.displayTextRange != null ? tweet.displayTextRange[1] : _runes(tweet).length;
   }
 }

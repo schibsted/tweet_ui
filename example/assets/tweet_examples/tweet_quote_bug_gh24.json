@@ -1,0 +1,407 @@
+{
+  "created_at": "Fri May 19 16:24:47 +0000 2017",
+  "id": 865604154676432896,
+  "id_str": "865604154676432896",
+  "text": "So this is a Quoted Tweet of an 'original' Tweet that has a @Mention,  $Symbol, a #Hastag and four attached photos. https://t.co/FwuQVeNOHn",
+  "truncated": false,
+  "entities": {
+    "hashtags": [
+      {
+        "text": "Hastag",
+        "indices": [
+          82,
+          89
+        ]
+      }
+    ],
+    "symbols": [
+      {
+        "text": "Symbol",
+        "indices": [
+          71,
+          78
+        ]
+      }
+    ],
+    "user_mentions": [
+      {
+        "screen_name": "Mention",
+        "name": "Mention",
+        "id": 435854974,
+        "id_str": "435854974",
+        "indices": [
+          60,
+          68
+        ]
+      }
+    ],
+    "urls": [
+      {
+        "url": "https://t.co/FwuQVeNOHn",
+        "expanded_url": "https://twitter.com/FloodSocial/status/861627479294746624",
+        "display_url": "twitter.com/FloodSocial/st…",
+        "indices": [
+          116,
+          139
+        ]
+      }
+    ]
+  },
+  "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+  "in_reply_to_status_id": null,
+  "in_reply_to_status_id_str": null,
+  "in_reply_to_user_id": null,
+  "in_reply_to_user_id_str": null,
+  "in_reply_to_screen_name": null,
+  "user": {
+    "id": 944480690,
+    "id_str": "944480690",
+    "name": "API demos",
+    "screen_name": "FloodSocial",
+    "location": "Boulder, CO",
+    "description": "Exploring @TwitterDev, one demo or test at a time. \n🌍💧❄️🌧️☀️ \n@FloodSocial notification sign-up bot was the precursor to @SnowBotDev",
+    "url": "https://t.co/rzmuONbWMR",
+    "entities": {
+      "url": {
+        "urls": [
+          {
+            "url": "https://t.co/rzmuONbWMR",
+            "expanded_url": "https://github.com/jimmoffitt/FloodSocial",
+            "display_url": "github.com/jimmoffitt/Flo…",
+            "indices": [
+              0,
+              23
+            ]
+          }
+        ]
+      },
+      "description": {
+        "urls": []
+      }
+    },
+    "protected": false,
+    "followers_count": 73,
+    "friends_count": 19,
+    "listed_count": 5,
+    "created_at": "Mon Nov 12 19:59:55 +0000 2012",
+    "favourites_count": 36,
+    "utc_offset": null,
+    "time_zone": null,
+    "geo_enabled": true,
+    "verified": false,
+    "statuses_count": 187,
+    "lang": null,
+    "contributors_enabled": false,
+    "is_translator": false,
+    "is_translation_enabled": false,
+    "profile_background_color": "000000",
+    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+    "profile_background_tile": false,
+    "profile_image_url": "http://pbs.twimg.com/profile_images/1162409582213226497/wHPWq9eI_normal.jpg",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1162409582213226497/wHPWq9eI_normal.jpg",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/944480690/1412809012",
+    "profile_link_color": "7FDBB6",
+    "profile_sidebar_border_color": "000000",
+    "profile_sidebar_fill_color": "000000",
+    "profile_text_color": "000000",
+    "profile_use_background_image": false,
+    "has_extended_profile": false,
+    "default_profile": false,
+    "default_profile_image": false,
+    "following": null,
+    "follow_request_sent": null,
+    "notifications": null,
+    "translator_type": "none"
+  },
+  "geo": null,
+  "coordinates": null,
+  "place": null,
+  "contributors": null,
+  "is_quote_status": true,
+  "quoted_status_id": 861627479294746624,
+  "quoted_status_id_str": "861627479294746624",
+  "quoted_status": {
+    "created_at": "Sun Mar 15 11:20:07 +0000 2020",
+    "id": 1239149373881106400,
+    "id_str": "1239149373881106434",
+    "full_text": "RT @artnet: An Ohio couple's $100 million gift of art to the Cleveland Museum is the institution's largest donation in more than 60 Years.…",
+    "truncated": false,
+    "display_text_range": [
+      0,
+      139
+    ],
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [
+        {
+          "screen_name": "artnet",
+          "name": "Artnet",
+          "id": 20622594,
+          "id_str": "20622594",
+          "indices": [
+            3,
+            10
+          ]
+        }
+      ],
+      "urls": []
+    },
+    "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 1207068980239835100,
+      "id_str": "1207068980239835136",
+      "name": "AppArtista",
+      "screen_name": "AppArtista",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 3,
+      "friends_count": 20,
+      "listed_count": 0,
+      "created_at": "Tue Dec 17 22:46:27 +0000 2019",
+      "favourites_count": 24,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 23,
+      "lang": null,
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "F5F8FA",
+      "profile_background_image_url": null,
+      "profile_background_image_url_https": null,
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1207158782033137665/ZQ7DpHyi_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1207158782033137665/ZQ7DpHyi_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/1207068980239835136/1576644547",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": null,
+      "follow_request_sent": null,
+      "notifications": null,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "retweeted_status": {
+      "created_at": "Sun Mar 15 02:45:03 +0000 2020",
+      "id": 1239019752980349000,
+      "id_str": "1239019752980348934",
+      "full_text": "An Ohio couple's $100 million gift of art to the Cleveland Museum is the institution's largest donation in more than 60 Years. https://t.co/lj37YEj84D https://t.co/QwPcIO0eMO",
+      "truncated": false,
+      "display_text_range": [
+        0,
+        150
+      ],
+      "entities": {
+        "hashtags": [],
+        "symbols": [],
+        "user_mentions": [],
+        "urls": [
+          {
+            "url": "https://t.co/lj37YEj84D",
+            "expanded_url": "http://bit.ly/33d1SM1",
+            "display_url": "bit.ly/33d1SM1",
+            "indices": [
+              127,
+              150
+            ]
+          }
+        ],
+        "media": [
+          {
+            "id": 1239019751155863600,
+            "id_str": "1239019751155863552",
+            "indices": [
+              151,
+              174
+            ],
+            "media_url": "http://pbs.twimg.com/media/ETHh5ilWkAAW3AI.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/ETHh5ilWkAAW3AI.jpg",
+            "url": "https://t.co/QwPcIO0eMO",
+            "display_url": "pic.twitter.com/QwPcIO0eMO",
+            "expanded_url": "https://twitter.com/artnet/status/1239019752980348934/photo/1",
+            "type": "photo",
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "large": {
+                "w": 1024,
+                "h": 847,
+                "resize": "fit"
+              },
+              "small": {
+                "w": 680,
+                "h": 562,
+                "resize": "fit"
+              },
+              "medium": {
+                "w": 1024,
+                "h": 847,
+                "resize": "fit"
+              }
+            }
+          }
+        ]
+      },
+      "extended_entities": {
+        "media": [
+          {
+            "id": 1239019751155863600,
+            "id_str": "1239019751155863552",
+            "indices": [
+              151,
+              174
+            ],
+            "media_url": "http://pbs.twimg.com/media/ETHh5ilWkAAW3AI.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/ETHh5ilWkAAW3AI.jpg",
+            "url": "https://t.co/QwPcIO0eMO",
+            "display_url": "pic.twitter.com/QwPcIO0eMO",
+            "expanded_url": "https://twitter.com/artnet/status/1239019752980348934/photo/1",
+            "type": "photo",
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "large": {
+                "w": 1024,
+                "h": 847,
+                "resize": "fit"
+              },
+              "small": {
+                "w": 680,
+                "h": 562,
+                "resize": "fit"
+              },
+              "medium": {
+                "w": 1024,
+                "h": 847,
+                "resize": "fit"
+              }
+            }
+          }
+        ]
+      },
+      "source": "<a href=\"https://buffer.com\" rel=\"nofollow\">Buffer</a>",
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 20622594,
+        "id_str": "20622594",
+        "name": "Artnet",
+        "screen_name": "artnet",
+        "location": "New York, N.Y.",
+        "description": "The art world online.",
+        "url": "http://t.co/Bp5pApQP9z",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http://t.co/Bp5pApQP9z",
+                "expanded_url": "http://www.artnet.com",
+                "display_url": "artnet.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 1944170,
+        "friends_count": 9303,
+        "listed_count": 10500,
+        "created_at": "Wed Feb 11 20:13:22 +0000 2009",
+        "favourites_count": 2676,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": true,
+        "verified": true,
+        "statuses_count": 50295,
+        "lang": null,
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "FCF7FC",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/525022505140899840/SqjK4CPu_normal.png",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/525022505140899840/SqjK4CPu_normal.png",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/20622594/1539102791",
+        "profile_link_color": "FF6F35",
+        "profile_sidebar_border_color": "FFFFFF",
+        "profile_sidebar_fill_color": "F0F0F0",
+        "profile_text_color": "333333",
+        "profile_use_background_image": false,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": null,
+        "follow_request_sent": null,
+        "notifications": null,
+        "translator_type": "none"
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 8,
+      "favorite_count": 48,
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "possibly_sensitive_appealable": false,
+      "lang": "en"
+    },
+    "is_quote_status": false,
+    "retweet_count": 8,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "en"
+  },
+  "retweet_count": 1,
+  "favorite_count": 4,
+  "favorited": false,
+  "retweeted": false,
+  "possibly_sensitive": false,
+  "possibly_sensitive_appealable": false,
+  "lang": "en"
+}
