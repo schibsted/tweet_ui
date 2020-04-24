@@ -87,7 +87,8 @@ class CompactTweetView extends StatelessWidget {
       this.userScreenNameStyle = defaultCompactUserScreenNameStyle,
       this.textStyle = defaultCompactTextStyle,
       this.clickableTextStyle = defaultCompactClickableTextStyle,
-      this.retweetInformationTextStyle = defaultCompactRetweetInformationNameStyle,
+      this.retweetInformationTextStyle =
+          defaultCompactRetweetInformationNameStyle,
       this.quoteUserNameStyle = defaultQuoteUserNameStyle,
       this.quoteUserScreenNameStyle = defaultQuoteUserScreenNameStyle,
       this.quoteTextStyle = defaultQuoteTextStyle,

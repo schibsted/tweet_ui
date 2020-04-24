@@ -133,7 +133,8 @@ class TweetView extends StatelessWidget {
                             children: <Widget>[
                               RetweetInformation(
                                 _tweetVM,
-                                retweetInformationStyle: retweetInformationTextStyle,
+                                retweetInformationStyle:
+                                    retweetInformationTextStyle,
                               ),
                               Row(
                                 children: <Widget>[
@@ -175,7 +176,8 @@ class TweetView extends StatelessWidget {
                 ),
                 (_tweetVM.quotedTweet != null)
                     ? Padding(
-                        padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
+                        padding:
+                            EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
                         child: QuoteTweetView.fromTweet(
                           _tweetVM.quotedTweet,
                           textStyle: quoteTextStyle,
