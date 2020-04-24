@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.1.0+1] - 24.04.2020
+### Changed
+- Updated description
+
 ## [2.1.0] - 24.04.2020
 ### Added
 - Added support for retweets in TweetView, CompactTweetView and EmbeddedTweetView schibsted/tweet_ui#29
