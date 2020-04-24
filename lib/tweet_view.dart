@@ -30,6 +30,9 @@ class TweetView extends StatelessWidget {
   /// Style of the clickable elements in the Tweet text (URLs, mentions, hashtags, symbols)
   final TextStyle clickableTextStyle;
 
+  /// Style of the retweet information
+  final TextStyle retweetInformationTextStyle;
+
   /// Style of the user name in a embedded quote Tweet
   final TextStyle quoteUserNameStyle;
 
@@ -67,6 +70,7 @@ class TweetView extends StatelessWidget {
     this.userScreenNameStyle,
     this.textStyle,
     this.clickableTextStyle,
+    this.retweetInformationTextStyle,
     this.quoteUserNameStyle,
     this.quoteUserScreenNameStyle,
     this.quoteTextStyle,
@@ -84,6 +88,7 @@ class TweetView extends StatelessWidget {
       this.userScreenNameStyle = defaultUserScreenNameStyle,
       this.textStyle = defaultTextStyle,
       this.clickableTextStyle = defaultClickableTextStyle,
+      this.retweetInformationTextStyle = defaultRetweetInformationStyle,
       this.quoteUserNameStyle = defaultQuoteUserNameStyle,
       this.quoteUserScreenNameStyle = defaultQuoteUserScreenNameStyle,
       this.quoteTextStyle = defaultQuoteTextStyle,
@@ -128,8 +133,7 @@ class TweetView extends StatelessWidget {
                             children: <Widget>[
                               RetweetInformation(
                                 _tweetVM,
-                                retweetInformationStyle:
-                                    defaultRetweetInformationStyle,
+                                retweetInformationStyle: retweetInformationTextStyle,
                               ),
                               Row(
                                 children: <Widget>[
@@ -171,8 +175,7 @@ class TweetView extends StatelessWidget {
                 ),
                 (_tweetVM.quotedTweet != null)
                     ? Padding(
-                        padding:
-                            EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
+                        padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
                         child: QuoteTweetView.fromTweet(
                           _tweetVM.quotedTweet,
                           textStyle: quoteTextStyle,

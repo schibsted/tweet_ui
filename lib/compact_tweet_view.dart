@@ -28,6 +28,9 @@ class CompactTweetView extends StatelessWidget {
   /// Style of the Tweet text
   final TextStyle textStyle;
 
+  /// Style of the retweet information
+  final TextStyle retweetInformationTextStyle;
+
   /// Style of the clickable elements in the Tweet text (URLs, mentions, hashtags, symbols)
   final TextStyle clickableTextStyle;
 
@@ -67,6 +70,7 @@ class CompactTweetView extends StatelessWidget {
       this.userScreenNameStyle,
       this.textStyle,
       this.clickableTextStyle,
+      this.retweetInformationTextStyle,
       this.quoteUserNameStyle,
       this.quoteUserScreenNameStyle,
       this.quoteTextStyle,
@@ -83,6 +87,7 @@ class CompactTweetView extends StatelessWidget {
       this.userScreenNameStyle = defaultCompactUserScreenNameStyle,
       this.textStyle = defaultCompactTextStyle,
       this.clickableTextStyle = defaultCompactClickableTextStyle,
+      this.retweetInformationTextStyle = defaultCompactRetweetInformationNameStyle,
       this.quoteUserNameStyle = defaultQuoteUserNameStyle,
       this.quoteUserScreenNameStyle = defaultQuoteUserScreenNameStyle,
       this.quoteTextStyle = defaultQuoteTextStyle,
