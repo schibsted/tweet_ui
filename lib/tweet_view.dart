@@ -93,8 +93,7 @@ class TweetView extends StatelessWidget {
       this.backgroundColor = Colors.white,
       this.useVideoPlayer = true,
       this.onTapImage,
-      this.createdDateDisplayFormat
-      })
+      this.createdDateDisplayFormat})
       : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
 
   @override
@@ -129,7 +128,8 @@ class TweetView extends StatelessWidget {
                             children: <Widget>[
                               RetweetInformation(
                                 _tweetVM,
-                                retweetInformationStyle: defaultRetweetInformationStyle,
+                                retweetInformationStyle:
+                                    defaultRetweetInformationStyle,
                               ),
                               Row(
                                 children: <Widget>[
@@ -171,7 +171,8 @@ class TweetView extends StatelessWidget {
                 ),
                 (_tweetVM.quotedTweet != null)
                     ? Padding(
-                        padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
+                        padding:
+                            EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
                         child: QuoteTweetView.fromTweet(
                           _tweetVM.quotedTweet,
                           textStyle: quoteTextStyle,

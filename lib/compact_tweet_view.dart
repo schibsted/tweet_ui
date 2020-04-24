@@ -62,41 +62,38 @@ class CompactTweetView extends StatelessWidget {
   /// Date format when the tweet was created. When null it defaults to DateFormat("HH:mm • MM.dd.yyyy", 'en_US')
   final DateFormat createdDateDisplayFormat;
 
-  CompactTweetView(
-    this._tweetVM, {
-    this.userNameStyle,
-    this.userScreenNameStyle,
-    this.textStyle,
-    this.clickableTextStyle,
-    this.quoteUserNameStyle,
-    this.quoteUserScreenNameStyle,
-    this.quoteTextStyle,
-    this.quoteClickableTextStyle,
-    this.quoteBorderColor,
-    this.quoteBackgroundColor,
-    this.backgroundColor,
-    this.useVideoPlayer,
-    this.onTapImage,
-    this.createdDateDisplayFormat
-  }); //  TweetView(this.tweetVM);
+  CompactTweetView(this._tweetVM,
+      {this.userNameStyle,
+      this.userScreenNameStyle,
+      this.textStyle,
+      this.clickableTextStyle,
+      this.quoteUserNameStyle,
+      this.quoteUserScreenNameStyle,
+      this.quoteTextStyle,
+      this.quoteClickableTextStyle,
+      this.quoteBorderColor,
+      this.quoteBackgroundColor,
+      this.backgroundColor,
+      this.useVideoPlayer,
+      this.onTapImage,
+      this.createdDateDisplayFormat}); //  TweetView(this.tweetVM);
 
-  CompactTweetView.fromTweet(
-    Tweet tweet, {
-    this.userNameStyle = defaultCompactUserNameStyle,
-    this.userScreenNameStyle = defaultCompactUserScreenNameStyle,
-    this.textStyle = defaultCompactTextStyle,
-    this.clickableTextStyle = defaultCompactClickableTextStyle,
-    this.quoteUserNameStyle = defaultQuoteUserNameStyle,
-    this.quoteUserScreenNameStyle = defaultQuoteUserScreenNameStyle,
-    this.quoteTextStyle = defaultQuoteTextStyle,
-    this.quoteClickableTextStyle = defaultQuoteClickableTextStyle,
-    this.quoteBorderColor = Colors.grey,
-    this.quoteBackgroundColor = Colors.white,
-    this.backgroundColor = Colors.white,
-    this.useVideoPlayer = true,
-    this.onTapImage,
-    this.createdDateDisplayFormat
-  }) : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
+  CompactTweetView.fromTweet(Tweet tweet,
+      {this.userNameStyle = defaultCompactUserNameStyle,
+      this.userScreenNameStyle = defaultCompactUserScreenNameStyle,
+      this.textStyle = defaultCompactTextStyle,
+      this.clickableTextStyle = defaultCompactClickableTextStyle,
+      this.quoteUserNameStyle = defaultQuoteUserNameStyle,
+      this.quoteUserScreenNameStyle = defaultQuoteUserScreenNameStyle,
+      this.quoteTextStyle = defaultQuoteTextStyle,
+      this.quoteClickableTextStyle = defaultQuoteClickableTextStyle,
+      this.quoteBorderColor = Colors.grey,
+      this.quoteBackgroundColor = Colors.white,
+      this.backgroundColor = Colors.white,
+      this.useVideoPlayer = true,
+      this.onTapImage,
+      this.createdDateDisplayFormat})
+      : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
 
   @override
   Widget build(BuildContext context) {
@@ -109,8 +106,10 @@ class CompactTweetView extends StatelessWidget {
             Padding(
               child: RetweetInformation(
                 _tweetVM,
-                retweetInformationStyle: defaultCompactRetweetInformationNameStyle,
-              ), padding: EdgeInsets.only(left: 24),
+                retweetInformationStyle:
+                    defaultCompactRetweetInformationNameStyle,
+              ),
+              padding: EdgeInsets.only(left: 24),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,

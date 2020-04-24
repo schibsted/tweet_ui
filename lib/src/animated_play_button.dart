@@ -15,7 +15,8 @@ class AnimatedPlayButton extends StatefulWidget {
   _AnimatedPlayButtonState createState() => _AnimatedPlayButtonState();
 }
 
-class _AnimatedPlayButtonState extends State<AnimatedPlayButton> with SingleTickerProviderStateMixin {
+class _AnimatedPlayButtonState extends State<AnimatedPlayButton>
+    with SingleTickerProviderStateMixin {
   double _scale;
   AnimationController _controller;
 

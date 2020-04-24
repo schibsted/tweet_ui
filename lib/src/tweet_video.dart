@@ -17,14 +17,16 @@ class TweetVideo extends StatefulWidget {
   _TweetVideoState createState() => _TweetVideoState();
 }
 
-class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMixin {
+class _TweetVideoState extends State<TweetVideo>
+    with AutomaticKeepAliveClientMixin {
   VideoPlayerController _controller;
   ChewieController _chewieController;
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(widget.tweetVM.getDisplayTweet().videoUrl);
+    _controller = VideoPlayerController.network(
+        widget.tweetVM.getDisplayTweet().videoUrl);
     _controller.setVolume(0.0);
 
     _chewieController = ChewieController(

@@ -59,7 +59,9 @@ class TweetVM {
     this.endDisplayText,
   });
 
-  factory TweetVM.fromApiModel(Tweet tweet, DateFormat createdDateDisplayFormat) => new TweetVM(
+  factory TweetVM.fromApiModel(
+          Tweet tweet, DateFormat createdDateDisplayFormat) =>
+      new TweetVM(
         createdAt: _createdAt(tweet, createdDateDisplayFormat),
         hasSupportedVideo: _hasSupportedVideo(tweet),
         allEntities: _allEntities(tweet),
@@ -74,7 +76,8 @@ class TweetVM {
         userName: _userName(tweet),
         userScreenName: _userScreenName(tweet),
         quotedTweet: _quotedTweet(tweet.quotedStatus, createdDateDisplayFormat),
-        retweetedTweet: _retweetedTweet(tweet.retweetedStatus, createdDateDisplayFormat),
+        retweetedTweet:
+            _retweetedTweet(tweet.retweetedStatus, createdDateDisplayFormat),
         userVerified: _userVerified(tweet),
         videoPlaceholderUrl: _videoPlaceholderUrl(tweet),
         videoUrl: _videoUrl(tweet),
@@ -84,10 +87,12 @@ class TweetVM {
         endDisplayText: _endDisplayText(tweet),
       );
 
-  static String _createdAt(Tweet tweet, DateFormat displayFormat ) {
-    DateFormat twitterFormat = new DateFormat("EEE MMM dd HH:mm:ss '+0000' yyyy", 'en_US');
+  static String _createdAt(Tweet tweet, DateFormat displayFormat) {
+    DateFormat twitterFormat =
+        new DateFormat("EEE MMM dd HH:mm:ss '+0000' yyyy", 'en_US');
     final dateTime = twitterFormat.parseUTC(tweet.createdAt).toLocal();
-    return (displayFormat ?? new DateFormat("HH:mm • MM.dd.yyyy", 'en_US')).format(dateTime);
+    return (displayFormat ?? new DateFormat("HH:mm • MM.dd.yyyy", 'en_US'))
+        .format(dateTime);
   }
 
   static bool _isPhotoType(MediaEntity mediaEntity) {
@@ -110,7 +115,8 @@ class TweetVM {
   static MediaEntity _videoEntity(Tweet tweet) {
     try {
       return _allMediaEntities(tweet).firstWhere(
-        (MediaEntity mediaEntity) => mediaEntity.type != null && _isVideoType(mediaEntity),
+        (MediaEntity mediaEntity) =>
+            mediaEntity.type != null && _isVideoType(mediaEntity),
       );
     } catch (e) {
       return null;
@@ -236,7 +242,8 @@ class TweetVM {
     return tweet.user.screenName;
   }
 
-  static TweetVM _quotedTweet(Tweet tweet, DateFormat createdDateDisplayFormat) {
+  static TweetVM _quotedTweet(
+      Tweet tweet, DateFormat createdDateDisplayFormat) {
     if (tweet != null) {
       return TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
     } else {
@@ -244,7 +251,8 @@ class TweetVM {
     }
   }
 
-  static TweetVM _retweetedTweet(Tweet tweet, DateFormat createdDateDisplayFormat) {
+  static TweetVM _retweetedTweet(
+      Tweet tweet, DateFormat createdDateDisplayFormat) {
     if (tweet != null) {
       return TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
     } else {
@@ -282,13 +290,14 @@ class TweetVM {
   }
 
   static int _endDisplayText(Tweet tweet) {
-    return tweet.displayTextRange != null ? tweet.displayTextRange[1] : _runes(tweet).length;
+    return tweet.displayTextRange != null
+        ? tweet.displayTextRange[1]
+        : _runes(tweet).length;
   }
-
 }
 
 extension ExtendedText on TweetVM {
-  TweetVM getDisplayTweet(){
+  TweetVM getDisplayTweet() {
     if (this.retweetedTweet != null) {
       return retweetedTweet;
     } else {

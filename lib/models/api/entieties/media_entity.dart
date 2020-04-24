@@ -34,20 +34,30 @@ class MediaEntity extends UrlEntity {
     this.sizes,
     this.videoInfo,
     indices,
-  }) : super(url: url, displayUrl: displayUrl, expandedUrl: expandedUrl, indices: indices);
+  }) : super(
+            url: url,
+            displayUrl: displayUrl,
+            expandedUrl: expandedUrl,
+            indices: indices);
 
-  factory MediaEntity.fromRawJson(String str) => MediaEntity.fromJson(json.decode(str));
+  factory MediaEntity.fromRawJson(String str) =>
+      MediaEntity.fromJson(json.decode(str));
 
   factory MediaEntity.fromJson(Map<String, dynamic> json) => new MediaEntity(
         id: json["id"] == null ? null : json["id"].toDouble(),
-        mediaUrlHttps: json["media_url_https"] == null ? null : json["media_url_https"],
+        mediaUrlHttps:
+            json["media_url_https"] == null ? null : json["media_url_https"],
         url: json["url"] == null ? null : json["url"],
         displayUrl: json["display_url"] == null ? null : json["display_url"],
         expandedUrl: json["expanded_url"] == null ? null : json["expanded_url"],
         type: json["type"] == null ? null : json["type"],
         sizes: json["sizes"] == null ? null : Sizes.fromJson(json["sizes"]),
-        videoInfo: json["video_info"] == null ? null : VideoInfo.fromJson(json["video_info"]),
-        indices: json["indices"] == null ? null : new List<int>.from(json["indices"].map((x) => x)),
+        videoInfo: json["video_info"] == null
+            ? null
+            : VideoInfo.fromJson(json["video_info"]),
+        indices: json["indices"] == null
+            ? null
+            : new List<int>.from(json["indices"].map((x) => x)),
       );
 }
 
@@ -132,12 +142,19 @@ class VideoInfo {
     this.variants,
   });
 
-  factory VideoInfo.fromRawJson(String str) => VideoInfo.fromJson(json.decode(str));
+  factory VideoInfo.fromRawJson(String str) =>
+      VideoInfo.fromJson(json.decode(str));
 
   factory VideoInfo.fromJson(Map<String, dynamic> json) => new VideoInfo(
-        aspectRatio: json["aspect_ratio"] == null ? null : new List<int>.from(json["aspect_ratio"].map((x) => x)),
-        durationMillis: json["duration_millis"] == null ? null : json["duration_millis"],
-        variants: json["variants"] == null ? null : new List<Variant>.from(json["variants"].map((x) => Variant.fromJson(x))),
+        aspectRatio: json["aspect_ratio"] == null
+            ? null
+            : new List<int>.from(json["aspect_ratio"].map((x) => x)),
+        durationMillis:
+            json["duration_millis"] == null ? null : json["duration_millis"],
+        variants: json["variants"] == null
+            ? null
+            : new List<Variant>.from(
+                json["variants"].map((x) => Variant.fromJson(x))),
       );
 }
 
