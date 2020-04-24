@@ -119,7 +119,7 @@ class TweetView extends StatelessWidget {
                   child: GestureDetector(
                     behavior: HitTestBehavior.translucent,
                     onTap: () {
-                      openUrl(_tweetVM.userLink);
+                      openUrl(_tweetVM.getDisplayTweet().userLink);
                     },
                     child: Stack(
                       children: <Widget>[
