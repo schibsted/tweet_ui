@@ -14,7 +14,7 @@ class VerifiedUsedBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return (tweetVM.userVerified)
+    return (tweetVM.getDisplayTweet().userVerified)
         ? Image.asset(
             "assets/tw__ic_tweet_verified.png",
             fit: BoxFit.fitWidth,

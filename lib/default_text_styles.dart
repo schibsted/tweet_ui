@@ -10,6 +10,7 @@ const defaultUserNameStyle = const TextStyle(
 const defaultUserScreenNameStyle = const TextStyle(
   fontSize: 15.0,
   fontFamily: 'Roboto',
+  color: Colors.grey,
 );
 
 const defaultTextStyle = const TextStyle(
@@ -28,6 +29,13 @@ const defaultClickableTextStyle = const TextStyle(
   height: 1.1,
   letterSpacing: 0.1,
   color: Colors.blue,
+);
+
+const defaultRetweetInformationStyle = const TextStyle(
+  fontSize: 15.0,
+  fontFamily: 'Roboto',
+  color: Colors.grey,
+  fontWeight: FontWeight.w500,
 );
 
 /// CompactTweetView text styles
@@ -57,6 +65,13 @@ const defaultCompactClickableTextStyle = const TextStyle(
   fontFamily: 'Roboto',
   fontWeight: FontWeight.w300,
   color: Colors.blue,
+);
+
+const defaultCompactRetweetInformationNameStyle = const TextStyle(
+  fontSize: 14.0,
+  fontFamily: 'Roboto',
+  fontWeight: FontWeight.w400,
+  color: Colors.grey,
 );
 
 /// QuoteTweetView text styles
@@ -133,4 +148,11 @@ const defaultEmbeddedDarkQuoteUserNameStyle = const TextStyle(
   fontFamily: 'Roboto',
   fontWeight: FontWeight.w700,
   color: Colors.white,
+);
+
+const defaultEmbeddedRetweetInformationStyle = const TextStyle(
+  fontSize: 14,
+  color: Color(0xFF697882),
+  fontWeight: FontWeight.w500,
+  fontFamily: 'Roboto',
 );

@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added support for retweets in TweetView, CompactTweetView and EmbeddedTweetView schibsted/tweet_ui#29
+- ### Changed
+- Updated video_player, photo_view, url_launcher, cached_network_image
+- ### Fixed
+- Fixed not clickable user links in EmbeddedTweetView
 
 ## [2.0.0] - 10.04.2020
 ### Changed

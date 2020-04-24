@@ -8,6 +8,7 @@ import 'package:tweet_ui/src/byline.dart';
 import 'package:tweet_ui/src/media_container.dart';
 import 'package:tweet_ui/src/profile_image.dart';
 import 'package:tweet_ui/src/quote_tweet_view.dart';
+import 'package:tweet_ui/src/retweet.dart';
 import 'package:tweet_ui/src/tweet_text.dart';
 import 'package:tweet_ui/src/twitter_logo.dart';
 import 'package:tweet_ui/src/url_launcher.dart';
@@ -28,6 +29,9 @@ class TweetView extends StatelessWidget {
 
   /// Style of the clickable elements in the Tweet text (URLs, mentions, hashtags, symbols)
   final TextStyle clickableTextStyle;
+
+  /// Style of the retweet information
+  final TextStyle retweetInformationTextStyle;
 
   /// Style of the user name in a embedded quote Tweet
   final TextStyle quoteUserNameStyle;
@@ -66,6 +70,7 @@ class TweetView extends StatelessWidget {
     this.userScreenNameStyle,
     this.textStyle,
     this.clickableTextStyle,
+    this.retweetInformationTextStyle,
     this.quoteUserNameStyle,
     this.quoteUserScreenNameStyle,
     this.quoteTextStyle,
@@ -83,6 +88,7 @@ class TweetView extends StatelessWidget {
       this.userScreenNameStyle = defaultUserScreenNameStyle,
       this.textStyle = defaultTextStyle,
       this.clickableTextStyle = defaultClickableTextStyle,
+      this.retweetInformationTextStyle = defaultRetweetInformationStyle,
       this.quoteUserNameStyle = defaultQuoteUserNameStyle,
       this.quoteUserScreenNameStyle = defaultQuoteUserScreenNameStyle,
       this.quoteTextStyle = defaultQuoteTextStyle,
@@ -92,8 +98,7 @@ class TweetView extends StatelessWidget {
       this.backgroundColor = Colors.white,
       this.useVideoPlayer = true,
       this.onTapImage,
-      this.createdDateDisplayFormat
-      })
+      this.createdDateDisplayFormat})
       : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
 
   @override
@@ -119,22 +124,30 @@ class TweetView extends StatelessWidget {
                   child: GestureDetector(
                     behavior: HitTestBehavior.translucent,
                     onTap: () {
-                      openUrl(_tweetVM.userLink);
+                      openUrl(_tweetVM.getDisplayTweet().userLink);
                     },
                     child: Stack(
                       children: <Widget>[
                         IntrinsicHeight(
-                          child: Row(
+                          child: Column(
                             children: <Widget>[
-                              ProfileImage(tweetVM: _tweetVM),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 8.0),
-                                child: Byline(
-                                  _tweetVM,
-                                  ViewMode.standard,
-                                  userNameStyle: userNameStyle,
-                                  userScreenNameStyle: userScreenNameStyle,
-                                ),
+                              RetweetInformation(
+                                _tweetVM,
+                                retweetInformationStyle: retweetInformationTextStyle,
+                              ),
+                              Row(
+                                children: <Widget>[
+                                  ProfileImage(tweetVM: _tweetVM),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 8.0),
+                                    child: Byline(
+                                      _tweetVM,
+                                      ViewMode.standard,
+                                      userNameStyle: userNameStyle,
+                                      userScreenNameStyle: userScreenNameStyle,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),

@@ -39,6 +39,8 @@ class User {
         name: json["name"] == null ? null : json["name"],
         screenName: json["screen_name"] == null ? null : json["screen_name"],
         verified: json["verified"] == null ? null : json["verified"],
-        profileImageUrlHttps: json["profile_image_url_https"] == null ? null : json["profile_image_url_https"],
+        profileImageUrlHttps: json["profile_image_url_https"] == null
+            ? null
+            : json["profile_image_url_https"],
       );
 }

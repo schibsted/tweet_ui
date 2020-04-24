@@ -15,7 +15,8 @@ class AnimatedPlayButton extends StatefulWidget {
   _AnimatedPlayButtonState createState() => _AnimatedPlayButtonState();
 }
 
-class _AnimatedPlayButtonState extends State<AnimatedPlayButton> with SingleTickerProviderStateMixin {
+class _AnimatedPlayButtonState extends State<AnimatedPlayButton>
+    with SingleTickerProviderStateMixin {
   double _scale;
   AnimationController _controller;
 
@@ -50,7 +51,7 @@ class _AnimatedPlayButtonState extends State<AnimatedPlayButton> with SingleTick
                 backgroundColor: Colors.black,
                 body: Center(
                   child: TweetVideo(
-                    widget.tweetVM,
+                    widget.tweetVM.getDisplayTweet(),
                   ),
                 ),
               ),

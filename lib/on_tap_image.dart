@@ -5,4 +5,5 @@
 /// allPhotos - URLs to the photo
 /// photoIndex - index of the currently opened photo
 /// hashcode - used only for Hero purposes
-typedef OnTapImage = void Function(List<String> allPhotos, int photoIndex, String hashcode);
+typedef OnTapImage = void Function(
+    List<String> allPhotos, int photoIndex, String hashcode);

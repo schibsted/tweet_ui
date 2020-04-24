@@ -31,13 +31,30 @@ class TweetEntities {
     this.media,
   });
 
-  factory TweetEntities.fromRawJson(String str) => TweetEntities.fromJson(json.decode(str));
+  factory TweetEntities.fromRawJson(String str) =>
+      TweetEntities.fromJson(json.decode(str));
 
-  factory TweetEntities.fromJson(Map<String, dynamic> json) => new TweetEntities(
-        hashtags: json["hashtags"] == null ? null : new List<HashtagEntity>.from(json["hashtags"].map((x) => HashtagEntity.fromJson(x))),
-        symbols: json["symbols"] == null ? null : new List<SymbolEntity>.from(json["symbols"].map((x) => SymbolEntity.fromJson(x))),
-        userMentions: json["user_mentions"] == null ? null : new List<MentionEntity>.from(json["user_mentions"].map((x) => MentionEntity.fromJson(x))),
-        urls: json["urls"] == null ? null : new List<UrlEntity>.from(json["urls"].map((x) => UrlEntity.fromJson(x))),
-        media: json["media"] == null ? null : new List<MediaEntity>.from(json["media"].map((x) => MediaEntity.fromJson(x))),
+  factory TweetEntities.fromJson(Map<String, dynamic> json) =>
+      new TweetEntities(
+        hashtags: json["hashtags"] == null
+            ? null
+            : new List<HashtagEntity>.from(
+                json["hashtags"].map((x) => HashtagEntity.fromJson(x))),
+        symbols: json["symbols"] == null
+            ? null
+            : new List<SymbolEntity>.from(
+                json["symbols"].map((x) => SymbolEntity.fromJson(x))),
+        userMentions: json["user_mentions"] == null
+            ? null
+            : new List<MentionEntity>.from(
+                json["user_mentions"].map((x) => MentionEntity.fromJson(x))),
+        urls: json["urls"] == null
+            ? null
+            : new List<UrlEntity>.from(
+                json["urls"].map((x) => UrlEntity.fromJson(x))),
+        media: json["media"] == null
+            ? null
+            : new List<MediaEntity>.from(
+                json["media"].map((x) => MediaEntity.fromJson(x))),
       );
 }

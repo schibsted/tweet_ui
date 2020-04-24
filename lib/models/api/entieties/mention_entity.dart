@@ -12,10 +12,14 @@ class MentionEntity extends Entity {
     indices,
   }) : super(indices: indices);
 
-  factory MentionEntity.fromRawJson(String str) => MentionEntity.fromJson(json.decode(str));
+  factory MentionEntity.fromRawJson(String str) =>
+      MentionEntity.fromJson(json.decode(str));
 
-  factory MentionEntity.fromJson(Map<String, dynamic> json) => new MentionEntity(
+  factory MentionEntity.fromJson(Map<String, dynamic> json) =>
+      new MentionEntity(
         screenName: json["screen_name"] == null ? null : json["screen_name"],
-        indices: json["indices"] == null ? null : new List<int>.from(json["indices"].map((x) => x)),
+        indices: json["indices"] == null
+            ? null
+            : new List<int>.from(json["indices"].map((x) => x)),
       );
 }

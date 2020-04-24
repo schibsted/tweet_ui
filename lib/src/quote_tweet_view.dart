@@ -9,7 +9,8 @@ import 'package:tweet_ui/src/tweet_text.dart';
 import 'package:tweet_ui/src/url_launcher.dart';
 import 'package:tweet_ui/src/view_mode.dart';
 
-typedef onTapImage = void Function(List<String> allPhotos, int photoIndex, String hashcode);
+typedef onTapImage = void Function(
+    List<String> allPhotos, int photoIndex, String hashcode);
 
 class QuoteTweetView extends StatelessWidget {
   final TweetVM tweetVM;
