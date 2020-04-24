@@ -1,7 +1,7 @@
 name: tweet_ui
 description: Flutter package to show Tweets from a Twitter API JSON on Android and iOS. Support for Tweets with 1-4 photos, Video, GIFs, hashtags, mentions,
-  symbols, urls and quoted Tweets.
-version: 2.0.0
+  symbols, urls, quoted Tweets and retweets.
+version: 2.1.0
 author: OmniNext team @ Schibsted <michal.kawalko@schibsted.com>
 homepage: https://github.com/schibsted/tweet_ui
 
