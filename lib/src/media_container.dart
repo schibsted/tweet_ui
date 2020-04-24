@@ -44,14 +44,14 @@ class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAlive
     super.build(context);
 
     Widget child;
-    if (widget.tweetVM.hasSupportedVideo) {
+    if (widget.tweetVM.getDisplayTweet().hasSupportedVideo) {
       if (widget.useVideoPlayer) {
-        child = TweetVideo(widget.tweetVM);
+        child = TweetVideo(widget.tweetVM.getDisplayTweet());
       } else {
         child = Stack(
           children: <Widget>[
             Image(
-              image: CachedNetworkImageProvider(widget.tweetVM.videoPlaceholderUrl),
+              image: CachedNetworkImageProvider(widget.tweetVM.getDisplayTweet().videoPlaceholderUrl),
               width: MediaQuery.of(context).size.width,
               fit: BoxFit.cover,
             ),
@@ -60,7 +60,7 @@ class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAlive
                 padding: const EdgeInsets.only(
                   left: 4.0,
                 ),
-                child: widget.tweetVM.hasGif
+                child: widget.tweetVM.getDisplayTweet().hasGif
                     ? Align(
                         alignment: Alignment.bottomLeft,
                         child: Image.asset(
@@ -77,19 +77,19 @@ class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAlive
             Positioned.fill(
               child: Center(
                 child: AnimatedPlayButton(
-                  tweetVM: widget.tweetVM,
+                  tweetVM: widget.tweetVM.getDisplayTweet(),
                 ),
               ),
             )
           ],
         );
       }
-    } else if (widget.tweetVM.hasPhoto) {
-      switch (widget.tweetVM.allPhotos.length) {
+    } else if (widget.tweetVM.getDisplayTweet().hasPhoto) {
+      switch (widget.tweetVM.getDisplayTweet().allPhotos.length) {
         case 1:
           child = AspectRatio(
             aspectRatio: MediaContainer.DEFAULT_ASPECT_RATIO_MEDIA_CONTAINER,
-            child: _buildSinglePhoto(context, widget.tweetVM.allPhotos, 0, hashcode),
+            child: _buildSinglePhoto(context, widget.tweetVM.getDisplayTweet().allPhotos, 0, hashcode),
           );
           break;
         case 2:
@@ -99,11 +99,11 @@ class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAlive
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Expanded(
-                  child: _buildSinglePhoto(context, widget.tweetVM.allPhotos, 0, hashcode),
+                  child: _buildSinglePhoto(context, widget.tweetVM.getDisplayTweet().allPhotos, 0, hashcode),
                 ),
                 VerticalDivider(color: Colors.white, width: 1.0),
                 Expanded(
-                  child: _buildSinglePhoto(context, widget.tweetVM.allPhotos, 1, hashcode),
+                  child: _buildSinglePhoto(context, widget.tweetVM.getDisplayTweet().allPhotos, 1, hashcode),
                 )
               ],
             ),
@@ -115,18 +115,18 @@ class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAlive
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: _buildSinglePhoto(context, widget.tweetVM.allPhotos, 0, hashcode),
+                  child: _buildSinglePhoto(context, widget.tweetVM.getDisplayTweet().allPhotos, 0, hashcode),
                 ),
                 VerticalDivider(color: Colors.white, width: 1.0),
                 Expanded(
                   child: Column(
                     children: <Widget>[
                       Expanded(
-                        child: _buildSinglePhoto(context, widget.tweetVM.allPhotos, 1, hashcode),
+                        child: _buildSinglePhoto(context, widget.tweetVM.getDisplayTweet().allPhotos, 1, hashcode),
                       ),
                       Divider(color: Colors.white, height: 1.0),
                       Expanded(
-                        child: _buildSinglePhoto(context, widget.tweetVM.allPhotos, 2, hashcode),
+                        child: _buildSinglePhoto(context, widget.tweetVM.getDisplayTweet().allPhotos, 2, hashcode),
                       )
                     ],
                   ),
@@ -148,7 +148,7 @@ class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAlive
                 mainAxisSpacing: 1.0,
               ),
               itemBuilder: (BuildContext context, int index) {
-                return _buildSinglePhoto(context, widget.tweetVM.allPhotos, index, hashcode);
+                return _buildSinglePhoto(context, widget.tweetVM.getDisplayTweet().allPhotos, index, hashcode);
               },
             ),
             aspectRatio: widget.viewMode == ViewMode.standard ? MediaContainer.SQUARE_ASPECT_RATIO : MediaContainer.DEFAULT_ASPECT_RATIO_MEDIA_CONTAINER,
@@ -162,7 +162,7 @@ class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAlive
     BorderRadius borderRadius;
     switch (widget.viewMode) {
       case ViewMode.compact:
-        if (!widget.tweetVM.hasSupportedVideo) {
+        if (!widget.tweetVM.getDisplayTweet().hasSupportedVideo) {
           borderRadius = BorderRadius.all(Radius.circular(8.0));
         } else {
           borderRadius = BorderRadius.all(Radius.zero);

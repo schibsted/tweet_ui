@@ -10,6 +10,7 @@ import 'package:tweet_ui/src/byline.dart';
 import 'package:tweet_ui/src/media_container.dart';
 import 'package:tweet_ui/src/profile_image.dart';
 import 'package:tweet_ui/src/quote_tweet_view.dart';
+import 'package:tweet_ui/src/retweet.dart';
 import 'package:tweet_ui/src/tweet_text.dart';
 import 'package:tweet_ui/src/url_launcher.dart';
 import 'package:tweet_ui/src/view_mode.dart';
@@ -103,61 +104,71 @@ class CompactTweetView extends StatelessWidget {
       color: backgroundColor,
       child: Padding(
         padding: const EdgeInsets.all(0.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
+        child: Column(
           children: <Widget>[
-            ProfileImage(tweetVM: _tweetVM),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      child: Byline(
-                        _tweetVM,
-                        ViewMode.compact,
-                        userNameStyle: userNameStyle,
-                        userScreenNameStyle: userScreenNameStyle,
-                      ),
+            Padding(
+              child: RetweetInformation(
+                _tweetVM,
+                retweetInformationStyle: defaultCompactRetweetInformationNameStyle,
+              ), padding: EdgeInsets.only(left: 24),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                ProfileImage(tweetVM: _tweetVM),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Container(
+                          child: Byline(
+                            _tweetVM,
+                            ViewMode.compact,
+                            userNameStyle: userNameStyle,
+                            userScreenNameStyle: userScreenNameStyle,
+                          ),
+                        ),
+                        MediaContainer(
+                          _tweetVM,
+                          ViewMode.compact,
+                          useVideoPlayer: useVideoPlayer,
+                          onTapImage: onTapImage,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            openUrl(_tweetVM.tweetLink);
+                          },
+                          child: TweetText(
+                            _tweetVM,
+                            textStyle: textStyle,
+                            clickableTextStyle: clickableTextStyle,
+                          ),
+                        ),
+                        (_tweetVM.quotedTweet != null)
+                            ? Padding(
+                                padding: EdgeInsets.only(top: 8.0),
+                                child: QuoteTweetView.fromTweet(
+                                  _tweetVM.quotedTweet,
+                                  textStyle: quoteTextStyle,
+                                  clickableTextStyle: quoteClickableTextStyle,
+                                  userNameStyle: quoteUserNameStyle,
+                                  userScreenNameStyle: quoteUserScreenNameStyle,
+                                  backgroundColor: quoteBackgroundColor,
+                                  borderColor: quoteBorderColor,
+                                ),
+                              )
+                            : Container(),
+                      ],
                     ),
-                    MediaContainer(
-                      _tweetVM,
-                      ViewMode.compact,
-                      useVideoPlayer: useVideoPlayer,
-                      onTapImage: onTapImage,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        openUrl(_tweetVM.tweetLink);
-                      },
-                      child: TweetText(
-                        _tweetVM,
-                        textStyle: textStyle,
-                        clickableTextStyle: clickableTextStyle,
-                      ),
-                    ),
-                    (_tweetVM.quotedTweet != null)
-                        ? Padding(
-                            padding: EdgeInsets.only(top: 8.0),
-                            child: QuoteTweetView.fromTweet(
-                              _tweetVM.quotedTweet,
-                              textStyle: quoteTextStyle,
-                              clickableTextStyle: quoteClickableTextStyle,
-                              userNameStyle: quoteUserNameStyle,
-                              userScreenNameStyle: quoteUserScreenNameStyle,
-                              backgroundColor: quoteBackgroundColor,
-                              borderColor: quoteBorderColor,
-                            ),
-                          )
-                        : Container(),
-                  ],
-                ),
-              ),
-            )
+                  ),
+                )
+              ],
+            ),
           ],
         ),
       ),

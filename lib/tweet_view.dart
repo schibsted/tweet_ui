@@ -8,6 +8,7 @@ import 'package:tweet_ui/src/byline.dart';
 import 'package:tweet_ui/src/media_container.dart';
 import 'package:tweet_ui/src/profile_image.dart';
 import 'package:tweet_ui/src/quote_tweet_view.dart';
+import 'package:tweet_ui/src/retweet.dart';
 import 'package:tweet_ui/src/tweet_text.dart';
 import 'package:tweet_ui/src/twitter_logo.dart';
 import 'package:tweet_ui/src/url_launcher.dart';
@@ -124,17 +125,25 @@ class TweetView extends StatelessWidget {
                     child: Stack(
                       children: <Widget>[
                         IntrinsicHeight(
-                          child: Row(
+                          child: Column(
                             children: <Widget>[
-                              ProfileImage(tweetVM: _tweetVM),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 8.0),
-                                child: Byline(
-                                  _tweetVM,
-                                  ViewMode.standard,
-                                  userNameStyle: userNameStyle,
-                                  userScreenNameStyle: userScreenNameStyle,
-                                ),
+                              RetweetInformation(
+                                _tweetVM,
+                                retweetInformationStyle: defaultRetweetInformationStyle,
+                              ),
+                              Row(
+                                children: <Widget>[
+                                  ProfileImage(tweetVM: _tweetVM),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 8.0),
+                                    child: Byline(
+                                      _tweetVM,
+                                      ViewMode.standard,
+                                      userNameStyle: userNameStyle,
+                                      userScreenNameStyle: userScreenNameStyle,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),

@@ -33,24 +33,24 @@ class Byline extends StatelessWidget {
             Row(
               children: <Widget>[
                 Text(
-                  tweetVM.userName,
+                  tweetVM.getDisplayTweet().userName,
                   textAlign: TextAlign.left,
                   style: userNameStyle,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 2.0),
-                  child: VerifiedUsedBadge(tweetVM, viewMode),
+                  child: VerifiedUsedBadge(tweetVM.getDisplayTweet(), viewMode),
                 ),
               ],
             ),
             (showDate == null || showDate == true)
                 ? Text(
-                    "@" + tweetVM.userScreenName + " • " + tweetVM.createdAt,
+                    "@" + tweetVM.getDisplayTweet().userScreenName + " • " + tweetVM.getDisplayTweet().createdAt,
                     textAlign: TextAlign.left,
                     style: userScreenNameStyle,
                   )
                 : Text(
-                    "@" + tweetVM.userScreenName,
+                    "@" + tweetVM.getDisplayTweet().userScreenName,
                     textAlign: TextAlign.left,
                     style: userScreenNameStyle,
                   ),
@@ -69,19 +69,19 @@ class Byline extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    tweetVM.userName,
+                    tweetVM.getDisplayTweet().userName,
                     style: userNameStyle,
                     textAlign: TextAlign.start,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 2.0),
-                    child: VerifiedUsedBadge(tweetVM, viewMode),
+                    child: VerifiedUsedBadge(tweetVM.getDisplayTweet(), viewMode),
                   ),
                   Flexible(
                     child: Padding(
                       padding: const EdgeInsets.only(left: 4.0),
                       child: Text(
-                        "@" + tweetVM.userScreenName,
+                        "@" + tweetVM.getDisplayTweet().userScreenName,
                         style: userScreenNameStyle,
                         maxLines: 1,
                         overflow: TextOverflow.fade,
@@ -94,7 +94,7 @@ class Byline extends StatelessWidget {
                       ? Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 4.0),
                           child: Text(
-                            "• " + tweetVM.createdAt,
+                            "• " + tweetVM.getDisplayTweet().createdAt,
                             style: userScreenNameStyle,
                             textAlign: TextAlign.start,
                             softWrap: false,

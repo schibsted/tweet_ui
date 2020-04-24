@@ -24,23 +24,23 @@ class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMi
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(widget.tweetVM.videoUrl);
+    _controller = VideoPlayerController.network(widget.tweetVM.getDisplayTweet().videoUrl);
     _controller.setVolume(0.0);
 
     _chewieController = ChewieController(
       videoPlayerController: _controller,
-      showControls: !widget.tweetVM.hasGif,
+      showControls: !widget.tweetVM.getDisplayTweet().hasGif,
       allowedScreenSleep: false,
       autoInitialize: true,
       allowFullScreen: false,
-      allowMuting: !widget.tweetVM.hasGif,
-      autoPlay: widget.tweetVM.hasGif,
-      looping: widget.tweetVM.hasGif,
+      allowMuting: !widget.tweetVM.getDisplayTweet().hasGif,
+      autoPlay: widget.tweetVM.getDisplayTweet().hasGif,
+      looping: widget.tweetVM.getDisplayTweet().hasGif,
       overlay: Padding(
         padding: const EdgeInsets.only(
           left: 4.0,
         ),
-        child: widget.tweetVM.hasGif
+        child: widget.tweetVM.getDisplayTweet().hasGif
             ? Align(
                 alignment: Alignment.bottomLeft,
                 child: Image.asset(
@@ -53,7 +53,7 @@ class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMi
               )
             : Container(),
       ),
-      aspectRatio: widget.tweetVM.videoAspectRatio,
+      aspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio,
     );
   }
 

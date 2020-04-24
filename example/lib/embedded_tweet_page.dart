@@ -52,6 +52,7 @@ class _EmbeddedTweetPageState extends State<EmbeddedTweetPage> {
             buildEmbeddedTweetView("assets/tweet_examples/tweet_quote_video.json", darkMode),
             buildEmbeddedTweetView("assets/tweet_examples/tweet_gif.json", darkMode),
             buildEmbeddedTweetView("assets/tweet_examples/tweet_quote_gif.json", darkMode),
+            buildEmbeddedTweetView("assets/tweet_examples/tweet_retweet.json", darkMode),
           ],
         ),
       ),

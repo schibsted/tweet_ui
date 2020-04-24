@@ -25,6 +25,7 @@ class TweetVM {
   final String userName;
   final String userScreenName;
   final TweetVM quotedTweet;
+  final TweetVM retweetedTweet;
   final bool userVerified;
   final String videoPlaceholderUrl;
   final String videoUrl;
@@ -48,6 +49,7 @@ class TweetVM {
     this.userName,
     this.userScreenName,
     this.quotedTweet,
+    this.retweetedTweet,
     this.userVerified,
     this.videoPlaceholderUrl,
     this.videoUrl,
@@ -72,6 +74,7 @@ class TweetVM {
         userName: _userName(tweet),
         userScreenName: _userScreenName(tweet),
         quotedTweet: _quotedTweet(tweet.quotedStatus, createdDateDisplayFormat),
+        retweetedTweet: _retweetedTweet(tweet.retweetedStatus, createdDateDisplayFormat),
         userVerified: _userVerified(tweet),
         videoPlaceholderUrl: _videoPlaceholderUrl(tweet),
         videoUrl: _videoUrl(tweet),
@@ -241,6 +244,14 @@ class TweetVM {
     }
   }
 
+  static TweetVM _retweetedTweet(Tweet tweet, DateFormat createdDateDisplayFormat) {
+    if (tweet != null) {
+      return TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
+    } else {
+      return null;
+    }
+  }
+
   static bool _userVerified(Tweet tweet) {
     return tweet.user.verified;
   }
@@ -274,4 +285,14 @@ class TweetVM {
     return tweet.displayTextRange != null ? tweet.displayTextRange[1] : _runes(tweet).length;
   }
 
+}
+
+extension ExtendedText on TweetVM {
+  TweetVM getDisplayTweet(){
+    if (this.retweetedTweet != null) {
+      return retweetedTweet;
+    } else {
+      return this;
+    }
+  }
 }

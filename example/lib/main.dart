@@ -63,6 +63,13 @@ class TweetUiExample extends StatelessWidget {
             'assets/tweet_examples/tweet_quote_bug_gh24.json',
             context,
           ),
+          buildButton(
+            "Retweet, Github #29",
+            'assets/tweet_examples/tweet_retweet.json',
+            // retweeted with a commentary from the person who retweeted is a regular quote tweet view
+            null,
+            context,
+          ),
         ],
       ),
     );

@@ -15,7 +15,7 @@ class ProfileImage extends StatelessWidget {
     return CachedNetworkImage(
       height: 40,
       width: 40,
-      imageUrl: tweetVM.profileUrl,
+      imageUrl: tweetVM.getDisplayTweet().profileUrl,
       placeholder: (context, url) => Container(height: 40, width: 40),
       errorWidget: (context, url, error) => Icon(Icons.error),
     );

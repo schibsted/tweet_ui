@@ -50,7 +50,7 @@ class _AnimatedPlayButtonState extends State<AnimatedPlayButton> with SingleTick
                 backgroundColor: Colors.black,
                 body: Center(
                   child: TweetVideo(
-                    widget.tweetVM,
+                    widget.tweetVM.getDisplayTweet(),
                   ),
                 ),
               ),
