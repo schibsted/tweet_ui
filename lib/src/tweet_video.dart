@@ -9,9 +9,11 @@ class TweetVideo extends StatefulWidget {
   TweetVideo(
     this.tweetVM, {
     Key key,
+    this.initialVolume = 0.0
   }) : super(key: key);
 
   final TweetVM tweetVM;
+  final double initialVolume;
 
   @override
   _TweetVideoState createState() => _TweetVideoState();
@@ -27,7 +29,7 @@ class _TweetVideoState extends State<TweetVideo>
     super.initState();
     _controller = VideoPlayerController.network(
         widget.tweetVM.getDisplayTweet().videoUrl);
-    _controller.setVolume(0.0);
+    _controller.setVolume(widget.initialVolume);
 
     _chewieController = ChewieController(
       videoPlayerController: _controller,

@@ -19,12 +19,14 @@ class MediaContainer extends StatefulWidget {
     this.viewMode, {
     Key key,
     this.useVideoPlayer = true,
+    this.videoPlayerInitialVolume = 0.0,
     this.onTapImage,
   }) : super(key: key);
 
   final TweetVM tweetVM;
   final ViewMode viewMode;
   final bool useVideoPlayer;
+  final double videoPlayerInitialVolume;
 
   @override
   _MediaContainerState createState() => _MediaContainerState();
@@ -47,7 +49,10 @@ class _MediaContainerState extends State<MediaContainer>
     Widget child;
     if (widget.tweetVM.getDisplayTweet().hasSupportedVideo) {
       if (widget.useVideoPlayer) {
-        child = TweetVideo(widget.tweetVM.getDisplayTweet());
+        child = TweetVideo(
+          widget.tweetVM.getDisplayTweet(),
+          initialVolume: widget.videoPlayerInitialVolume
+        );
       } else {
         child = Stack(
           children: <Widget>[

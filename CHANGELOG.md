@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added `videoPlayerInitialVolume` option to TweetView allowing to set an initial volume when the Tweet has a video. The default value is set to 0.0 schibsted/tweet_ui#33
 
 ## [2.1.0+1] - 24.04.2020
 ### Changed
