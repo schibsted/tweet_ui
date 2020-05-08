@@ -145,13 +145,15 @@ class TweetView extends StatelessWidget {
                               Row(
                                 children: <Widget>[
                                   ProfileImage(tweetVM: _tweetVM),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 8.0),
-                                    child: Byline(
-                                      _tweetVM,
-                                      ViewMode.standard,
-                                      userNameStyle: userNameStyle,
-                                      userScreenNameStyle: userScreenNameStyle,
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 8.0),
+                                      child: Byline(
+                                        _tweetVM,
+                                        ViewMode.standard,
+                                        userNameStyle: userNameStyle,
+                                        userScreenNameStyle: userScreenNameStyle,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -171,13 +173,11 @@ class TweetView extends StatelessWidget {
                   onTap: () {
                     openUrl(_tweetVM.tweetLink);
                   },
-                  child: Padding(
+                  child: TweetText(
+                    _tweetVM,
+                    textStyle: textStyle,
+                    clickableTextStyle: clickableTextStyle,
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: TweetText(
-                      _tweetVM,
-                      textStyle: textStyle,
-                      clickableTextStyle: clickableTextStyle,
-                    ),
                   ),
                 ),
                 (_tweetVM.quotedTweet != null)

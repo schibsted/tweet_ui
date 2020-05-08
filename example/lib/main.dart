@@ -1,5 +1,6 @@
+import 'package:example/bug_page.dart';
 import 'package:example/embedded_tweet_page.dart';
-import 'package:example/tweet_page.dart';
+import 'package:example/ui/open_tweetpage_button.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(home: TweetUiExample()));
@@ -14,93 +15,44 @@ class TweetUiExample extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          buildButton(
-            "1 photo",
-            'assets/tweet_examples/tweet_1_photo.json',
-            'assets/tweet_examples/tweet_quote_1_photo.json',
-            context,
+          OpenTweetPageButton(
+            title: "1 photo",
+            tweetPath: 'assets/tweet_examples/tweet_1_photo.json',
+            quoteTweetPath: 'assets/tweet_examples/tweet_quote_1_photo.json',
           ),
-          buildButton(
-            "2 photos",
-            'assets/tweet_examples/tweet_2_photos.json',
-            'assets/tweet_examples/tweet_quote_2_photos.json',
-            context,
+          OpenTweetPageButton(
+            title: "2 photos",
+            tweetPath: 'assets/tweet_examples/tweet_2_photos.json',
+            quoteTweetPath: 'assets/tweet_examples/tweet_quote_2_photos.json',
           ),
-          buildButton(
-            "3 photos",
-            'assets/tweet_examples/tweet_3_photos.json',
-            'assets/tweet_examples/tweet_quote_3_photos.json',
-            context,
+          OpenTweetPageButton(
+            title: "3 photos",
+            tweetPath: 'assets/tweet_examples/tweet_3_photos.json',
+            quoteTweetPath: 'assets/tweet_examples/tweet_quote_3_photos.json',
           ),
-          buildButton(
-            "4 photos",
-            'assets/tweet_examples/tweet_4_photos.json',
-            'assets/tweet_examples/tweet_quote_4_photos.json',
-            context,
+          OpenTweetPageButton(
+            title: "4 photos",
+            tweetPath: 'assets/tweet_examples/tweet_4_photos.json',
+            quoteTweetPath: 'assets/tweet_examples/tweet_quote_4_photos.json',
           ),
-          buildButton(
-            "Video",
-            'assets/tweet_examples/tweet_video.json',
-            'assets/tweet_examples/tweet_quote_video.json',
-            context,
+          OpenTweetPageButton(
+            title: "Video",
+            tweetPath: 'assets/tweet_examples/tweet_video.json',
+            quoteTweetPath: 'assets/tweet_examples/tweet_quote_video.json',
           ),
-          buildButton(
-            "GIF",
-            'assets/tweet_examples/tweet_gif.json',
-            'assets/tweet_examples/tweet_quote_gif.json',
-            context,
+          OpenTweetPageButton(
+            title: "GIF",
+            tweetPath: 'assets/tweet_examples/tweet_gif.json',
+            quoteTweetPath: 'assets/tweet_examples/tweet_quote_gif.json',
           ),
-          buildButton(
-            "Bug Github #14",
-            'assets/tweet_examples/tweet_bug_gh14.json',
-            'assets/tweet_examples/tweet_quote_bug_gh14.json',
-            context,
-          ),
-          buildEmbeddedButton("Embedded", context),
-          buildButton(
-            "Bug Github #24",
-            'assets/tweet_examples/tweet_bug_gh24.json',
-            'assets/tweet_examples/tweet_quote_bug_gh24.json',
-            context,
-          ),
-          buildButton(
-            "Retweet, Github #29",
-            'assets/tweet_examples/tweet_retweet.json',
-            // retweeted with a commentary from the person who retweeted is a regular quote tweet view
-            null,
-            context,
-          ),
+          buildOpenEmbeddedTweetPageButton("Embedded", context),
+          buildOpenBugPageButton("Bug page", context),
         ],
       ),
     );
   }
 
-  /// Builds a button that opens a [TweetPage]
-  Widget buildButton(String title, String tweetPath, String quoteTweetPath, BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 4.0),
-      child: RaisedButton(
-        child: Text(
-          title,
-          textAlign: TextAlign.start,
-        ),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => TweetPage(
-                title,
-                tweetPath,
-                quoteTweetPath,
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
-
-  Widget buildEmbeddedButton(String title, BuildContext context) {
+  Widget buildOpenEmbeddedTweetPageButton(String title, BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 4.0),
       child: RaisedButton(
@@ -110,6 +62,22 @@ class TweetUiExample extends StatelessWidget {
         ),
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) => EmbeddedTweetPage()));
+        },
+      ),
+    );
+  }
+
+
+  Widget buildOpenBugPageButton(String title, BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 4.0),
+      child: RaisedButton(
+        child: Text(
+          title,
+          textAlign: TextAlign.start,
+        ),
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => BugPage()));
         },
       ),
     );

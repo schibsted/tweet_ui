@@ -1,0 +1,210 @@
+{
+  "created_at": "Wed Apr 22 03:00:49 +0000 2020",
+  "id": 1252794458636083200,
+  "id_str": "1252794458636083201",
+  "full_text": "【#スワローズ間違いさがし！】\n上と下の写真で間違いが5つあります！\n第一問は春季キャンプでの石川投手＆中村選手のバッテリーがお題です⚾\nさり気ない間違いもあるので、画面を拡大して探してみてくださいね👀‼\n見つけた方はぜひコメントを…‼\n#swallows #石川雅規 #中村悠平 #StayHome https://t.co/h5TDVwxjNB",
+  "truncated": false,
+  "display_text_range": [
+    0,
+    150
+  ],
+  "entities": {
+    "hashtags": [
+      {
+        "text": "スワローズ間違いさがし",
+        "indices": [
+          1,
+          13
+        ]
+      },
+      {
+        "text": "swallows",
+        "indices": [
+          119,
+          128
+        ]
+      },
+      {
+        "text": "石川雅規",
+        "indices": [
+          129,
+          134
+        ]
+      },
+      {
+        "text": "中村悠平",
+        "indices": [
+          135,
+          140
+        ]
+      },
+      {
+        "text": "StayHome",
+        "indices": [
+          141,
+          150
+        ]
+      }
+    ],
+    "symbols": [],
+    "user_mentions": [],
+    "urls": [],
+    "media": [
+      {
+        "id": 1252794449937051600,
+        "id_str": "1252794449937051654",
+        "indices": [
+          151,
+          174
+        ],
+        "media_url": "http://pbs.twimg.com/media/EWLR6iUUMAY7yBu.jpg",
+        "media_url_https": "https://pbs.twimg.com/media/EWLR6iUUMAY7yBu.jpg",
+        "url": "https://t.co/h5TDVwxjNB",
+        "display_url": "pic.twitter.com/h5TDVwxjNB",
+        "expanded_url": "https://twitter.com/swallowspr/status/1252794458636083201/photo/1",
+        "type": "photo",
+        "sizes": {
+          "thumb": {
+            "w": 150,
+            "h": 150,
+            "resize": "crop"
+          },
+          "medium": {
+            "w": 901,
+            "h": 1200,
+            "resize": "fit"
+          },
+          "large": {
+            "w": 1538,
+            "h": 2048,
+            "resize": "fit"
+          },
+          "small": {
+            "w": 511,
+            "h": 680,
+            "resize": "fit"
+          }
+        }
+      }
+    ]
+  },
+  "extended_entities": {
+    "media": [
+      {
+        "id": 1252794449937051600,
+        "id_str": "1252794449937051654",
+        "indices": [
+          151,
+          174
+        ],
+        "media_url": "http://pbs.twimg.com/media/EWLR6iUUMAY7yBu.jpg",
+        "media_url_https": "https://pbs.twimg.com/media/EWLR6iUUMAY7yBu.jpg",
+        "url": "https://t.co/h5TDVwxjNB",
+        "display_url": "pic.twitter.com/h5TDVwxjNB",
+        "expanded_url": "https://twitter.com/swallowspr/status/1252794458636083201/photo/1",
+        "type": "photo",
+        "sizes": {
+          "thumb": {
+            "w": 150,
+            "h": 150,
+            "resize": "crop"
+          },
+          "medium": {
+            "w": 901,
+            "h": 1200,
+            "resize": "fit"
+          },
+          "large": {
+            "w": 1538,
+            "h": 2048,
+            "resize": "fit"
+          },
+          "small": {
+            "w": 511,
+            "h": 680,
+            "resize": "fit"
+          }
+        }
+      }
+    ]
+  },
+  "source": "<a href=\"https://social-dog.net/\" rel=\"nofollow\">SocialDog for Twitter</a>",
+  "in_reply_to_status_id": null,
+  "in_reply_to_status_id_str": null,
+  "in_reply_to_user_id": null,
+  "in_reply_to_user_id_str": null,
+  "in_reply_to_screen_name": null,
+  "user": {
+    "id": 110294090,
+    "id_str": "110294090",
+    "name": "東京ヤクルトスワローズ公式",
+    "screen_name": "swallowspr",
+    "location": "東京都",
+    "description": "東京ヤクルトスワローズの公式Twitterアカウントです。スワローズの広報部メンバーが、イベント、グッズ、チームの情報などをお届けします。※画像の二次利用及び無断転載は禁止とさせていただきます。",
+    "url": "https://t.co/x1Ut7GnDkO",
+    "entities": {
+      "url": {
+        "urls": [
+          {
+            "url": "https://t.co/x1Ut7GnDkO",
+            "expanded_url": "http://www.yakult-swallows.co.jp/",
+            "display_url": "yakult-swallows.co.jp",
+            "indices": [
+              0,
+              23
+            ]
+          }
+        ]
+      },
+      "description": {
+        "urls": []
+      }
+    },
+    "protected": false,
+    "followers_count": 628899,
+    "friends_count": 26,
+    "listed_count": 3078,
+    "created_at": "Mon Feb 01 01:56:52 +0000 2010",
+    "favourites_count": 68,
+    "utc_offset": null,
+    "time_zone": null,
+    "geo_enabled": true,
+    "verified": true,
+    "statuses_count": 9931,
+    "lang": null,
+    "contributors_enabled": false,
+    "is_translator": false,
+    "is_translation_enabled": false,
+    "profile_background_color": "9AE4E8",
+    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme16/bg.gif",
+    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme16/bg.gif",
+    "profile_background_tile": false,
+    "profile_image_url": "http://pbs.twimg.com/profile_images/1158169716327776256/qHVEY-oI_normal.jpg",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1158169716327776256/qHVEY-oI_normal.jpg",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/110294090/1569822476",
+    "profile_link_color": "19CF86",
+    "profile_sidebar_border_color": "BDDCAD",
+    "profile_sidebar_fill_color": "DDFFCC",
+    "profile_text_color": "333333",
+    "profile_use_background_image": false,
+    "has_extended_profile": false,
+    "default_profile": false,
+    "default_profile_image": false,
+    "following": null,
+    "follow_request_sent": null,
+    "notifications": null,
+    "translator_type": "none"
+  },
+  "geo": null,
+  "coordinates": null,
+  "place": null,
+  "contributors": null,
+  "is_quote_status": false,
+  "retweet_count": 417,
+  "favorite_count": 2060,
+  "favorited": false,
+  "retweeted": false,
+  "possibly_sensitive": false,
+  "possibly_sensitive_appealable": false,
+  "lang": "ja"
+}

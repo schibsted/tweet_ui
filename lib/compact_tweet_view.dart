@@ -158,6 +158,7 @@ class CompactTweetView extends StatelessWidget {
                             _tweetVM,
                             textStyle: textStyle,
                             clickableTextStyle: clickableTextStyle,
+                            padding: const EdgeInsets.only(top: 0.0),
                           ),
                         ),
                         (_tweetVM.quotedTweet != null)
