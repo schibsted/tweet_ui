@@ -16,27 +16,39 @@ class TweetText extends StatelessWidget {
     Key key,
     this.textStyle,
     this.clickableTextStyle,
+    this.padding,
   }) : super(key: key);
 
   final TweetVM tweetVM;
   final TextStyle textStyle;
   final TextStyle clickableTextStyle;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      child: RichText(
-        textAlign: TextAlign.start,
-        text: TextSpan(children: _getSpans(context)),
-      ),
-    );
+    var spans = _getSpans(context);
+    if (spans.isNotEmpty) {
+      return Padding(
+        padding: padding,
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          child: RichText(
+            textAlign: TextAlign.start,
+            text: TextSpan(children: spans),
+          ),
+        ),
+      );
+    } else {
+      return Container();
+    }
   }
 
   List<TextSpan> _getSpans(BuildContext context) {
     List<TextSpan> spans = [];
     int boundary = tweetVM.startDisplayText;
     var unescape = new HtmlUnescape();
+
+    if (tweetVM.startDisplayText == 0 && tweetVM.endDisplayText == 0) return [];
 
     if (tweetVM.allEntities.isEmpty) {
       spans.add(TextSpan(
@@ -54,8 +66,7 @@ class TweetText extends StatelessWidget {
         // add any plain text before the next entity
         if (startIndex > boundary) {
           spans.add(TextSpan(
-            text: unescape.convert(String.fromCharCodes(tweetVM.textRunes,
-                boundary, min(startIndex, tweetVM.endDisplayText))),
+            text: unescape.convert(String.fromCharCodes(tweetVM.textRunes, boundary, min(startIndex, tweetVM.endDisplayText))),
             style: textStyle,
           ));
         }
@@ -73,8 +84,7 @@ class TweetText extends StatelessWidget {
           ));
         } else {
           final spanText = unescape.convert(
-            String.fromCharCodes(tweetVM.textRunes, startIndex,
-                min(entity.end, tweetVM.endDisplayText)),
+            String.fromCharCodes(tweetVM.textRunes, startIndex, min(entity.end, tweetVM.endDisplayText)),
           );
           spans.add(TextSpan(
             text: spanText,
@@ -100,8 +110,7 @@ class TweetText extends StatelessWidget {
       });
 
       spans.add(TextSpan(
-        text: unescape.convert(String.fromCharCodes(tweetVM.textRunes, boundary,
-            min(tweetVM.textRunes.length, tweetVM.endDisplayText))),
+        text: unescape.convert(String.fromCharCodes(tweetVM.textRunes, boundary, min(tweetVM.textRunes.length, tweetVM.endDisplayText))),
         style: textStyle,
       ));
     }

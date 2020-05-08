@@ -32,30 +32,35 @@ class Byline extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                Text(
-                  tweetVM.getDisplayTweet().userName,
-                  textAlign: TextAlign.left,
-                  style: userNameStyle,
+                Flexible(
+                  child: Text(
+                    tweetVM.getDisplayTweet().userName,
+                    textAlign: TextAlign.start,
+                    style: userNameStyle,
+                    maxLines: 1,
+                    overflow: TextOverflow.fade,
+                    softWrap: false,
+                  ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 2.0),
+                  padding: const EdgeInsets.only(left: 2.0, right: 20),
                   child: VerifiedUsedBadge(tweetVM.getDisplayTweet(), viewMode),
                 ),
               ],
             ),
             (showDate == null || showDate == true)
                 ? Text(
-                    "@" +
-                        tweetVM.getDisplayTweet().userScreenName +
-                        " • " +
-                        tweetVM.getDisplayTweet().createdAt,
-                    textAlign: TextAlign.left,
+                    "@" + tweetVM.getDisplayTweet().userScreenName + " • " + tweetVM.getDisplayTweet().createdAt,
+                    textAlign: TextAlign.start,
                     style: userScreenNameStyle,
                   )
                 : Text(
                     "@" + tweetVM.getDisplayTweet().userScreenName,
-                    textAlign: TextAlign.left,
+                    textAlign: TextAlign.start,
                     style: userScreenNameStyle,
                   ),
           ],
@@ -84,8 +89,7 @@ class Byline extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 2.0),
-                      child: VerifiedUsedBadge(
-                          tweetVM.getDisplayTweet(), viewMode),
+                      child: VerifiedUsedBadge(tweetVM.getDisplayTweet(), viewMode),
                     ),
                     Flexible(
                       child: Padding(
@@ -101,14 +105,17 @@ class Byline extends StatelessWidget {
                       ),
                     ),
                     (showDate == null || showDate == true)
-                        ? Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 4.0),
-                            child: Text(
-                              "• " + tweetVM.getDisplayTweet().createdAt,
-                              style: userScreenNameStyle,
-                              textAlign: TextAlign.start,
-                              softWrap: false,
+                        ? Flexible(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                              child: Text(
+                                "• " + tweetVM.getDisplayTweet().createdAt,
+                                style: userScreenNameStyle,
+                                maxLines: 1,
+                                overflow: TextOverflow.fade,
+                                softWrap: false,
+                                textAlign: TextAlign.start,
+                              ),
                             ),
                           )
                         : Container(),

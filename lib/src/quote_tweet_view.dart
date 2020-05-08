@@ -75,13 +75,11 @@ class QuoteTweetView extends StatelessWidget {
                       userNameStyle: userNameStyle,
                       userScreenNameStyle: userScreenNameStyle,
                     ),
-                    Padding(
+                    TweetText(
+                      tweetVM,
+                      textStyle: textStyle,
+                      clickableTextStyle: clickableTextStyle,
                       padding: const EdgeInsets.only(top: 0.0),
-                      child: TweetText(
-                        tweetVM,
-                        textStyle: textStyle,
-                        clickableTextStyle: clickableTextStyle,
-                      ),
                     ),
                   ],
                 ),

@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.2.0] - 08.05.2020
+### Added
+- Added `videoPlayerInitialVolume` option to TweetView, CompactTweetView and EmbeddedTweetView allowing to set an initial volume when the Tweet has a video. The default value is set to 0.0 schibsted/tweet_ui#33
+### Fixed
+- Fixed bug when Tweet had not text schibsted/tweet_ui#32
+### Changed
+- Updated example app
+- Added some overflow behaviour to Text widgets, so the Tweet's look better on small devices.
+- Updated video_player, cached_network_image
+
 ## [2.1.0+1] - 24.04.2020
 ### Changed
 - Updated description
