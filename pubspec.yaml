@@ -11,9 +11,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cached_network_image: ^2.1.0+1
+  cached_network_image: ^2.2.0+1
   intl: ^0.16.1
-  video_player: ^0.10.9+1
+  video_player: ^0.10.10
   chewie: ^0.9.10
   photo_view: ^0.9.2
   url_launcher: ^5.4.5
