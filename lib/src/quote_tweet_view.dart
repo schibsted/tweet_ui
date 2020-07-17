@@ -1,5 +1,3 @@
-library tweet_ui;
-
 import 'package:flutter/material.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
 import 'package:tweet_ui/on_tap_image.dart';
