@@ -66,7 +66,8 @@ class TweetText extends StatelessWidget {
         // add any plain text before the next entity
         if (startIndex > boundary) {
           spans.add(TextSpan(
-            text: unescape.convert(String.fromCharCodes(tweetVM.textRunes, boundary, min(startIndex, tweetVM.endDisplayText))),
+            text: unescape.convert(String.fromCharCodes(tweetVM.textRunes,
+                boundary, min(startIndex, tweetVM.endDisplayText))),
             style: textStyle,
           ));
         }
@@ -84,7 +85,8 @@ class TweetText extends StatelessWidget {
           ));
         } else {
           final spanText = unescape.convert(
-            String.fromCharCodes(tweetVM.textRunes, startIndex, min(entity.end, tweetVM.endDisplayText)),
+            String.fromCharCodes(tweetVM.textRunes, startIndex,
+                min(entity.end, tweetVM.endDisplayText)),
           );
           spans.add(TextSpan(
             text: spanText,
@@ -110,7 +112,8 @@ class TweetText extends StatelessWidget {
       });
 
       spans.add(TextSpan(
-        text: unescape.convert(String.fromCharCodes(tweetVM.textRunes, boundary, min(tweetVM.textRunes.length, tweetVM.endDisplayText))),
+        text: unescape.convert(String.fromCharCodes(tweetVM.textRunes, boundary,
+            min(tweetVM.textRunes.length, tweetVM.endDisplayText))),
         style: textStyle,
       ));
     }
