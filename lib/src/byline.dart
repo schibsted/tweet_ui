@@ -92,7 +92,8 @@ class Byline extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 2.0),
-                      child: VerifiedUsedBadge(tweetVM.getDisplayTweet(), viewMode),
+                      child: VerifiedUsedBadge(
+                          tweetVM.getDisplayTweet(), viewMode),
                     ),
                     Flexible(
                       child: Padding(

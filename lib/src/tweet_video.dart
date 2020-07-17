@@ -6,11 +6,8 @@ import 'package:video_player/video_player.dart';
 // TODO add option to choose if the video should be opened in a new window or in this widget.
 // TODO make TweetGif and don't show the play/pause buttons, autoplay ON, no gesture detector, no progresbar
 class TweetVideo extends StatefulWidget {
-  TweetVideo(
-    this.tweetVM, {
-    Key key,
-    this.initialVolume = 0.0
-  }) : super(key: key);
+  TweetVideo(this.tweetVM, {Key key, this.initialVolume = 0.0})
+      : super(key: key);
 
   final TweetVM tweetVM;
   final double initialVolume;
