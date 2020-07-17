@@ -89,7 +89,8 @@ class EmbeddedTweetView extends StatelessWidget {
                                 Padding(
                                   child: RetweetInformation(
                                     _tweetVM,
-                                    retweetInformationStyle: defaultEmbeddedRetweetInformationStyle,
+                                    retweetInformationStyle:
+                                        defaultEmbeddedRetweetInformationStyle,
                                   ),
                                   padding: EdgeInsets.only(left: 28),
                                 ),
@@ -149,10 +150,15 @@ class EmbeddedTweetView extends StatelessWidget {
                           padding: EdgeInsets.only(top: 8.0, bottom: 10),
                           child: QuoteTweetViewEmbed.fromTweet(
                             _tweetVM.quotedTweet,
-                            textStyle: TextStyle(color: (darkMode) ? Colors.white : Colors.black),
+                            textStyle: TextStyle(
+                                color:
+                                    (darkMode) ? Colors.white : Colors.black),
                             clickableTextStyle: defaultQuoteClickableTextStyle,
-                            userNameStyle: (darkMode) ? defaultEmbeddedDarkQuoteUserNameStyle : defaultQuoteUserNameStyle,
-                            userScreenNameStyle: defaultQuoteUserScreenNameStyle,
+                            userNameStyle: (darkMode)
+                                ? defaultEmbeddedDarkQuoteUserNameStyle
+                                : defaultQuoteUserNameStyle,
+                            userScreenNameStyle:
+                                defaultQuoteUserScreenNameStyle,
                             backgroundColor: null,
                             borderColor: null,
                             onTapImage: onTapImage,
@@ -184,10 +190,18 @@ class EmbeddedTweetView extends StatelessWidget {
                 ),
                 Container(
                     margin: EdgeInsets.only(left: 6),
-                    child: Text(_tweetVM.favoriteCount.toString(), style: TextStyle(color: (darkMode) ? Colors.grey[400] : Colors.grey[600]))),
+                    child: Text(_tweetVM.favoriteCount.toString(),
+                        style: TextStyle(
+                            color: (darkMode)
+                                ? Colors.grey[400]
+                                : Colors.grey[600]))),
                 Container(
                     margin: EdgeInsets.only(left: 16),
-                    child: Text(_tweetVM.createdAt, style: TextStyle(color: (darkMode) ? Colors.grey[400] : Colors.grey[600])))
+                    child: Text(_tweetVM.createdAt,
+                        style: TextStyle(
+                            color: (darkMode)
+                                ? Colors.grey[400]
+                                : Colors.grey[600])))
               ],
             ),
           ),
