@@ -152,7 +152,8 @@ class TweetView extends StatelessWidget {
                                         _tweetVM,
                                         ViewMode.standard,
                                         userNameStyle: userNameStyle,
-                                        userScreenNameStyle: userScreenNameStyle,
+                                        userScreenNameStyle:
+                                            userScreenNameStyle,
                                       ),
                                     ),
                                   ),
