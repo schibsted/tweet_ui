@@ -49,10 +49,8 @@ class _MediaContainerState extends State<MediaContainer>
     Widget child;
     if (widget.tweetVM.getDisplayTweet().hasSupportedVideo) {
       if (widget.useVideoPlayer) {
-        child = TweetVideo(
-          widget.tweetVM.getDisplayTweet(),
-          initialVolume: widget.videoPlayerInitialVolume
-        );
+        child = TweetVideo(widget.tweetVM.getDisplayTweet(),
+            initialVolume: widget.videoPlayerInitialVolume);
       } else {
         child = Stack(
           children: <Widget>[
