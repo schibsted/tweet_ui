@@ -15,6 +15,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improve documentation
 - Fix formating
 
+## [2.2.0+3] - 17.07.2020
+### Changed
+- Fix formating
+
+## [2.2.0+2] - 17.07.2020
+### Changed
+- Fix formating
+
+## [2.2.0+1] - 17.07.2020
+### Changed
+- Update video_player and url_launcher
+- Improve documentation
+- Fix formating
+
 ## [2.2.0+1] - 17.07.2020
 ### Changed
 - Update video_player and url_launcher
