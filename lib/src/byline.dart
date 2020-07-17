@@ -54,7 +54,10 @@ class Byline extends StatelessWidget {
             ),
             (showDate == null || showDate == true)
                 ? Text(
-                    "@" + tweetVM.getDisplayTweet().userScreenName + " • " + tweetVM.getDisplayTweet().createdAt,
+                    "@" +
+                        tweetVM.getDisplayTweet().userScreenName +
+                        " • " +
+                        tweetVM.getDisplayTweet().createdAt,
                     textAlign: TextAlign.start,
                     style: userScreenNameStyle,
                   )
@@ -107,7 +110,8 @@ class Byline extends StatelessWidget {
                     (showDate == null || showDate == true)
                         ? Flexible(
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
                               child: Text(
                                 "• " + tweetVM.getDisplayTweet().createdAt,
                                 style: userScreenNameStyle,
