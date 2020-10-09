@@ -65,30 +65,33 @@ class TweetVM {
           Tweet tweet, DateFormat createdDateDisplayFormat) =>
       new TweetVM(
         createdAt: _createdAt(tweet, createdDateDisplayFormat),
-        hasSupportedVideo: _hasSupportedVideo(tweet),
-        allEntities: _allEntities(tweet),
-        hasPhoto: _hasPhoto(tweet),
-        hasGif: _hasGif(tweet),
+        hasSupportedVideo: _hasSupportedVideo(_originalTweetOrRetweet(tweet)),
+        allEntities: _allEntities(_originalTweetOrRetweet(tweet)),
+        hasPhoto: _hasPhoto(_originalTweetOrRetweet(tweet)),
+        hasGif: _hasGif(_originalTweetOrRetweet(tweet)),
         tweetLink: _tweetLink(tweet),
         userLink: _userLink(tweet),
-        text: _text(tweet),
-        textRunes: _runes(tweet),
+        text: _text(_originalTweetOrRetweet(tweet)),
+        textRunes: _runes(_originalTweetOrRetweet(tweet)),
         profileUrl: _profileURL(tweet),
-        allPhotos: _allPhotos(tweet),
+        allPhotos: _allPhotos(_originalTweetOrRetweet(tweet)),
         userName: _userName(tweet),
         userScreenName: _userScreenName(tweet),
-        quotedTweet: _quotedTweet(tweet.quotedStatus, createdDateDisplayFormat),
-        retweetedTweet:
-            _retweetedTweet(tweet.retweetedStatus, createdDateDisplayFormat),
+        quotedTweet: _quotedTweet(_originalTweetOrRetweet(tweet).quotedStatus, createdDateDisplayFormat),
+        retweetedTweet: _retweetedTweet(tweet.retweetedStatus, createdDateDisplayFormat),
         userVerified: _userVerified(tweet),
-        videoPlaceholderUrl: _videoPlaceholderUrl(tweet),
-        videoUrl: _videoUrl(tweet),
-        videoAspectRatio: _videoAspectRatio(tweet),
+        videoPlaceholderUrl: _videoPlaceholderUrl(_originalTweetOrRetweet(tweet)),
+        videoUrl: _videoUrl(_originalTweetOrRetweet(tweet)),
+        videoAspectRatio: _videoAspectRatio(_originalTweetOrRetweet(tweet)),
         favoriteCount: _favoriteCount(tweet),
-        startDisplayText: _startDisplayText(tweet),
-        endDisplayText: _endDisplayText(tweet),
+        startDisplayText: _startDisplayText(_originalTweetOrRetweet(tweet)),
+        endDisplayText: _endDisplayText(_originalTweetOrRetweet(tweet)),
         favorited: _favorited(tweet),
       );
+
+  static Tweet _originalTweetOrRetweet(tweet) {
+    return tweet.retweetedStatus != null ? tweet.retweetedStatus : tweet;
+  }
 
   static String _createdAt(Tweet tweet, DateFormat displayFormat) {
     DateFormat twitterFormat =

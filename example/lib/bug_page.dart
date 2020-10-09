@@ -65,7 +65,13 @@ class BugPage extends StatelessWidget {
                 );
               },
             ),
-          )
+          ),
+          OpenTweetPageButton(
+            title: "Retweet bug, Github #49",
+            tweetPath: 'assets/tweet_examples/tweet_retweet_gh49.json',
+            // Now favorited value is used in EmbeddedTweetView
+            quoteTweetPath: 'assets/tweet_examples/tweet_retweet_gh49.json',
+          ),
         ],
       ),
     );
