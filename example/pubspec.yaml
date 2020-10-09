@@ -40,4 +40,6 @@ flutter:
     - assets/tweet_examples/tweet_bug_gh32_1st.json
     - assets/tweet_examples/tweet_bug_gh32_2nd.json
     - assets/tweet_examples/tweet_bug_gh32_3rd.json
+    - assets/tweet_examples/tweet_favorited_gh52.json
+    - assets/tweet_examples/tweet_quote_favorited_gh52.json
   uses-material-design: true

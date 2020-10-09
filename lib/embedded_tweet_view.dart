@@ -184,7 +184,7 @@ class EmbeddedTweetView extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 Icon(
-                  Icons.favorite_border,
+                  _tweetVM.favorited ? Icons.favorite: Icons.favorite_border,
                   color: (darkMode) ? Colors.grey[400] : Colors.grey[600],
                   size: 18,
                 ),
