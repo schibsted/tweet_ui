@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.3.0+1] - 09.10.2020
+### Changed
+- Fix formatting
+
 ## [2.3.0] - 09.10.2020
 ### Changed
 - **BREAKING!!!** Changed the logic for parsing/presenting a Tweet, when a Retweet is present in the JSON.

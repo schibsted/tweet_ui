@@ -77,10 +77,13 @@ class TweetVM {
         allPhotos: _allPhotos(_originalTweetOrRetweet(tweet)),
         userName: _userName(tweet),
         userScreenName: _userScreenName(tweet),
-        quotedTweet: _quotedTweet(_originalTweetOrRetweet(tweet).quotedStatus, createdDateDisplayFormat),
-        retweetedTweet: _retweetedTweet(tweet.retweetedStatus, createdDateDisplayFormat),
+        quotedTweet: _quotedTweet(_originalTweetOrRetweet(tweet).quotedStatus,
+            createdDateDisplayFormat),
+        retweetedTweet:
+            _retweetedTweet(tweet.retweetedStatus, createdDateDisplayFormat),
         userVerified: _userVerified(tweet),
-        videoPlaceholderUrl: _videoPlaceholderUrl(_originalTweetOrRetweet(tweet)),
+        videoPlaceholderUrl:
+            _videoPlaceholderUrl(_originalTweetOrRetweet(tweet)),
         videoUrl: _videoUrl(_originalTweetOrRetweet(tweet)),
         videoAspectRatio: _videoAspectRatio(_originalTweetOrRetweet(tweet)),
         favoriteCount: _favoriteCount(tweet),
