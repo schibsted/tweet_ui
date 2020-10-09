@@ -42,6 +42,12 @@ class BugPage extends StatelessWidget {
             // retweeted with a commentary from the person who retweeted is a regular quote tweet view
             quoteTweetPath: null,
           ),
+          OpenTweetPageButton(
+            title: "Favorited, Github #52",
+            tweetPath: 'assets/tweet_examples/tweet_favorited_gh52.json',
+            // Now favorited value is used in EmbeddedTweetView
+            quoteTweetPath: 'assets/tweet_examples/tweet_quote_favorited_gh52.json',
+          ),
         ],
       ),
     );

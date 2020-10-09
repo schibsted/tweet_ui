@@ -33,6 +33,7 @@ class TweetVM {
   final int favoriteCount;
   final int startDisplayText;
   final int endDisplayText;
+  final bool favorited;
 
   TweetVM({
     this.createdAt,
@@ -57,6 +58,7 @@ class TweetVM {
     this.favoriteCount,
     this.startDisplayText,
     this.endDisplayText,
+    this.favorited,
   });
 
   factory TweetVM.fromApiModel(
@@ -85,6 +87,7 @@ class TweetVM {
         favoriteCount: _favoriteCount(tweet),
         startDisplayText: _startDisplayText(tweet),
         endDisplayText: _endDisplayText(tweet),
+        favorited: _favorited(tweet),
       );
 
   static String _createdAt(Tweet tweet, DateFormat displayFormat) {
@@ -293,6 +296,10 @@ class TweetVM {
     return tweet.displayTextRange != null
         ? tweet.displayTextRange[1]
         : _runes(tweet).length;
+  }
+
+  static bool _favorited(Tweet tweet) {
+    return tweet.favorited;
   }
 }
 
