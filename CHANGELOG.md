@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- **BREAKING!!!** Changed the logic for parsing/presenting a Tweet, when a Retweet is present in the JSON.
+  For more information, check `TweetVM.fromApiModel` and `_originalTweetOrRetweet()` in the `tweet_vm.dart` file. schibsted/tweet_ui#49
+- Update cached_network_image, video_player, photo_view, url_launcher, html_unescape
 ### Fixed
 - Respect favorited value in EmbeddedTweetView schibsted/tweet_ui#52
 
