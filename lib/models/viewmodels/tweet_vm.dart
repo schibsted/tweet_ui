@@ -299,7 +299,7 @@ class TweetVM {
   }
 
   static bool _favorited(Tweet tweet) {
-    return tweet.favorited;
+    return tweet.favorited != null ? tweet.favorited : false;
   }
 }
 
