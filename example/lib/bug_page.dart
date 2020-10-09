@@ -1,4 +1,5 @@
 import 'package:example/ui/open_tweetpage_button.dart';
+import 'package:example/ui/tweet_page_bug_gh50.dart';
 import 'package:flutter/material.dart';
 
 /// Main page of the example app
@@ -48,6 +49,23 @@ class BugPage extends StatelessWidget {
             // Now favorited value is used in EmbeddedTweetView
             quoteTweetPath: 'assets/tweet_examples/tweet_quote_favorited_gh52.json',
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 4.0),
+            child: RaisedButton(
+              child: Text(
+                "EmbeddedTweetView text size is too big\nGithub #50",
+                textAlign: TextAlign.center,
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TweetPageBugGH50(),
+                  ),
+                );
+              },
+            ),
+          )
         ],
       ),
     );
