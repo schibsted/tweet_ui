@@ -4,12 +4,13 @@ import 'package:flutter/material.dart';
 /// Builds a button that opens a [TweetPage]
 
 class OpenTweetPageButton extends StatelessWidget {
-
   final String title;
   final String tweetPath;
   final String quoteTweetPath;
 
-  const OpenTweetPageButton({Key key, this.title, this.tweetPath, this.quoteTweetPath}) : super(key: key);
+  const OpenTweetPageButton(
+      {Key key, this.title, this.tweetPath, this.quoteTweetPath})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

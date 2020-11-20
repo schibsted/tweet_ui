@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
 import 'package:tweet_ui/src/tweet_video.dart';
 
@@ -44,19 +43,14 @@ class _AnimatedPlayButtonState extends State<AnimatedPlayButton>
       _controller.reverse().then((_) {
         Navigator.push(context, MaterialPageRoute(
           builder: (_) {
-            SystemChrome.setEnabledSystemUIOverlays([]);
             return WillPopScope(
-              child: Scaffold(
-                resizeToAvoidBottomPadding: false,
-                backgroundColor: Colors.black,
-                body: Center(
-                  child: TweetVideo(
-                    widget.tweetVM.getDisplayTweet(),
-                  ),
-                ),
+              child: TweetVideo(
+                widget.tweetVM.getDisplayTweet(),
+                autoPlay: true,
+                enableFullscreen: false,
+                videoHighQuality: true,
               ),
               onWillPop: () {
-                SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
                 return Future.value(true);
               },
             );

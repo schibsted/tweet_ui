@@ -54,7 +54,7 @@ class TweetView extends StatelessWidget {
   /// Color of the Tweet background
   final Color backgroundColor;
 
-  /// If set to true a chewie/video_player will be used in a Tweet containing a video.
+  /// If set to true a better_player will be used in a Tweet containing a video.
   /// If set to false a image placeholder will he shown and a video will be played in a new page.
   final bool useVideoPlayer;
 
@@ -66,6 +66,10 @@ class TweetView extends StatelessWidget {
 
   /// Date format when the tweet was created. When null it defaults to DateFormat("HH:mm • MM.dd.yyyy", 'en_US')
   final DateFormat createdDateDisplayFormat;
+
+  /// If set to true better_player will load the highest quality available.
+  /// If set to false better_player will load the lowest quality available.
+  final bool videoHighQuality;
 
   TweetView(
     this._tweetVM, {
@@ -85,26 +89,29 @@ class TweetView extends StatelessWidget {
     this.videoPlayerInitialVolume,
     this.onTapImage,
     this.createdDateDisplayFormat,
+    this.videoHighQuality,
   }); //  TweetView(this.tweetVM);
 
-  TweetView.fromTweet(Tweet tweet,
-      {this.userNameStyle = defaultUserNameStyle,
-      this.userScreenNameStyle = defaultUserScreenNameStyle,
-      this.textStyle = defaultTextStyle,
-      this.clickableTextStyle = defaultClickableTextStyle,
-      this.retweetInformationTextStyle = defaultRetweetInformationStyle,
-      this.quoteUserNameStyle = defaultQuoteUserNameStyle,
-      this.quoteUserScreenNameStyle = defaultQuoteUserScreenNameStyle,
-      this.quoteTextStyle = defaultQuoteTextStyle,
-      this.quoteClickableTextStyle = defaultQuoteClickableTextStyle,
-      this.quoteBorderColor = Colors.grey,
-      this.quoteBackgroundColor = Colors.white,
-      this.backgroundColor = Colors.white,
-      this.useVideoPlayer = true,
-      this.videoPlayerInitialVolume = 0.0,
-      this.onTapImage,
-      this.createdDateDisplayFormat})
-      : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
+  TweetView.fromTweet(
+    Tweet tweet, {
+    this.userNameStyle = defaultUserNameStyle,
+    this.userScreenNameStyle = defaultUserScreenNameStyle,
+    this.textStyle = defaultTextStyle,
+    this.clickableTextStyle = defaultClickableTextStyle,
+    this.retweetInformationTextStyle = defaultRetweetInformationStyle,
+    this.quoteUserNameStyle = defaultQuoteUserNameStyle,
+    this.quoteUserScreenNameStyle = defaultQuoteUserScreenNameStyle,
+    this.quoteTextStyle = defaultQuoteTextStyle,
+    this.quoteClickableTextStyle = defaultQuoteClickableTextStyle,
+    this.quoteBorderColor = Colors.grey,
+    this.quoteBackgroundColor = Colors.white,
+    this.backgroundColor = Colors.white,
+    this.useVideoPlayer = true,
+    this.videoPlayerInitialVolume = 0.0,
+    this.onTapImage,
+    this.createdDateDisplayFormat,
+    this.videoHighQuality = true,
+  }) : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
 
   @override
   Widget build(BuildContext context) {
@@ -118,6 +125,7 @@ class TweetView extends StatelessWidget {
             useVideoPlayer: useVideoPlayer,
             videoPlayerInitialVolume: videoPlayerInitialVolume,
             onTapImage: onTapImage,
+            videoHighQuality: videoHighQuality,
           ),
           GestureDetector(
             onTap: () {

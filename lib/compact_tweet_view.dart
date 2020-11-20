@@ -53,7 +53,7 @@ class CompactTweetView extends StatelessWidget {
   /// Color of the Tweet background
   final Color backgroundColor;
 
-  /// If set to true a chewie/video_player will be used in a Tweet containing a video.
+  /// If set to true a betterplayer/video_player will be used in a Tweet containing a video.
   /// If set to false a image placeholder will he shown and a video will be played in a new page.
   final bool useVideoPlayer;
 
@@ -66,43 +66,52 @@ class CompactTweetView extends StatelessWidget {
   /// Date format when the tweet was created. When null it defaults to DateFormat("HH:mm • MM.dd.yyyy", 'en_US')
   final DateFormat createdDateDisplayFormat;
 
-  CompactTweetView(this._tweetVM,
-      {this.userNameStyle,
-      this.userScreenNameStyle,
-      this.textStyle,
-      this.clickableTextStyle,
-      this.retweetInformationTextStyle,
-      this.quoteUserNameStyle,
-      this.quoteUserScreenNameStyle,
-      this.quoteTextStyle,
-      this.quoteClickableTextStyle,
-      this.quoteBorderColor,
-      this.quoteBackgroundColor,
-      this.backgroundColor,
-      this.useVideoPlayer,
-      this.videoPlayerInitialVolume,
-      this.onTapImage,
-      this.createdDateDisplayFormat}); //  TweetView(this.tweetVM);
+  /// If set to true betterplayer/video_player will load the highest quality available.
+  /// If set to false betterplayer/video_player will load the lowest quality available.
+  final bool videoHighQuality;
 
-  CompactTweetView.fromTweet(Tweet tweet,
-      {this.userNameStyle = defaultCompactUserNameStyle,
-      this.userScreenNameStyle = defaultCompactUserScreenNameStyle,
-      this.textStyle = defaultCompactTextStyle,
-      this.clickableTextStyle = defaultCompactClickableTextStyle,
-      this.retweetInformationTextStyle =
-          defaultCompactRetweetInformationNameStyle,
-      this.quoteUserNameStyle = defaultQuoteUserNameStyle,
-      this.quoteUserScreenNameStyle = defaultQuoteUserScreenNameStyle,
-      this.quoteTextStyle = defaultQuoteTextStyle,
-      this.quoteClickableTextStyle = defaultQuoteClickableTextStyle,
-      this.quoteBorderColor = Colors.grey,
-      this.quoteBackgroundColor = Colors.white,
-      this.backgroundColor = Colors.white,
-      this.useVideoPlayer = true,
-      this.videoPlayerInitialVolume = 0.0,
-      this.onTapImage,
-      this.createdDateDisplayFormat})
-      : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
+  CompactTweetView(
+    this._tweetVM, {
+    this.userNameStyle,
+    this.userScreenNameStyle,
+    this.textStyle,
+    this.clickableTextStyle,
+    this.retweetInformationTextStyle,
+    this.quoteUserNameStyle,
+    this.quoteUserScreenNameStyle,
+    this.quoteTextStyle,
+    this.quoteClickableTextStyle,
+    this.quoteBorderColor,
+    this.quoteBackgroundColor,
+    this.backgroundColor,
+    this.useVideoPlayer,
+    this.videoPlayerInitialVolume,
+    this.onTapImage,
+    this.createdDateDisplayFormat,
+    this.videoHighQuality,
+  }); //  TweetView(this.tweetVM);
+
+  CompactTweetView.fromTweet(
+    Tweet tweet, {
+    this.userNameStyle = defaultCompactUserNameStyle,
+    this.userScreenNameStyle = defaultCompactUserScreenNameStyle,
+    this.textStyle = defaultCompactTextStyle,
+    this.clickableTextStyle = defaultCompactClickableTextStyle,
+    this.retweetInformationTextStyle =
+        defaultCompactRetweetInformationNameStyle,
+    this.quoteUserNameStyle = defaultQuoteUserNameStyle,
+    this.quoteUserScreenNameStyle = defaultQuoteUserScreenNameStyle,
+    this.quoteTextStyle = defaultQuoteTextStyle,
+    this.quoteClickableTextStyle = defaultQuoteClickableTextStyle,
+    this.quoteBorderColor = Colors.grey,
+    this.quoteBackgroundColor = Colors.white,
+    this.backgroundColor = Colors.white,
+    this.useVideoPlayer = true,
+    this.videoPlayerInitialVolume = 0.0,
+    this.onTapImage,
+    this.createdDateDisplayFormat,
+    this.videoHighQuality = true,
+  }) : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
 
   @override
   Widget build(BuildContext context) {
@@ -147,6 +156,7 @@ class CompactTweetView extends StatelessWidget {
                           useVideoPlayer: useVideoPlayer,
                           videoPlayerInitialVolume: videoPlayerInitialVolume,
                           onTapImage: onTapImage,
+                          videoHighQuality: videoHighQuality,
                         ),
                         GestureDetector(
                           onTap: () {

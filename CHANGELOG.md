@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.4.0] - 20.11.2020
+### Removed
+- Removed chewie as a video/gif player
+### Added
+- Added betterplayer as a video/gif player
+### Changed
+- Update cached_network_image, video_player, photo_view, url_launcher
+- Upgrading pre 1.12 Android example project
+
 ## [2.3.0+1] - 09.10.2020
 ### Changed
 - Fix formatting

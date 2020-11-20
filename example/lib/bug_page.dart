@@ -47,10 +47,12 @@ class BugPage extends StatelessWidget {
             title: "Favorited, Github #52",
             tweetPath: 'assets/tweet_examples/tweet_favorited_gh52.json',
             // Now favorited value is used in EmbeddedTweetView
-            quoteTweetPath: 'assets/tweet_examples/tweet_quote_favorited_gh52.json',
+            quoteTweetPath:
+                'assets/tweet_examples/tweet_quote_favorited_gh52.json',
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 4.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 32.0, vertical: 4.0),
             child: RaisedButton(
               child: Text(
                 "EmbeddedTweetView text size is too big\nGithub #50",
