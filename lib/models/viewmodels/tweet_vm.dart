@@ -77,10 +77,13 @@ class TweetVM {
         allPhotos: _allPhotos(_originalTweetOrRetweet(tweet)),
         userName: _userName(tweet),
         userScreenName: _userScreenName(tweet),
-        quotedTweet: _quotedTweet(_originalTweetOrRetweet(tweet).quotedStatus, createdDateDisplayFormat),
-        retweetedTweet: _retweetedTweet(tweet.retweetedStatus, createdDateDisplayFormat),
+        quotedTweet: _quotedTweet(_originalTweetOrRetweet(tweet).quotedStatus,
+            createdDateDisplayFormat),
+        retweetedTweet:
+            _retweetedTweet(tweet.retweetedStatus, createdDateDisplayFormat),
         userVerified: _userVerified(tweet),
-        videoPlaceholderUrl: _videoPlaceholderUrl(_originalTweetOrRetweet(tweet)),
+        videoPlaceholderUrl:
+            _videoPlaceholderUrl(_originalTweetOrRetweet(tweet)),
         videoUrls: _videoUrls(_originalTweetOrRetweet(tweet)),
         videoAspectRatio: _videoAspectRatio(_originalTweetOrRetweet(tweet)),
         favoriteCount: _favoriteCount(tweet),
@@ -275,11 +278,19 @@ class TweetVM {
   }
 
   static Map<String, String> _videoUrls(Tweet tweet) {
-    var listOfVideoVariants = _videoEntity(tweet)?.videoInfo?.variants?.where((variant) => variant.contentType == 'video/mp4')?.toList();
-    listOfVideoVariants?.sort((variantA, variantB) => variantA.bitrate.compareTo(variantB.bitrate));
+    var listOfVideoVariants = _videoEntity(tweet)
+        ?.videoInfo
+        ?.variants
+        ?.where((variant) => variant.contentType == 'video/mp4')
+        ?.toList();
+    listOfVideoVariants?.sort(
+        (variantA, variantB) => variantA.bitrate.compareTo(variantB.bitrate));
     if (listOfVideoVariants?.isNotEmpty ?? false) {
       // ignore: null_aware_before_operator
-      return Map.fromIterable(listOfVideoVariants, key: (dynamic variant) => (variant as Variant)?.bitrate?.toString() + ' kbps', value: (dynamic variant) => (variant as Variant)?.url);
+      return Map.fromIterable(listOfVideoVariants,
+          key: (dynamic variant) =>
+              (variant as Variant)?.bitrate?.toString() + ' kbps',
+          value: (dynamic variant) => (variant as Variant)?.url);
     } else {
       return null;
     }

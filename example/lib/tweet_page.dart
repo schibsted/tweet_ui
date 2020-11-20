@@ -34,16 +34,18 @@ class TweetPage extends StatelessWidget {
         children: <Widget>[
           buildHeader("$mediaType EmbeddedTweetView"),
           buildEmbeddedTweetView(tweetPath),
-          if(quoteTweetPath != null) buildHeader("$mediaType Quote EmbeddedTweetView"),
-          if(quoteTweetPath != null) buildEmbeddedTweetView(quoteTweetPath),
+          if (quoteTweetPath != null)
+            buildHeader("$mediaType Quote EmbeddedTweetView"),
+          if (quoteTweetPath != null) buildEmbeddedTweetView(quoteTweetPath),
           buildHeader("$mediaType TweetView"),
           buildTweet(tweetPath),
           buildHeader("$mediaType CompactTweetView"),
           buildCompactTweetView(tweetPath),
-          if(quoteTweetPath != null) buildHeader("$mediaType Quote TweetView"),
-          if(quoteTweetPath != null) buildTweet(quoteTweetPath),
-          if(quoteTweetPath != null) buildHeader("$mediaType Quote CompactTweetView"),
-          if(quoteTweetPath != null) buildCompactTweetView(quoteTweetPath),
+          if (quoteTweetPath != null) buildHeader("$mediaType Quote TweetView"),
+          if (quoteTweetPath != null) buildTweet(quoteTweetPath),
+          if (quoteTweetPath != null)
+            buildHeader("$mediaType Quote CompactTweetView"),
+          if (quoteTweetPath != null) buildCompactTweetView(quoteTweetPath),
         ],
       ),
     );
