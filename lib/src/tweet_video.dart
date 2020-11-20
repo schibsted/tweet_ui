@@ -1,41 +1,62 @@
-import 'package:chewie/chewie.dart';
+import 'package:better_player/better_player.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
-import 'package:video_player/video_player.dart';
 
-// TODO add option to choose if the video should be opened in a new window or in this widget.
-// TODO make TweetGif and don't show the play/pause buttons, autoplay ON, no gesture detector, no progresbar
 class TweetVideo extends StatefulWidget {
-  TweetVideo(this.tweetVM, {Key key, this.initialVolume = 0.0})
-      : super(key: key);
+  TweetVideo(
+    this.tweetVM, {
+    Key key,
+    this.initialVolume = 0.0,
+    this.autoPlay = false,
+    this.enableFullscreen = true,
+    this.videoHighQuality = true,
+  }) : super(key: key);
 
   final TweetVM tweetVM;
   final double initialVolume;
+  final bool autoPlay;
+  final bool enableFullscreen;
+  final bool videoHighQuality;
 
   @override
   _TweetVideoState createState() => _TweetVideoState();
 }
 
-class _TweetVideoState extends State<TweetVideo>
-    with AutomaticKeepAliveClientMixin {
-  VideoPlayerController _controller;
-  ChewieController _chewieController;
+class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMixin {
+  BetterPlayerConfiguration betterPlayerConfiguration;
+  BetterPlayerController controller;
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(
-        widget.tweetVM.getDisplayTweet().videoUrl);
-    _controller.setVolume(widget.initialVolume);
-
-    _chewieController = ChewieController(
-      videoPlayerController: _controller,
-      showControls: !widget.tweetVM.getDisplayTweet().hasGif,
+    betterPlayerConfiguration = BetterPlayerConfiguration(
+      placeholder: Center(
+        child: SizedBox(
+          height: 32,
+          width: 32,
+          child: CircularProgressIndicator(),
+        ),
+      ),
+      errorBuilder: (context, message) {
+        return Text('Error while loading video :-(');
+      },
+      aspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio,
+      controlsConfiguration: BetterPlayerControlsConfiguration(
+        enablePlaybackSpeed: false,
+        enableSkips: false,
+        enableMute: !widget.tweetVM.getDisplayTweet().hasGif,
+        showControls: !widget.tweetVM.getDisplayTweet().hasGif,
+        enableSubtitles: false,
+        enableQualities: true,
+        enableOverflowMenu: true,
+        enableFullscreen: widget.enableFullscreen,
+      ),
       allowedScreenSleep: false,
-      autoInitialize: true,
-      allowFullScreen: false,
-      allowMuting: !widget.tweetVM.getDisplayTweet().hasGif,
-      autoPlay: widget.tweetVM.getDisplayTweet().hasGif,
+      fullScreenByDefault: false,
+      deviceOrientationsOnFullScreen: [DeviceOrientation.portraitUp, DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight],
+      fullScreenAspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio,
+      autoPlay: widget.tweetVM.getDisplayTweet().hasGif || widget.autoPlay,
       looping: widget.tweetVM.getDisplayTweet().hasGif,
       overlay: Padding(
         padding: const EdgeInsets.only(
@@ -54,22 +75,22 @@ class _TweetVideoState extends State<TweetVideo>
               )
             : Container(),
       ),
-      aspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio,
     );
-  }
-
-  @override
-  void dispose() {
-    // Ensure disposing of the VideoPlayerController to free up resources.
-    _chewieController.dispose();
-    _controller.dispose();
-    super.dispose();
+    var videoUrl = widget.videoHighQuality ? widget.tweetVM.getDisplayTweet().videoUrls.values.last : widget.tweetVM.getDisplayTweet().videoUrls.values.first;
+    controller = BetterPlayerController(
+      betterPlayerConfiguration,
+      betterPlayerDataSource:
+          BetterPlayerDataSource.network(videoUrl, qualities: widget.tweetVM.getDisplayTweet().videoUrls),
+    );
+    controller.setVolume(widget.initialVolume);
   }
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return Chewie(controller: _chewieController);
+    return BetterPlayer(
+      controller: controller,
+    );
   }
 
   @override
