@@ -8,13 +8,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.5.0-nullsafety.1"
-  better_player:
-    dependency: "direct main"
-    description:
-      name: better_player
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.34"
   boolean_selector:
     dependency: transitive
     description:
@@ -43,6 +36,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0-nullsafety.1"
+  chewie:
+    dependency: "direct main"
+    description:
+      name: chewie
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.12.0"
   clock:
     dependency: transitive
     description:
@@ -78,6 +78,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.16.2"
+  cupertino_icons:
+    dependency: transitive
+    description:
+      name: cupertino_icons
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   fake_async:
     dependency: transitive
     description:
@@ -118,13 +125,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.4.2"
-  flutter_hls_parser:
-    dependency: transitive
-    description:
-      name: flutter_hls_parser
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -135,13 +135,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_widget_from_html_core:
-    dependency: transitive
-    description:
-      name: flutter_widget_from_html_core
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.1+4"
   html:
     dependency: transitive
     description:
@@ -209,13 +202,6 @@ packages:
     dependency: transitive
     description:
       name: octo_image
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.3.0"
-  open_iconic_flutter:
-    dependency: transitive
-    description:
-      name: open_iconic_flutter
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.0"
@@ -296,13 +282,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.13"
-  quiver:
-    dependency: transitive
-    description:
-      name: quiver
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.5"
   rxdart:
     dependency: transitive
     description:
@@ -462,13 +441,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.4+1"
-  visibility_detector:
-    dependency: transitive
-    description:
-      name: visibility_detector
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.5"
   wakelock:
     dependency: transitive
     description:

@@ -1,7 +1,7 @@
-import 'package:better_player/better_player.dart';
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
+import 'package:video_player/video_player.dart';
 
 class TweetVideo extends StatefulWidget {
   TweetVideo(
@@ -25,78 +25,39 @@ class TweetVideo extends StatefulWidget {
 
 class _TweetVideoState extends State<TweetVideo>
     with AutomaticKeepAliveClientMixin {
-  BetterPlayerConfiguration betterPlayerConfiguration;
-  BetterPlayerController controller;
+  VideoPlayerController controller;
+  ChewieController chewieController;
 
   @override
   void initState() {
     super.initState();
-    betterPlayerConfiguration = BetterPlayerConfiguration(
-      placeholder: Center(
-        child: SizedBox(
-          height: 32,
-          width: 32,
-          child: CircularProgressIndicator(),
-        ),
-      ),
-      errorBuilder: (context, message) {
-        return Text('Error while loading video :-(');
-      },
-      aspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio,
-      controlsConfiguration: BetterPlayerControlsConfiguration(
-        enablePlaybackSpeed: false,
-        enableSkips: false,
-        enableMute: !widget.tweetVM.getDisplayTweet().hasGif,
-        showControls: !widget.tweetVM.getDisplayTweet().hasGif,
-        enableSubtitles: false,
-        enableQualities: true,
-        enableOverflowMenu: true,
-        enableFullscreen: widget.enableFullscreen,
-      ),
-      allowedScreenSleep: false,
-      fullScreenByDefault: false,
-      deviceOrientationsOnFullScreen: [
-        DeviceOrientation.portraitUp,
-        DeviceOrientation.landscapeLeft,
-        DeviceOrientation.landscapeRight
-      ],
-      fullScreenAspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio,
-      autoPlay: widget.tweetVM.getDisplayTweet().hasGif || widget.autoPlay,
-      looping: widget.tweetVM.getDisplayTweet().hasGif,
-      overlay: Padding(
-        padding: const EdgeInsets.only(
-          left: 4.0,
-        ),
-        child: widget.tweetVM.getDisplayTweet().hasGif
-            ? Align(
-                alignment: Alignment.bottomLeft,
-                child: Image.asset(
-                  "assets/tw__ic_gif_badge.png",
-                  fit: BoxFit.fitWidth,
-                  package: 'tweet_ui',
-                  height: 16,
-                  width: 16,
-                ),
-              )
-            : Container(),
-      ),
-    );
-    var videoUrl = widget.videoHighQuality
+    final videoUrl = widget.videoHighQuality
         ? widget.tweetVM.getDisplayTweet().videoUrls.values.last
         : widget.tweetVM.getDisplayTweet().videoUrls.values.first;
-    controller = BetterPlayerController(
-      betterPlayerConfiguration,
-      betterPlayerDataSource: BetterPlayerDataSource.network(videoUrl,
-          qualities: widget.tweetVM.getDisplayTweet().videoUrls),
-    );
+    controller = VideoPlayerController.network(videoUrl);
     controller.setVolume(widget.initialVolume);
+
+    chewieController = ChewieController(
+      videoPlayerController: controller,
+      aspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio,
+      showControls: !widget.tweetVM.getDisplayTweet().hasGif,
+      allowedScreenSleep: false,
+      allowFullScreen: widget.enableFullscreen,
+      fullScreenByDefault: false,
+      autoInitialize: true,
+      allowMuting: !widget.tweetVM.getDisplayTweet().hasGif,
+      autoPlay: widget.tweetVM.getDisplayTweet().hasGif || widget.autoPlay,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return BetterPlayer(
-      controller: controller,
+    return AspectRatio(
+      aspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio,
+      child: Chewie(
+        controller: chewieController,
+      ),
     );
   }
 

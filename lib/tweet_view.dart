@@ -54,7 +54,7 @@ class TweetView extends StatelessWidget {
   /// Color of the Tweet background
   final Color backgroundColor;
 
-  /// If set to true a better_player will be used in a Tweet containing a video.
+  /// If set to true a chewie will be used in a Tweet containing a video.
   /// If set to false a image placeholder will he shown and a video will be played in a new page.
   final bool useVideoPlayer;
 
@@ -67,8 +67,8 @@ class TweetView extends StatelessWidget {
   /// Date format when the tweet was created. When null it defaults to DateFormat("HH:mm • MM.dd.yyyy", 'en_US')
   final DateFormat createdDateDisplayFormat;
 
-  /// If set to true better_player will load the highest quality available.
-  /// If set to false better_player will load the lowest quality available.
+  /// If set to true chewie will load the highest quality available.
+  /// If set to false chewie will load the lowest quality available.
   final bool videoHighQuality;
 
   TweetView(
