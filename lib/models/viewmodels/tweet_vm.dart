@@ -286,9 +286,9 @@ class TweetVM {
     listOfVideoVariants?.sort(
         (variantA, variantB) => variantA.bitrate.compareTo(variantB.bitrate));
     if (listOfVideoVariants?.isNotEmpty ?? false) {
-      // ignore: null_aware_before_operator
       return Map.fromIterable(listOfVideoVariants,
           key: (dynamic variant) =>
+              // ignore: null_aware_before_operator
               (variant as Variant)?.bitrate?.toString() + ' kbps',
           value: (dynamic variant) => (variant as Variant)?.url);
     } else {
