@@ -41,6 +41,7 @@ class RetweetInformation extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 6.0),
                       child: Text(
                         "Retweeted by ${tweetVM.userName}",
+                        overflow: TextOverflow.fade,
                         style: retweetInformationStyle,
                         textAlign: TextAlign.start,
                       ),
