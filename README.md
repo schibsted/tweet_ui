@@ -95,5 +95,5 @@ There is also a special `QuoteTweetView` that is embedded in a `TweetView` or a 
 
 ***
 
-#### Thanks for contributing: [dasmikko](https://github.com/dasmikko), [jamesblasco](https://github.com/jamesblasco), [tristan-vrt](https://github.com/tristan-vrt), [daver123](https://github.com/daver123), [ercadev](https://github.com/ercadev), [ivanjpg](https://github.com/ivanjpg)
+#### Thanks for contributing: [dasmikko](https://github.com/dasmikko), [jamesblasco](https://github.com/jamesblasco), [tristan-vrt](https://github.com/tristan-vrt), [daver123](https://github.com/daver123), [ercadev](https://github.com/ercadev), [ivanjpg](https://github.com/ivanjpg), [escamoteur](https://github.com/escamoteur)
 
