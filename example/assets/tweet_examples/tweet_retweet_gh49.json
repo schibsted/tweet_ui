@@ -1,0 +1,455 @@
+{
+  "created_at": "Mon Jul 27 09:42:49 +0000 2020",
+  "id": 1287684862317678594,
+  "id_str": "1287684862317678594",
+  "full_text": "RT @thoma_mr: If any other fighter said I this I\u2019d laugh but I honestly believe him\ud83d\ude02 https:\/\/t.co\/dr31Tc3LNS",
+  "truncated": false,
+  "display_text_range": [
+    0,
+    108
+  ],
+  "entities": {
+    "hashtags": [
+
+    ],
+    "symbols": [
+
+    ],
+    "user_mentions": [
+      {
+        "screen_name": "thoma_mr",
+        "name": "Mr Thomas",
+        "id": 702614548990316544,
+        "id_str": "702614548990316544",
+        "indices": [
+          3,
+          12
+        ]
+      }
+    ],
+    "urls": [
+      {
+        "url": "https:\/\/t.co\/dr31Tc3LNS",
+        "expanded_url": "https:\/\/twitter.com\/btsportufc\/status\/1287675623570321409",
+        "display_url": "twitter.com\/btsportufc\/sta\u2026",
+        "indices": [
+          85,
+          108
+        ]
+      }
+    ]
+  },
+  "source": "\u003ca href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\"\u003eTweetDeck\u003c\/a\u003e",
+  "in_reply_to_status_id": null,
+  "in_reply_to_status_id_str": null,
+  "in_reply_to_user_id": null,
+  "in_reply_to_user_id_str": null,
+  "in_reply_to_screen_name": null,
+  "user": {
+    "id": 1923202668,
+    "id_str": "1923202668",
+    "name": "UFC on BT Sport",
+    "screen_name": "btsportufc",
+    "location": "Cageside",
+    "description": "The home of UFC on BT Sport \ud83d\udc4a",
+    "url": "https:\/\/t.co\/KcX27jB0BN",
+    "entities": {
+      "url": {
+        "urls": [
+          {
+            "url": "https:\/\/t.co\/KcX27jB0BN",
+            "expanded_url": "http:\/\/btsport.com\/ufc",
+            "display_url": "btsport.com\/ufc",
+            "indices": [
+              0,
+              23
+            ]
+          }
+        ]
+      },
+      "description": {
+        "urls": [
+
+        ]
+      }
+    },
+    "protected": false,
+    "followers_count": 177773,
+    "friends_count": 634,
+    "listed_count": 423,
+    "created_at": "Tue Oct 01 12:00:17 +0000 2013",
+    "favourites_count": 1523,
+    "utc_offset": null,
+    "time_zone": null,
+    "geo_enabled": false,
+    "verified": true,
+    "statuses_count": 18798,
+    "lang": null,
+    "contributors_enabled": false,
+    "is_translator": false,
+    "is_translation_enabled": false,
+    "profile_background_color": "000000",
+    "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+    "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+    "profile_background_tile": true,
+    "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/1201418189168693248\/SZ-qwc7c_normal.jpg",
+    "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/1201418189168693248\/SZ-qwc7c_normal.jpg",
+    "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/1923202668\/1595238645",
+    "profile_link_color": "D10A10",
+    "profile_sidebar_border_color": "000000",
+    "profile_sidebar_fill_color": "DDEEF6",
+    "profile_text_color": "333333",
+    "profile_use_background_image": true,
+    "has_extended_profile": false,
+    "default_profile": false,
+    "default_profile_image": false,
+    "following": false,
+    "follow_request_sent": false,
+    "notifications": false,
+    "translator_type": "none"
+  },
+  "geo": null,
+  "coordinates": null,
+  "place": null,
+  "contributors": null,
+  "retweeted_status": {
+    "created_at": "Mon Jul 27 09:31:03 +0000 2020",
+    "id": 1287681899520053248,
+    "id_str": "1287681899520053248",
+    "full_text": "If any other fighter said I this I\u2019d laugh but I honestly believe him\ud83d\ude02 https:\/\/t.co\/dr31Tc3LNS",
+    "truncated": false,
+    "display_text_range": [
+      0,
+      70
+    ],
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+        {
+          "url": "https:\/\/t.co\/dr31Tc3LNS",
+          "expanded_url": "https:\/\/twitter.com\/btsportufc\/status\/1287675623570321409",
+          "display_url": "twitter.com\/btsportufc\/sta\u2026",
+          "indices": [
+            71,
+            94
+          ]
+        }
+      ]
+    },
+    "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 702614548990316544,
+      "id_str": "702614548990316544",
+      "name": "Mr Thomas",
+      "screen_name": "thoma_mr",
+      "location": "",
+      "description": "I\u2019ve got the skills to pay the bills",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 218,
+      "friends_count": 978,
+      "listed_count": 0,
+      "created_at": "Wed Feb 24 22:02:17 +0000 2016",
+      "favourites_count": 6338,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 1332,
+      "lang": null,
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "000000",
+      "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/1240051195504472064\/VtiGZ7GK_normal.jpg",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/1240051195504472064\/VtiGZ7GK_normal.jpg",
+      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/702614548990316544\/1592515028",
+      "profile_link_color": "19CF86",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "000000",
+      "profile_text_color": "000000",
+      "profile_use_background_image": false,
+      "has_extended_profile": true,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": true,
+    "quoted_status_id": 1287675623570321409,
+    "quoted_status_id_str": "1287675623570321409",
+    "quoted_status_permalink": {
+      "url": "https:\/\/t.co\/dr31Tc3LNS",
+      "expanded": "https:\/\/twitter.com\/btsportufc\/status\/1287675623570321409",
+      "display": "twitter.com\/btsportufc\/sta\u2026"
+    },
+    "quoted_status": {
+      "created_at": "Mon Jul 27 09:06:07 +0000 2020",
+      "id": 1287675623570321409,
+      "id_str": "1287675623570321409",
+      "full_text": "\"Give me champions, 84kg, 77kg, I'll smash them ... Same day.\"\n\nKhamzat Chimaev is about to be a serious headache in two weight divisions \ud83d\udd25 https:\/\/t.co\/Ao6sDsOZ2v",
+      "truncated": false,
+      "display_text_range": [
+        0,
+        139
+      ],
+      "entities": {
+        "hashtags": [
+
+        ],
+        "symbols": [
+
+        ],
+        "user_mentions": [
+
+        ],
+        "urls": [
+
+        ],
+        "media": [
+          {
+            "id": 1287675553240289280,
+            "id_str": "1287675553240289280",
+            "indices": [
+              140,
+              163
+            ],
+            "media_url": "http:\/\/pbs.twimg.com\/media\/Ed6-HS_X0AA1afr.jpg",
+            "media_url_https": "https:\/\/pbs.twimg.com\/media\/Ed6-HS_X0AA1afr.jpg",
+            "url": "https:\/\/t.co\/Ao6sDsOZ2v",
+            "display_url": "pic.twitter.com\/Ao6sDsOZ2v",
+            "expanded_url": "https:\/\/twitter.com\/btsportufc\/status\/1287675623570321409\/video\/1",
+            "type": "photo",
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "small": {
+                "w": 680,
+                "h": 680,
+                "resize": "fit"
+              },
+              "medium": {
+                "w": 1080,
+                "h": 1080,
+                "resize": "fit"
+              },
+              "large": {
+                "w": 1080,
+                "h": 1080,
+                "resize": "fit"
+              }
+            }
+          }
+        ]
+      },
+      "extended_entities": {
+        "media": [
+          {
+            "id": 1287675553240289280,
+            "id_str": "1287675553240289280",
+            "indices": [
+              140,
+              163
+            ],
+            "media_url": "http:\/\/pbs.twimg.com\/media\/Ed6-HS_X0AA1afr.jpg",
+            "media_url_https": "https:\/\/pbs.twimg.com\/media\/Ed6-HS_X0AA1afr.jpg",
+            "url": "https:\/\/t.co\/Ao6sDsOZ2v",
+            "display_url": "pic.twitter.com\/Ao6sDsOZ2v",
+            "expanded_url": "https:\/\/twitter.com\/btsportufc\/status\/1287675623570321409\/video\/1",
+            "type": "video",
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "small": {
+                "w": 680,
+                "h": 680,
+                "resize": "fit"
+              },
+              "medium": {
+                "w": 1080,
+                "h": 1080,
+                "resize": "fit"
+              },
+              "large": {
+                "w": 1080,
+                "h": 1080,
+                "resize": "fit"
+              }
+            },
+            "video_info": {
+              "aspect_ratio": [
+                1,
+                1
+              ],
+              "duration_millis": 58760,
+              "variants": [
+                {
+                  "bitrate": 832000,
+                  "content_type": "video\/mp4",
+                  "url": "https:\/\/video.twimg.com\/amplify_video\/1287675553240289280\/vid\/480x480\/z0hedwTWLnIBlmK0.mp4?tag=13"
+                },
+                {
+                  "bitrate": 432000,
+                  "content_type": "video\/mp4",
+                  "url": "https:\/\/video.twimg.com\/amplify_video\/1287675553240289280\/vid\/320x320\/FCejiNIgSilAuJPM.mp4?tag=13"
+                },
+                {
+                  "content_type": "application\/x-mpegURL",
+                  "url": "https:\/\/video.twimg.com\/amplify_video\/1287675553240289280\/pl\/eXVikJRZka62hk1t.m3u8?tag=13"
+                },
+                {
+                  "bitrate": 1280000,
+                  "content_type": "video\/mp4",
+                  "url": "https:\/\/video.twimg.com\/amplify_video\/1287675553240289280\/vid\/720x720\/H9OPqLEsicMPWJko.mp4?tag=13"
+                }
+              ]
+            },
+            "additional_media_info": {
+              "title": "Khamzat Chimaev is gonna be a serious problem!",
+              "description": "Watch UFC live on BT Sport.",
+              "monetizable": false
+            }
+          }
+        ]
+      },
+      "source": "\u003ca href=\"http:\/\/grabyo.com\" rel=\"nofollow\"\u003eGrabyo\u003c\/a\u003e",
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 1923202668,
+        "id_str": "1923202668",
+        "name": "UFC on BT Sport",
+        "screen_name": "btsportufc",
+        "location": "Cageside",
+        "description": "The home of UFC on BT Sport \ud83d\udc4a",
+        "url": "https:\/\/t.co\/KcX27jB0BN",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "https:\/\/t.co\/KcX27jB0BN",
+                "expanded_url": "http:\/\/btsport.com\/ufc",
+                "display_url": "btsport.com\/ufc",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": [
+
+            ]
+          }
+        },
+        "protected": false,
+        "followers_count": 177773,
+        "friends_count": 634,
+        "listed_count": 423,
+        "created_at": "Tue Oct 01 12:00:17 +0000 2013",
+        "favourites_count": 1523,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "verified": true,
+        "statuses_count": 18798,
+        "lang": null,
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "000000",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_tile": true,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/1201418189168693248\/SZ-qwc7c_normal.jpg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/1201418189168693248\/SZ-qwc7c_normal.jpg",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/1923202668\/1595238645",
+        "profile_link_color": "D10A10",
+        "profile_sidebar_border_color": "000000",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false,
+        "translator_type": "none"
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 42,
+      "favorite_count": 410,
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "possibly_sensitive_appealable": false,
+      "lang": "en"
+    },
+    "retweet_count": 7,
+    "favorite_count": 33,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "possibly_sensitive_appealable": false,
+    "lang": "en"
+  },
+  "is_quote_status": true,
+  "quoted_status_id": 1287675623570321409,
+  "quoted_status_id_str": "1287675623570321409",
+  "quoted_status_permalink": {
+    "url": "https:\/\/t.co\/dr31Tc3LNS",
+    "expanded": "https:\/\/twitter.com\/btsportufc\/status\/1287675623570321409",
+    "display": "twitter.com\/btsportufc\/sta\u2026"
+  },
+  "retweet_count": 7,
+  "favorite_count": 0,
+  "favorited": false,
+  "retweeted": false,
+  "possibly_sensitive": false,
+  "possibly_sensitive_appealable": false,
+  "lang": "en"
+}

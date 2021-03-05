@@ -61,12 +61,12 @@ class TweetUiExample extends StatelessWidget {
           textAlign: TextAlign.start,
         ),
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => EmbeddedTweetPage()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => EmbeddedTweetPage()));
         },
       ),
     );
   }
-
 
   Widget buildOpenBugPageButton(String title, BuildContext context) {
     return Padding(
@@ -77,7 +77,8 @@ class TweetUiExample extends StatelessWidget {
           textAlign: TextAlign.start,
         ),
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => BugPage()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => BugPage()));
         },
       ),
     );

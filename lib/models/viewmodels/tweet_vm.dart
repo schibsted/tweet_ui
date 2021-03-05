@@ -28,11 +28,12 @@ class TweetVM {
   final TweetVM retweetedTweet;
   final bool userVerified;
   final String videoPlaceholderUrl;
-  final String videoUrl;
+  final Map<String, String> videoUrls;
   final double videoAspectRatio;
   final int favoriteCount;
   final int startDisplayText;
   final int endDisplayText;
+  final bool favorited;
 
   TweetVM({
     this.createdAt,
@@ -52,40 +53,48 @@ class TweetVM {
     this.retweetedTweet,
     this.userVerified,
     this.videoPlaceholderUrl,
-    this.videoUrl,
+    this.videoUrls,
     this.videoAspectRatio,
     this.favoriteCount,
     this.startDisplayText,
     this.endDisplayText,
+    this.favorited,
   });
 
   factory TweetVM.fromApiModel(
           Tweet tweet, DateFormat createdDateDisplayFormat) =>
       new TweetVM(
         createdAt: _createdAt(tweet, createdDateDisplayFormat),
-        hasSupportedVideo: _hasSupportedVideo(tweet),
-        allEntities: _allEntities(tweet),
-        hasPhoto: _hasPhoto(tweet),
-        hasGif: _hasGif(tweet),
+        hasSupportedVideo: _hasSupportedVideo(_originalTweetOrRetweet(tweet)),
+        allEntities: _allEntities(_originalTweetOrRetweet(tweet)),
+        hasPhoto: _hasPhoto(_originalTweetOrRetweet(tweet)),
+        hasGif: _hasGif(_originalTweetOrRetweet(tweet)),
         tweetLink: _tweetLink(tweet),
         userLink: _userLink(tweet),
-        text: _text(tweet),
-        textRunes: _runes(tweet),
+        text: _text(_originalTweetOrRetweet(tweet)),
+        textRunes: _runes(_originalTweetOrRetweet(tweet)),
         profileUrl: _profileURL(tweet),
-        allPhotos: _allPhotos(tweet),
+        allPhotos: _allPhotos(_originalTweetOrRetweet(tweet)),
         userName: _userName(tweet),
         userScreenName: _userScreenName(tweet),
-        quotedTweet: _quotedTweet(tweet.quotedStatus, createdDateDisplayFormat),
+        quotedTweet: _quotedTweet(_originalTweetOrRetweet(tweet).quotedStatus,
+            createdDateDisplayFormat),
         retweetedTweet:
             _retweetedTweet(tweet.retweetedStatus, createdDateDisplayFormat),
         userVerified: _userVerified(tweet),
-        videoPlaceholderUrl: _videoPlaceholderUrl(tweet),
-        videoUrl: _videoUrl(tweet),
-        videoAspectRatio: _videoAspectRatio(tweet),
+        videoPlaceholderUrl:
+            _videoPlaceholderUrl(_originalTweetOrRetweet(tweet)),
+        videoUrls: _videoUrls(_originalTweetOrRetweet(tweet)),
+        videoAspectRatio: _videoAspectRatio(_originalTweetOrRetweet(tweet)),
         favoriteCount: _favoriteCount(tweet),
-        startDisplayText: _startDisplayText(tweet),
-        endDisplayText: _endDisplayText(tweet),
+        startDisplayText: _startDisplayText(_originalTweetOrRetweet(tweet)),
+        endDisplayText: _endDisplayText(_originalTweetOrRetweet(tweet)),
+        favorited: _favorited(tweet),
       );
+
+  static Tweet _originalTweetOrRetweet(tweet) {
+    return tweet.retweetedStatus != null ? tweet.retweetedStatus : tweet;
+  }
 
   static String _createdAt(Tweet tweet, DateFormat displayFormat) {
     DateFormat twitterFormat =
@@ -268,8 +277,23 @@ class TweetVM {
     return _videoEntity(tweet)?.mediaUrlHttps;
   }
 
-  static String _videoUrl(Tweet tweet) {
-    return _videoEntity(tweet)?.videoInfo?.variants?.first?.url;
+  static Map<String, String> _videoUrls(Tweet tweet) {
+    var listOfVideoVariants = _videoEntity(tweet)
+        ?.videoInfo
+        ?.variants
+        ?.where((variant) => variant.contentType == 'video/mp4')
+        ?.toList();
+    listOfVideoVariants?.sort(
+        (variantA, variantB) => variantA.bitrate.compareTo(variantB.bitrate));
+    if (listOfVideoVariants?.isNotEmpty ?? false) {
+      return Map.fromIterable(listOfVideoVariants,
+          key: (dynamic variant) =>
+              // ignore: null_aware_before_operator
+              (variant as Variant)?.bitrate?.toString() + ' kbps',
+          value: (dynamic variant) => (variant as Variant)?.url);
+    } else {
+      return null;
+    }
   }
 
   static double _videoAspectRatio(Tweet tweet) {
@@ -293,6 +317,10 @@ class TweetVM {
     return tweet.displayTextRange != null
         ? tweet.displayTextRange[1]
         : _runes(tweet).length;
+  }
+
+  static bool _favorited(Tweet tweet) {
+    return tweet.favorited != null ? tweet.favorited : false;
   }
 }
 

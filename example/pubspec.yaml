@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
   tweet_ui:
     path: ../
-  cupertino_icons: ^0.1.3
+  cupertino_icons: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -40,4 +40,7 @@ flutter:
     - assets/tweet_examples/tweet_bug_gh32_1st.json
     - assets/tweet_examples/tweet_bug_gh32_2nd.json
     - assets/tweet_examples/tweet_bug_gh32_3rd.json
+    - assets/tweet_examples/tweet_favorited_gh52.json
+    - assets/tweet_examples/tweet_quote_favorited_gh52.json
+    - assets/tweet_examples/tweet_retweet_gh49.json
   uses-material-design: true

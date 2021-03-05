@@ -1,4 +1,5 @@
 import 'package:example/ui/open_tweetpage_button.dart';
+import 'package:example/ui/tweet_page_bug_gh50.dart';
 import 'package:flutter/material.dart';
 
 /// Main page of the example app
@@ -41,6 +42,37 @@ class BugPage extends StatelessWidget {
             tweetPath: 'assets/tweet_examples/tweet_retweet.json',
             // retweeted with a commentary from the person who retweeted is a regular quote tweet view
             quoteTweetPath: null,
+          ),
+          OpenTweetPageButton(
+            title: "Favorited, Github #52",
+            tweetPath: 'assets/tweet_examples/tweet_favorited_gh52.json',
+            // Now favorited value is used in EmbeddedTweetView
+            quoteTweetPath:
+                'assets/tweet_examples/tweet_quote_favorited_gh52.json',
+          ),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 32.0, vertical: 4.0),
+            child: RaisedButton(
+              child: Text(
+                "EmbeddedTweetView text size is too big\nGithub #50",
+                textAlign: TextAlign.center,
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TweetPageBugGH50(),
+                  ),
+                );
+              },
+            ),
+          ),
+          OpenTweetPageButton(
+            title: "Retweet bug, Github #49",
+            tweetPath: 'assets/tweet_examples/tweet_retweet_gh49.json',
+            // Now favorited value is used in EmbeddedTweetView
+            quoteTweetPath: 'assets/tweet_examples/tweet_retweet_gh49.json',
           ),
         ],
       ),

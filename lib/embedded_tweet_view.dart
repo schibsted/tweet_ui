@@ -24,7 +24,7 @@ class EmbeddedTweetView extends StatelessWidget {
   /// If set to true the the text and icons will be light
   final bool darkMode;
 
-  /// If set to true a chewie/video_player will be used in a Tweet containing a video.
+  /// If set to true a betterplayer will be used in a Tweet containing a video.
   /// If set to false a image placeholder will he shown and a video will be played in a new page.
   final bool useVideoPlayer;
 
@@ -37,6 +37,10 @@ class EmbeddedTweetView extends StatelessWidget {
   /// Date format when the tweet was created. When null it defaults to DateFormat("HH:mm • MM.dd.yyyy", 'en_US')
   final DateFormat createdDateDisplayFormat;
 
+  /// If set to true betterplayer/video_player will load the highest quality available.
+  /// If set to false betterplayer/video_player will load the lowest quality available.
+  final bool videoHighQuality;
+
   EmbeddedTweetView(
     this._tweetVM, {
     this.backgroundColor,
@@ -45,16 +49,19 @@ class EmbeddedTweetView extends StatelessWidget {
     this.videoPlayerInitialVolume,
     this.onTapImage,
     this.createdDateDisplayFormat,
+    this.videoHighQuality,
   }); //  TweetView(this.tweetVM);
 
-  EmbeddedTweetView.fromTweet(Tweet tweet,
-      {this.backgroundColor = Colors.white,
-      this.darkMode = false,
-      this.useVideoPlayer = true,
-      this.videoPlayerInitialVolume = 0.0,
-      this.onTapImage,
-      this.createdDateDisplayFormat})
-      : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
+  EmbeddedTweetView.fromTweet(
+    Tweet tweet, {
+    this.backgroundColor = Colors.white,
+    this.darkMode = false,
+    this.useVideoPlayer = true,
+    this.videoPlayerInitialVolume = 0.0,
+    this.onTapImage,
+    this.createdDateDisplayFormat,
+    this.videoHighQuality = true,
+  }) : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
 
   @override
   Widget build(BuildContext context) {
@@ -177,6 +184,7 @@ class EmbeddedTweetView extends StatelessWidget {
               useVideoPlayer: useVideoPlayer,
               videoPlayerInitialVolume: videoPlayerInitialVolume,
               onTapImage: onTapImage,
+              videoHighQuality: videoHighQuality,
             ),
           ),
           Container(
@@ -184,7 +192,7 @@ class EmbeddedTweetView extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 Icon(
-                  Icons.favorite_border,
+                  _tweetVM.favorited ? Icons.favorite : Icons.favorite_border,
                   color: (darkMode) ? Colors.grey[400] : Colors.grey[600],
                   size: 18,
                 ),
