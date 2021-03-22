@@ -19,16 +19,16 @@ class User {
   String screenName;
 
   /// A HTTPS-based URL pointing to the user’s profile image.
-  String profileImageUrlHttps;
+  String? profileImageUrlHttps;
 
   /// When true, indicates that the user has a verified account. See Verified Accounts
   bool verified;
 
   User({
-    this.id,
-    this.name,
-    this.screenName,
-    this.verified,
+    required this.id,
+    required this.name,
+    required this.screenName,
+    required this.verified,
     this.profileImageUrlHttps,
   });
 

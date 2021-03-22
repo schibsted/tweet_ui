@@ -8,8 +8,8 @@ class MentionEntity extends Entity {
   String screenName;
 
   MentionEntity({
-    this.screenName,
-    indices,
+    required this.screenName,
+    required indices,
   }) : super(indices: indices);
 
   factory MentionEntity.fromRawJson(String str) =>

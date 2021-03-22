@@ -53,7 +53,7 @@ class BugPage extends StatelessWidget {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 32.0, vertical: 4.0),
-            child: RaisedButton(
+            child: ElevatedButton(
               child: Text(
                 "EmbeddedTweetView text size is too big\nGithub #50",
                 textAlign: TextAlign.center,

@@ -8,8 +8,8 @@ class SymbolEntity extends Entity {
   String text;
 
   SymbolEntity({
-    this.text,
-    indices,
+    required this.text,
+    required indices,
   }) : super(indices: indices);
 
   factory SymbolEntity.fromRawJson(String str) =>

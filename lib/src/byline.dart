@@ -10,16 +10,16 @@ class Byline extends StatelessWidget {
   const Byline(
     this.tweetVM,
     this.viewMode, {
-    Key key,
-    this.showDate,
+    Key? key,
+    this.showDate = false,
     this.userNameStyle,
     this.userScreenNameStyle,
   }) : super(key: key);
 
   final TweetVM tweetVM;
   final bool showDate;
-  final TextStyle userNameStyle;
-  final TextStyle userScreenNameStyle;
+  final TextStyle? userNameStyle;
+  final TextStyle? userScreenNameStyle;
   final ViewMode viewMode;
 
   @override
@@ -52,7 +52,7 @@ class Byline extends StatelessWidget {
                 ),
               ],
             ),
-            (showDate == null || showDate == true)
+            showDate
                 ? Text(
                     "@" +
                         tweetVM.getDisplayTweet().userScreenName +
@@ -68,7 +68,6 @@ class Byline extends StatelessWidget {
                   ),
           ],
         );
-        break;
       case ViewMode.compact:
       case ViewMode.quote:
         return Row(
@@ -108,7 +107,7 @@ class Byline extends StatelessWidget {
                         ),
                       ),
                     ),
-                    (showDate == null || showDate == true)
+                    (showDate == true)
                         ? Flexible(
                             child: Padding(
                               padding:

@@ -8,7 +8,7 @@ import 'package:tweet_ui/tweet_ui.dart';
 /// TweetView, CompactTweetView, TweetView with a quoted Tweet, CompactTweetView with a quoted Tweet
 class EmbeddedTweetPage extends StatefulWidget {
   const EmbeddedTweetPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -102,7 +102,7 @@ class _EmbeddedTweetPageState extends State<EmbeddedTweetPage> {
               Tweet.fromRawJson(
                 snapshot.data,
               ),
-              backgroundColor: (darkMode) ? Colors.grey[800] : Colors.white,
+              backgroundColor: (darkMode) ? Colors.grey[800]! : Colors.white,
               darkMode: darkMode,
               createdDateDisplayFormat: DateFormat("EEE, MMM d, ''yy"),
             ),

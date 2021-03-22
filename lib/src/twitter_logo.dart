@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class TwitterLogo extends StatelessWidget {
   const TwitterLogo({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

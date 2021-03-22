@@ -34,7 +34,7 @@ abstract class Entity {
   List<int> indices;
 
   Entity({
-    this.indices,
+    required this.indices,
   });
 
   int get start {

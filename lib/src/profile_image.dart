@@ -4,8 +4,8 @@ import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
 
 class ProfileImage extends StatelessWidget {
   const ProfileImage({
-    Key key,
-    @required this.tweetVM,
+    Key? key,
+    required this.tweetVM,
   }) : super(key: key);
 
   final TweetVM tweetVM;

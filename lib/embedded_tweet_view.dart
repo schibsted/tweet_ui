@@ -19,7 +19,7 @@ class EmbeddedTweetView extends StatelessWidget {
   final TweetVM _tweetVM;
 
   /// Background color for the container
-  final Color backgroundColor;
+  final Color? backgroundColor;
 
   /// If set to true the the text and icons will be light
   final bool darkMode;
@@ -29,13 +29,13 @@ class EmbeddedTweetView extends StatelessWidget {
   final bool useVideoPlayer;
 
   /// If the Tweet contains a video then an initial volume can be specified with a value between 0.0 and 1.0.
-  final double videoPlayerInitialVolume;
+  final double? videoPlayerInitialVolume;
 
   /// Function used when you want a custom image tapped callback
-  final OnTapImage onTapImage;
+  final OnTapImage? onTapImage;
 
   /// Date format when the tweet was created. When null it defaults to DateFormat("HH:mm • MM.dd.yyyy", 'en_US')
-  final DateFormat createdDateDisplayFormat;
+  final DateFormat? createdDateDisplayFormat;
 
   /// If set to true betterplayer/video_player will load the highest quality available.
   /// If set to false betterplayer/video_player will load the lowest quality available.
@@ -44,12 +44,12 @@ class EmbeddedTweetView extends StatelessWidget {
   EmbeddedTweetView(
     this._tweetVM, {
     this.backgroundColor,
-    this.darkMode,
-    this.useVideoPlayer,
+    required this.darkMode,
+    required this.useVideoPlayer,
     this.videoPlayerInitialVolume,
     this.onTapImage,
     this.createdDateDisplayFormat,
-    this.videoHighQuality,
+    required this.videoHighQuality,
   }); //  TweetView(this.tweetVM);
 
   EmbeddedTweetView.fromTweet(
@@ -68,7 +68,7 @@ class EmbeddedTweetView extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(5)),
-        border: Border.all(width: 0.6, color: Colors.grey[400]),
+        border: Border.all(width: 0.6, color: Colors.grey[400]!),
         color: backgroundColor,
       ),
       child: Column(
@@ -156,7 +156,7 @@ class EmbeddedTweetView extends StatelessWidget {
                       ? Padding(
                           padding: EdgeInsets.only(top: 8.0, bottom: 10),
                           child: QuoteTweetViewEmbed.fromTweet(
-                            _tweetVM.quotedTweet,
+                            _tweetVM.quotedTweet!,
                             textStyle: TextStyle(
                                 color:
                                     (darkMode) ? Colors.white : Colors.black),

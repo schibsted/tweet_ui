@@ -27,14 +27,14 @@ class Tweet {
 
   /// This field only surfaces when the Tweet is a quote Tweet.
   /// This attribute contains the Tweet object of the original Tweet that was quoted.
-  Tweet quotedStatus;
+  Tweet? quotedStatus;
 
   /// Users can amplify the broadcast of Tweets authored by other users by retweeting.
   /// Retweets can be distinguished from typical Tweets by the existence of a retweeted_status attribute.
   /// This attribute contains a representation of the original Tweet that was retweeted.
   /// Note that retweets of retweets do not show representations of the intermediary retweet, but only the original Tweet.
   /// (Users can also unretweet a retweet they created by deleting their retweet.)
-  Tweet retweetedStatus;
+  Tweet? retweetedStatus;
 
   /// The actual UTF-8 text of the status update. See twitter-text for details on what is currently
   /// considered valid characters.
@@ -55,25 +55,25 @@ class Tweet {
 
   /// Nullable. Perspectival. Indicates whether this Tweet has been favorited by the authenticating
   /// user.
-  bool favorited;
+  bool? favorited;
 
   /// The number of favorites(hearts)
-  int favoriteCount;
+  int? favoriteCount;
 
   /// Nullable. List of two unicode code point indices, identifying the inclusive start and exclusive end of the displayable content of the Tweet.
-  List<int> displayTextRange;
+  List<int>? displayTextRange;
 
   Tweet({
-    this.createdAt,
-    this.id,
-    this.idStr,
+    required this.createdAt,
+    required this.id,
+    required this.idStr,
     this.quotedStatus,
     this.retweetedStatus,
-    this.text,
-    this.entities,
-    this.extendedEntities,
-    this.user,
-    this.isQuoteStatus,
+    required this.text,
+    this.entities = const TweetEntities.empty(),
+    this.extendedEntities = const TweetEntities.empty(),
+    required this.user,
+    this.isQuoteStatus = false,
     this.favorited,
     this.favoriteCount,
     this.displayTextRange,
@@ -95,12 +95,12 @@ class Tweet {
             ? (json["full_text"] == null ? null : json["full_text"])
             : json["text"],
         entities: json["entities"] == null
-            ? null
+            ? const TweetEntities.empty()
             : TweetEntities.fromJson(json["entities"]),
         extendedEntities: json["extended_entities"] == null
-            ? null
+            ? const TweetEntities.empty()
             : TweetEntities.fromJson(json["extended_entities"]),
-        user: json["user"] == null ? null : User.fromJson(json["user"]),
+        user: User.fromJson(json["user"]),
         isQuoteStatus:
             json["is_quote_status"] == null ? null : json["is_quote_status"],
         favorited: json["favorited"] == null ? null : json["favorited"],
