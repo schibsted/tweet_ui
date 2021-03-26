@@ -21,7 +21,7 @@ class TweetEntities {
   final List<UrlEntity> urls;
 
   /// Represents media elements uploaded with the Tweet.
-  final  List<MediaEntity> media;
+  final List<MediaEntity> media;
 
   TweetEntities({
     required this.hashtags,
@@ -41,8 +41,7 @@ class TweetEntities {
   factory TweetEntities.fromRawJson(String str) =>
       TweetEntities.fromJson(json.decode(str));
 
-  factory TweetEntities.fromJson(Map<String, dynamic> json) =>
-      TweetEntities(
+  factory TweetEntities.fromJson(Map<String, dynamic> json) => TweetEntities(
         hashtags: json["hashtags"] == null
             ? []
             : new List<HashtagEntity>.from(
