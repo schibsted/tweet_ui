@@ -19,21 +19,21 @@ class MediaEntity extends UrlEntity {
   String type;
 
   /// An object showing available sizes for the media file.
-  Sizes sizes;
+  Sizes? sizes;
 
   /// Contains information about video.
-  VideoInfo videoInfo;
+  VideoInfo? videoInfo;
 
   MediaEntity({
-    this.id,
-    this.mediaUrlHttps,
-    url,
-    displayUrl,
-    expandedUrl,
-    this.type,
+    required this.id,
+    required this.mediaUrlHttps,
+    required url,
+    required displayUrl,
+    required expandedUrl,
+    required this.type,
     this.sizes,
     this.videoInfo,
-    indices,
+    required indices,
   }) : super(
             url: url,
             displayUrl: displayUrl,
@@ -66,19 +66,19 @@ class MediaEntity extends UrlEntity {
 class Sizes {
   /// Information for a thumbnail-sized version of the media.
   /// Thumbnail-sized photo media will be limited to fill a 150x150 boundary and cropped.
-  Size thumb;
+  Size? thumb;
 
   /// Information for a small-sized version of the media.
   /// Small-sized photo media will be limited to fit within a 680x680 boundary.
-  Size small;
+  Size? small;
 
   /// Information for a medium-sized version of the media.
   /// Medium-sized photo media will be limited to fit within a 1200x1200 boundary.
-  Size medium;
+  Size? medium;
 
   /// Information for a large-sized version of the media.
   /// Large-sized photo media will be limited to fit within a 2048x2048 boundary.
-  Size large;
+  Size? large;
 
   Sizes({
     this.thumb,
@@ -110,9 +110,9 @@ class Size {
   String resize;
 
   Size({
-    this.w,
-    this.h,
-    this.resize,
+    required this.w,
+    required this.h,
+    required this.resize,
   });
 
   factory Size.fromRawJson(String str) => Size.fromJson(json.decode(str));
@@ -131,15 +131,15 @@ class VideoInfo {
   List<int> aspectRatio;
 
   /// The length of the video, in milliseconds.
-  int durationMillis;
+  int? durationMillis;
 
   /// Different encodings/streams of the video.
   List<Variant> variants;
 
   VideoInfo({
-    this.aspectRatio,
+    required this.aspectRatio,
     this.durationMillis,
-    this.variants,
+    required this.variants,
   });
 
   factory VideoInfo.fromRawJson(String str) =>
@@ -147,12 +147,12 @@ class VideoInfo {
 
   factory VideoInfo.fromJson(Map<String, dynamic> json) => new VideoInfo(
         aspectRatio: json["aspect_ratio"] == null
-            ? null
+            ? []
             : new List<int>.from(json["aspect_ratio"].map((x) => x)),
         durationMillis:
             json["duration_millis"] == null ? null : json["duration_millis"],
         variants: json["variants"] == null
-            ? null
+            ? []
             : new List<Variant>.from(
                 json["variants"].map((x) => Variant.fromJson(x))),
       );
@@ -164,15 +164,15 @@ class Variant {
   String url;
 
   Variant({
-    this.bitrate,
-    this.contentType,
-    this.url,
+    required this.bitrate,
+    required this.contentType,
+    required this.url,
   });
 
   factory Variant.fromRawJson(String str) => Variant.fromJson(json.decode(str));
 
   factory Variant.fromJson(Map<String, dynamic> json) => new Variant(
-        bitrate: json["bitrate"] == null ? null : json["bitrate"],
+        bitrate: json["bitrate"] == null ? 0 : json["bitrate"],
         contentType: json["content_type"] == null ? null : json["content_type"],
         url: json["url"] == null ? null : json["url"],
       );

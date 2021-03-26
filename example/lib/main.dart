@@ -55,7 +55,7 @@ class TweetUiExample extends StatelessWidget {
   Widget buildOpenEmbeddedTweetPageButton(String title, BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 4.0),
-      child: RaisedButton(
+      child: ElevatedButton(
         child: Text(
           title,
           textAlign: TextAlign.start,
@@ -71,7 +71,7 @@ class TweetUiExample extends StatelessWidget {
   Widget buildOpenBugPageButton(String title, BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 4.0),
-      child: RaisedButton(
+      child: ElevatedButton(
         child: Text(
           title,
           textAlign: TextAlign.start,

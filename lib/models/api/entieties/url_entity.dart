@@ -14,10 +14,10 @@ class UrlEntity extends Entity {
   String displayUrl;
 
   UrlEntity({
-    this.url,
-    this.expandedUrl,
-    this.displayUrl,
-    indices,
+    required this.url,
+    required this.expandedUrl,
+    required this.displayUrl,
+    required indices,
   }) : super(indices: indices);
 
   factory UrlEntity.fromRawJson(String str) =>

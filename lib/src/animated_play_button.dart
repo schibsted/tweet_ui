@@ -3,10 +3,10 @@ import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
 import 'package:tweet_ui/src/tweet_video.dart';
 
 class AnimatedPlayButton extends StatefulWidget {
-  final TweetVM tweetVM;
+  final TweetVM? tweetVM;
 
   const AnimatedPlayButton({
-    Key key,
+    Key? key,
     this.tweetVM,
   }) : super(key: key);
 
@@ -16,8 +16,8 @@ class AnimatedPlayButton extends StatefulWidget {
 
 class _AnimatedPlayButtonState extends State<AnimatedPlayButton>
     with SingleTickerProviderStateMixin {
-  double _scale;
-  AnimationController _controller;
+  late double _scale;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -45,7 +45,7 @@ class _AnimatedPlayButtonState extends State<AnimatedPlayButton>
           builder: (_) {
             return WillPopScope(
               child: TweetVideo(
-                widget.tweetVM.getDisplayTweet(),
+                widget.tweetVM!.getDisplayTweet(),
                 autoPlay: true,
                 enableFullscreen: false,
                 videoHighQuality: true,

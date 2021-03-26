@@ -6,7 +6,7 @@ import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
 class TweetVideo extends StatefulWidget {
   TweetVideo(
     this.tweetVM, {
-    Key key,
+    Key? key,
     this.initialVolume = 0.0,
     this.autoPlay = false,
     this.enableFullscreen = true,
@@ -14,10 +14,10 @@ class TweetVideo extends StatefulWidget {
   }) : super(key: key);
 
   final TweetVM tweetVM;
-  final double initialVolume;
+  final double? initialVolume;
   final bool autoPlay;
   final bool enableFullscreen;
-  final bool videoHighQuality;
+  final bool? videoHighQuality;
 
   @override
   _TweetVideoState createState() => _TweetVideoState();
@@ -25,8 +25,8 @@ class TweetVideo extends StatefulWidget {
 
 class _TweetVideoState extends State<TweetVideo>
     with AutomaticKeepAliveClientMixin {
-  BetterPlayerConfiguration betterPlayerConfiguration;
-  BetterPlayerController controller;
+  late BetterPlayerConfiguration betterPlayerConfiguration;
+  late BetterPlayerController controller;
 
   @override
   void initState() {
@@ -42,7 +42,7 @@ class _TweetVideoState extends State<TweetVideo>
       errorBuilder: (context, message) {
         return Text('Error while loading video :-(');
       },
-      aspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio,
+      aspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio!,
       controlsConfiguration: BetterPlayerControlsConfiguration(
         enablePlaybackSpeed: false,
         enableSkips: false,
@@ -60,7 +60,7 @@ class _TweetVideoState extends State<TweetVideo>
         DeviceOrientation.landscapeLeft,
         DeviceOrientation.landscapeRight
       ],
-      fullScreenAspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio,
+      fullScreenAspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio!,
       autoPlay: widget.tweetVM.getDisplayTweet().hasGif || widget.autoPlay,
       looping: widget.tweetVM.getDisplayTweet().hasGif,
       overlay: Padding(
@@ -81,7 +81,7 @@ class _TweetVideoState extends State<TweetVideo>
             : Container(),
       ),
     );
-    var videoUrl = widget.videoHighQuality
+    var videoUrl = widget.videoHighQuality!
         ? widget.tweetVM.getDisplayTweet().videoUrls.values.last
         : widget.tweetVM.getDisplayTweet().videoUrls.values.first;
     controller = BetterPlayerController(
@@ -89,7 +89,7 @@ class _TweetVideoState extends State<TweetVideo>
       betterPlayerDataSource: BetterPlayerDataSource.network(videoUrl,
           qualities: widget.tweetVM.getDisplayTweet().videoUrls),
     );
-    controller.setVolume(widget.initialVolume);
+    controller.setVolume(widget.initialVolume!);
   }
 
   @override

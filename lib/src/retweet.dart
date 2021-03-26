@@ -6,12 +6,12 @@ import 'package:tweet_ui/src/url_launcher.dart';
 class RetweetInformation extends StatelessWidget {
   const RetweetInformation(
     this.tweetVM, {
-    Key key,
+    Key? key,
     this.retweetInformationStyle,
   }) : super(key: key);
 
   final TweetVM tweetVM;
-  final TextStyle retweetInformationStyle;
+  final TextStyle? retweetInformationStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class RetweetInformation extends StatelessWidget {
                       "assets/tw__ic_retweet_light.png",
                       fit: BoxFit.fitWidth,
                       package: 'tweet_ui',
-                      color: retweetInformationStyle.color,
+                      color: retweetInformationStyle!.color,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 6.0),

@@ -6,7 +6,7 @@ class VerifiedUsedBadge extends StatelessWidget {
   const VerifiedUsedBadge(
     this.tweetVM,
     this.viewMode, {
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final TweetVM tweetVM;

@@ -12,13 +12,13 @@ typedef onTapImage = void Function(
 
 class QuoteTweetViewEmbed extends StatelessWidget {
   final TweetVM tweetVM;
-  final TextStyle userNameStyle;
-  final TextStyle userScreenNameStyle;
-  final TextStyle textStyle;
-  final TextStyle clickableTextStyle;
-  final Color borderColor;
-  final Color backgroundColor;
-  final OnTapImage onTapImage;
+  final TextStyle? userNameStyle;
+  final TextStyle? userScreenNameStyle;
+  final TextStyle? textStyle;
+  final TextStyle? clickableTextStyle;
+  final Color? borderColor;
+  final Color? backgroundColor;
+  final OnTapImage? onTapImage;
 
   QuoteTweetViewEmbed(
     this.tweetVM, {
@@ -56,7 +56,7 @@ class QuoteTweetViewEmbed extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
             border: new Border.all(
               width: 0.8,
-              color: Colors.grey[400],
+              color: Colors.grey[400]!,
             ),
           ),
           child: Column(

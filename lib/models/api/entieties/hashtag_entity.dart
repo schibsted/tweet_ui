@@ -7,8 +7,8 @@ class HashtagEntity extends Entity {
   String text;
 
   HashtagEntity({
-    this.text,
-    indices,
+    required this.text,
+    required indices,
   }) : super(indices: indices);
 
   factory HashtagEntity.fromRawJson(String str) =>

@@ -12,12 +12,12 @@ import 'package:tweet_ui/src/view_mode.dart';
 class MediaContainer extends StatefulWidget {
   static const double SQUARE_ASPECT_RATIO = 1.0;
   static const double DEFAULT_ASPECT_RATIO_MEDIA_CONTAINER = 3.0 / 2.0;
-  final OnTapImage onTapImage;
+  final OnTapImage? onTapImage;
 
   const MediaContainer(
     this.tweetVM,
     this.viewMode, {
-    Key key,
+    Key? key,
     this.useVideoPlayer = true,
     this.videoPlayerInitialVolume = 0.0,
     this.videoHighQuality = true,
@@ -26,9 +26,9 @@ class MediaContainer extends StatefulWidget {
 
   final TweetVM tweetVM;
   final ViewMode viewMode;
-  final bool useVideoPlayer;
-  final bool videoHighQuality;
-  final double videoPlayerInitialVolume;
+  final bool? useVideoPlayer;
+  final bool? videoHighQuality;
+  final double? videoPlayerInitialVolume;
 
   @override
   _MediaContainerState createState() => _MediaContainerState();
@@ -36,7 +36,7 @@ class MediaContainer extends StatefulWidget {
 
 class _MediaContainerState extends State<MediaContainer>
     with AutomaticKeepAliveClientMixin, TickerProviderStateMixin {
-  var hashcode;
+  late var hashcode;
 
   @override
   void initState() {
@@ -48,9 +48,9 @@ class _MediaContainerState extends State<MediaContainer>
   Widget build(BuildContext context) {
     super.build(context);
 
-    Widget child;
+    Widget? child;
     if (widget.tweetVM.getDisplayTweet().hasSupportedVideo) {
-      if (widget.useVideoPlayer) {
+      if (widget.useVideoPlayer!) {
         child = TweetVideo(
           widget.tweetVM.getDisplayTweet(),
           initialVolume: widget.videoPlayerInitialVolume,
@@ -61,7 +61,7 @@ class _MediaContainerState extends State<MediaContainer>
           children: <Widget>[
             Image(
               image: CachedNetworkImageProvider(
-                  widget.tweetVM.getDisplayTweet().videoPlaceholderUrl),
+                  widget.tweetVM.getDisplayTweet().videoPlaceholderUrl!),
               width: MediaQuery.of(context).size.width,
               fit: BoxFit.cover,
             ),
@@ -185,7 +185,6 @@ class _MediaContainerState extends State<MediaContainer>
           break;
         default:
           return Container(width: 0.0, height: 0.0);
-          break;
       }
     }
     BorderRadius borderRadius;
@@ -224,16 +223,15 @@ class _MediaContainerState extends State<MediaContainer>
   /// hashcode - used for the Hero tag. The image URL is not enough - for example, you can still have duplicated tweets on a list.
   Widget _buildSinglePhoto(BuildContext context, List<String> allPhotos,
       int photoIndex, String hashcode) {
-    var galleryPageOptions = List<PhotoViewGalleryPageOptions>();
-    allPhotos.forEach((String photoUrl) {
-      galleryPageOptions.add(PhotoViewGalleryPageOptions(
-        // TODO add option to choose image size (Twitter supports ":medium" ":large" at the end of photoUrl.
-        imageProvider: CachedNetworkImageProvider(photoUrl),
-        heroAttributes: PhotoViewHeroAttributes(
-          tag: photoUrl + hashcode,
-        ),
-      ));
-    });
+    final List<PhotoViewGalleryPageOptions> galleryPageOptions = allPhotos
+        .map((photoUrl) => PhotoViewGalleryPageOptions(
+              // TODO add option to choose image size (Twitter supports ":medium" ":large" at the end of photoUrl.
+              imageProvider: CachedNetworkImageProvider(photoUrl),
+              heroAttributes: PhotoViewHeroAttributes(
+                tag: photoUrl + hashcode,
+              ),
+            ))
+        .toList(growable: false);
     return GestureDetector(
       onTap: this.widget.onTapImage == null
           ? () {
@@ -246,7 +244,7 @@ class _MediaContainerState extends State<MediaContainer>
                 },
               ));
             }
-          : () => this.widget.onTapImage(allPhotos, photoIndex, hashcode),
+          : () => this.widget.onTapImage!(allPhotos, photoIndex, hashcode),
       child: Hero(
         child: Image(
           image: CachedNetworkImageProvider(allPhotos[photoIndex]),

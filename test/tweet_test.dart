@@ -8,6 +8,6 @@ void main() {
     final file = new File('test_resources/tweet_1_photo.json');
     final tweet = Tweet.fromRawJson(await file.readAsString());
 
-    expect(tweet.entities.media?.length, 1);
+    expect(tweet.entities.media.length, 1);
   });
 }
