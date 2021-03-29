@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.5.0-nullsafety.2] - 29.03.2021
+### Changed
+- Fix formatting
+
 ## [2.5.0-nullsafety.1] - 26.03.2021
 ### Changed
 - Fix formatting

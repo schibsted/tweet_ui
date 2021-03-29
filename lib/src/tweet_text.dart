@@ -112,8 +112,8 @@ class TweetText extends StatelessWidget {
       });
 
       spans.add(TextSpan(
-        text: unescape.convert(String.fromCharCodes(tweetVM.textRunes, boundary!,
-            min(tweetVM.textRunes.length, tweetVM.endDisplayText!))),
+        text: unescape.convert(String.fromCharCodes(tweetVM.textRunes,
+            boundary!, min(tweetVM.textRunes.length, tweetVM.endDisplayText!))),
         style: textStyle,
       ));
     }
