@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 21.06.2021
+### Changed
+- Moved prerelase nullsafety version as a regular release
+- Updated cached_network_image, html_unescape
+
 ## [2.5.0-nullsafety.2] - 29.03.2021
 ### Changed
 - Fix formatting
