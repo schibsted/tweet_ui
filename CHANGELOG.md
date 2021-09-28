@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.1] - 28.09.2021
+### Changed
+- Updated photo_view
+
 ## [3.0.0] - 21.06.2021
 ### Changed
 - Moved prerelase nullsafety version as a regular release
