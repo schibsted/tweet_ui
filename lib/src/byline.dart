@@ -24,6 +24,9 @@ class Byline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool createdDateAvailable =
+        tweetVM.getDisplayTweet().createdAt != null;
+
     switch (viewMode) {
       case ViewMode.standard:
         return Column(
@@ -56,8 +59,9 @@ class Byline extends StatelessWidget {
                 ? Text(
                     "@" +
                         tweetVM.getDisplayTweet().userScreenName +
-                        " • " +
-                        tweetVM.getDisplayTweet().createdAt,
+                        (createdDateAvailable
+                            ? " • ${tweetVM.getDisplayTweet().createdAt}"
+                            : ""),
                     textAlign: TextAlign.start,
                     style: userScreenNameStyle,
                   )
@@ -113,7 +117,8 @@ class Byline extends StatelessWidget {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 4.0),
                               child: Text(
-                                "• " + tweetVM.getDisplayTweet().createdAt,
+                                "• " +
+                                    (tweetVM.getDisplayTweet().createdAt ?? ""),
                                 style: userScreenNameStyle,
                                 maxLines: 1,
                                 overflow: TextOverflow.fade,

@@ -1,5 +1,6 @@
 import 'package:example/bug_page.dart';
 import 'package:example/embedded_tweet_page.dart';
+import 'package:example/tweet_v2_page.dart';
 import 'package:example/ui/open_tweetpage_button.dart';
 import 'package:flutter/material.dart';
 
@@ -47,6 +48,7 @@ class TweetUiExample extends StatelessWidget {
           ),
           buildOpenEmbeddedTweetPageButton("Embedded", context),
           buildOpenBugPageButton("Bug page", context),
+          buildV2PageButton("Twitter API V2", context),
         ],
       ),
     );
@@ -79,6 +81,22 @@ class TweetUiExample extends StatelessWidget {
         onPressed: () {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => BugPage()));
+        },
+      ),
+    );
+  }
+
+  Widget buildV2PageButton(String title, BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 4.0),
+      child: ElevatedButton(
+        child: Text(
+          title,
+          textAlign: TextAlign.start,
+        ),
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => TweetV2Page()));
         },
       ),
     );

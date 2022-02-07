@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:intl/intl.dart';
 import 'package:tweet_ui/models/api/tweet.dart';
+import 'package:tweet_ui/models/api/v2/tweet_v2.dart';
 import 'package:tweet_ui/tweet_ui.dart';
+
+enum TweetType { v1, v2 }
 
 /// Widget containing 4 Tweet types:
 /// TweetView, CompactTweetView, TweetView with a quoted Tweet, CompactTweetView with a quoted Tweet
@@ -16,10 +19,16 @@ class TweetPage extends StatelessWidget {
   /// The path to a Tweet with a embedded quote JSON file
   final String? quoteTweetPath;
 
+  final TweetType tweetType;
+
+  final String? videoUrl;
+
   const TweetPage(
     this.mediaType,
     this.tweetPath,
     this.quoteTweetPath, {
+    this.tweetType = TweetType.v1,
+    this.videoUrl,
     Key? key,
   }) : super(key: key);
 
@@ -71,13 +80,7 @@ class TweetPage extends StatelessWidget {
         if (snapshot.hasData) {
           return Container(
             margin: EdgeInsets.all(15),
-            child: EmbeddedTweetView.fromTweet(
-              Tweet.fromRawJson(
-                snapshot.data,
-              ),
-              darkMode: false,
-              createdDateDisplayFormat: DateFormat("EEE, MMM d, ''yy"),
-            ),
+            child: _buildEmbeddedTweetFromSnapshot(snapshot),
           );
         }
         if (snapshot.hasError) {
@@ -99,12 +102,7 @@ class TweetPage extends StatelessWidget {
       future: rootBundle.loadString(jsonFile),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.hasData) {
-          return TweetView.fromTweet(
-            Tweet.fromRawJson(
-              snapshot.data,
-            ),
-            createdDateDisplayFormat: DateFormat("EEE, MMM d, ''yy"),
-          );
+          return _buildTweetFromSnapshot(snapshot);
         }
         if (snapshot.hasError) {
           return Container(
@@ -125,11 +123,7 @@ class TweetPage extends StatelessWidget {
       future: rootBundle.loadString(jsonFile),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.hasData) {
-          return CompactTweetView.fromTweet(
-            Tweet.fromRawJson(
-              snapshot.data,
-            ),
-          );
+          return _buildCompactTweetFromSnapshot(snapshot);
         }
         if (snapshot.hasError) {
           return Container(
@@ -142,5 +136,65 @@ class TweetPage extends StatelessWidget {
         }
       },
     );
+  }
+
+  Widget _buildEmbeddedTweetFromSnapshot(AsyncSnapshot snapshot) {
+    switch (tweetType) {
+      case TweetType.v1:
+        return EmbeddedTweetView.fromTweet(
+          Tweet.fromRawJson(
+            snapshot.data,
+          ),
+          darkMode: false,
+          createdDateDisplayFormat: DateFormat("EEE, MMM d, ''yy"),
+        );
+      case TweetType.v2:
+        return EmbeddedTweetView.fromTweetV2(
+          TweetV2Response.fromRawJson(
+            snapshot.data,
+          ),
+          darkMode: false,
+          createdDateDisplayFormat: DateFormat("EEE, MMM d, ''yy"),
+          videoUrl: videoUrl,
+        );
+    }
+  }
+
+  Widget _buildTweetFromSnapshot(AsyncSnapshot snapshot) {
+    switch (tweetType) {
+      case TweetType.v1:
+        return TweetView.fromTweet(
+          Tweet.fromRawJson(
+            snapshot.data,
+          ),
+          createdDateDisplayFormat: DateFormat("EEE, MMM d, ''yy"),
+        );
+      case TweetType.v2:
+        return TweetView.fromTweetV2(
+          TweetV2Response.fromRawJson(
+            snapshot.data,
+          ),
+          createdDateDisplayFormat: DateFormat("EEE, MMM d, ''yy"),
+          videoUrl: videoUrl,
+        );
+    }
+  }
+
+  Widget _buildCompactTweetFromSnapshot(AsyncSnapshot snapshot) {
+    switch (tweetType) {
+      case TweetType.v1:
+        return CompactTweetView.fromTweet(
+          Tweet.fromRawJson(
+            snapshot.data,
+          ),
+        );
+      case TweetType.v2:
+        return CompactTweetView.fromTweetV2(
+          TweetV2Response.fromRawJson(
+            snapshot.data,
+          ),
+          videoUrl: videoUrl,
+        );
+    }
   }
 }

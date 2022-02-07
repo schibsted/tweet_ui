@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tweet_ui/default_text_styles.dart';
 import 'package:tweet_ui/models/api/tweet.dart';
+import 'package:tweet_ui/models/api/v2/tweet_v2.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
 import 'package:tweet_ui/on_tap_image.dart';
 import 'package:tweet_ui/src/byline.dart';
@@ -62,6 +63,21 @@ class EmbeddedTweetView extends StatelessWidget {
     this.createdDateDisplayFormat,
     this.videoHighQuality = true,
   }) : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
+
+  EmbeddedTweetView.fromTweetV2(
+    TweetV2Response tweet, {
+    this.backgroundColor = Colors.white,
+    this.darkMode = false,
+    this.useVideoPlayer = true,
+    this.videoPlayerInitialVolume = 0.0,
+    this.onTapImage,
+    this.createdDateDisplayFormat,
+    this.videoHighQuality = true,
+
+    /// It is there since as of for now Twitter API V2 doesn't allow to fetch the actual video url
+    String? videoUrl,
+  }) : _tweetVM =
+            TweetVM.fromApiV2Model(tweet, createdDateDisplayFormat, videoUrl);
 
   @override
   Widget build(BuildContext context) {
@@ -203,13 +219,16 @@ class EmbeddedTweetView extends StatelessWidget {
                             color: (darkMode)
                                 ? Colors.grey[400]
                                 : Colors.grey[600]))),
-                Container(
+                if (_tweetVM.createdAt != null)
+                  Container(
                     margin: EdgeInsets.only(left: 16),
-                    child: Text(_tweetVM.createdAt,
-                        style: TextStyle(
-                            color: (darkMode)
-                                ? Colors.grey[400]
-                                : Colors.grey[600])))
+                    child: Text(
+                      _tweetVM.createdAt!,
+                      style: TextStyle(
+                          color:
+                              (darkMode) ? Colors.grey[400] : Colors.grey[600]),
+                    ),
+                  )
               ],
             ),
           ),

@@ -18,6 +18,7 @@ If you want to show tweets with videos: check the
 
 finally, create a `TweetView` from a JSON:
 
+### API V1.1
 ```dart
 TweetView.fromTweet(
     Tweet.fromRawJson(
@@ -26,9 +27,19 @@ TweetView.fromTweet(
     )
 );
 ```
+### API V2
+```dart
+TweetView.fromTweetV2(
+    TweetV2Response.fromRawJson(
+        jsonFromTwitterAPI
+        // {"data": ["created_at": "2020-09-18T18:36:15.000Z", "id": "1061967001177018368", ...
+    )
+);
+```
 
 or a `CompactTweetView`,
 
+### API V1.1
 ```dart
 CompactTweetView.fromTweet(
     Tweet.fromRawJson(
@@ -38,8 +49,19 @@ CompactTweetView.fromTweet(
 );
 ```
 
+### API V2
+```dart
+CompactTweetView.fromTweetV2(
+    TweetV2Response.fromRawJson(
+        jsonFromTwitterAPI
+        // {"data": ["created_at": "2020-09-18T18:36:15.000Z", "id": "1061967001177018368", ...
+    )
+);
+```
+
 or a `EmbeddedTweetView`.
 
+### API V1.1
 ```dart
 EmbeddedTweetView.fromTweet(
     Tweet.fromRawJson(
@@ -47,6 +69,17 @@ EmbeddedTweetView.fromTweet(
         // {"created_at": "Mon Nov 12 13:00:38 +0000 2018", "id": 1061967001177018368, ...
     )
   darkMode: true,
+)
+```
+
+### API V2
+```dart
+EmbeddedTweetView.fromTweetV2(
+    TweetV2Response.fromRawJson(
+      jsonFromTwitterAPI
+      // {"data": ["created_at": "2020-09-18T18:36:15.000Z", "id": "1061967001177018368", ...
+    )
+    darkMode: true,
 )
 ```
 
