@@ -14,7 +14,7 @@ class ProfileImage extends StatelessWidget {
   Widget build(BuildContext context) {
     final url = tweetVM.getDisplayTweet().profileUrl;
     if (url == null) {
-      return const SizedBox(width: 40, height: 40);
+      return const SizedBox.shrink();
     }
 
     return CachedNetworkImage(

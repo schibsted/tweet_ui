@@ -232,44 +232,46 @@ class EmbeddedTweetView extends StatelessWidget {
               ],
             ),
           ),
-          Divider(
-            color: Colors.grey[400],
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 20, right: 20, bottom: 15, top: 5),
-            child: GestureDetector(
-              behavior: HitTestBehavior.translucent,
-              onTap: () {
-                openUrl(_tweetVM.userLink);
-              },
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.person_outline,
-                    color: (darkMode) ? Colors.blue[100] : Colors.blue[700],
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 5),
-                      child: Text(
-                        "${_tweetVM.userName}'s other tweets",
-                        style: TextStyle(
-                            color: (darkMode)
-                                ? Colors.blue[100]
-                                : Colors.blue[800],
-                            fontWeight: FontWeight.w400),
-                        maxLines: 1,
-                        overflow: TextOverflow.fade,
-                        softWrap: false,
-                        textAlign: TextAlign.start,
-                      ),
-                    ),
-                  )
-                ],
-              ),
+          if (_tweetVM.userName.isNotEmpty)
+            Divider(
+              color: Colors.grey[400],
             ),
-          )
+          if (_tweetVM.userName.isNotEmpty)
+            Container(
+              margin: EdgeInsets.only(left: 20, right: 20, bottom: 15, top: 5),
+              child: GestureDetector(
+                behavior: HitTestBehavior.translucent,
+                onTap: () {
+                  openUrl(_tweetVM.userLink);
+                },
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.person_outline,
+                      color: (darkMode) ? Colors.blue[100] : Colors.blue[700],
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 5),
+                        child: Text(
+                          "${_tweetVM.userName}'s other tweets",
+                          style: TextStyle(
+                              color: (darkMode)
+                                  ? Colors.blue[100]
+                                  : Colors.blue[800],
+                              fontWeight: FontWeight.w400),
+                          maxLines: 1,
+                          overflow: TextOverflow.fade,
+                          softWrap: false,
+                          textAlign: TextAlign.start,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            )
         ],
       ),
     );

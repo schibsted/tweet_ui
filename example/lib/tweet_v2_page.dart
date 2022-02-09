@@ -53,6 +53,11 @@ class TweetV2Page extends StatelessWidget {
             tweetPath: 'assets/tweet_v2_examples/tweet_with_photos.json',
             tweetType: TweetType.v2,
           ),
+          OpenTweetPageButton(
+            title: "Tweet with just text",
+            tweetPath: 'assets/tweet_v2_examples/tiny_tweet.json',
+            tweetType: TweetType.v2,
+          ),
         ],
       ),
     );

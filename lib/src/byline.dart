@@ -55,21 +55,23 @@ class Byline extends StatelessWidget {
                 ),
               ],
             ),
-            showDate
-                ? Text(
-                    "@" +
-                        tweetVM.getDisplayTweet().userScreenName +
-                        (createdDateAvailable
-                            ? " • ${tweetVM.getDisplayTweet().createdAt}"
-                            : ""),
-                    textAlign: TextAlign.start,
-                    style: userScreenNameStyle,
-                  )
-                : Text(
-                    "@" + tweetVM.getDisplayTweet().userScreenName,
-                    textAlign: TextAlign.start,
-                    style: userScreenNameStyle,
-                  ),
+            tweetVM.getDisplayTweet().userScreenName.isNotEmpty
+                ? (showDate
+                    ? Text(
+                        "@" +
+                            tweetVM.getDisplayTweet().userScreenName +
+                            (createdDateAvailable
+                                ? " • ${tweetVM.getDisplayTweet().createdAt}"
+                                : ""),
+                        textAlign: TextAlign.start,
+                        style: userScreenNameStyle,
+                      )
+                    : Text(
+                        "@" + tweetVM.getDisplayTweet().userScreenName,
+                        textAlign: TextAlign.start,
+                        style: userScreenNameStyle,
+                      ))
+                : const SizedBox.shrink(),
           ],
         );
       case ViewMode.compact:
@@ -88,29 +90,31 @@ class Byline extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      tweetVM.getDisplayTweet().userName,
-                      style: userNameStyle,
-                      textAlign: TextAlign.start,
-                    ),
+                    if (tweetVM.getDisplayTweet().userName.isNotEmpty)
+                      Text(
+                        tweetVM.getDisplayTweet().userName,
+                        style: userNameStyle,
+                        textAlign: TextAlign.start,
+                      ),
                     Padding(
                       padding: const EdgeInsets.only(left: 2.0),
                       child: VerifiedUsedBadge(
                           tweetVM.getDisplayTweet(), viewMode),
                     ),
-                    Flexible(
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 4.0),
-                        child: Text(
-                          "@" + tweetVM.getDisplayTweet().userScreenName,
-                          style: userScreenNameStyle,
-                          maxLines: 1,
-                          overflow: TextOverflow.fade,
-                          softWrap: false,
-                          textAlign: TextAlign.start,
+                    if (tweetVM.getDisplayTweet().userScreenName.isNotEmpty)
+                      Flexible(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 4.0),
+                          child: Text(
+                            "@" + tweetVM.getDisplayTweet().userScreenName,
+                            style: userScreenNameStyle,
+                            maxLines: 1,
+                            overflow: TextOverflow.fade,
+                            softWrap: false,
+                            textAlign: TextAlign.start,
+                          ),
                         ),
                       ),
-                    ),
                     (showDate == true)
                         ? Flexible(
                             child: Padding(
