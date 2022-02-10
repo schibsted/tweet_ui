@@ -20,8 +20,8 @@ finally, create a `TweetView` from a JSON:
 
 ### API V1.1
 ```dart
-TweetView.fromTweet(
-    Tweet.fromRawJson(
+TweetView.fromTweetV1(
+    TweetV1Response.fromRawJson(
         jsonFromTwitterAPI
         // {"created_at": "Mon Nov 12 13:00:38 +0000 2018", "id": 1061967001177018368, ...
     )
@@ -41,8 +41,8 @@ or a `CompactTweetView`,
 
 ### API V1.1
 ```dart
-CompactTweetView.fromTweet(
-    Tweet.fromRawJson(
+CompactTweetView.fromTweetV1(
+    TweetV1Response.fromRawJson(
         jsonFromTwitterAPI
         // {"created_at": "Mon Nov 12 13:00:38 +0000 2018", "id": 1061967001177018368, ...
     )
@@ -63,8 +63,8 @@ or a `EmbeddedTweetView`.
 
 ### API V1.1
 ```dart
-EmbeddedTweetView.fromTweet(
-    Tweet.fromRawJson(
+EmbeddedTweetView.fromTweetV1(
+    TweetV1Response.fromRawJson(
         jsonFromTwitterAPI
         // {"created_at": "Mon Nov 12 13:00:38 +0000 2018", "id": 1061967001177018368, ...
     )

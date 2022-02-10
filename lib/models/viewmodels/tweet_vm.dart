@@ -1,6 +1,6 @@
 import 'package:intl/intl.dart';
-import 'package:tweet_ui/models/api/entieties/entity.dart';
-import 'package:tweet_ui/models/api/tweet.dart';
+import 'package:tweet_ui/models/api/v1/entieties/entity.dart';
+import 'package:tweet_ui/models/api/v1/tweet.dart';
 import 'package:tweet_ui/models/api/v2/tweet_v2.dart';
 import 'package:tweet_ui/models/viewmodels/converters/tweet_to_tweet_vm_converter.dart';
 import 'package:tweet_ui/models/viewmodels/converters/tweet_v2_to_tweet_vm_converter.dart';
@@ -57,7 +57,7 @@ class TweetVM {
   });
 
   factory TweetVM.fromApiModel(
-          Tweet tweet, DateFormat? createdDateDisplayFormat) =>
+          TweetV1Response tweet, DateFormat? createdDateDisplayFormat) =>
       TweetToTweetVMConverter(tweet).convert(createdDateDisplayFormat);
 
   factory TweetVM.fromApiV2Model(

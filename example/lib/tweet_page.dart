@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:intl/intl.dart';
-import 'package:tweet_ui/models/api/tweet.dart';
-import 'package:tweet_ui/models/api/v2/tweet_v2.dart';
 import 'package:tweet_ui/tweet_ui.dart';
 
 enum TweetType { v1, v2 }
@@ -141,8 +139,8 @@ class TweetPage extends StatelessWidget {
   Widget _buildEmbeddedTweetFromSnapshot(AsyncSnapshot snapshot) {
     switch (tweetType) {
       case TweetType.v1:
-        return EmbeddedTweetView.fromTweet(
-          Tweet.fromRawJson(
+        return EmbeddedTweetView.fromTweetV1(
+          TweetV1Response.fromRawJson(
             snapshot.data,
           ),
           darkMode: false,
@@ -163,8 +161,8 @@ class TweetPage extends StatelessWidget {
   Widget _buildTweetFromSnapshot(AsyncSnapshot snapshot) {
     switch (tweetType) {
       case TweetType.v1:
-        return TweetView.fromTweet(
-          Tweet.fromRawJson(
+        return TweetView.fromTweetV1(
+          TweetV1Response.fromRawJson(
             snapshot.data,
           ),
           createdDateDisplayFormat: DateFormat("EEE, MMM d, ''yy"),
@@ -183,8 +181,8 @@ class TweetPage extends StatelessWidget {
   Widget _buildCompactTweetFromSnapshot(AsyncSnapshot snapshot) {
     switch (tweetType) {
       case TweetType.v1:
-        return CompactTweetView.fromTweet(
-          Tweet.fromRawJson(
+        return CompactTweetView.fromTweetV1(
+          TweetV1Response.fromRawJson(
             snapshot.data,
           ),
         );

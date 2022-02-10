@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:tweet_ui/models/api/entieties/url_entity.dart';
+import 'package:tweet_ui/models/api/v1/entieties/url_entity.dart';
 
 /// Represents media elements uploaded with the Tweet.
 class MediaEntity extends UrlEntity {

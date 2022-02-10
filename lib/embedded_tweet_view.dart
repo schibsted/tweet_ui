@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tweet_ui/default_text_styles.dart';
-import 'package:tweet_ui/models/api/tweet.dart';
+import 'package:tweet_ui/models/api/v1/tweet.dart';
 import 'package:tweet_ui/models/api/v2/tweet_v2.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
 import 'package:tweet_ui/on_tap_image.dart';
@@ -53,8 +53,8 @@ class EmbeddedTweetView extends StatelessWidget {
     required this.videoHighQuality,
   }); //  TweetView(this.tweetVM);
 
-  EmbeddedTweetView.fromTweet(
-    Tweet tweet, {
+  EmbeddedTweetView.fromTweetV1(
+    TweetV1Response tweet, {
     this.backgroundColor = Colors.white,
     this.darkMode = false,
     this.useVideoPlayer = true,
@@ -171,7 +171,7 @@ class EmbeddedTweetView extends StatelessWidget {
                   (_tweetVM.quotedTweet != null)
                       ? Padding(
                           padding: EdgeInsets.only(top: 8.0, bottom: 10),
-                          child: QuoteTweetViewEmbed.fromTweet(
+                          child: QuoteTweetViewEmbed.fromTweetV1(
                             _tweetVM.quotedTweet!,
                             textStyle: TextStyle(
                                 color:

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tweet_ui/models/api/tweet.dart';
-import 'package:tweet_ui/models/api/user.dart';
+import 'package:tweet_ui/models/api/v1/user.dart';
 import 'package:tweet_ui/tweet_ui.dart';
 
 class TweetPageBugGH50 extends StatefulWidget {
@@ -18,7 +17,7 @@ class _TweetPageBugGH50State extends State<TweetPageBugGH50> {
         verified: true,
         profileImageUrlHttps:
             "https://d1ab2zufs7bob.cloudfront.net/media/avatars/avatar_GlDoZ0w.jpg");
-    final tweet = Tweet(
+    final tweet = TweetV1Response(
       createdAt: "Wed Oct 10 20:19:24 +0000 2018",
       id: 1050118621198921728,
       idStr: "1050118621198921728",
@@ -31,9 +30,9 @@ class _TweetPageBugGH50State extends State<TweetPageBugGH50> {
     return Scaffold(
       body: Column(
         children: [
-          TweetView.fromTweet(tweet),
-          CompactTweetView.fromTweet(tweet),
-          EmbeddedTweetView.fromTweet(tweet),
+          TweetView.fromTweetV1(tweet),
+          CompactTweetView.fromTweetV1(tweet),
+          EmbeddedTweetView.fromTweetV1(tweet),
         ],
       ),
     );

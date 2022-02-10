@@ -1,6 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:intl/intl.dart';
-import 'package:tweet_ui/models/api/entieties/entity.dart';
+import 'package:tweet_ui/models/api/v1/entieties/entity.dart';
 import 'package:tweet_ui/models/api/v2/entities/media_v2.dart';
 import 'package:tweet_ui/models/api/v2/tweet_v2.dart';
 import 'package:tweet_ui/models/api/v2/user_v2.dart';

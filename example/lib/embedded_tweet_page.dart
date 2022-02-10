@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:intl/intl.dart';
-import 'package:tweet_ui/models/api/tweet.dart';
 import 'package:tweet_ui/tweet_ui.dart';
 
 /// Widget containing 4 Tweet types:
@@ -98,8 +97,8 @@ class _EmbeddedTweetPageState extends State<EmbeddedTweetPage> {
         if (snapshot.hasData) {
           return Container(
             margin: EdgeInsets.only(left: 15, right: 15, top: 20),
-            child: EmbeddedTweetView.fromTweet(
-              Tweet.fromRawJson(
+            child: EmbeddedTweetView.fromTweetV1(
+              TweetV1Response.fromRawJson(
                 snapshot.data,
               ),
               backgroundColor: (darkMode) ? Colors.grey[800]! : Colors.white,

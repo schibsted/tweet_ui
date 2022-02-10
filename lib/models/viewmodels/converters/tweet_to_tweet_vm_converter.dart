@@ -1,7 +1,7 @@
 import 'package:intl/intl.dart';
-import 'package:tweet_ui/models/api/entieties/entity.dart';
-import 'package:tweet_ui/models/api/entieties/media_entity.dart';
-import 'package:tweet_ui/models/api/tweet.dart';
+import 'package:tweet_ui/models/api/v1/entieties/entity.dart';
+import 'package:tweet_ui/models/api/v1/entieties/media_entity.dart';
+import 'package:tweet_ui/models/api/v1/tweet.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
 
 class TweetToTweetVMConverter {
@@ -11,7 +11,7 @@ class TweetToTweetVMConverter {
   static const String _TWITTER_URL = "https://twitter.com/";
   static const String _UNKNOWN_SCREEN_NAME = "twitter_unknown";
 
-  final Tweet tweet;
+  final TweetV1Response tweet;
 
   const TweetToTweetVMConverter(this.tweet);
 
@@ -45,11 +45,11 @@ class TweetToTweetVMConverter {
     );
   }
 
-  static Tweet _originalTweetOrRetweet(tweet) {
+  static TweetV1Response _originalTweetOrRetweet(tweet) {
     return tweet.retweetedStatus != null ? tweet.retweetedStatus : tweet;
   }
 
-  static String _createdAt(Tweet tweet, DateFormat? displayFormat) {
+  static String _createdAt(TweetV1Response tweet, DateFormat? displayFormat) {
     DateFormat twitterFormat =
         new DateFormat("EEE MMM dd HH:mm:ss '+0000' yyyy", 'en_US');
     final dateTime = twitterFormat.parseUTC(tweet.createdAt).toLocal();
@@ -69,12 +69,12 @@ class TweetToTweetVMConverter {
     return _GIF_TYPE == mediaEntity.type;
   }
 
-  static bool _hasSupportedVideo(Tweet tweet) {
+  static bool _hasSupportedVideo(TweetV1Response tweet) {
     final MediaEntity? entity = _videoEntity(tweet);
     return entity != null;
   }
 
-  static MediaEntity? _videoEntity(Tweet tweet) {
+  static MediaEntity? _videoEntity(TweetV1Response tweet) {
     try {
       return _allMediaEntities(tweet).firstWhere(
         (MediaEntity mediaEntity) => _isVideoType(mediaEntity),
@@ -84,11 +84,11 @@ class TweetToTweetVMConverter {
     }
   }
 
-  static List<MediaEntity> _allMediaEntities(Tweet tweet) {
+  static List<MediaEntity> _allMediaEntities(TweetV1Response tweet) {
     return tweet.entities.media + tweet.extendedEntities.media;
   }
 
-  static List<Entity> _allEntities(Tweet tweet) {
+  static List<Entity> _allEntities(TweetV1Response tweet) {
     final List<Entity> allEntities = [
       ...tweet.entities.media,
       ...tweet.entities.hashtags,
@@ -100,7 +100,7 @@ class TweetToTweetVMConverter {
     return allEntities;
   }
 
-  static MediaEntity? _photoEntity(Tweet tweet) {
+  static MediaEntity? _photoEntity(TweetV1Response tweet) {
     final List<MediaEntity> mediaEntityList = _allMediaEntities(tweet);
     for (int i = mediaEntityList.length - 1; i >= 0; i--) {
       final MediaEntity entity = mediaEntityList[i];
@@ -111,7 +111,7 @@ class TweetToTweetVMConverter {
     return null;
   }
 
-  static MediaEntity? _gifEntity(Tweet tweet) {
+  static MediaEntity? _gifEntity(TweetV1Response tweet) {
     final List<MediaEntity> mediaEntityList = _allMediaEntities(tweet);
     for (int i = mediaEntityList.length - 1; i >= 0; i--) {
       final MediaEntity entity = mediaEntityList[i];
@@ -122,15 +122,15 @@ class TweetToTweetVMConverter {
     return null;
   }
 
-  static bool _hasPhoto(Tweet tweet) {
+  static bool _hasPhoto(TweetV1Response tweet) {
     return _photoEntity(tweet) != null;
   }
 
-  static bool _hasGif(Tweet tweet) {
+  static bool _hasGif(TweetV1Response tweet) {
     return _gifEntity(tweet) != null;
   }
 
-  static String? _tweetLink(Tweet tweet) {
+  static String? _tweetLink(TweetV1Response tweet) {
     if (tweet.id <= 0) {
       return null;
     }
@@ -141,7 +141,7 @@ class TweetToTweetVMConverter {
     }
   }
 
-  static String? _userLink(Tweet tweet) {
+  static String? _userLink(TweetV1Response tweet) {
     if (tweet.id <= 0) {
       return null;
     }
@@ -152,19 +152,19 @@ class TweetToTweetVMConverter {
     }
   }
 
-  static String _text(Tweet tweet) {
+  static String _text(TweetV1Response tweet) {
     return tweet.text;
   }
 
-  static Runes _runes(Tweet tweet) {
+  static Runes _runes(TweetV1Response tweet) {
     return tweet.text.runes;
   }
 
-  static String? _profileURL(Tweet tweet) {
+  static String? _profileURL(TweetV1Response tweet) {
     return tweet.user.profileImageUrlHttps;
   }
 
-  static List<String> _allPhotos(Tweet tweet) {
+  static List<String> _allPhotos(TweetV1Response tweet) {
     return tweet.extendedEntities.media.where((MediaEntity mediaEntity) {
       return _isPhotoType(mediaEntity);
     }).map((MediaEntity mediaEntity) {
@@ -172,16 +172,16 @@ class TweetToTweetVMConverter {
     }).toList(growable: false);
   }
 
-  static String _userName(Tweet tweet) {
+  static String _userName(TweetV1Response tweet) {
     return tweet.user.name;
   }
 
-  static String _userScreenName(Tweet tweet) {
+  static String _userScreenName(TweetV1Response tweet) {
     return tweet.user.screenName;
   }
 
   static TweetVM? _quotedTweet(
-      Tweet? tweet, DateFormat? createdDateDisplayFormat) {
+      TweetV1Response? tweet, DateFormat? createdDateDisplayFormat) {
     if (tweet != null) {
       return TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
     } else {
@@ -190,7 +190,7 @@ class TweetToTweetVMConverter {
   }
 
   static TweetVM? _retweetedTweet(
-      Tweet? tweet, DateFormat? createdDateDisplayFormat) {
+      TweetV1Response? tweet, DateFormat? createdDateDisplayFormat) {
     if (tweet != null) {
       return TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
     } else {
@@ -198,15 +198,15 @@ class TweetToTweetVMConverter {
     }
   }
 
-  static bool _userVerified(Tweet tweet) {
+  static bool _userVerified(TweetV1Response tweet) {
     return tweet.user.verified;
   }
 
-  static String? _videoPlaceholderUrl(Tweet tweet) {
+  static String? _videoPlaceholderUrl(TweetV1Response tweet) {
     return _videoEntity(tweet)?.mediaUrlHttps;
   }
 
-  static Map<String, String> _videoUrls(Tweet tweet) {
+  static Map<String, String> _videoUrls(TweetV1Response tweet) {
     final List<Variant>? listOfVideoVariants = _videoEntity(tweet)
         ?.videoInfo
         ?.variants
@@ -224,7 +224,7 @@ class TweetToTweetVMConverter {
     }
   }
 
-  static double? _videoAspectRatio(Tweet tweet) {
+  static double? _videoAspectRatio(TweetV1Response tweet) {
     VideoInfo? videoInfo = _videoEntity(tweet)?.videoInfo;
     if (videoInfo != null) {
       return videoInfo.aspectRatio[0] / videoInfo.aspectRatio[1];
@@ -233,21 +233,21 @@ class TweetToTweetVMConverter {
     }
   }
 
-  static int? _favoriteCount(Tweet tweet) {
+  static int? _favoriteCount(TweetV1Response tweet) {
     return tweet.favoriteCount;
   }
 
-  static int _startDisplayText(Tweet tweet) {
+  static int _startDisplayText(TweetV1Response tweet) {
     return tweet.displayTextRange != null ? tweet.displayTextRange![0] : 0;
   }
 
-  static int _endDisplayText(Tweet tweet) {
+  static int _endDisplayText(TweetV1Response tweet) {
     return tweet.displayTextRange != null
         ? tweet.displayTextRange![1]
         : _runes(tweet).length;
   }
 
-  static bool _favorited(Tweet tweet) {
+  static bool _favorited(TweetV1Response tweet) {
     return tweet.favorited != null ? tweet.favorited! : false;
   }
 }

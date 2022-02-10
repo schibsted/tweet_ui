@@ -80,8 +80,6 @@ class TweetV2 {
     this.publicMetrics = const TweetV2PublicMetrics.empty(),
   });
 
-  factory TweetV2.fromRawJson(String str) => TweetV2.fromJson(json.decode(str));
-
   factory TweetV2.fromJson(Map<String, dynamic> json) =>
       _$TweetV2FromJson(json);
 }

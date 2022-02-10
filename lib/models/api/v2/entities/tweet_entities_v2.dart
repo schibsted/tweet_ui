@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tweet_ui/models/api/entieties/tweet_entities.dart';
+import 'package:tweet_ui/models/api/v1/entieties/tweet_entities.dart';
 import 'package:tweet_ui/models/api/v2/entities/cashtag_entity_v2.dart';
 import 'package:tweet_ui/models/api/v2/entities/hashtag_entity_v2.dart';
 import 'package:tweet_ui/models/api/v2/entities/mention_entity_v2.dart';
