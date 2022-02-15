@@ -157,8 +157,7 @@ class TweetV2ToTweetVMConverter {
 
   String _userScreenName() => tweetAuthor()?.username ?? "";
 
-  TweetVM? _quotedTweet(
-      DateFormat? createdDateDisplayFormat) {
+  TweetVM? _quotedTweet(DateFormat? createdDateDisplayFormat) {
     final String? quotedTweetId = tweet.referencedTweets
         .firstWhereOrNull((tweet) => tweet.type == ReferencedTweetType.quoted)
         ?.id;
@@ -176,8 +175,7 @@ class TweetV2ToTweetVMConverter {
     )).convert(createdDateDisplayFormat);
   }
 
-  TweetVM? _retweetedTweet(
-      DateFormat? createdDateDisplayFormat) {
+  TweetVM? _retweetedTweet(DateFormat? createdDateDisplayFormat) {
     final String? quotedTweetId = tweet.referencedTweets
         .firstWhereOrNull(
             (tweet) => tweet.type == ReferencedTweetType.retweeted)
@@ -200,8 +198,7 @@ class TweetV2ToTweetVMConverter {
 
   String? _videoPlaceholderUrl() => _videoEntity()?.previewImageUrl;
 
-  Map<String, String> _videoUrls() =>
-      {"Default": _videoEntity()?.url ?? ""};
+  Map<String, String> _videoUrls() => {"Default": _videoEntity()?.url ?? ""};
 
   double? _videoAspectRatio() {
     final videoEntity = _videoEntity();

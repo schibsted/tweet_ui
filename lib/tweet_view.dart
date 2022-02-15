@@ -133,8 +133,7 @@ class TweetView extends StatelessWidget {
     this.onTapImage,
     this.createdDateDisplayFormat,
     this.videoHighQuality = true,
-  }) : _tweetVM =
-            TweetVM.fromApiV2Model(tweet, createdDateDisplayFormat);
+  }) : _tweetVM = TweetVM.fromApiV2Model(tweet, createdDateDisplayFormat);
 
   @override
   Widget build(BuildContext context) {
