@@ -17,7 +17,7 @@ class TweetV2ToTweetVMConverter {
 
   const TweetV2ToTweetVMConverter(this.tweetResponse);
 
-  TweetVM convert(DateFormat? createdDateDisplayFormat, String? videoUrl) {
+  TweetVM convert(DateFormat? createdDateDisplayFormat) {
     return TweetVM(
       createdAt: _createdAt(createdDateDisplayFormat),
       hasSupportedVideo: _hasSupportedVideo(),
@@ -32,11 +32,11 @@ class TweetV2ToTweetVMConverter {
       allPhotos: _allPhotos(),
       userName: _userName(),
       userScreenName: _userScreenName(),
-      quotedTweet: _quotedTweet(createdDateDisplayFormat, videoUrl),
-      retweetedTweet: _retweetedTweet(createdDateDisplayFormat, videoUrl),
+      quotedTweet: _quotedTweet(createdDateDisplayFormat),
+      retweetedTweet: _retweetedTweet(createdDateDisplayFormat),
       userVerified: _userVerified(),
       videoPlaceholderUrl: _videoPlaceholderUrl(),
-      videoUrls: _videoUrls(videoUrl),
+      videoUrls: _videoUrls(),
       videoAspectRatio: _videoAspectRatio(),
       favoriteCount: _favoriteCount,
       startDisplayText: _startDisplayText,
@@ -158,7 +158,7 @@ class TweetV2ToTweetVMConverter {
   String _userScreenName() => tweetAuthor()?.username ?? "";
 
   TweetVM? _quotedTweet(
-      DateFormat? createdDateDisplayFormat, String? videoUrl) {
+      DateFormat? createdDateDisplayFormat) {
     final String? quotedTweetId = tweet.referencedTweets
         .firstWhereOrNull((tweet) => tweet.type == ReferencedTweetType.quoted)
         ?.id;
@@ -173,11 +173,11 @@ class TweetV2ToTweetVMConverter {
     return TweetV2ToTweetVMConverter(TweetV2Response(
       data: [quotedTweet],
       includes: TweetV2Includes(),
-    )).convert(createdDateDisplayFormat, videoUrl);
+    )).convert(createdDateDisplayFormat);
   }
 
   TweetVM? _retweetedTweet(
-      DateFormat? createdDateDisplayFormat, String? videoUrl) {
+      DateFormat? createdDateDisplayFormat) {
     final String? quotedTweetId = tweet.referencedTweets
         .firstWhereOrNull(
             (tweet) => tweet.type == ReferencedTweetType.retweeted)
@@ -193,15 +193,15 @@ class TweetV2ToTweetVMConverter {
     return TweetV2ToTweetVMConverter(TweetV2Response(
       data: [quotedTweet],
       includes: TweetV2Includes(),
-    )).convert(createdDateDisplayFormat, videoUrl);
+    )).convert(createdDateDisplayFormat);
   }
 
   bool _userVerified() => tweetAuthor()?.verified ?? false;
 
   String? _videoPlaceholderUrl() => _videoEntity()?.previewImageUrl;
 
-  Map<String, String> _videoUrls(String? videoUrl) =>
-      {"Default": videoUrl ?? _videoEntity()?.url ?? ""};
+  Map<String, String> _videoUrls() =>
+      {"Default": _videoEntity()?.url ?? ""};
 
   double? _videoAspectRatio() {
     final videoEntity = _videoEntity();

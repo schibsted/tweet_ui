@@ -19,14 +19,11 @@ class TweetPage extends StatelessWidget {
 
   final TweetType tweetType;
 
-  final String? videoUrl;
-
   const TweetPage(
     this.mediaType,
     this.tweetPath,
     this.quoteTweetPath, {
     this.tweetType = TweetType.v1,
-    this.videoUrl,
     Key? key,
   }) : super(key: key);
 
@@ -153,7 +150,6 @@ class TweetPage extends StatelessWidget {
           ),
           darkMode: false,
           createdDateDisplayFormat: DateFormat("EEE, MMM d, ''yy"),
-          videoUrl: videoUrl,
         );
     }
   }
@@ -173,7 +169,6 @@ class TweetPage extends StatelessWidget {
             snapshot.data,
           ),
           createdDateDisplayFormat: DateFormat("EEE, MMM d, ''yy"),
-          videoUrl: videoUrl,
         );
     }
   }
@@ -191,7 +186,6 @@ class TweetPage extends StatelessWidget {
           TweetV2Response.fromRawJson(
             snapshot.data,
           ),
-          videoUrl: videoUrl,
         );
     }
   }

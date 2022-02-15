@@ -8,7 +8,6 @@ class OpenTweetPageButton extends StatelessWidget {
   final String tweetPath;
   final String? quoteTweetPath;
   final TweetType tweetType;
-  final String? videoUrl;
 
   const OpenTweetPageButton({
     Key? key,
@@ -16,7 +15,6 @@ class OpenTweetPageButton extends StatelessWidget {
     required this.tweetPath,
     this.quoteTweetPath,
     this.tweetType = TweetType.v1,
-    this.videoUrl,
   }) : super(key: key);
 
   @override
@@ -37,7 +35,6 @@ class OpenTweetPageButton extends StatelessWidget {
                 tweetPath,
                 quoteTweetPath,
                 tweetType: tweetType,
-                videoUrl: videoUrl,
               ),
             ),
           );

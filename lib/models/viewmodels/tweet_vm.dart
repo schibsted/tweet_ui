@@ -63,10 +63,9 @@ class TweetVM {
   factory TweetVM.fromApiV2Model(
     TweetV2Response tweetResponse,
     DateFormat? createdDateDisplayFormat,
-    String? videoUrl,
   ) =>
       TweetV2ToTweetVMConverter(tweetResponse)
-          .convert(createdDateDisplayFormat, videoUrl);
+          .convert(createdDateDisplayFormat);
 }
 
 extension ExtendedText on TweetVM {

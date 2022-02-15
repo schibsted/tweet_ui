@@ -45,8 +45,6 @@ class TweetV2Page extends StatelessWidget {
             title: "Tweet With Media",
             tweetPath: 'assets/tweet_v2_examples/tweet_with_media.json',
             tweetType: TweetType.v2,
-            videoUrl:
-                "https://video.twimg.com/amplify_video/1156692485432721408/vid/1280x720/MvUetBTFXrGYXwLo.mp4?tag=13",
           ),
           OpenTweetPageButton(
             title: "Tweet Photos",

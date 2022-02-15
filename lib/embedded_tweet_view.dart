@@ -73,11 +73,8 @@ class EmbeddedTweetView extends StatelessWidget {
     this.onTapImage,
     this.createdDateDisplayFormat,
     this.videoHighQuality = true,
-
-    /// It is there since as of for now Twitter API V2 doesn't allow to fetch the actual video url
-    String? videoUrl,
   }) : _tweetVM =
-            TweetVM.fromApiV2Model(tweet, createdDateDisplayFormat, videoUrl);
+            TweetVM.fromApiV2Model(tweet, createdDateDisplayFormat);
 
   @override
   Widget build(BuildContext context) {

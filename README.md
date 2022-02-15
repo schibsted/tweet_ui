@@ -97,9 +97,7 @@ See the following links for more info:
 - [Twitter dev feedback](https://twitterdevfeedback.uservoice.com/forums/930250-twitter-api/suggestions/41291761-media-fields-should-return-url-for-gifs-or-videos)
 
 All other video fields (like size or duration) are available in the response. 
-To help workaround this problem we have introduced a parameter `videoUrl` for all widget types.
-It can be used to pass video link outside of pure tweet response. 
-You should only pass it when there is a video information in your tweet API response.
+This means that videos will not work for now.
 
 ## Need more information? Check our wiki pages!
 
