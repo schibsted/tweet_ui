@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:tweet_ui/models/api/entieties/entity.dart';
+import 'package:tweet_ui/models/api/v1/entieties/entity.dart';
 
 /// Represents URLs included in the text of a Tweet or within textual fields of a user object.
 class UrlEntity extends Entity {

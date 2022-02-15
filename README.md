@@ -18,35 +18,68 @@ If you want to show tweets with videos: check the
 
 finally, create a `TweetView` from a JSON:
 
+### API V1.1
 ```dart
-TweetView.fromTweet(
-    Tweet.fromRawJson(
+TweetView.fromTweetV1(
+    TweetV1Response.fromRawJson(
         jsonFromTwitterAPI
         // {"created_at": "Mon Nov 12 13:00:38 +0000 2018", "id": 1061967001177018368, ...
+    )
+);
+```
+### API V2
+```dart
+TweetView.fromTweetV2(
+    TweetV2Response.fromRawJson(
+        jsonFromTwitterAPI
+        // {"data": ["created_at": "2020-09-18T18:36:15.000Z", "id": "1061967001177018368", ...
     )
 );
 ```
 
 or a `CompactTweetView`,
 
+### API V1.1
 ```dart
-CompactTweetView.fromTweet(
-    Tweet.fromRawJson(
+CompactTweetView.fromTweetV1(
+    TweetV1Response.fromRawJson(
         jsonFromTwitterAPI
         // {"created_at": "Mon Nov 12 13:00:38 +0000 2018", "id": 1061967001177018368, ...
     )
 );
 ```
 
+### API V2
+```dart
+CompactTweetView.fromTweetV2(
+    TweetV2Response.fromRawJson(
+        jsonFromTwitterAPI
+        // {"data": ["created_at": "2020-09-18T18:36:15.000Z", "id": "1061967001177018368", ...
+    )
+);
+```
+
 or a `EmbeddedTweetView`.
 
+### API V1.1
 ```dart
-EmbeddedTweetView.fromTweet(
-    Tweet.fromRawJson(
+EmbeddedTweetView.fromTweetV1(
+    TweetV1Response.fromRawJson(
         jsonFromTwitterAPI
         // {"created_at": "Mon Nov 12 13:00:38 +0000 2018", "id": 1061967001177018368, ...
     )
   darkMode: true,
+)
+```
+
+### API V2
+```dart
+EmbeddedTweetView.fromTweetV2(
+    TweetV2Response.fromRawJson(
+      jsonFromTwitterAPI
+      // {"data": ["created_at": "2020-09-18T18:36:15.000Z", "id": "1061967001177018368", ...
+    )
+    darkMode: true,
 )
 ```
 
@@ -56,6 +89,15 @@ There is also a special `QuoteTweetView` that is embedded in a `TweetView` or a 
 ## What tweet view should I create?
 
 `TweetView` and `CompactTweetView` are more customisable, but `EmbeddedTweetView` looks more modern. Check the screenshots [below](https://github.com/schibsted/tweet_ui#example-of-supported-view-and-media-types).
+
+## Twitter API V2 know problems
+In current version of twitter API (V2 as of 14.02.2022) it is not possible to get video url in tweet response.
+See the following links for more info:
+- [Twitter community](https://twittercommunity.com/t/where-would-i-find-the-direct-link-to-an-mp4-video-posted-in-v2/146933/2)
+- [Twitter dev feedback](https://twitterdevfeedback.uservoice.com/forums/930250-twitter-api/suggestions/41291761-media-fields-should-return-url-for-gifs-or-videos)
+
+All other video fields (like size or duration) are available in the response. 
+This means that videos will not work for now.
 
 ## Need more information? Check our wiki pages!
 

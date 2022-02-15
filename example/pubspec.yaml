@@ -44,4 +44,5 @@ flutter:
     - assets/tweet_examples/tweet_favorited_gh52.json
     - assets/tweet_examples/tweet_quote_favorited_gh52.json
     - assets/tweet_examples/tweet_retweet_gh49.json
+    - assets/tweet_v2_examples/
   uses-material-design: true

@@ -12,11 +12,17 @@ class ProfileImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (tweetVM.getDisplayTweet().profileUrl == null) {
+      return const SizedBox.shrink();
+    }
+
     return Container(
-        margin: EdgeInsets.only(right: 5),
-        child: CircleAvatar(
-          backgroundImage:
-              CachedNetworkImageProvider(tweetVM.getDisplayTweet().profileUrl),
-        ));
+      margin: EdgeInsets.only(right: 5),
+      child: CircleAvatar(
+        backgroundImage: CachedNetworkImageProvider(
+          tweetVM.getDisplayTweet().profileUrl!,
+        ),
+      ),
+    );
   }
 }
