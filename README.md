@@ -13,9 +13,6 @@ import it:
 
 `import 'package:tweet_ui/tweet_ui.dart';`
 
-If you want to show tweets with videos: check the
-[video_player installation](https://pub.dev/packages/video_player#installation) site.
-
 finally, create a `TweetView` from a JSON:
 
 ### API V1.1

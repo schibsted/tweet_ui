@@ -54,7 +54,7 @@ class CompactTweetView extends StatelessWidget {
   /// Color of the Tweet background
   final Color? backgroundColor;
 
-  /// If set to true a betterplayer/video_player will be used in a Tweet containing a video.
+  /// If set to true a betterplayer will be used in a Tweet containing a video.
   /// If set to false a image placeholder will he shown and a video will be played in a new page.
   final bool useVideoPlayer;
 
@@ -67,8 +67,8 @@ class CompactTweetView extends StatelessWidget {
   /// Date format when the tweet was created. When null it defaults to DateFormat("HH:mm • MM.dd.yyyy", 'en_US')
   final DateFormat? createdDateDisplayFormat;
 
-  /// If set to true betterplayer/video_player will load the highest quality available.
-  /// If set to false betterplayer/video_player will load the lowest quality available.
+  /// If set to true betterplayer will load the highest quality available.
+  /// If set to false betterplayer will load the lowest quality available.
   final bool videoHighQuality;
 
   CompactTweetView(
@@ -98,8 +98,7 @@ class CompactTweetView extends StatelessWidget {
     this.userScreenNameStyle = defaultCompactUserScreenNameStyle,
     this.textStyle = defaultCompactTextStyle,
     this.clickableTextStyle = defaultCompactClickableTextStyle,
-    this.retweetInformationTextStyle =
-        defaultCompactRetweetInformationNameStyle,
+    this.retweetInformationTextStyle = defaultCompactRetweetInformationNameStyle,
     this.quoteUserNameStyle = defaultQuoteUserNameStyle,
     this.quoteUserScreenNameStyle = defaultQuoteUserScreenNameStyle,
     this.quoteTextStyle = defaultQuoteTextStyle,
@@ -120,8 +119,7 @@ class CompactTweetView extends StatelessWidget {
     this.userScreenNameStyle = defaultCompactUserScreenNameStyle,
     this.textStyle = defaultCompactTextStyle,
     this.clickableTextStyle = defaultCompactClickableTextStyle,
-    this.retweetInformationTextStyle =
-        defaultCompactRetweetInformationNameStyle,
+    this.retweetInformationTextStyle = defaultCompactRetweetInformationNameStyle,
     this.quoteUserNameStyle = defaultQuoteUserNameStyle,
     this.quoteUserScreenNameStyle = defaultQuoteUserScreenNameStyle,
     this.quoteTextStyle = defaultQuoteTextStyle,
@@ -147,8 +145,7 @@ class CompactTweetView extends StatelessWidget {
             Padding(
               child: RetweetInformation(
                 _tweetVM,
-                retweetInformationStyle:
-                    defaultCompactRetweetInformationNameStyle,
+                retweetInformationStyle: defaultCompactRetweetInformationNameStyle,
               ),
               padding: EdgeInsets.only(left: 24),
             ),
