@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Adding factory constructors for TweetView, CompactTweetView and EmbeddedTweetView that accept API V2 model
   - Added example json files for Twitter API V2
   - Updated README with Twitter API V2 examples
+- Removing unused video_player dependency
 
 ## [3.0.1] - 28.09.2021
 ### Changed
