@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:tweet_ui/models/api/entieties/entity.dart';
+import 'package:tweet_ui/models/api/v1/entieties/entity.dart';
 
 /// Represents hashtags which have been parsed out of the Tweet text.
 class HashtagEntity extends Entity {

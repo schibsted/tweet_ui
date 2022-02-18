@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:tweet_ui/models/api/entieties/entity.dart';
+import 'package:tweet_ui/models/api/v1/entieties/entity.dart';
 
 /// Represents other Twitter users mentioned in the text of the Tweet.
 class MentionEntity extends Entity {

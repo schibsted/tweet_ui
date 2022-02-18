@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tweet_ui/default_text_styles.dart';
-import 'package:tweet_ui/models/api/tweet.dart';
+import 'package:tweet_ui/models/api/v1/tweet.dart';
+import 'package:tweet_ui/models/api/v2/tweet_v2.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
 import 'package:tweet_ui/on_tap_image.dart';
 import 'package:tweet_ui/src/byline.dart';
@@ -92,8 +93,8 @@ class TweetView extends StatelessWidget {
     this.videoHighQuality,
   }); //  TweetView(this.tweetVM);
 
-  TweetView.fromTweet(
-    Tweet tweet, {
+  TweetView.fromTweetV1(
+    TweetV1Response tweet, {
     this.userNameStyle = defaultUserNameStyle,
     this.userScreenNameStyle = defaultUserScreenNameStyle,
     this.textStyle = defaultTextStyle,
@@ -112,6 +113,27 @@ class TweetView extends StatelessWidget {
     this.createdDateDisplayFormat,
     this.videoHighQuality = true,
   }) : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
+
+  TweetView.fromTweetV2(
+    TweetV2Response tweet, {
+    this.userNameStyle = defaultUserNameStyle,
+    this.userScreenNameStyle = defaultUserScreenNameStyle,
+    this.textStyle = defaultTextStyle,
+    this.clickableTextStyle = defaultClickableTextStyle,
+    this.retweetInformationTextStyle = defaultRetweetInformationStyle,
+    this.quoteUserNameStyle = defaultQuoteUserNameStyle,
+    this.quoteUserScreenNameStyle = defaultQuoteUserScreenNameStyle,
+    this.quoteTextStyle = defaultQuoteTextStyle,
+    this.quoteClickableTextStyle = defaultQuoteClickableTextStyle,
+    this.quoteBorderColor = Colors.grey,
+    this.quoteBackgroundColor = Colors.white,
+    this.backgroundColor = Colors.white,
+    this.useVideoPlayer = true,
+    this.videoPlayerInitialVolume = 0.0,
+    this.onTapImage,
+    this.createdDateDisplayFormat,
+    this.videoHighQuality = true,
+  }) : _tweetVM = TweetVM.fromApiV2Model(tweet, createdDateDisplayFormat);
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tweet_ui/default_text_styles.dart';
-import 'package:tweet_ui/models/api/tweet.dart';
+import 'package:tweet_ui/models/api/v1/tweet.dart';
+import 'package:tweet_ui/models/api/v2/tweet_v2.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
 import 'package:tweet_ui/on_tap_image.dart';
 import 'package:tweet_ui/src/byline.dart';
@@ -52,8 +53,8 @@ class EmbeddedTweetView extends StatelessWidget {
     required this.videoHighQuality,
   }); //  TweetView(this.tweetVM);
 
-  EmbeddedTweetView.fromTweet(
-    Tweet tweet, {
+  EmbeddedTweetView.fromTweetV1(
+    TweetV1Response tweet, {
     this.backgroundColor = Colors.white,
     this.darkMode = false,
     this.useVideoPlayer = true,
@@ -62,6 +63,17 @@ class EmbeddedTweetView extends StatelessWidget {
     this.createdDateDisplayFormat,
     this.videoHighQuality = true,
   }) : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
+
+  EmbeddedTweetView.fromTweetV2(
+    TweetV2Response tweet, {
+    this.backgroundColor = Colors.white,
+    this.darkMode = false,
+    this.useVideoPlayer = true,
+    this.videoPlayerInitialVolume = 0.0,
+    this.onTapImage,
+    this.createdDateDisplayFormat,
+    this.videoHighQuality = true,
+  }) : _tweetVM = TweetVM.fromApiV2Model(tweet, createdDateDisplayFormat);
 
   @override
   Widget build(BuildContext context) {
@@ -155,7 +167,7 @@ class EmbeddedTweetView extends StatelessWidget {
                   (_tweetVM.quotedTweet != null)
                       ? Padding(
                           padding: EdgeInsets.only(top: 8.0, bottom: 10),
-                          child: QuoteTweetViewEmbed.fromTweet(
+                          child: QuoteTweetViewEmbed.fromTweetV1(
                             _tweetVM.quotedTweet!,
                             textStyle: TextStyle(
                                 color:
@@ -203,54 +215,59 @@ class EmbeddedTweetView extends StatelessWidget {
                             color: (darkMode)
                                 ? Colors.grey[400]
                                 : Colors.grey[600]))),
-                Container(
+                if (_tweetVM.createdAt != null)
+                  Container(
                     margin: EdgeInsets.only(left: 16),
-                    child: Text(_tweetVM.createdAt,
-                        style: TextStyle(
-                            color: (darkMode)
-                                ? Colors.grey[400]
-                                : Colors.grey[600])))
+                    child: Text(
+                      _tweetVM.createdAt!,
+                      style: TextStyle(
+                          color:
+                              (darkMode) ? Colors.grey[400] : Colors.grey[600]),
+                    ),
+                  )
               ],
             ),
           ),
-          Divider(
-            color: Colors.grey[400],
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 20, right: 20, bottom: 15, top: 5),
-            child: GestureDetector(
-              behavior: HitTestBehavior.translucent,
-              onTap: () {
-                openUrl(_tweetVM.userLink);
-              },
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.person_outline,
-                    color: (darkMode) ? Colors.blue[100] : Colors.blue[700],
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 5),
-                      child: Text(
-                        "${_tweetVM.userName}'s other tweets",
-                        style: TextStyle(
-                            color: (darkMode)
-                                ? Colors.blue[100]
-                                : Colors.blue[800],
-                            fontWeight: FontWeight.w400),
-                        maxLines: 1,
-                        overflow: TextOverflow.fade,
-                        softWrap: false,
-                        textAlign: TextAlign.start,
-                      ),
-                    ),
-                  )
-                ],
-              ),
+          if (_tweetVM.userName.isNotEmpty)
+            Divider(
+              color: Colors.grey[400],
             ),
-          )
+          if (_tweetVM.userName.isNotEmpty)
+            Container(
+              margin: EdgeInsets.only(left: 20, right: 20, bottom: 15, top: 5),
+              child: GestureDetector(
+                behavior: HitTestBehavior.translucent,
+                onTap: () {
+                  openUrl(_tweetVM.userLink);
+                },
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.person_outline,
+                      color: (darkMode) ? Colors.blue[100] : Colors.blue[700],
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 5),
+                        child: Text(
+                          "${_tweetVM.userName}'s other tweets",
+                          style: TextStyle(
+                              color: (darkMode)
+                                  ? Colors.blue[100]
+                                  : Colors.blue[800],
+                              fontWeight: FontWeight.w400),
+                          maxLines: 1,
+                          overflow: TextOverflow.fade,
+                          softWrap: false,
+                          textAlign: TextAlign.start,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            )
         ],
       ),
     );

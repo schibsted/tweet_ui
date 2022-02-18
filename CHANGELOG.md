@@ -6,6 +6,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.0-dev.0] - 18.02.2022
+### Changed
+- Update SDK and Flutter versions
+- Update Android SDK versions
+- Update cached_network_image, video_player, better_player, photo_view, url_launcher
+- Added alpha version of support for Twitter API V2
+  - [BREAKING] - Changing Tweet to TweetV1Response, changing fromTweet to fromTweetV1
+  - Adding dependencies for: build_runner, json_serializable and json_annotation
+  - Added new DTOs for Twitter V2 objects
+  - Adding converter from Twitter V2 object to TweetVM
+  - Adding factory constructors for TweetView, CompactTweetView and EmbeddedTweetView that accept API V2 model
+  - Added example json files for Twitter API V2
+  - Updated README with Twitter API V2 examples
+
+## [3.0.1] - 28.09.2021
+### Changed
+- Updated photo_view
+
 ## [3.0.0] - 21.06.2021
 ### Changed
 - Moved prerelase nullsafety version as a regular release

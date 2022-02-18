@@ -31,7 +31,7 @@ class QuoteTweetViewEmbed extends StatelessWidget {
     this.onTapImage,
   }); //  TweetView(this.tweetVM);
 
-  QuoteTweetViewEmbed.fromTweet(
+  QuoteTweetViewEmbed.fromTweetV1(
     this.tweetVM, {
     this.userNameStyle,
     this.userScreenNameStyle,

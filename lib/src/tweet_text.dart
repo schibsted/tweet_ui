@@ -3,10 +3,10 @@ import 'dart:math';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:html_unescape/html_unescape_small.dart';
-import 'package:tweet_ui/models/api/entieties/hashtag_entity.dart';
-import 'package:tweet_ui/models/api/entieties/mention_entity.dart';
-import 'package:tweet_ui/models/api/entieties/symbol_entity.dart';
-import 'package:tweet_ui/models/api/entieties/url_entity.dart';
+import 'package:tweet_ui/models/api/v1/entieties/hashtag_entity.dart';
+import 'package:tweet_ui/models/api/v1/entieties/mention_entity.dart';
+import 'package:tweet_ui/models/api/v1/entieties/symbol_entity.dart';
+import 'package:tweet_ui/models/api/v1/entieties/url_entity.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
 import 'package:tweet_ui/src/url_launcher.dart';
 
