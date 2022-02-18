@@ -5,12 +5,13 @@ homepage: https://github.com/schibsted/tweet_ui
 
 environment:
   sdk: ">=2.15.0 <3.0.0"
-  flutter: "^2.8.1"
+  flutter: ">=2.8.1"
 
 dependencies:
   flutter:
     sdk: flutter
   cached_network_image: ^3.2.0
+  collection: ^1.15.0
   intl: ^0.17.0
   video_player: ^2.2.15
   better_player: ^0.0.81
