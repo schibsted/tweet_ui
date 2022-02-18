@@ -1,6 +1,6 @@
 name: tweet_ui
 description: Show Tweets from a Twitter API JSON on Android and iOS. Support for Tweets with 1-4 photos, Video, GIFs, hashtags, mentions, symbols, urls, quoted Tweets and retweets.
-version: 3.0.1
+version: 4.0.0-dev.0
 homepage: https://github.com/schibsted/tweet_ui
 
 environment:
