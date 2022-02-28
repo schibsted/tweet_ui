@@ -40,6 +40,9 @@ class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMi
 
     // TODO:
     // - No quality controls
+    // TODO: full screen issues
+    // - https://github.com/fluttercommunity/chewie/issues/297
+    // - https://github.com/fluttercommunity/chewie/issues/407
     _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController,
       autoPlay: widget.tweetVM.getDisplayTweet().hasGif || widget.autoPlay,
