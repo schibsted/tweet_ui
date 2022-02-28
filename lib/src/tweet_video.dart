@@ -1,7 +1,8 @@
-import 'package:better_player/better_player.dart';
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
+import 'package:video_player/video_player.dart';
 
 class TweetVideo extends StatefulWidget {
   TweetVideo(
@@ -23,15 +24,42 @@ class TweetVideo extends StatefulWidget {
   _TweetVideoState createState() => _TweetVideoState();
 }
 
-class _TweetVideoState extends State<TweetVideo>
-    with AutomaticKeepAliveClientMixin {
-  late BetterPlayerConfiguration betterPlayerConfiguration;
-  late BetterPlayerController controller;
+class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMixin {
+  late VideoPlayerController _videoPlayerController;
+  late ChewieController _chewieController;
 
   @override
   void initState() {
     super.initState();
-    betterPlayerConfiguration = BetterPlayerConfiguration(
+
+    var videoUrl = widget.videoHighQuality!
+        ? widget.tweetVM.getDisplayTweet().videoUrls.values.last
+        : widget.tweetVM.getDisplayTweet().videoUrls.values.first;
+
+    _videoPlayerController = VideoPlayerController.network(videoUrl);
+
+    // TODO:
+    // - No quality controls
+    _chewieController = ChewieController(
+      videoPlayerController: _videoPlayerController,
+      autoPlay: widget.tweetVM.getDisplayTweet().hasGif || widget.autoPlay,
+      looping: widget.tweetVM.getDisplayTweet().hasGif,
+      allowFullScreen: widget.enableFullscreen,
+      autoInitialize: true,
+      aspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio!,
+      deviceOrientationsOnEnterFullScreen: [
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.landscapeLeft,
+        DeviceOrientation.landscapeRight,
+      ],
+      fullScreenByDefault: false,
+      allowedScreenSleep: false,
+      allowMuting: !widget.tweetVM.getDisplayTweet().hasGif,
+      showControls: !widget.tweetVM.getDisplayTweet().hasGif,
+      allowPlaybackSpeedChanging: false,
+      errorBuilder: (context, message) {
+        return Text('Error while loading video :-(');
+      },
       placeholder: Center(
         child: SizedBox(
           height: 32,
@@ -39,30 +67,6 @@ class _TweetVideoState extends State<TweetVideo>
           child: CircularProgressIndicator(),
         ),
       ),
-      errorBuilder: (context, message) {
-        return Text('Error while loading video :-(');
-      },
-      aspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio!,
-      controlsConfiguration: BetterPlayerControlsConfiguration(
-        enablePlaybackSpeed: false,
-        enableSkips: false,
-        enableMute: !widget.tweetVM.getDisplayTweet().hasGif,
-        showControls: !widget.tweetVM.getDisplayTweet().hasGif,
-        enableSubtitles: false,
-        enableQualities: true,
-        enableOverflowMenu: true,
-        enableFullscreen: widget.enableFullscreen,
-      ),
-      allowedScreenSleep: false,
-      fullScreenByDefault: false,
-      deviceOrientationsOnFullScreen: [
-        DeviceOrientation.portraitUp,
-        DeviceOrientation.landscapeLeft,
-        DeviceOrientation.landscapeRight
-      ],
-      fullScreenAspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio!,
-      autoPlay: widget.tweetVM.getDisplayTweet().hasGif || widget.autoPlay,
-      looping: widget.tweetVM.getDisplayTweet().hasGif,
       overlay: Padding(
         padding: const EdgeInsets.only(
           left: 4.0,
@@ -81,22 +85,22 @@ class _TweetVideoState extends State<TweetVideo>
             : Container(),
       ),
     );
-    var videoUrl = widget.videoHighQuality!
-        ? widget.tweetVM.getDisplayTweet().videoUrls.values.last
-        : widget.tweetVM.getDisplayTweet().videoUrls.values.first;
-    controller = BetterPlayerController(
-      betterPlayerConfiguration,
-      betterPlayerDataSource: BetterPlayerDataSource.network(videoUrl,
-          qualities: widget.tweetVM.getDisplayTweet().videoUrls),
-    );
-    controller.setVolume(widget.initialVolume!);
+  }
+
+  @override
+  void dispose() {
+    _videoPlayerController.dispose();
+    _chewieController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return BetterPlayer(
-      controller: controller,
+    return Material(
+      child: Chewie(
+        controller: _chewieController,
+      ),
     );
   }
 
