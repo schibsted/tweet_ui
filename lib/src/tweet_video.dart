@@ -28,27 +28,33 @@ class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMi
   late VideoPlayerController _videoPlayerController;
   late ChewieController _chewieController;
 
+  Duration _currentPosition = Duration.zero;
+  bool _isPlaying = false;
+
   @override
   void initState() {
     super.initState();
+    _initControllers();
+  }
 
+  void _initControllers() {
     var videoUrl = widget.videoHighQuality!
         ? widget.tweetVM.getDisplayTweet().videoUrls.values.last
         : widget.tweetVM.getDisplayTweet().videoUrls.values.first;
 
-    _videoPlayerController = VideoPlayerController.network(videoUrl);
+    _videoPlayerController = VideoPlayerController.network(videoUrl)
+      ..initialize().then((value) {
+        _videoPlayerController.seekTo(_currentPosition);
+        setState(() {});
+      });
 
     // TODO:
     // - No quality controls
-    // TODO: full screen issues
-    // - https://github.com/fluttercommunity/chewie/issues/297
-    // - https://github.com/fluttercommunity/chewie/issues/407
     _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController,
       autoPlay: widget.tweetVM.getDisplayTweet().hasGif || widget.autoPlay,
       looping: widget.tweetVM.getDisplayTweet().hasGif,
       allowFullScreen: widget.enableFullscreen,
-      autoInitialize: true,
       aspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio!,
       deviceOrientationsOnEnterFullScreen: [
         DeviceOrientation.portraitUp,
@@ -87,7 +93,26 @@ class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMi
               )
             : Container(),
       ),
-    );
+    )..addListener(_reInitListener);
+
+    if (_isPlaying) {
+      _chewieController.play();
+    }
+  }
+
+  /// We need this to properly handle fullscreen exit
+  /// see - https://github.com/fluttercommunity/chewie/issues/407
+  void _reInitControllers() {
+    _chewieController.removeListener(_reInitListener);
+    _currentPosition = _videoPlayerController.value.position;
+    _isPlaying = _chewieController.isPlaying;
+    _initControllers();
+  }
+
+  void _reInitListener() {
+    if (!_chewieController.isFullScreen) {
+      _reInitControllers();
+    }
   }
 
   @override
@@ -101,12 +126,14 @@ class _TweetVideoState extends State<TweetVideo> with AutomaticKeepAliveClientMi
   Widget build(BuildContext context) {
     super.build(context);
     return Material(
-      child: Chewie(
-        controller: _chewieController,
-      ),
+      child: _videoPlayerController.value.isInitialized
+          ? Chewie(
+              controller: _chewieController,
+            )
+          : null,
     );
   }
 
   @override
-  bool get wantKeepAlive => true;
+  bool get wantKeepAlive => false;
 }
