@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Adding android:exported="true" to example app to be able to run it on Android 12
+- Added support for single tweet in data response (e.g. from GET /2/tweets/:id endpoint)
 
 ## [4.0.0-dev.0] - 18.02.2022
 ### Changed

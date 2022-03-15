@@ -12,25 +12,34 @@ part 'tweet_v2.g.dart';
 /// Those need to be included in expansion parameters.
 @JsonSerializable()
 class TweetV2Response {
-  /// This field will contain the actual tweet, in this library we assume it will have exactly one element
-  final List<TweetV2> data;
+  /// This field will contain the actual tweet.
+  /// One endpoints of twitter API returns here a list an another returns a single object, hence Object
+  /// but in reality it should always be either TweetV2 or List<TweetV2>
+  /// If response is a list we always take the first element
+  final Object data;
 
   /// This field will contain any objects referenced from tweet inside data field, like media, users or tweets
   final TweetV2Includes includes;
 
-  const TweetV2Response({
+  /// This is the tweet extracted from [data] field
+  final TweetV2 tweet;
+
+  TweetV2Response({
     required this.data,
     this.includes = const TweetV2Includes(),
-  });
+  }) : tweet = _getTweet(data);
 
-  factory TweetV2Response.fromRawJson(String str) =>
-      TweetV2Response.fromJson(json.decode(str));
+  factory TweetV2Response.fromRawJson(String str) => TweetV2Response.fromJson(json.decode(str));
 
-  factory TweetV2Response.fromJson(Map<String, dynamic> json) =>
-      _$TweetV2ResponseFromJson(json);
+  factory TweetV2Response.fromJson(Map<String, dynamic> json) => _$TweetV2ResponseFromJson(json);
 
   /// For the sake of this library we always assume there is exactly one tweet to be displayed
-  TweetV2 get tweet => data.first;
+  static TweetV2 _getTweet(Object data) {
+    if (data is List) {
+      return TweetV2.fromJson(data.first as Map<String, dynamic>);
+    }
+    return TweetV2.fromJson(data as Map<String, dynamic>);
+  }
 }
 
 @JsonSerializable()
@@ -80,8 +89,7 @@ class TweetV2 {
     this.publicMetrics = const TweetV2PublicMetrics.empty(),
   });
 
-  factory TweetV2.fromJson(Map<String, dynamic> json) =>
-      _$TweetV2FromJson(json);
+  factory TweetV2.fromJson(Map<String, dynamic> json) => _$TweetV2FromJson(json);
 }
 
 enum ReferencedTweetType {
@@ -101,8 +109,7 @@ class ReferencedTweet {
 
   const ReferencedTweet(this.type, this.id);
 
-  factory ReferencedTweet.fromJson(Map<String, dynamic> json) =>
-      _$ReferencedTweetFromJson(json);
+  factory ReferencedTweet.fromJson(Map<String, dynamic> json) => _$ReferencedTweetFromJson(json);
 }
 
 @JsonSerializable()
@@ -114,8 +121,7 @@ class TweetV2Attachment {
 
   const TweetV2Attachment.empty() : this.mediaKeys = const [];
 
-  factory TweetV2Attachment.fromJson(Map<String, dynamic> json) =>
-      _$TweetV2AttachmentFromJson(json);
+  factory TweetV2Attachment.fromJson(Map<String, dynamic> json) => _$TweetV2AttachmentFromJson(json);
 }
 
 @JsonSerializable()
@@ -128,8 +134,7 @@ class TweetV2PublicMetrics {
 
   const TweetV2PublicMetrics.empty() : this.likeCount = 0;
 
-  factory TweetV2PublicMetrics.fromJson(Map<String, dynamic> json) =>
-      _$TweetV2PublicMetricsFromJson(json);
+  factory TweetV2PublicMetrics.fromJson(Map<String, dynamic> json) => _$TweetV2PublicMetricsFromJson(json);
 }
 
 @JsonSerializable()
@@ -149,6 +154,5 @@ class TweetV2Includes {
     this.media = const [],
   });
 
-  factory TweetV2Includes.fromJson(Map<String, dynamic> json) =>
-      _$TweetV2IncludesFromJson(json);
+  factory TweetV2Includes.fromJson(Map<String, dynamic> json) => _$TweetV2IncludesFromJson(json);
 }
