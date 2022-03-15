@@ -35,6 +35,11 @@ class TweetV2Response {
 
   /// For the sake of this library we always assume there is exactly one tweet to be displayed
   static TweetV2 _getTweet(Object data) {
+    /// Case for referenced tweets
+    if (data is List<TweetV2>) {
+      return data.first;
+    }
+
     if (data is List) {
       return TweetV2.fromJson(data.first as Map<String, dynamic>);
     }
