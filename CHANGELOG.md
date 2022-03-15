@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Adding android:exported="true" to example app to be able to run it on Android 12
 
 ## [4.0.0-dev.0] - 18.02.2022
 ### Changed
