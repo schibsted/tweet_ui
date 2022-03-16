@@ -33,6 +33,8 @@ TweetView.fromTweetV2(
     TweetV2Response.fromRawJson(
         jsonFromTwitterAPI
         // {"data": ["created_at": "2020-09-18T18:36:15.000Z", "id": "1061967001177018368", ...
+        // or
+        // {"data": {"created_at": "2020-09-18T18:36:15.000Z", "id": "1061967001177018368", ...
     )
 );
 ```
@@ -55,6 +57,8 @@ CompactTweetView.fromTweetV2(
     TweetV2Response.fromRawJson(
         jsonFromTwitterAPI
         // {"data": ["created_at": "2020-09-18T18:36:15.000Z", "id": "1061967001177018368", ...
+        // or
+        // {"data": {"created_at": "2020-09-18T18:36:15.000Z", "id": "1061967001177018368", ...
     )
 );
 ```
@@ -78,6 +82,8 @@ EmbeddedTweetView.fromTweetV2(
     TweetV2Response.fromRawJson(
       jsonFromTwitterAPI
       // {"data": ["created_at": "2020-09-18T18:36:15.000Z", "id": "1061967001177018368", ...
+      // or
+      // {"data": {"created_at": "2020-09-18T18:36:15.000Z", "id": "1061967001177018368", ...
     )
     darkMode: true,
 )
