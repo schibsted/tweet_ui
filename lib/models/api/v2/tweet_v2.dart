@@ -29,9 +29,19 @@ class TweetV2Response {
     this.includes = const TweetV2Includes(),
   }) : tweet = _getTweet(data);
 
+  /// This function can accept both JSON that has a list and a single object in [data] field
+  /// So both
+  /// - {"data": ["created_at": "2020-09-18T18:36:15.000Z", "id": "1061967001177018368", ...
+  /// - {"data": {"created_at": "2020-09-18T18:36:15.000Z", "id": "1061967001177018368", ...
+  /// are valid
   factory TweetV2Response.fromRawJson(String str) =>
       TweetV2Response.fromJson(json.decode(str));
 
+  /// This function can accept both JSON that has a list and a single object in [data] field
+  /// So both
+  /// - {"data": ["created_at": "2020-09-18T18:36:15.000Z", "id": "1061967001177018368", ...
+  /// - {"data": {"created_at": "2020-09-18T18:36:15.000Z", "id": "1061967001177018368", ...
+  /// are valid
   factory TweetV2Response.fromJson(Map<String, dynamic> json) =>
       _$TweetV2ResponseFromJson(json);
 
