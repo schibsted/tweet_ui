@@ -21,18 +21,19 @@ class TweetV2ToTweetVMConverter {
     return TweetVM(
       createdAt: _createdAt(createdDateDisplayFormat),
       hasSupportedVideo: _hasSupportedVideo(),
-      allEntities: _allEntities(),
+      allEntities: _allEntities(_originalTweetOrRetweet),
       hasPhoto: _hasPhoto(),
       hasGif: _hasGif(),
       tweetLink: _tweetLink()!,
       userLink: _userLink()!,
-      text: _text(),
-      textRunes: _runes(),
+      text: _text(_originalTweetOrRetweet),
+      textRunes: _runes(_originalTweetOrRetweet),
       profileUrl: _profileURL(),
       allPhotos: _allPhotos(),
       userName: _userName(),
       userScreenName: _userScreenName(),
-      quotedTweet: _quotedTweet(createdDateDisplayFormat),
+      quotedTweet:
+          _quotedTweet(_originalTweetOrRetweet, createdDateDisplayFormat),
       retweetedTweet: _retweetedTweet(createdDateDisplayFormat),
       userVerified: _userVerified(),
       videoPlaceholderUrl: _videoPlaceholderUrl(),
@@ -40,10 +41,12 @@ class TweetV2ToTweetVMConverter {
       videoAspectRatio: _videoAspectRatio(),
       favoriteCount: _favoriteCount,
       startDisplayText: _startDisplayText,
-      endDisplayText: _endDisplayText,
+      endDisplayText: _endDisplayText(_originalTweetOrRetweet),
       favorited: _favorited,
     );
   }
+
+  TweetV2 get _originalTweetOrRetweet => _getPossibleRetweetedTweet() ?? tweet;
 
   TweetV2 get tweet => tweetResponse.tweet;
 
@@ -77,7 +80,7 @@ class TweetV2ToTweetVMConverter {
 
   List<MediaV2> _allMediaEntities() => tweetResponse.includes.media;
 
-  List<Entity> _allEntities() {
+  List<Entity> _allEntities(TweetV2 tweet) {
     final List<Entity> allEntities = [
       ...tweet.entities.hashtags.map((e) => e.toV1()).toList(),
       ...tweet.entities.cashtags.map((e) => e.toV1()).toList(),
@@ -137,9 +140,9 @@ class TweetV2ToTweetVMConverter {
     }
   }
 
-  String _text() => tweet.text;
+  String _text(TweetV2 tweet) => tweet.text;
 
-  Runes _runes() => tweet.text.runes;
+  Runes _runes(TweetV2 tweet) => tweet.text.runes;
 
   String? _profileURL() => tweetAuthor()?.profileImageUrl;
 
@@ -157,7 +160,7 @@ class TweetV2ToTweetVMConverter {
 
   String _userScreenName() => tweetAuthor()?.username ?? "";
 
-  TweetVM? _quotedTweet(DateFormat? createdDateDisplayFormat) {
+  TweetVM? _quotedTweet(TweetV2 tweet, DateFormat? createdDateDisplayFormat) {
     final String? quotedTweetId = tweet.referencedTweets
         .firstWhereOrNull((tweet) => tweet.type == ReferencedTweetType.quoted)
         ?.id;
@@ -171,26 +174,30 @@ class TweetV2ToTweetVMConverter {
 
     return TweetV2ToTweetVMConverter(TweetV2Response(
       data: [quotedTweet],
-      includes: TweetV2Includes(),
+      includes: tweetResponse.includes,
     )).convert(createdDateDisplayFormat);
   }
 
-  TweetVM? _retweetedTweet(DateFormat? createdDateDisplayFormat) {
-    final String? quotedTweetId = tweet.referencedTweets
+  TweetV2? _getPossibleRetweetedTweet() {
+    final String? retweetedTweetId = tweet.referencedTweets
         .firstWhereOrNull(
             (tweet) => tweet.type == ReferencedTweetType.retweeted)
         ?.id;
 
-    final TweetV2? quotedTweet = tweetResponse.includes.tweets
-        .firstWhereOrNull((tweet) => tweet.id == quotedTweetId);
+    return tweetResponse.includes.tweets
+        .firstWhereOrNull((tweet) => tweet.id == retweetedTweetId);
+  }
 
-    if (quotedTweet == null) {
+  TweetVM? _retweetedTweet(DateFormat? createdDateDisplayFormat) {
+    final TweetV2? retweetedTweet = _getPossibleRetweetedTweet();
+
+    if (retweetedTweet == null) {
       return null;
     }
 
     return TweetV2ToTweetVMConverter(TweetV2Response(
-      data: [quotedTweet],
-      includes: TweetV2Includes(),
+      data: [retweetedTweet],
+      includes: tweetResponse.includes,
     )).convert(createdDateDisplayFormat);
   }
 
@@ -216,7 +223,7 @@ class TweetV2ToTweetVMConverter {
 
   int get _startDisplayText => 0;
 
-  int get _endDisplayText => tweet.text.length;
+  int _endDisplayText(TweetV2 tweet) => tweet.text.length;
 
   bool get _favorited => _favoriteCount > 0;
 }
