@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
+- [BREAKING] - Change onTapImage to OnTapImage to remove analyser warning
+- Regenerating lock files
 
 ## [4.0.0-dev.1] - 21.03.2022
 ### Changed
