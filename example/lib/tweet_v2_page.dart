@@ -56,6 +56,11 @@ class TweetV2Page extends StatelessWidget {
             tweetPath: 'assets/tweet_v2_examples/tiny_tweet.json',
             tweetType: TweetType.v2,
           ),
+          OpenTweetPageButton(
+            title: "Single tweet",
+            tweetPath: 'assets/tweet_v2_examples/single_tweet.json',
+            tweetType: TweetType.v2,
+          ),
         ],
       ),
     );

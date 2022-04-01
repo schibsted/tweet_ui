@@ -8,9 +8,7 @@ part of 'tweet_v2.dart';
 
 TweetV2Response _$TweetV2ResponseFromJson(Map<String, dynamic> json) =>
     TweetV2Response(
-      data: (json['data'] as List<dynamic>)
-          .map((e) => TweetV2.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      data: json['data'] as Object,
       includes: json['includes'] == null
           ? const TweetV2Includes()
           : TweetV2Includes.fromJson(json['includes'] as Map<String, dynamic>),

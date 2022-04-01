@@ -1,0 +1,53 @@
+{
+  "data": {
+    "public_metrics": {
+      "retweet_count": 60,
+      "reply_count": 1,
+      "like_count": 1127,
+      "quote_count": 2
+    },
+    "text": "💚 https://t.co/aQzfPXXblD",
+    "attachments": {
+      "media_keys": [
+        "3_1502580661231792138",
+        "3_1502580676830404615",
+        "3_1502580690411479041"
+      ]
+    },
+    "created_at": "2022-03-12T09:42:08.000Z",
+    "author_id": "1016076290",
+    "id": "1502580693011996674"
+  },
+  "includes": {
+    "media": [
+      {
+        "url": "https://pbs.twimg.com/media/FNo9Jn8XsAoIwFn.jpg",
+        "width": 2048,
+        "media_key": "3_1502580661231792138",
+        "height": 2048,
+        "type": "photo"
+      },
+      {
+        "url": "https://pbs.twimg.com/media/FNo9KiDXoAc1lRx.jpg",
+        "width": 2048,
+        "media_key": "3_1502580676830404615",
+        "height": 1363,
+        "type": "photo"
+      },
+      {
+        "url": "https://pbs.twimg.com/media/FNo9LUpWYAELulQ.jpg",
+        "width": 2048,
+        "media_key": "3_1502580690411479041",
+        "height": 1366,
+        "type": "photo"
+      }
+    ],
+    "users": [
+      {
+        "id": "1016076290",
+        "name": "Sebastian Vettel #5",
+        "username": "sebvettelnews"
+      }
+    ]
+  }
+}

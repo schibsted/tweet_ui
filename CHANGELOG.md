@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
+
+## [4.0.0-dev.1] - 21.03.2022
+### Changed
+- Adding android:exported="true" to example app to be able to run it on Android 12
+- Added support for single tweet in data response (e.g. from GET /2/tweets/:id endpoint)
+- Fix retweet in Twitter API V2
+
+## [4.0.0-dev.0] - 18.02.2022
+### Changed
 - Update SDK and Flutter versions
 - Update Android SDK versions
 - Update cached_network_image, video_player, better_player, photo_view, url_launcher
