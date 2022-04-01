@@ -13,6 +13,9 @@ import it:
 
 `import 'package:tweet_ui/tweet_ui.dart';`
 
+If you want to show tweets with videos: check the
+[better_player installation]( https://jhomlala.github.io/betterplayer/#/install) site.cd 
+
 finally, create a `TweetView` from a JSON:
 
 ### API V1.1
