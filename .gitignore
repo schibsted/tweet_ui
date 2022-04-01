@@ -76,4 +76,4 @@ build/
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
 # Lock file - as library package we should not have lock file in the repository
-pubspec.lock
+/pubspec.lock
