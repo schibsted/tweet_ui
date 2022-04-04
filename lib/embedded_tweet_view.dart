@@ -38,8 +38,8 @@ class EmbeddedTweetView extends StatelessWidget {
   /// Date format when the tweet was created. When null it defaults to DateFormat("HH:mm • MM.dd.yyyy", 'en_US')
   final DateFormat? createdDateDisplayFormat;
 
-  /// If set to true betterplayer/video_player will load the highest quality available.
-  /// If set to false betterplayer/video_player will load the lowest quality available.
+  /// If set to true betterplayer will load the highest quality available.
+  /// If set to false betterplayer will load the lowest quality available.
   final bool videoHighQuality;
 
   EmbeddedTweetView(

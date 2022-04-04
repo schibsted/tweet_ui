@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
+- [BREAKING] - Change onTapImage to OnTapImage to remove analyser warning
+- Updating ios version for example project to 11 to support better player
+- Regenerating example project with flutter create command
+
+### Removed:
+- unused video_player dependency
+- lock file from repository - adding it to gitignore
 
 ## [4.0.0-dev.1] - 21.03.2022
 ### Changed

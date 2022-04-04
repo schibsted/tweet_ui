@@ -14,7 +14,10 @@ import it:
 `import 'package:tweet_ui/tweet_ui.dart';`
 
 If you want to show tweets with videos: check the
-[video_player installation](https://pub.dev/packages/video_player#installation) site.
+[better_player installation]( https://jhomlala.github.io/betterplayer/#/install) site
+
+> Video/GIF Tweets don't work on iOS simulators ([video_player ios instructions](https://pub.dev/packages/video_player#ios))
+
 
 finally, create a `TweetView` from a JSON:
 
