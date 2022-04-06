@@ -54,10 +54,6 @@ class CompactTweetView extends StatelessWidget {
   /// Color of the Tweet background
   final Color? backgroundColor;
 
-  /// If set to true a betterplayer/video_player will be used in a Tweet containing a video.
-  /// If set to false a image placeholder will he shown and a video will be played in a new page.
-  final bool useVideoPlayer;
-
   /// If the Tweet contains a video then an initial volume can be specified with a value between 0.0 and 1.0.
   final double? videoPlayerInitialVolume;
 
@@ -67,8 +63,8 @@ class CompactTweetView extends StatelessWidget {
   /// Date format when the tweet was created. When null it defaults to DateFormat("HH:mm • MM.dd.yyyy", 'en_US')
   final DateFormat? createdDateDisplayFormat;
 
-  /// If set to true betterplayer/video_player will load the highest quality available.
-  /// If set to false betterplayer/video_player will load the lowest quality available.
+  /// If set to true betterplayer will load the highest quality available.
+  /// If set to false betterplayer will load the lowest quality available.
   final bool videoHighQuality;
 
   CompactTweetView(
@@ -85,7 +81,6 @@ class CompactTweetView extends StatelessWidget {
     this.quoteBorderColor,
     this.quoteBackgroundColor,
     this.backgroundColor,
-    required this.useVideoPlayer,
     this.videoPlayerInitialVolume,
     this.onTapImage,
     this.createdDateDisplayFormat,
@@ -107,7 +102,6 @@ class CompactTweetView extends StatelessWidget {
     this.quoteBorderColor = Colors.grey,
     this.quoteBackgroundColor = Colors.white,
     this.backgroundColor = Colors.white,
-    this.useVideoPlayer = true,
     this.videoPlayerInitialVolume = 0.0,
     this.onTapImage,
     this.createdDateDisplayFormat,
@@ -129,7 +123,6 @@ class CompactTweetView extends StatelessWidget {
     this.quoteBorderColor = Colors.grey,
     this.quoteBackgroundColor = Colors.white,
     this.backgroundColor = Colors.white,
-    this.useVideoPlayer = true,
     this.videoPlayerInitialVolume = 0.0,
     this.onTapImage,
     this.createdDateDisplayFormat,
@@ -176,7 +169,6 @@ class CompactTweetView extends StatelessWidget {
                         MediaContainer(
                           _tweetVM,
                           ViewMode.compact,
-                          useVideoPlayer: useVideoPlayer,
                           videoPlayerInitialVolume: videoPlayerInitialVolume,
                           onTapImage: onTapImage,
                           videoHighQuality: videoHighQuality,
