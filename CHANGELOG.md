@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [BREAKING] - removed `useVideoPlayer` - now betterplayer will be used in a Tweet containing a video
 - unused video_player dependency
 - lock file from repository - adding it to gitignore
+- updated url_launcher
 
 ## [4.0.0-dev.1] - 21.03.2022
 ### Changed
