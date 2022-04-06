@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Regenerating example project with flutter create command
 
 ### Removed:
+- [BREAKING] - removed `useVideoPlayer` - now betterplayer will be used in a Tweet containing a video
 - unused video_player dependency
 - lock file from repository - adding it to gitignore
 
