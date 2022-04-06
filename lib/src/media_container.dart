@@ -31,7 +31,8 @@ class MediaContainer extends StatefulWidget {
   _MediaContainerState createState() => _MediaContainerState();
 }
 
-class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAliveClientMixin, TickerProviderStateMixin {
+class _MediaContainerState extends State<MediaContainer>
+    with AutomaticKeepAliveClientMixin, TickerProviderStateMixin {
   late var hashcode;
 
   @override
@@ -56,7 +57,8 @@ class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAlive
         case 1:
           child = AspectRatio(
             aspectRatio: MediaContainer.DEFAULT_ASPECT_RATIO_MEDIA_CONTAINER,
-            child: _buildSinglePhoto(context, widget.tweetVM.getDisplayTweet().allPhotos, 0, hashcode),
+            child: _buildSinglePhoto(context,
+                widget.tweetVM.getDisplayTweet().allPhotos, 0, hashcode),
           );
           break;
         case 2:
@@ -66,11 +68,13 @@ class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAlive
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Expanded(
-                  child: _buildSinglePhoto(context, widget.tweetVM.getDisplayTweet().allPhotos, 0, hashcode),
+                  child: _buildSinglePhoto(context,
+                      widget.tweetVM.getDisplayTweet().allPhotos, 0, hashcode),
                 ),
                 VerticalDivider(color: Colors.white, width: 1.0),
                 Expanded(
-                  child: _buildSinglePhoto(context, widget.tweetVM.getDisplayTweet().allPhotos, 1, hashcode),
+                  child: _buildSinglePhoto(context,
+                      widget.tweetVM.getDisplayTweet().allPhotos, 1, hashcode),
                 )
               ],
             ),
@@ -82,18 +86,27 @@ class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAlive
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: _buildSinglePhoto(context, widget.tweetVM.getDisplayTweet().allPhotos, 0, hashcode),
+                  child: _buildSinglePhoto(context,
+                      widget.tweetVM.getDisplayTweet().allPhotos, 0, hashcode),
                 ),
                 VerticalDivider(color: Colors.white, width: 1.0),
                 Expanded(
                   child: Column(
                     children: <Widget>[
                       Expanded(
-                        child: _buildSinglePhoto(context, widget.tweetVM.getDisplayTweet().allPhotos, 1, hashcode),
+                        child: _buildSinglePhoto(
+                            context,
+                            widget.tweetVM.getDisplayTweet().allPhotos,
+                            1,
+                            hashcode),
                       ),
                       Divider(color: Colors.white, height: 1.0),
                       Expanded(
-                        child: _buildSinglePhoto(context, widget.tweetVM.getDisplayTweet().allPhotos, 2, hashcode),
+                        child: _buildSinglePhoto(
+                            context,
+                            widget.tweetVM.getDisplayTweet().allPhotos,
+                            2,
+                            hashcode),
                       )
                     ],
                   ),
@@ -116,7 +129,11 @@ class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAlive
                 mainAxisSpacing: 1.0,
               ),
               itemBuilder: (BuildContext context, int index) {
-                return _buildSinglePhoto(context, widget.tweetVM.getDisplayTweet().allPhotos, index, hashcode);
+                return _buildSinglePhoto(
+                    context,
+                    widget.tweetVM.getDisplayTweet().allPhotos,
+                    index,
+                    hashcode);
               },
             ),
             aspectRatio: widget.viewMode == ViewMode.standard
@@ -162,7 +179,8 @@ class _MediaContainerState extends State<MediaContainer> with AutomaticKeepAlive
 
   /// allPhotos - list on URLs that is used to build a gallery view
   /// hashcode - used for the Hero tag. The image URL is not enough - for example, you can still have duplicated tweets on a list.
-  Widget _buildSinglePhoto(BuildContext context, List<String> allPhotos, int photoIndex, String hashcode) {
+  Widget _buildSinglePhoto(BuildContext context, List<String> allPhotos,
+      int photoIndex, String hashcode) {
     final List<PhotoViewGalleryPageOptions> galleryPageOptions = allPhotos
         .map((photoUrl) => PhotoViewGalleryPageOptions(
               // TODO add option to choose image size (Twitter supports ":medium" ":large" at the end of photoUrl.
