@@ -25,10 +25,6 @@ class EmbeddedTweetView extends StatelessWidget {
   /// If set to true the the text and icons will be light
   final bool darkMode;
 
-  /// If set to true a betterplayer will be used in a Tweet containing a video.
-  /// If set to false a image placeholder will he shown and a video will be played in a new page.
-  final bool useVideoPlayer;
-
   /// If the Tweet contains a video then an initial volume can be specified with a value between 0.0 and 1.0.
   final double? videoPlayerInitialVolume;
 
@@ -46,7 +42,6 @@ class EmbeddedTweetView extends StatelessWidget {
     this._tweetVM, {
     this.backgroundColor,
     required this.darkMode,
-    required this.useVideoPlayer,
     this.videoPlayerInitialVolume,
     this.onTapImage,
     this.createdDateDisplayFormat,
@@ -57,7 +52,6 @@ class EmbeddedTweetView extends StatelessWidget {
     TweetV1Response tweet, {
     this.backgroundColor = Colors.white,
     this.darkMode = false,
-    this.useVideoPlayer = true,
     this.videoPlayerInitialVolume = 0.0,
     this.onTapImage,
     this.createdDateDisplayFormat,
@@ -68,7 +62,6 @@ class EmbeddedTweetView extends StatelessWidget {
     TweetV2Response tweet, {
     this.backgroundColor = Colors.white,
     this.darkMode = false,
-    this.useVideoPlayer = true,
     this.videoPlayerInitialVolume = 0.0,
     this.onTapImage,
     this.createdDateDisplayFormat,
@@ -193,7 +186,6 @@ class EmbeddedTweetView extends StatelessWidget {
             child: MediaContainer(
               _tweetVM,
               ViewMode.standard,
-              useVideoPlayer: useVideoPlayer,
               videoPlayerInitialVolume: videoPlayerInitialVolume,
               onTapImage: onTapImage,
               videoHighQuality: videoHighQuality,

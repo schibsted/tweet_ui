@@ -82,7 +82,6 @@ class QuoteTweetView extends StatelessWidget {
               MediaContainer(
                 tweetVM,
                 ViewMode.quote,
-                useVideoPlayer: false,
                 onTapImage: onTapImage,
               ),
             ],

@@ -4,7 +4,6 @@ import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
 import 'package:tweet_ui/on_tap_image.dart';
-import 'package:tweet_ui/src/animated_play_button.dart';
 import 'package:tweet_ui/src/tweet_video.dart';
 import 'package:tweet_ui/src/view_mode.dart';
 
@@ -18,7 +17,6 @@ class MediaContainer extends StatefulWidget {
     this.tweetVM,
     this.viewMode, {
     Key? key,
-    this.useVideoPlayer = true,
     this.videoPlayerInitialVolume = 0.0,
     this.videoHighQuality = true,
     this.onTapImage,
@@ -26,7 +24,6 @@ class MediaContainer extends StatefulWidget {
 
   final TweetVM tweetVM;
   final ViewMode viewMode;
-  final bool? useVideoPlayer;
   final bool? videoHighQuality;
   final double? videoPlayerInitialVolume;
 
@@ -50,50 +47,11 @@ class _MediaContainerState extends State<MediaContainer>
 
     Widget? child;
     if (widget.tweetVM.getDisplayTweet().hasSupportedVideo) {
-      if (widget.useVideoPlayer!) {
-        child = TweetVideo(
-          widget.tweetVM.getDisplayTweet(),
-          initialVolume: widget.videoPlayerInitialVolume,
-          videoHighQuality: widget.videoHighQuality,
-        );
-      } else {
-        child = Stack(
-          children: <Widget>[
-            Image(
-              image: CachedNetworkImageProvider(
-                  widget.tweetVM.getDisplayTweet().videoPlaceholderUrl!),
-              width: MediaQuery.of(context).size.width,
-              fit: BoxFit.cover,
-            ),
-            Positioned.fill(
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  left: 4.0,
-                ),
-                child: widget.tweetVM.getDisplayTweet().hasGif
-                    ? Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Image.asset(
-                          "assets/tw__ic_gif_badge.png",
-                          fit: BoxFit.fitWidth,
-                          package: 'tweet_ui',
-                          height: 16,
-                          width: 16,
-                        ),
-                      )
-                    : Container(),
-              ),
-            ),
-            Positioned.fill(
-              child: Center(
-                child: AnimatedPlayButton(
-                  tweetVM: widget.tweetVM.getDisplayTweet(),
-                ),
-              ),
-            )
-          ],
-        );
-      }
+      child = TweetVideo(
+        widget.tweetVM.getDisplayTweet(),
+        initialVolume: widget.videoPlayerInitialVolume,
+        videoHighQuality: widget.videoHighQuality,
+      );
     } else if (widget.tweetVM.getDisplayTweet().hasPhoto) {
       switch (widget.tweetVM.getDisplayTweet().allPhotos.length) {
         case 1:
