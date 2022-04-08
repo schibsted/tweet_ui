@@ -60,6 +60,7 @@ TweetV2PublicMetrics _$TweetV2PublicMetricsFromJson(
         Map<String, dynamic> json) =>
     TweetV2PublicMetrics(
       likeCount: json['like_count'] as int,
+      replyCount: json['reply_count'] as int? ?? 0,
     );
 
 TweetV2Includes _$TweetV2IncludesFromJson(Map<String, dynamic> json) =>

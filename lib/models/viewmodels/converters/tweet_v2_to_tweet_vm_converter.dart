@@ -40,9 +40,11 @@ class TweetV2ToTweetVMConverter {
       videoUrls: _videoUrls(),
       videoAspectRatio: _videoAspectRatio(),
       favoriteCount: _favoriteCount,
+      repliesCount: _repliesCount,
       startDisplayText: _startDisplayText,
       endDisplayText: _endDisplayText(_originalTweetOrRetweet),
       favorited: _favorited,
+      replied: _replied,
     );
   }
 
@@ -220,10 +222,12 @@ class TweetV2ToTweetVMConverter {
   }
 
   int get _favoriteCount => tweet.publicMetrics.likeCount;
+  int get _repliesCount => tweet.publicMetrics.replyCount;
 
   int get _startDisplayText => 0;
 
   int _endDisplayText(TweetV2 tweet) => tweet.text.length;
 
   bool get _favorited => _favoriteCount > 0;
+  bool get _replied => _repliesCount > 0;
 }
