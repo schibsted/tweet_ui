@@ -26,9 +26,11 @@ class TweetVM {
   final Map<String, String> videoUrls;
   final double? videoAspectRatio;
   final int? favoriteCount;
+  final int? repliesCount;
   final int? startDisplayText;
   final int? endDisplayText;
   final bool favorited;
+  final bool replied;
 
   const TweetVM({
     required this.createdAt,
@@ -51,9 +53,11 @@ class TweetVM {
     required this.videoUrls,
     this.videoAspectRatio,
     this.favoriteCount,
+    this.repliesCount,
     this.startDisplayText,
     this.endDisplayText,
     required this.favorited,
+    required this.replied,
   });
 
   factory TweetVM.fromApiModel(

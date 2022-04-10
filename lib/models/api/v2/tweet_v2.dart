@@ -155,9 +155,15 @@ class TweetV2PublicMetrics {
   @JsonKey(name: "like_count")
   final int likeCount;
 
-  const TweetV2PublicMetrics({required this.likeCount});
+  ///Number of replies for given tweet
+  @JsonKey(name: "reply_count")
+  final int replyCount;
 
-  const TweetV2PublicMetrics.empty() : this.likeCount = 0;
+  const TweetV2PublicMetrics({required this.likeCount, this.replyCount = 0});
+
+  const TweetV2PublicMetrics.empty()
+      : this.likeCount = 0,
+        this.replyCount = 0;
 
   factory TweetV2PublicMetrics.fromJson(Map<String, dynamic> json) =>
       _$TweetV2PublicMetricsFromJson(json);
