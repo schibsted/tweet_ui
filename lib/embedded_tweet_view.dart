@@ -79,8 +79,6 @@ class EmbeddedTweetView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //final bool showReplies = showRepliesCount && _tweetVM.repliesCount != null;
-
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(5)),
