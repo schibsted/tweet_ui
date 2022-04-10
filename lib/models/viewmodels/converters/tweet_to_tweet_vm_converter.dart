@@ -39,9 +39,11 @@ class TweetToTweetVMConverter {
       videoUrls: _videoUrls(_originalTweetOrRetweet(tweet)),
       videoAspectRatio: _videoAspectRatio(_originalTweetOrRetweet(tweet)),
       favoriteCount: _favoriteCount(tweet),
+      repliesCount: _repliesCount(tweet),
       startDisplayText: _startDisplayText(_originalTweetOrRetweet(tweet)),
       endDisplayText: _endDisplayText(_originalTweetOrRetweet(tweet)),
       favorited: _favorited(tweet),
+      replied: _replied(tweet),
     );
   }
 
@@ -237,6 +239,10 @@ class TweetToTweetVMConverter {
     return tweet.favoriteCount;
   }
 
+  static int? _repliesCount(TweetV1Response tweet) {
+    return tweet.replyCount;
+  }
+
   static int _startDisplayText(TweetV1Response tweet) {
     return tweet.displayTextRange != null ? tweet.displayTextRange![0] : 0;
   }
@@ -249,5 +255,9 @@ class TweetToTweetVMConverter {
 
   static bool _favorited(TweetV1Response tweet) {
     return tweet.favorited != null ? tweet.favorited! : false;
+  }
+
+  static bool _replied(TweetV1Response tweet) {
+    return tweet.replied != null ? tweet.replied! : false;
   }
 }

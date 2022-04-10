@@ -25,6 +25,9 @@ class EmbeddedTweetView extends StatelessWidget {
   /// If set to true the the text and icons will be light
   final bool darkMode;
 
+  /// If set to true, the number of replies on a tweet will be displayed
+  final bool showRepliesCount;
+
   /// If the Tweet contains a video then an initial volume can be specified with a value between 0.0 and 1.0.
   final double? videoPlayerInitialVolume;
 
@@ -38,6 +41,9 @@ class EmbeddedTweetView extends StatelessWidget {
   /// If set to false betterplayer will load the lowest quality available.
   final bool videoHighQuality;
 
+  bool get _shouldShowReplies =>
+      showRepliesCount && _tweetVM.repliesCount != null;
+
   EmbeddedTweetView(
     this._tweetVM, {
     this.backgroundColor,
@@ -46,6 +52,7 @@ class EmbeddedTweetView extends StatelessWidget {
     this.onTapImage,
     this.createdDateDisplayFormat,
     required this.videoHighQuality,
+    this.showRepliesCount = false,
   }); //  TweetView(this.tweetVM);
 
   EmbeddedTweetView.fromTweetV1(
@@ -56,6 +63,7 @@ class EmbeddedTweetView extends StatelessWidget {
     this.onTapImage,
     this.createdDateDisplayFormat,
     this.videoHighQuality = true,
+    this.showRepliesCount = false,
   }) : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
 
   EmbeddedTweetView.fromTweetV2(
@@ -66,6 +74,7 @@ class EmbeddedTweetView extends StatelessWidget {
     this.onTapImage,
     this.createdDateDisplayFormat,
     this.videoHighQuality = true,
+    this.showRepliesCount = false,
   }) : _tweetVM = TweetVM.fromApiV2Model(tweet, createdDateDisplayFormat);
 
   @override
@@ -207,6 +216,25 @@ class EmbeddedTweetView extends StatelessWidget {
                             color: (darkMode)
                                 ? Colors.grey[400]
                                 : Colors.grey[600]))),
+                if (_shouldShowReplies)
+                  Container(
+                    margin: EdgeInsets.only(left: 16),
+                    child: Icon(
+                      _tweetVM.replied
+                          ? Icons.mode_comment
+                          : Icons.mode_comment_outlined,
+                      color: (darkMode) ? Colors.grey[400] : Colors.grey[600],
+                      size: 18,
+                    ),
+                  ),
+                if (_shouldShowReplies)
+                  Container(
+                      margin: EdgeInsets.only(left: 6),
+                      child: Text(_tweetVM.repliesCount.toString(),
+                          style: TextStyle(
+                              color: (darkMode)
+                                  ? Colors.grey[400]
+                                  : Colors.grey[600]))),
                 if (_tweetVM.createdAt != null)
                   Container(
                     margin: EdgeInsets.only(left: 16),

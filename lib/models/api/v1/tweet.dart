@@ -60,6 +60,12 @@ class TweetV1Response {
   /// The number of favorites(hearts)
   int? favoriteCount;
 
+  /// Nullable. Perspectival. Indicates whether this Tweet has been replied by to
+  bool? replied;
+
+  /// The number of replies
+  int? replyCount;
+
   /// Nullable. List of two unicode code point indices, identifying the inclusive start and exclusive end of the displayable content of the Tweet.
   List<int>? displayTextRange;
 
@@ -76,6 +82,8 @@ class TweetV1Response {
     this.isQuoteStatus = false,
     this.favorited,
     this.favoriteCount,
+    this.replied,
+    this.replyCount,
     this.displayTextRange,
   });
 
@@ -108,6 +116,8 @@ class TweetV1Response {
         favorited: json["favorited"] == null ? null : json["favorited"],
         favoriteCount:
             json['favorite_count'] == null ? null : json["favorite_count"],
+        replied: json["replied"] == null ? null : json["replied"],
+        replyCount: json["reply_count"] == null ? null : json["reply_count"],
         displayTextRange: json["display_text_range"] == null
             ? null
             : (json["display_text_range"]).cast<int>(),

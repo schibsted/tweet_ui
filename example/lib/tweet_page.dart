@@ -142,6 +142,7 @@ class TweetPage extends StatelessWidget {
           ),
           darkMode: false,
           createdDateDisplayFormat: DateFormat("EEE, MMM d, ''yy"),
+          showRepliesCount: true,
         );
       case TweetType.v2:
         return EmbeddedTweetView.fromTweetV2(
@@ -150,6 +151,7 @@ class TweetPage extends StatelessWidget {
           ),
           darkMode: false,
           createdDateDisplayFormat: DateFormat("EEE, MMM d, ''yy"),
+          showRepliesCount: true,
         );
     }
   }
