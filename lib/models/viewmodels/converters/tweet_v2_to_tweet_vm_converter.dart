@@ -222,6 +222,7 @@ class TweetV2ToTweetVMConverter {
   }
 
   int get _favoriteCount => tweet.publicMetrics.likeCount;
+
   int get _repliesCount => tweet.publicMetrics.replyCount;
 
   int get _startDisplayText => 0;
@@ -229,5 +230,6 @@ class TweetV2ToTweetVMConverter {
   int _endDisplayText(TweetV2 tweet) => tweet.text.length;
 
   bool get _favorited => _favoriteCount > 0;
+
   bool get _replied => _repliesCount > 0;
 }

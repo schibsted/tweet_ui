@@ -25,7 +25,7 @@ class EmbeddedTweetView extends StatelessWidget {
   /// If set to true the the text and icons will be light
   final bool darkMode;
 
-  /// If set to true,
+  /// If set to true, the number of replies on a tweet will be displayed
   final bool showRepliesCount;
 
   /// If the Tweet contains a video then an initial volume can be specified with a value between 0.0 and 1.0.
@@ -40,6 +40,9 @@ class EmbeddedTweetView extends StatelessWidget {
   /// If set to true betterplayer will load the highest quality available.
   /// If set to false betterplayer will load the lowest quality available.
   final bool videoHighQuality;
+
+  bool get _shouldShowReplies =>
+      showRepliesCount && _tweetVM.repliesCount != null;
 
   EmbeddedTweetView(
     this._tweetVM, {
@@ -76,6 +79,8 @@ class EmbeddedTweetView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //final bool showReplies = showRepliesCount && _tweetVM.repliesCount != null;
+
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(5)),
@@ -213,7 +218,7 @@ class EmbeddedTweetView extends StatelessWidget {
                             color: (darkMode)
                                 ? Colors.grey[400]
                                 : Colors.grey[600]))),
-                if (showRepliesCount && _tweetVM.repliesCount != null)
+                if (_shouldShowReplies)
                   Container(
                     margin: EdgeInsets.only(left: 16),
                     child: Icon(
@@ -224,7 +229,7 @@ class EmbeddedTweetView extends StatelessWidget {
                       size: 18,
                     ),
                   ),
-                if (showRepliesCount && _tweetVM.repliesCount != null)
+                if (_shouldShowReplies)
                   Container(
                       margin: EdgeInsets.only(left: 6),
                       child: Text(_tweetVM.repliesCount.toString(),
