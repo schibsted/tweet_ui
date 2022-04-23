@@ -56,46 +56,6 @@
       }
     ]
   },
-  "extended_entities": {
-    "media": [
-      {
-        "id": 1061966991848804353,
-        "id_str": "1061966991848804353",
-        "indices": [
-          93,
-          116
-        ],
-        "media_url": "http://pbs.twimg.com/media/DrzdWkBWkAEqlHb.jpg",
-        "media_url_https": "https://pbs.twimg.com/media/DrzdWkBWkAEqlHb.jpg",
-        "url": "https://t.co/Zg4ithsMXv",
-        "display_url": "pic.twitter.com/Zg4ithsMXv",
-        "expanded_url": "https://twitter.com/FloodSocial/status/1061967001177018368/photo/1",
-        "type": "photo",
-        "sizes": {
-          "thumb": {
-            "w": 150,
-            "h": 150,
-            "resize": "crop"
-          },
-          "small": {
-            "w": 680,
-            "h": 383,
-            "resize": "fit"
-          },
-          "large": {
-            "w": 1920,
-            "h": 1080,
-            "resize": "fit"
-          },
-          "medium": {
-            "w": 1200,
-            "h": 675,
-            "resize": "fit"
-          }
-        }
-      }
-    ]
-  },
   "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
   "in_reply_to_status_id": null,
   "in_reply_to_status_id_str": null,
@@ -147,8 +107,6 @@
     "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
     "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
     "profile_background_tile": false,
-    "profile_image_url": "http://pbs.twimg.com/profile_images/1162409582213226497/wHPWq9eI_normal.jpg",
-    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1162409582213226497/wHPWq9eI_normal.jpg",
     "profile_banner_url": "https://pbs.twimg.com/profile_banners/944480690/1412809012",
     "profile_link_color": "7FDBB6",
     "profile_sidebar_border_color": "000000",

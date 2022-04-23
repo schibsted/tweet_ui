@@ -26,7 +26,7 @@ class TweetToTweetVMConverter {
       userLink: _userLink(tweet)!,
       text: _text(_originalTweetOrRetweet(tweet)),
       textRunes: _runes(_originalTweetOrRetweet(tweet)),
-      profileUrl: _profileURL(tweet)!,
+      profileUrl: _profileURL(tweet),
       allPhotos: _allPhotos(_originalTweetOrRetweet(tweet)),
       userName: _userName(tweet),
       userScreenName: _userScreenName(tweet),
