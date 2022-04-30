@@ -67,6 +67,14 @@ class CompactTweetView extends StatelessWidget {
   /// If set to false betterplayer will load the lowest quality available.
   final bool videoHighQuality;
 
+  /// If set to true the video in the tweet, if available, will autoplay
+  /// By default it is false
+  final bool? autoPlayVideo;
+
+  /// If set to false will disallow user to enter full screen in tweet video
+  /// By default it is true
+  final bool? enableVideoFullscreen;
+
   CompactTweetView(
     this._tweetVM, {
     this.userNameStyle,
@@ -85,6 +93,8 @@ class CompactTweetView extends StatelessWidget {
     this.onTapImage,
     this.createdDateDisplayFormat,
     required this.videoHighQuality,
+    this.autoPlayVideo,
+    this.enableVideoFullscreen,
   }); //  TweetView(this.tweetVM);
 
   CompactTweetView.fromTweetV1(
@@ -106,6 +116,8 @@ class CompactTweetView extends StatelessWidget {
     this.onTapImage,
     this.createdDateDisplayFormat,
     this.videoHighQuality = true,
+    this.autoPlayVideo,
+    this.enableVideoFullscreen,
   }) : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
 
   CompactTweetView.fromTweetV2(
@@ -127,6 +139,8 @@ class CompactTweetView extends StatelessWidget {
     this.onTapImage,
     this.createdDateDisplayFormat,
     this.videoHighQuality = true,
+    this.autoPlayVideo,
+    this.enableVideoFullscreen,
   }) : _tweetVM = TweetVM.fromApiV2Model(tweet, createdDateDisplayFormat);
 
   @override
@@ -172,6 +186,8 @@ class CompactTweetView extends StatelessWidget {
                           videoPlayerInitialVolume: videoPlayerInitialVolume,
                           onTapImage: onTapImage,
                           videoHighQuality: videoHighQuality,
+                          autoPlayVideo: autoPlayVideo,
+                          enableVideoFullscreen: enableVideoFullscreen,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -187,7 +203,7 @@ class CompactTweetView extends StatelessWidget {
                         (_tweetVM.quotedTweet != null)
                             ? Padding(
                                 padding: EdgeInsets.only(top: 8.0),
-                                child: QuoteTweetView.fromTweet(
+                                child: QuoteTweetView(
                                   _tweetVM.quotedTweet!,
                                   textStyle: quoteTextStyle,
                                   clickableTextStyle: quoteClickableTextStyle,
@@ -195,6 +211,8 @@ class CompactTweetView extends StatelessWidget {
                                   userScreenNameStyle: quoteUserScreenNameStyle,
                                   backgroundColor: quoteBackgroundColor,
                                   borderColor: quoteBorderColor,
+                                  autoPlayVideo: autoPlayVideo,
+                                  enableVideoFullscreen: enableVideoFullscreen,
                                 ),
                               )
                             : Container(),

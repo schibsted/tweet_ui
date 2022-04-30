@@ -68,6 +68,14 @@ class TweetView extends StatelessWidget {
   /// If set to false better_player will load the lowest quality available.
   final bool? videoHighQuality;
 
+  /// If set to true the video in the tweet, if available, will autoplay
+  /// By default it is false
+  final bool? autoPlayVideo;
+
+  /// If set to false will disallow user to enter full screen in tweet video
+  /// By default it is true
+  final bool? enableVideoFullscreen;
+
   TweetView(
     this._tweetVM, {
     this.userNameStyle,
@@ -86,6 +94,8 @@ class TweetView extends StatelessWidget {
     this.onTapImage,
     this.createdDateDisplayFormat,
     this.videoHighQuality,
+    this.autoPlayVideo,
+    this.enableVideoFullscreen,
   }); //  TweetView(this.tweetVM);
 
   TweetView.fromTweetV1(
@@ -106,6 +116,8 @@ class TweetView extends StatelessWidget {
     this.onTapImage,
     this.createdDateDisplayFormat,
     this.videoHighQuality = true,
+    this.autoPlayVideo,
+    this.enableVideoFullscreen,
   }) : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
 
   TweetView.fromTweetV2(
@@ -126,6 +138,8 @@ class TweetView extends StatelessWidget {
     this.onTapImage,
     this.createdDateDisplayFormat,
     this.videoHighQuality = true,
+    this.autoPlayVideo,
+    this.enableVideoFullscreen,
   }) : _tweetVM = TweetVM.fromApiV2Model(tweet, createdDateDisplayFormat);
 
   @override
@@ -140,6 +154,8 @@ class TweetView extends StatelessWidget {
             videoPlayerInitialVolume: videoPlayerInitialVolume,
             onTapImage: onTapImage,
             videoHighQuality: videoHighQuality,
+            autoPlayVideo: autoPlayVideo,
+            enableVideoFullscreen: enableVideoFullscreen,
           ),
           GestureDetector(
             onTap: () {
@@ -207,7 +223,7 @@ class TweetView extends StatelessWidget {
                     ? Padding(
                         padding:
                             EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
-                        child: QuoteTweetView.fromTweet(
+                        child: QuoteTweetView(
                           _tweetVM.quotedTweet!,
                           textStyle: quoteTextStyle,
                           clickableTextStyle: quoteClickableTextStyle,
@@ -216,6 +232,8 @@ class TweetView extends StatelessWidget {
                           backgroundColor: quoteBackgroundColor,
                           borderColor: quoteBorderColor,
                           onTapImage: onTapImage,
+                          autoPlayVideo: autoPlayVideo,
+                          enableVideoFullscreen: enableVideoFullscreen,
                         ),
                       )
                     : Container(),
