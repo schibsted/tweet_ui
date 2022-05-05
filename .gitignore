@@ -77,3 +77,6 @@ build/
 
 # Lock file - as library package we should not have lock file in the repository
 /pubspec.lock
+
+# don't check in golden failure output
+**/failures/*.png

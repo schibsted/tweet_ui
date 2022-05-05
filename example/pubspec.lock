@@ -156,6 +156,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.7.3+1"
+  golden_toolkit:
+    dependency: transitive
+    description:
+      name: golden_toolkit
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.13.0"
   html:
     dependency: transitive
     description:
@@ -412,7 +419,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "4.0.0"
+    version: "4.0.1"
   typed_data:
     dependency: transitive
     description:
