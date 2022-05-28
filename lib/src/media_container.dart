@@ -20,12 +20,18 @@ class MediaContainer extends StatefulWidget {
     this.videoPlayerInitialVolume = 0.0,
     this.videoHighQuality = true,
     this.onTapImage,
-  }) : super(key: key);
+    bool? autoPlayVideo = false,
+    bool? enableVideoFullscreen = true,
+  })  : autoPlayVideo = autoPlayVideo ?? false,
+        enableVideoFullscreen = enableVideoFullscreen ?? true,
+        super(key: key);
 
   final TweetVM tweetVM;
   final ViewMode viewMode;
   final bool? videoHighQuality;
   final double? videoPlayerInitialVolume;
+  final bool autoPlayVideo;
+  final bool enableVideoFullscreen;
 
   @override
   _MediaContainerState createState() => _MediaContainerState();
@@ -51,6 +57,8 @@ class _MediaContainerState extends State<MediaContainer>
         widget.tweetVM.getDisplayTweet(),
         initialVolume: widget.videoPlayerInitialVolume,
         videoHighQuality: widget.videoHighQuality,
+        autoPlay: widget.autoPlayVideo,
+        enableFullscreen: widget.enableVideoFullscreen,
       );
     } else if (widget.tweetVM.getDisplayTweet().hasPhoto) {
       switch (widget.tweetVM.getDisplayTweet().allPhotos.length) {

@@ -16,6 +16,8 @@ class QuoteTweetView extends StatelessWidget {
   final Color? borderColor;
   final Color? backgroundColor;
   final OnTapImage? onTapImage;
+  final bool? autoPlayVideo;
+  final bool? enableVideoFullscreen;
 
   QuoteTweetView(
     this.tweetVM, {
@@ -26,17 +28,8 @@ class QuoteTweetView extends StatelessWidget {
     this.borderColor,
     this.backgroundColor,
     this.onTapImage,
-  }); //  TweetView(this.tweetVM);
-
-  QuoteTweetView.fromTweet(
-    this.tweetVM, {
-    this.userNameStyle,
-    this.userScreenNameStyle,
-    this.textStyle,
-    this.clickableTextStyle,
-    this.borderColor,
-    this.backgroundColor,
-    this.onTapImage,
+    this.autoPlayVideo,
+    this.enableVideoFullscreen,
   });
 
   @override
@@ -51,7 +44,7 @@ class QuoteTweetView extends StatelessWidget {
           decoration: BoxDecoration(
             color: backgroundColor,
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
-            border: new Border.all(
+            border: Border.all(
               color: borderColor!,
             ),
           ),
@@ -83,6 +76,8 @@ class QuoteTweetView extends StatelessWidget {
                 tweetVM,
                 ViewMode.quote,
                 onTapImage: onTapImage,
+                autoPlayVideo: autoPlayVideo,
+                enableVideoFullscreen: enableVideoFullscreen,
               ),
             ],
           ),
