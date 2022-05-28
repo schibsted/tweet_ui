@@ -41,6 +41,14 @@ class EmbeddedTweetView extends StatelessWidget {
   /// If set to false betterplayer will load the lowest quality available.
   final bool videoHighQuality;
 
+  /// If set to true the video in the tweet, if available, will autoplay
+  /// By default it is false
+  final bool? autoPlayVideo;
+
+  /// If set to false will disallow user to enter full screen in tweet video
+  /// By default it is true
+  final bool? enableVideoFullscreen;
+
   bool get _shouldShowReplies =>
       showRepliesCount && _tweetVM.repliesCount != null;
 
@@ -53,6 +61,8 @@ class EmbeddedTweetView extends StatelessWidget {
     this.createdDateDisplayFormat,
     required this.videoHighQuality,
     this.showRepliesCount = false,
+    this.autoPlayVideo,
+    this.enableVideoFullscreen,
   }); //  TweetView(this.tweetVM);
 
   EmbeddedTweetView.fromTweetV1(
@@ -64,6 +74,8 @@ class EmbeddedTweetView extends StatelessWidget {
     this.createdDateDisplayFormat,
     this.videoHighQuality = true,
     this.showRepliesCount = false,
+    this.autoPlayVideo,
+    this.enableVideoFullscreen,
   }) : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
 
   EmbeddedTweetView.fromTweetV2(
@@ -75,6 +87,8 @@ class EmbeddedTweetView extends StatelessWidget {
     this.createdDateDisplayFormat,
     this.videoHighQuality = true,
     this.showRepliesCount = false,
+    this.autoPlayVideo,
+    this.enableVideoFullscreen,
   }) : _tweetVM = TweetVM.fromApiV2Model(tweet, createdDateDisplayFormat);
 
   @override
@@ -169,7 +183,7 @@ class EmbeddedTweetView extends StatelessWidget {
                   (_tweetVM.quotedTweet != null)
                       ? Padding(
                           padding: EdgeInsets.only(top: 8.0, bottom: 10),
-                          child: QuoteTweetViewEmbed.fromTweetV1(
+                          child: QuoteTweetViewEmbedded(
                             _tweetVM.quotedTweet!,
                             textStyle: TextStyle(
                                 color:
@@ -183,6 +197,8 @@ class EmbeddedTweetView extends StatelessWidget {
                             backgroundColor: null,
                             borderColor: null,
                             onTapImage: onTapImage,
+                            autoPlayVideo: autoPlayVideo,
+                            enableVideoFullscreen: enableVideoFullscreen,
                           ),
                         )
                       : Container(),
@@ -198,6 +214,8 @@ class EmbeddedTweetView extends StatelessWidget {
               videoPlayerInitialVolume: videoPlayerInitialVolume,
               onTapImage: onTapImage,
               videoHighQuality: videoHighQuality,
+              autoPlayVideo: autoPlayVideo,
+              enableVideoFullscreen: enableVideoFullscreen,
             ),
           ),
           Container(

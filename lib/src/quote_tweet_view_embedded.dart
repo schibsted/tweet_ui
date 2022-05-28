@@ -7,7 +7,7 @@ import 'package:tweet_ui/src/tweet_text.dart';
 import 'package:tweet_ui/src/url_launcher.dart';
 import 'package:tweet_ui/src/view_mode.dart';
 
-class QuoteTweetViewEmbed extends StatelessWidget {
+class QuoteTweetViewEmbedded extends StatelessWidget {
   final TweetVM tweetVM;
   final TextStyle? userNameStyle;
   final TextStyle? userScreenNameStyle;
@@ -16,8 +16,10 @@ class QuoteTweetViewEmbed extends StatelessWidget {
   final Color? borderColor;
   final Color? backgroundColor;
   final OnTapImage? onTapImage;
+  final bool? autoPlayVideo;
+  final bool? enableVideoFullscreen;
 
-  QuoteTweetViewEmbed(
+  QuoteTweetViewEmbedded(
     this.tweetVM, {
     this.userNameStyle,
     this.userScreenNameStyle,
@@ -26,17 +28,8 @@ class QuoteTweetViewEmbed extends StatelessWidget {
     this.borderColor,
     this.backgroundColor,
     this.onTapImage,
-  }); //  TweetView(this.tweetVM);
-
-  QuoteTweetViewEmbed.fromTweetV1(
-    this.tweetVM, {
-    this.userNameStyle,
-    this.userScreenNameStyle,
-    this.textStyle,
-    this.clickableTextStyle,
-    this.borderColor,
-    this.backgroundColor,
-    this.onTapImage,
+    this.autoPlayVideo,
+    this.enableVideoFullscreen,
   });
 
   @override
@@ -85,6 +78,8 @@ class QuoteTweetViewEmbed extends StatelessWidget {
                 tweetVM,
                 ViewMode.quote,
                 onTapImage: onTapImage,
+                autoPlayVideo: autoPlayVideo,
+                enableVideoFullscreen: enableVideoFullscreen,
               ),
             ],
           ),
