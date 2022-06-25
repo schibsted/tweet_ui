@@ -84,7 +84,7 @@ class Byline extends StatelessWidget {
               child: GestureDetector(
                 behavior: HitTestBehavior.translucent,
                 onTap: () {
-                  openUrl(tweetVM.getDisplayTweet().userLink);
+                  openUrl(Uri.parse(tweetVM.getDisplayTweet().userLink));
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.min,

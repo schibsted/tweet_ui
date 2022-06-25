@@ -80,7 +80,7 @@ class TweetText extends StatelessWidget {
             style: clickableTextStyle,
             recognizer: TapGestureRecognizer()
               ..onTap = () async {
-                openUrl(urlEntity.url);
+                openUrl(Uri.parse(urlEntity.url));
               },
           ));
         } else {
@@ -95,13 +95,16 @@ class TweetText extends StatelessWidget {
               ..onTap = () async {
                 if (entity.runtimeType == MentionEntity) {
                   MentionEntity mentionEntity = (entity as MentionEntity);
-                  openUrl("https://twitter.com/${mentionEntity.screenName}");
+                  openUrl(Uri.parse(
+                      "https://twitter.com/${mentionEntity.screenName}"));
                 } else if (entity.runtimeType == SymbolEntity) {
                   SymbolEntity symbolEntity = (entity as SymbolEntity);
-                  openUrl("https://twitter.com/search?q=${symbolEntity.text}");
+                  openUrl(Uri.parse(
+                      "https://twitter.com/search?q=${symbolEntity.text}"));
                 } else if (entity.runtimeType == HashtagEntity) {
                   HashtagEntity hashtagEntity = (entity as HashtagEntity);
-                  openUrl("https://twitter.com/hashtag/${hashtagEntity.text}");
+                  openUrl(Uri.parse(
+                      "https://twitter.com/hashtag/${hashtagEntity.text}"));
                 }
               },
           ));

@@ -19,7 +19,7 @@ class RetweetInformation extends StatelessWidget {
       return GestureDetector(
         behavior: HitTestBehavior.translucent,
         onTap: () {
-          openUrl(tweetVM.userLink);
+          openUrl(Uri.parse(tweetVM.userLink));
         },
         child: Padding(
           child: Row(

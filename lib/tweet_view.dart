@@ -159,7 +159,7 @@ class TweetView extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              openUrl(_tweetVM.tweetLink);
+              openUrl(Uri.parse(_tweetVM.tweetLink));
             },
             child: Column(
               children: <Widget>[
@@ -168,7 +168,7 @@ class TweetView extends StatelessWidget {
                   child: GestureDetector(
                     behavior: HitTestBehavior.translucent,
                     onTap: () {
-                      openUrl(_tweetVM.getDisplayTweet().userLink);
+                      openUrl(Uri.parse(_tweetVM.getDisplayTweet().userLink));
                     },
                     child: Stack(
                       children: <Widget>[
@@ -210,7 +210,7 @@ class TweetView extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    openUrl(_tweetVM.tweetLink);
+                    openUrl(Uri.parse(_tweetVM.tweetLink));
                   },
                   child: TweetText(
                     _tweetVM,

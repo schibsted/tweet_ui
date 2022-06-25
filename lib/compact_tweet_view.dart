@@ -191,7 +191,7 @@ class CompactTweetView extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            openUrl(_tweetVM.tweetLink);
+                            openUrl(Uri.parse(_tweetVM.tweetLink));
                           },
                           child: TweetText(
                             _tweetVM,

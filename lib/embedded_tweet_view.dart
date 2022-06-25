@@ -103,7 +103,7 @@ class EmbeddedTweetView extends StatelessWidget {
         children: <Widget>[
           GestureDetector(
             onTap: () {
-              openUrl(_tweetVM.tweetLink);
+              openUrl(Uri.parse(_tweetVM.tweetLink));
             },
             child: Padding(
               padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
@@ -114,7 +114,7 @@ class EmbeddedTweetView extends StatelessWidget {
                     child: GestureDetector(
                       behavior: HitTestBehavior.translucent,
                       onTap: () {
-                        openUrl(_tweetVM.getDisplayTweet().userLink);
+                        openUrl(Uri.parse(_tweetVM.getDisplayTweet().userLink));
                       },
                       child: Stack(
                         children: <Widget>[
@@ -168,7 +168,7 @@ class EmbeddedTweetView extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      openUrl(_tweetVM.tweetLink);
+                      openUrl(Uri.parse(_tweetVM.tweetLink));
                     },
                     child: TweetText(
                       _tweetVM,
@@ -276,7 +276,7 @@ class EmbeddedTweetView extends StatelessWidget {
               child: GestureDetector(
                 behavior: HitTestBehavior.translucent,
                 onTap: () {
-                  openUrl(_tweetVM.userLink);
+                  openUrl(Uri.parse(_tweetVM.userLink));
                 },
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,

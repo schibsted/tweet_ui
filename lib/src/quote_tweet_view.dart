@@ -36,7 +36,7 @@ class QuoteTweetView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        openUrl(tweetVM.tweetLink);
+        openUrl(Uri.parse(tweetVM.tweetLink));
       },
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(8.0)),
