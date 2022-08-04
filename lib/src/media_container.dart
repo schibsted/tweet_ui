@@ -22,6 +22,7 @@ class MediaContainer extends StatefulWidget {
     this.onTapImage,
     bool? autoPlayVideo = false,
     bool? enableVideoFullscreen = true,
+    this.videoControlBarBgColor,
   })  : autoPlayVideo = autoPlayVideo ?? false,
         enableVideoFullscreen = enableVideoFullscreen ?? true,
         super(key: key);
@@ -32,6 +33,7 @@ class MediaContainer extends StatefulWidget {
   final double? videoPlayerInitialVolume;
   final bool autoPlayVideo;
   final bool enableVideoFullscreen;
+  final Color? videoControlBarBgColor;
 
   @override
   _MediaContainerState createState() => _MediaContainerState();
@@ -59,6 +61,7 @@ class _MediaContainerState extends State<MediaContainer>
         videoHighQuality: widget.videoHighQuality,
         autoPlay: widget.autoPlayVideo,
         enableFullscreen: widget.enableVideoFullscreen,
+        controlBarColor: widget.videoControlBarBgColor,
       );
     } else if (widget.tweetVM.getDisplayTweet().hasPhoto) {
       switch (widget.tweetVM.getDisplayTweet().allPhotos.length) {
