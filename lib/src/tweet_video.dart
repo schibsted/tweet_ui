@@ -4,14 +4,15 @@ import 'package:flutter/services.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
 
 class TweetVideo extends StatefulWidget {
-  TweetVideo(this.tweetVM,
-      {Key? key,
-      this.initialVolume = 0.0,
-      this.autoPlay = false,
-      this.enableFullscreen = true,
-      this.videoHighQuality = true,
-      this.controlBarColor,})
-      : super(key: key);
+  TweetVideo(
+    this.tweetVM, {
+    Key? key,
+    this.initialVolume = 0.0,
+    this.autoPlay = false,
+    this.enableFullscreen = true,
+    this.videoHighQuality = true,
+    this.controlBarColor,
+  }) : super(key: key);
 
   final TweetVM tweetVM;
   final double? initialVolume;
