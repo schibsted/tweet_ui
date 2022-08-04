@@ -4,20 +4,21 @@ import 'package:flutter/services.dart';
 import 'package:tweet_ui/models/viewmodels/tweet_vm.dart';
 
 class TweetVideo extends StatefulWidget {
-  TweetVideo(
-    this.tweetVM, {
-    Key? key,
-    this.initialVolume = 0.0,
-    this.autoPlay = false,
-    this.enableFullscreen = true,
-    this.videoHighQuality = true,
-  }) : super(key: key);
+  TweetVideo(this.tweetVM,
+      {Key? key,
+      this.initialVolume = 0.0,
+      this.autoPlay = false,
+      this.enableFullscreen = true,
+      this.videoHighQuality = true,
+      this.controlBarColor})
+      : super(key: key);
 
   final TweetVM tweetVM;
   final double? initialVolume;
   final bool autoPlay;
   final bool enableFullscreen;
   final bool? videoHighQuality;
+  final Color? controlBarColor;
 
   @override
   _TweetVideoState createState() => _TweetVideoState();
@@ -44,6 +45,7 @@ class _TweetVideoState extends State<TweetVideo>
       },
       aspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio!,
       controlsConfiguration: BetterPlayerControlsConfiguration(
+        controlBarColor: widget.controlBarColor??Colors.black.withOpacity(0.5),
         enablePlaybackSpeed: false,
         enableSkips: false,
         enableMute: !widget.tweetVM.getDisplayTweet().hasGif,

@@ -76,6 +76,9 @@ class TweetView extends StatelessWidget {
   /// By default it is true
   final bool? enableVideoFullscreen;
 
+  /// Set video Control Bar background color
+  final Color? videoControlBarBgColor;
+
   TweetView(
     this._tweetVM, {
     this.userNameStyle,
@@ -96,6 +99,7 @@ class TweetView extends StatelessWidget {
     this.videoHighQuality,
     this.autoPlayVideo,
     this.enableVideoFullscreen,
+    this.videoControlBarBgColor,
   }); //  TweetView(this.tweetVM);
 
   TweetView.fromTweetV1(
@@ -118,6 +122,7 @@ class TweetView extends StatelessWidget {
     this.videoHighQuality = true,
     this.autoPlayVideo,
     this.enableVideoFullscreen,
+    this.videoControlBarBgColor,
   }) : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
 
   TweetView.fromTweetV2(
@@ -140,6 +145,7 @@ class TweetView extends StatelessWidget {
     this.videoHighQuality = true,
     this.autoPlayVideo,
     this.enableVideoFullscreen,
+    this.videoControlBarBgColor,
   }) : _tweetVM = TweetVM.fromApiV2Model(tweet, createdDateDisplayFormat);
 
   @override
