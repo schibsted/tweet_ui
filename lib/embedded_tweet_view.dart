@@ -49,6 +49,9 @@ class EmbeddedTweetView extends StatelessWidget {
   /// By default it is true
   final bool? enableVideoFullscreen;
 
+  /// Set video Control Bar background color
+  final Color? videoControlBarBgColor;
+
   bool get _shouldShowReplies =>
       showRepliesCount && _tweetVM.repliesCount != null;
 
@@ -63,6 +66,7 @@ class EmbeddedTweetView extends StatelessWidget {
     this.showRepliesCount = false,
     this.autoPlayVideo,
     this.enableVideoFullscreen,
+    this.videoControlBarBgColor,
   }); //  TweetView(this.tweetVM);
 
   EmbeddedTweetView.fromTweetV1(
@@ -76,6 +80,7 @@ class EmbeddedTweetView extends StatelessWidget {
     this.showRepliesCount = false,
     this.autoPlayVideo,
     this.enableVideoFullscreen,
+    this.videoControlBarBgColor,
   }) : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
 
   EmbeddedTweetView.fromTweetV2(
@@ -89,6 +94,7 @@ class EmbeddedTweetView extends StatelessWidget {
     this.showRepliesCount = false,
     this.autoPlayVideo,
     this.enableVideoFullscreen,
+    this.videoControlBarBgColor,
   }) : _tweetVM = TweetVM.fromApiV2Model(tweet, createdDateDisplayFormat);
 
   @override
@@ -216,6 +222,7 @@ class EmbeddedTweetView extends StatelessWidget {
               videoHighQuality: videoHighQuality,
               autoPlayVideo: autoPlayVideo,
               enableVideoFullscreen: enableVideoFullscreen,
+              videoControlBarBgColor: videoControlBarBgColor,
             ),
           ),
           Container(
