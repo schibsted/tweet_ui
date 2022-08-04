@@ -10,7 +10,7 @@ class TweetVideo extends StatefulWidget {
       this.autoPlay = false,
       this.enableFullscreen = true,
       this.videoHighQuality = true,
-      this.controlBarColor})
+      this.controlBarColor,})
       : super(key: key);
 
   final TweetVM tweetVM;
@@ -45,7 +45,7 @@ class _TweetVideoState extends State<TweetVideo>
       },
       aspectRatio: widget.tweetVM.getDisplayTweet().videoAspectRatio!,
       controlsConfiguration: BetterPlayerControlsConfiguration(
-        controlBarColor: widget.controlBarColor??Colors.black.withOpacity(0.5),
+        controlBarColor: widget.controlBarColor ?? Colors.black87,
         enablePlaybackSpeed: false,
         enableSkips: false,
         enableMute: !widget.tweetVM.getDisplayTweet().hasGif,
