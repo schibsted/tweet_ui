@@ -78,6 +78,10 @@ class CompactTweetView extends StatelessWidget {
   /// Set video Control Bar background color
   final Color? videoControlBarBgColor;
 
+  /// The placeholder is displayed underneath the Video before it is initialized
+  /// or played.
+  final Widget? videoPlaceholder;
+
   CompactTweetView(
     this._tweetVM, {
     this.userNameStyle,
@@ -99,6 +103,7 @@ class CompactTweetView extends StatelessWidget {
     this.autoPlayVideo,
     this.enableVideoFullscreen,
     this.videoControlBarBgColor,
+    this.videoPlaceholder,
   }); //  TweetView(this.tweetVM);
 
   CompactTweetView.fromTweetV1(
@@ -123,6 +128,7 @@ class CompactTweetView extends StatelessWidget {
     this.autoPlayVideo,
     this.enableVideoFullscreen,
     this.videoControlBarBgColor,
+    this.videoPlaceholder,
   }) : _tweetVM = TweetVM.fromApiModel(tweet, createdDateDisplayFormat);
 
   CompactTweetView.fromTweetV2(
@@ -147,6 +153,7 @@ class CompactTweetView extends StatelessWidget {
     this.autoPlayVideo,
     this.enableVideoFullscreen,
     this.videoControlBarBgColor,
+    this.videoPlaceholder,
   }) : _tweetVM = TweetVM.fromApiV2Model(tweet, createdDateDisplayFormat);
 
   @override
@@ -195,6 +202,7 @@ class CompactTweetView extends StatelessWidget {
                           autoPlayVideo: autoPlayVideo,
                           enableVideoFullscreen: enableVideoFullscreen,
                           videoControlBarBgColor: videoControlBarBgColor,
+                          videoPlaceholder: videoPlaceholder,
                         ),
                         GestureDetector(
                           onTap: () {

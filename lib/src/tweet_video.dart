@@ -12,6 +12,7 @@ class TweetVideo extends StatefulWidget {
     this.enableFullscreen = true,
     this.videoHighQuality = true,
     this.controlBarColor,
+    this.videoPlaceholder,
   }) : super(key: key);
 
   final TweetVM tweetVM;
@@ -20,6 +21,7 @@ class TweetVideo extends StatefulWidget {
   final bool enableFullscreen;
   final bool? videoHighQuality;
   final Color? controlBarColor;
+  final Widget? videoPlaceholder;
 
   @override
   _TweetVideoState createState() => _TweetVideoState();
@@ -34,13 +36,14 @@ class _TweetVideoState extends State<TweetVideo>
   void initState() {
     super.initState();
     betterPlayerConfiguration = BetterPlayerConfiguration(
-      placeholder: Center(
-        child: SizedBox(
-          height: 32,
-          width: 32,
-          child: CircularProgressIndicator(),
-        ),
-      ),
+      placeholder: widget.videoPlaceholder ??
+          Center(
+            child: SizedBox(
+              height: 32,
+              width: 32,
+              child: CircularProgressIndicator(),
+            ),
+          ),
       errorBuilder: (context, message) {
         return Text('Error while loading video :-(');
       },
