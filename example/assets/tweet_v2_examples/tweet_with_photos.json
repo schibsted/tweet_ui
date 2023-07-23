@@ -130,7 +130,7 @@
         "media_key": "7_1293565706408038401",
         "type": "photo",
         "preview_image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1293565706408038401/pu/img/66P2dvbU4a02jYbV.jpg",
-        "url": "https://pbs.twimg.com/media/DMfqkFXWAAEEC4n.jpg",
+        "url": "https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png",
         "public_metrics": {
           "view_count": 279438
         },
@@ -142,7 +142,7 @@
         "media_key": "7_1293565706408038402",
         "type": "photo",
         "preview_image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1293565706408038401/pu/img/66P2dvbU4a02jYbV.jpg",
-        "url": "https://pbs.twimg.com/media/DMfqkFXWAAAkJhK.jpg",
+        "url": "https://media.istockphoto.com/id/1322277517/photo/wild-grass-in-the-mountains-at-sunset.jpg?s=612x612&w=0&k=20&c=6mItwwFFGqKNKEAzv0mv6TaxhLN3zSE43bWmFN--J5w=",
         "public_metrics": {
           "view_count": 279438
         },
@@ -154,7 +154,7 @@
         "media_key": "7_1293565706408038403",
         "type": "photo",
         "preview_image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1293565706408038401/pu/img/66P2dvbU4a02jYbV.jpg",
-        "url": "https://pbs.twimg.com/media/DMfqkFcX4AAmbif.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Convex_lens_%28magnifying_glass%29_and_upside-down_image.jpg/341px-Convex_lens_%28magnifying_glass%29_and_upside-down_image.jpg",
         "public_metrics": {
           "view_count": 279438
         },
@@ -205,7 +205,7 @@
         },
         "location": "127.0.0.1",
         "name": "Twitter Dev",
-        "profile_image_url": "https://pbs.twimg.com/profile_images/1283786620521652229/lEODkLTh_normal.jpg",
+        "profile_image_url": "https://cdn.pixabay.com/photo/2017/12/06/04/57/twitter-3000965_960_720.png",
         "url": "https://t.co/3ZX3TNiZCY"
       }
     ]
